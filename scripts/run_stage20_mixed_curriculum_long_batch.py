@@ -85,7 +85,7 @@ def main() -> int:
 
     status = (
         WORK_ROOT / "results" / "stage20_mixed_curriculum" /
-        "stage20_long_batch.status.json"
+        f"stage20_long_batch_{args.seed_start:02d}_{args.seed_end:02d}.status.json"
     )
     rows: list[dict] = []
     save(status, rows, "RUNNING", args.seed_start, args.seed_end)

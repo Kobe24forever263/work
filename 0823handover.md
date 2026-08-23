@@ -372,7 +372,10 @@ cd /Users/lab4099/Desktop/Mujoco/work
 该入口顺序运行 10 个种子，已有合格结果自动跳过，中断后重新执行会从每个种子的最新检查点
 续跑；进度状态写入：
 
-`results/stage20_mixed_curriculum/stage20_long_batch.status.json`
+`results/stage20_mixed_curriculum/stage20_long_batch_01_10.status.json`
+
+若用户决定使用两个终端并行执行 `1–5` 与 `6–10`，状态文件会分别命名为
+`stage20_long_batch_01_05.status.json` 与 `stage20_long_batch_06_10.status.json`，不会互相覆盖。
 
 每个种子的最终权重位于：
 
