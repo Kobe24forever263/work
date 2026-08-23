@@ -1,0 +1,14 @@
+builtin_interfaces/Time stamp
+string handover_id
+string task_id
+string cargo_id
+string sender_id
+string receiver_id
+string zone_id
+string state
+bool handover_success
+bool handover_failure
+string failure_reason
+float32 alignment_error
+float32 stable_duration
+int32 retry_count

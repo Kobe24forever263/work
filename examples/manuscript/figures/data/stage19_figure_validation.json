@@ -1,0 +1,15 @@
+{
+  "source_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage19_mixed_recovery/stage19_mixed_recovery_summary.json",
+  "source_schema": "warehouse_stage19_mixed_recovery_summary_v1",
+  "source_created_at_utc": "2026-08-22T17:13:46.318463+00:00",
+  "quality_severity": "PASS",
+  "safe_for_formal_analysis": true,
+  "point_estimates_reconstructed_from_raw_json": true,
+  "raw_to_summary_tolerance": "absolute <= 1e-10",
+  "bootstrap_intervals": "crossed training-seed by shared test-seed",
+  "bootstrap_samples": 10000,
+  "outputs": [
+    "/Users/lab4099/Documents/Codex/2026-08-10/yu/outputs/TRO_overleaf_draft/figures/fig_stage19_paired_differences.pdf",
+    "/Users/lab4099/Documents/Codex/2026-08-10/yu/outputs/TRO_overleaf_draft/figures/fig_stage19_adaptation_recovery.pdf"
+  ]
+}

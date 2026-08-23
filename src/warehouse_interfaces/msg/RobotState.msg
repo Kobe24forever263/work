@@ -1,0 +1,16 @@
+builtin_interfaces/Time stamp
+string robot_id
+string robot_type
+int8 home_floor
+int8 current_floor
+string home_region
+string current_region
+geometry_msgs/Pose pose
+geometry_msgs/Twist velocity
+string navigation_state
+string task_id
+string cargo_id
+float32 battery_or_motion_cost
+bool available
+string failure_code
+builtin_interfaces/Time last_progress_time

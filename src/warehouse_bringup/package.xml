@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>warehouse_bringup</name><version>0.1.0</version>
+  <description>Launch and configuration for the two-floor warehouse.</description>
+  <maintainer email="maintainer@example.invalid">Warehouse Team</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>launch</exec_depend><exec_depend>launch_ros</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>tf2_msgs</exec_depend>
+  <exec_depend>warehouse_core</exec_depend>
+</package>

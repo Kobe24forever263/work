@@ -1,0 +1,513 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,shapes.geometric}
+
+\definecolor{stageblue}{HTML}{0072B2}
+\definecolor{stageorange}{HTML}{D55E00}
+\definecolor{stagegreen}{HTML}{009E73}
+\definecolor{stagegray}{HTML}{555555}
+\newcommand{\stagehci}[4]{%
+  \draw[#4,line width=0.75pt] (#1,#3)--(#2,#3);
+  \draw[#4,line width=0.75pt] (#1,#3-0.09)--(#1,#3+0.09);
+  \draw[#4,line width=0.75pt] (#2,#3-0.09)--(#2,#3+0.09);
+}
+\newcommand{\stagevci}[4]{%
+  \draw[#4,line width=0.75pt] (#3,#1)--(#3,#2);
+  \draw[#4,line width=0.75pt] (#3-0.09,#1)--(#3+0.09,#1);
+  \draw[#4,line width=0.75pt] (#3-0.09,#2)--(#3+0.09,#2);
+}
+\newcommand{\StagePairedFallback}{%
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[font=\sffamily\scriptsize]
+  \begin{scope}[shift={(0,4.35)}]
+    \node[anchor=west,font=\sffamily\small] at (0,3.65) {(a) Task success};
+    \draw (1.35,0.65)--(7.15,0.65); \draw (1.35,0.65)--(1.35,3.35);
+    \draw[gray!45] (1.93,0.65)--(1.93,3.35);
+    \draw[gray!35] (3.86,0.65)--(3.86,3.35);
+    \draw[gray!35] (5.80,0.65)--(5.80,3.35);
+    \node[anchor=east] at (1.25,2.75) {Medium};
+    \node[anchor=east] at (1.25,2.00) {Dense};
+    \node[anchor=east] at (1.25,1.25) {Burst};
+    \node[anchor=north] at (1.93,0.56) {0};
+    \node[anchor=north] at (3.86,0.56) {1};
+    \node[anchor=north] at (5.80,0.56) {2};
+    \node[anchor=north] at (4.25,0.12) {Difference (percentage points)};
+    \stagehci{5.36}{6.63}{2.75}{stageblue}
+    \stagehci{2.98}{4.51}{2.00}{stageorange}
+    \stagehci{3.05}{4.76}{1.25}{stagegreen}
+    \fill[stageblue] (5.98,2.75) circle (0.09);
+    \fill[stageorange] (3.73,2.00) rectangle +(0.16,0.16);
+    \fill[stagegreen] (3.87,1.34)--(3.78,1.16)--(3.96,1.16)--cycle;
+  \end{scope}
+  \begin{scope}[shift={(8.0,4.35)}]
+    \node[anchor=west,font=\sffamily\small] at (0,3.65) {(b) Successful throughput};
+    \draw (1.35,0.65)--(7.15,0.65); \draw (1.35,0.65)--(1.35,3.35);
+    \draw[gray!45] (1.90,0.65)--(1.90,3.35);
+    \draw[gray!35] (3.28,0.65)--(3.28,3.35);
+    \draw[gray!35] (4.66,0.65)--(4.66,3.35);
+    \draw[gray!35] (6.04,0.65)--(6.04,3.35);
+    \node[anchor=east] at (1.25,2.75) {Medium};
+    \node[anchor=east] at (1.25,2.00) {Dense};
+    \node[anchor=east] at (1.25,1.25) {Burst};
+    \node[anchor=north] at (1.90,0.56) {0};
+    \node[anchor=north] at (3.28,0.56) {0.5};
+    \node[anchor=north] at (4.66,0.56) {1};
+    \node[anchor=north] at (6.04,0.56) {1.5};
+    \node[anchor=north] at (4.25,0.12) {Difference (tasks/h)};
+    \stagehci{5.32}{6.58}{2.75}{stageblue}
+    \stagehci{2.95}{4.45}{2.00}{stageorange}
+    \stagehci{3.00}{4.72}{1.25}{stagegreen}
+    \fill[stageblue] (5.93,2.75) circle (0.09);
+    \fill[stageorange] (3.58,1.92) rectangle +(0.16,0.16);
+    \fill[stagegreen] (3.82,1.34)--(3.73,1.16)--(3.91,1.16)--cycle;
+  \end{scope}
+  \begin{scope}
+    \node[anchor=west,font=\sffamily\small] at (0,3.65) {(c) Mean waiting time};
+    \draw (1.35,0.65)--(7.15,0.65); \draw (1.35,0.65)--(1.35,3.35);
+    \draw[gray!35] (2.18,0.65)--(2.18,3.35);
+    \draw[gray!35] (4.25,0.65)--(4.25,3.35);
+    \draw[gray!45,dashed] (6.32,0.65)--(6.32,3.35);
+    \node[anchor=east] at (1.25,2.75) {Medium};
+    \node[anchor=east] at (1.25,2.00) {Dense};
+    \node[anchor=east] at (1.25,1.25) {Burst};
+    \node[anchor=north] at (2.18,0.56) {-50};
+    \node[anchor=north] at (4.25,0.56) {-25};
+    \node[anchor=north] at (6.32,0.56) {0};
+    \node[anchor=north] at (4.25,0.12) {Difference (s)};
+    \stagehci{4.68}{6.68}{2.75}{stageblue}
+    \stagehci{1.87}{2.74}{2.00}{stageorange}
+    \stagehci{1.71}{2.58}{1.25}{stagegreen}
+    \fill[stageblue] (5.71,2.75) circle (0.09);
+    \fill[stageorange] (2.23,1.92) rectangle +(0.16,0.16);
+    \fill[stagegreen] (2.15,1.34)--(2.06,1.16)--(2.24,1.16)--cycle;
+  \end{scope}
+  \begin{scope}[shift={(8.0,0)}]
+    \node[anchor=west,font=\sffamily\small] at (0,3.65) {(d) 95th-percentile waiting time};
+    \draw (1.35,0.65)--(7.15,0.65); \draw (1.35,0.65)--(1.35,3.35);
+    \draw[gray!35] (2.59,0.65)--(2.59,3.35);
+    \draw[gray!35] (4.66,0.65)--(4.66,3.35);
+    \draw[gray!45,dashed] (6.74,0.65)--(6.74,3.35);
+    \node[anchor=east] at (1.25,2.75) {Medium};
+    \node[anchor=east] at (1.25,2.00) {Dense};
+    \node[anchor=east] at (1.25,1.25) {Burst};
+    \node[anchor=north] at (2.59,0.56) {-200};
+    \node[anchor=north] at (4.66,0.56) {-100};
+    \node[anchor=north] at (6.74,0.56) {0};
+    \node[anchor=north] at (4.25,0.12) {Difference (s)};
+    \stagehci{4.28}{6.35}{2.75}{stageblue}
+    \stagehci{1.89}{2.96}{2.00}{stageorange}
+    \stagehci{1.57}{2.63}{1.25}{stagegreen}
+    \fill[stageblue] (5.33,2.75) circle (0.09);
+    \fill[stageorange] (2.35,1.92) rectangle +(0.16,0.16);
+    \fill[stagegreen] (2.10,1.34)--(2.01,1.16)--(2.19,1.16)--cycle;
+  \end{scope}
+\end{tikzpicture}}}
+\newcommand{\StageAdaptFallback}{%
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[font=\sffamily\scriptsize]
+  \begin{scope}
+    \node[anchor=west,font=\sffamily\small] at (0,5.35) {(a) Relay-mode share across a continuous load sequence};
+    \draw (1.05,0.75)--(10.0,0.75); \draw (1.05,0.75)--(1.05,4.95);
+    \foreach \yy/\lab in {0.75/0,1.80/10,2.85/20,3.90/30,4.95/40}{
+      \draw[gray!30] (1.05,\yy)--(10.0,\yy);
+      \node[anchor=east] at (0.95,\yy) {\lab};
+    }
+    \node[rotate=90] at (0.25,2.85) {Car-dog-car task share (\%)};
+    \foreach \xx/\lab in {1.35/Normal,4.05/Dense,6.75/Burst,9.45/Recovery}{
+      \node[anchor=north] at (\xx,0.65) {\lab};
+    }
+    \stagevci{2.80}{3.06}{1.35}{stageblue}
+    \stagevci{1.17}{1.64}{4.05}{stageblue}
+    \stagevci{1.04}{1.56}{6.75}{stageblue}
+    \stagevci{1.00}{1.90}{9.45}{stageblue}
+    \draw[stageblue,line width=0.8pt] (1.35,2.92)--(4.05,1.39)--(6.75,1.29)--(9.45,1.39);
+    \foreach \p in {(1.35,2.92),(4.05,1.39),(6.75,1.29),(9.45,1.39)}{\fill[stageblue] \p circle (0.08);}
+    \stagevci{3.86}{4.34}{1.35}{stageorange}
+    \stagevci{2.43}{3.51}{4.05}{stageorange}
+    \stagevci{2.30}{3.31}{6.75}{stageorange}
+    \stagevci{1.84}{2.69}{9.45}{stageorange}
+    \draw[stageorange,dashed,line width=0.8pt] (1.35,4.13)--(4.05,2.99)--(6.75,2.84)--(9.45,2.28);
+    \foreach \p in {(1.35,4.13),(4.05,2.99),(6.75,2.84),(9.45,2.28)}{\fill[stageorange] \p rectangle +(0.14,0.14);}
+    \stagevci{3.73}{4.35}{1.35}{stagegreen}
+    \stagevci{2.29}{3.57}{4.05}{stagegreen}
+    \stagevci{2.17}{3.25}{6.75}{stagegreen}
+    \stagevci{1.78}{2.94}{9.45}{stagegreen}
+    \draw[stagegreen,dotted,line width=1.0pt] (1.35,4.07)--(4.05,2.96)--(6.75,2.73)--(9.45,2.35);
+    \foreach \x/\y in {1.35/4.07,4.05/2.96,6.75/2.73,9.45/2.35}{
+      \fill[stagegreen] (\x,\y+0.09)--(\x-0.09,\y-0.09)--(\x+0.09,\y-0.09)--cycle;
+    }
+    \draw[stagegray,dashed,line width=0.75pt] (1.35,4.43)--(4.05,4.41)--(6.75,4.23)--(9.45,3.85);
+    \foreach \p in {(1.35,4.43),(4.05,4.41),(6.75,4.23),(9.45,3.85)}{\draw[stagegray] \p ++(-0.07,0)--++(0.07,0.07)--++(0.07,-0.07)--++(-0.07,-0.07)--cycle;}
+    \draw[stageblue] (1.75,5.12)--(2.10,5.12); \fill[stageblue] (1.93,5.12) circle (0.07); \node[anchor=west] at (2.16,5.12) {Medium};
+    \draw[stageorange,dashed] (3.20,5.12)--(3.55,5.12); \node[anchor=west] at (3.61,5.12) {Dense};
+    \draw[stagegreen,dotted] (4.55,5.12)--(4.90,5.12); \node[anchor=west] at (4.96,5.12) {Burst};
+    \draw[stagegray,dashed] (5.75,5.12)--(6.10,5.12); \node[anchor=west] at (6.16,5.12) {Time-greedy};
+  \end{scope}
+  \begin{scope}[shift={(10.7,0)}]
+    \node[anchor=west,font=\sffamily\small] at (0,5.35) {(b) Recovery queue clearance};
+    \node[anchor=west] at (1.55,5.08) {Negative values indicate queue clearance};
+    \draw (1.55,0.75)--(5.85,0.75); \draw (1.55,0.75)--(1.55,4.95);
+    \foreach \xx/\lab in {2.07/-200,2.93/-150,3.79/-100,4.65/-50,5.51/0}{
+      \draw[gray!30] (\xx,0.75)--(\xx,4.95);
+      \node[anchor=north] at (\xx,0.65) {\lab};
+    }
+    \node[anchor=east] at (1.45,4.15) {Medium};
+    \node[anchor=east] at (1.45,3.25) {Dense};
+    \node[anchor=east] at (1.45,2.35) {Burst};
+    \node[anchor=east] at (1.45,1.45) {Time-greedy};
+    \node[anchor=north] at (3.70,0.18) {Late - early recovery waiting time (s)};
+    \stagehci{2.03}{2.97}{4.15}{stageblue}
+    \stagehci{3.76}{4.01}{3.25}{stageorange}
+    \stagehci{3.54}{3.89}{2.35}{stagegreen}
+    \fill[stageblue] (2.48,4.15) circle (0.09);
+    \fill[stageorange] (3.80,3.17) rectangle +(0.16,0.16);
+    \fill[stagegreen] (3.72,2.44)--(3.63,2.26)--(3.81,2.26)--cycle;
+    \draw[stagegray] (2.41,1.45)--(2.49,1.53)--(2.57,1.45)--(2.49,1.37)--cycle;
+  \end{scope}
+\end{tikzpicture}}}
+
+\hypersetup{
+  pdftitle={Event-Driven Masked SMDP-PPO for Persistent Heterogeneous Multi-Robot Transport in a Multi-Floor Warehouse},
+  pdfauthor={},
+  pdfsubject={Anonymous submission to IEEE Transactions on Robotics},
+  pdfkeywords={multi-robot systems, task allocation, reinforcement learning, warehouse automation}
+}
+
+\newcommand{\method}{E-SMDP-PPO}
+\newcommand{\modecar}{\textsc{Single-Car}}
+\newcommand{\modedog}{\textsc{Single-Dog}}
+\newcommand{\modechain}{\textsc{Car--Dog--Car}}
+
+\title{Event-Driven Masked SMDP-PPO for Persistent Heterogeneous Multi-Robot Transport in a Multi-Floor Warehouse}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Multi-floor warehouses couple task allocation with transport-mode selection: wheeled robots move efficiently on level ground, legged robots traverse stairs, and cross-floor deliveries may use one legged robot or a wheeled--legged--wheeled relay. We formulate this problem as an event-driven semi-Markov decision process with asynchronous arrivals, variable-duration actions, persistent robot locations, and concurrent resource use. At each decision epoch, a centralized policy selects a task, mode, participating robots, and stairway. A feasibility layer enumerates joint candidates and masks conflicts before sampling. A shared actor combines global context with per-candidate geometric, temporal, resource, and handover-risk features. Proximal policy optimization uses duration-aware discounting and generalized advantage estimation. In a locked continuous-load evaluation with 30 independently trained policies and 100 shared test streams, all three training cohorts improved task success by 0.90--2.07 percentage points and successful throughput by 0.64--1.46 tasks/h relative to a time-greedy rule. The policies also reduced use of the resource-intensive relay under burst load and cleared accumulated waiting during recovery. The policy operates only at the scheduling layer; navigation and robot control remain separate.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Multi-robot systems, task allocation, reinforcement learning, warehouse automation.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Warehouses increasingly combine robots with complementary mobility and payload characteristics. Wheeled platforms can transport goods quickly and efficiently on planar aisles, whereas legged platforms can negotiate stairs and other discontinuities that remain inaccessible to conventional mobile bases. This complementarity is particularly useful in existing multi-floor facilities, where installing lifts or conveyors may be costly or infeasible. It also creates a scheduling problem that is more tightly coupled than assigning each task to its nearest available robot. A cross-floor delivery may be completed by one legged robot, or decomposed into a source-floor wheeled segment, a legged stair segment, and a destination-floor wheeled segment. The second option can reduce travel time but occupies more robots and introduces two handovers, synchronization requirements, and additional failure exposure.
+
+The resulting decision problem combines several aspects of multi-robot task allocation (MRTA). Tasks arrive online rather than as a fixed batch; robot positions and workloads persist across assignments; several tasks may execute concurrently; and the duration of a joint assignment depends on the selected mode and on the slowest synchronized branch. Decisions therefore affect not only the current delivery but also the future spatial distribution of the fleet and the availability of stairs, handover regions, and standby locations. A policy optimized for an isolated task can create queues or resource conflicts later in the episode.
+
+Classical MRTA methods provide principled formulations for heterogeneous capabilities, temporal constraints, coalitions, and plan repair. Recent learning-based work has improved responsiveness in dynamic warehouses and has addressed heterogeneous coalitions or asynchronous macro-actions. However, the combination considered here remains distinctive: the high-level controller must choose among direct wheeled transport, direct legged transport, and an explicit wheeled--legged--wheeled relay while respecting shared stair and handover resources under continuous asynchronous arrivals. The action is combinatorial, but the set of feasible assignments changes at every event.
+
+We address this setting with an event-driven semi-Markov decision process (SMDP). The transition duration is part of each experience tuple, so discounting reflects elapsed simulated time rather than an arbitrary count of scheduler calls. Feasible task--mode--robot--stair assignments are generated from the current system state. Invalid assignments are removed by a deterministic mask before the policy samples an action. Instead of attaching parameters to transient action indices, a shared actor scores each candidate from its own features and an explicit interaction with a global state embedding. This representation preserves the structure of the joint decision while allowing the legal candidate set to vary across events.
+
+This paper makes the following methodological contributions:
+\begin{itemize}
+  \item We formulate persistent, asynchronous transport in a multi-floor heterogeneous warehouse as a continuous-time SMDP in which a single high-level action jointly selects the task, transport mode, robots, and stairway.
+  \item We develop a feasibility-preserving candidate representation for three transport modes---\modecar, \modedog, and \modechain---with deterministic resource and ownership constraints applied before policy sampling.
+  \item We introduce a context-interaction actor that shares parameters across as many as 1536 dynamic candidates and is trained with duration-aware PPO and generalized advantage estimation.
+  \item We define a staged evaluation protocol that separates independent training seeds, locked task streams, context and algorithmic ablations, load transitions, failure recovery, and navigation-level validation.
+\end{itemize}
+
+The present system is a high-level scheduling contribution. The policy does not output joint torques, footholds, or velocity commands. Navigation is delegated to an external planner, and cargo transfer is represented by a transactional ownership model. These boundaries are stated explicitly so that logical scheduling evidence is not mistaken for contact-dynamics or hardware validation.
+
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{Heterogeneous Task Allocation and Coalition Scheduling}
+
+MRTA taxonomies characterize allocation problems according to robot multiplicity, task multiplicity, assignment dynamics, and inter-task constraints~\cite{gerkey2004taxonomy,korsah2013taxonomy}. Market-based coordination provides a complementary distributed perspective: auctions expose local execution costs~\cite{dias2006market}, while task-tree abstractions allow complex tasks to be decomposed and traded at different granularities~\cite{zlot2006market}. Behavior-based systems such as ALLIANCE instead emphasize adaptive task selection and graceful recovery from team-member failures~\cite{parker1994alliance}.
+
+Heterogeneous teams extend the problem because feasibility and utility depend on complementary capabilities rather than distance alone. Notomista \emph{et al.}~\cite{notomista2022resilient} represent capabilities in an energy-aware allocation framework, while Fu \emph{et al.}~\cite{fu2023robust} jointly optimize decomposition, assignment, and scheduling under capability uncertainty. Aswale and Pinciroli~\cite{aswale2023coalition} study synchronization and heterogeneous travel times in multi-skilled coalitions. Dai \emph{et al.}~\cite{dai2025heterogeneous} learn dynamic coalitions for individual and collaborative tasks.
+
+Capability-centered coalition systems provide an earlier foundation for this viewpoint. ASyMTRe synthesizes heterogeneous coalitions by composing sensory, computational, communication, and motor schemas rather than treating a robot as one indivisible capability label~\cite{parker2006asymtre}. IQ-ASyMTRe further reasons about interaction constraints so that a proposed tightly coupled coalition is executable in the current robot--environment configuration~\cite{zhang2013iqasymtre}. Our candidate generator follows the same feasibility-first principle at a coarser scheduling level: only complete transport chains whose morphology, floor, stair, handover, and ownership constraints are currently satisfiable are exposed to the policy.
+
+Several works also integrate allocation with temporal or motion-level constraints. SCoBA interleaves planning and execution for dynamically arriving tasks with uncertain outcomes and temporal requirements~\cite{choudhury2022dynamic}. D-ITAGS combines allocation, scheduling, and motion planning, then repairs solutions locally after failures or delays~\cite{neville2023ditags}. Calvo and Capit\'{a}n~\cite{calvo2025longendurance} formulate long-endurance heterogeneous MRTA with charging, task fragmentation, coalitions, relays, and online replanning. The service-agent--transport-agent problem couples routes, docking, deployment, and robust timing in a mixed-integer program~\cite{bays2017satp}; more recently, mobile manipulators and transport agents have been dynamically paired for object transfer~\cite{yi2025tidying}. These approaches motivate explicit temporal feasibility and relay modeling. Our focus differs in learning an event policy that selects direct versus two-handover relay transport for a continuing warehouse stream.
+
+The closest morphology-level example is the reactive allocation architecture of Zhou \emph{et al.}~\cite{zhou2022reactive}, which teams quadrupedal and wheeled delivery robots and handles execution failures. Oliveira \emph{et al.}~\cite{oliveira2022warehouse} consider heterogeneous robot speeds and loads in smart warehouses with multiple delivery stations. We retain this concern for heterogeneous travel time, but additionally model stair resources and two transactional handovers as part of a single candidate action.
+
+\subsection{Learning for Dynamic Warehouse Scheduling}
+
+Large-scale warehouse systems first highlighted the need to coordinate hundreds of continuously operating robots~\cite{wurman2007warehouse}. Lifelong multi-agent pickup-and-delivery formalizes a stream of online assignments coupled to collision-free paths~\cite{ma2017lifelong}; PRIMAL$_2$ learns decentralized lifelong pathfinding policies for dense, structured warehouses~\cite{damani2021primal2}. These works address assignment--routing interaction below or beside our scheduler, whereas our logical SMDP currently estimates travel time and evaluates navigation separately.
+
+Learning-based MRTA can amortize repeated combinatorial decisions when task and fleet states evolve online. RTAW uses attention and PPO for warehouse allocation and triggers decisions as robots become available~\cite{agrawal2023rtaw}. HeuRAL-MATE combines a learned task selector with heuristic robot selection~\cite{pal2024heuristic}, while MRTAgent coordinates learned task and robot choices for real-time allocation~\cite{pal2025together}. Krnjaic \emph{et al.}~\cite{krnjaic2024scalable} use hierarchical MARL for warehouse logistics involving robotic and human co-workers. These methods are important baselines, but do not explicitly choose between a direct legged route and a three-robot, two-handover cross-floor chain.
+
+Learning in heterogeneous teams must also account for partial observability, credit assignment, and temporal asynchrony. Zhang \emph{et al.}~\cite{zhang2024asynchronous} address heterogeneous macro-actions with different durations and asynchronous termination, while Jose and Zhang~\cite{jose2024learning} study dynamic subteaming and voluntary waiting. Earlier decentralized recurrent learning addresses partial observability and multi-task transfer~\cite{omidshafiei2017multitask}. Under centralized training and decentralized execution, MADDPG conditions critics on other agents' actions~\cite{lowe2017maddpg}, COMA uses a counterfactual baseline for credit assignment~\cite{foerster2018coma}, and QMIX factorizes a joint value monotonically into per-agent utilities~\cite{rashid2018qmix}.
+
+PPO-based multi-agent methods provide an important neighboring family. MAPPO is a strong empirical baseline~\cite{yu2022mappo}; HATRPO and HAPPO use sequential updates without requiring shared policies~\cite{kuba2022happo}; and Bezerra \emph{et al.}~\cite{bezerra2025dynamic} extend MAPPO with intention sharing and spatial action maps for dynamic coalition formation. More directly addressing long-duration asynchrony, Xiao \emph{et al.}~\cite{xiao2025asynchronous} develop value- and policy-based MARL for asynchronously terminating macro-actions, while CATMiP combines class-based macro-actions with transformer coordination for heterogeneous teams~\cite{farjadnasab2025catmip}. These methods learn decentralized per-agent decisions. In contrast, our high-level implementation contains one centralized actor and critic; one decision selects a complete feasible task--mode--robot--stair tuple. We therefore describe it as centralized masked SMDP-PPO, not MAPPO or HAPPO.
+
+\subsection{Navigation Execution Layer}
+
+At the execution layer, SCAN-Planner combines yaw-aware whole-body collision checking, projected-A* guidance, B-spline trajectory optimization, and a robot-centric sliding occupancy map for route-guided quadruped navigation~\cite{zheng2026scan}. Its rebound-style optimization and sliding-map design are related to EGO-Planner~\cite{zhou2021egoplanner} and ROG-Map~\cite{ren2024rogmap}, respectively. Terrain-aware legged planners such as ArtPlanner~\cite{wellhausen2023artplanner} and multi-goal frameworks such as SMUG~\cite{chen2023smug} address complementary navigation-level problems. Our policy operates above this layer: it selects tasks, transport modes, robots, and stair resources, while continuous route generation remains outside the learned action space.
+
+\subsection{Event-Driven Decision Making}
+
+Discrete-time approximations can distort a system in which actions last from seconds to minutes. Generalized semi-Markov models represent asynchronous concurrent activities through events and variable holding times~\cite{messias2013gsmdp}. We adopt the same continuous-time motivation but optimize a neural policy with PPO~\cite{schulman2017ppo}. Generalized advantage estimation (GAE) reduces variance in policy-gradient updates~\cite{schulman2016gae}; here, both the temporal-difference residual and the recursive advantage use the transition-specific SMDP discount. This is important because a short wait and a multi-stage relay should not consume the same amount of discounted time merely because each produces one scheduler transition.
+
+\begin{table*}[t]
+\centering
+\caption{Positioning relative to representative related work. A filled circle denotes an explicit focus; an open circle denotes partial coverage. ``Relay choice'' means that allocation chooses between direct service and an inter-robot relay, rather than assuming a fixed collaboration pattern.}
+\label{tab:related_comparison}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lcccccc}
+\toprule
+Work & Hetero. & Online & Async. duration & Learning & Relay choice & Warehouse \\
+\midrule
+SCoBA~\cite{choudhury2022dynamic} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\circ$} & -- & -- & -- \\
+D-ITAGS~\cite{neville2023ditags} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\circ$} & \textcolor{black}{$\circ$} & -- & -- & -- \\
+Calvo and Capit\'{a}n~\cite{calvo2025longendurance} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\circ$} & -- & \textcolor{black}{$\bullet$} & -- \\
+RTAW~\cite{agrawal2023rtaw} & -- & \textcolor{black}{$\bullet$} & \textcolor{black}{$\circ$} & \textcolor{black}{$\bullet$} & -- & \textcolor{black}{$\bullet$} \\
+Dai \emph{et al.}~\cite{dai2025heterogeneous} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\circ$} & \textcolor{black}{$\circ$} & \textcolor{black}{$\bullet$} & -- & -- \\
+Async MARL~\cite{zhang2024asynchronous} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\circ$} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\bullet$} & -- & -- \\
+This work & \textcolor{black}{$\bullet$} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\bullet$} & \textcolor{black}{$\bullet$} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\section{System and Problem Formulation}
+\label{sec:problem}
+
+\subsection{Warehouse and Robot Team}
+
+We consider a two-floor warehouse served by a heterogeneous team $\mathcal{R}=\mathcal{R}^{c}\cup\mathcal{R}^{d}$. The first floor spans \SI{48}{m}$\times$\SI{40}{m}; the second spans \SI{30}{m}$\times$\SI{24}{m} at a height of \SI{4}{m} and contains an \SI{8}{m}$\times$\SI{6}{m} central void. Four external \SI{1.4}{m}-wide stairways connect the floors. The current configuration contains six wheeled Carter robots and four Unitree Go2 quadrupeds. Four Carter robots start on the first floor and two on the second floor. Carter and Go2 nominal translational speeds are \SI{2.0}{m/s} and \SI{0.8}{m/s}, respectively. Carter robots are restricted to level-ground motion; Go2 robots may move on either floor and traverse stairs.
+
+Navigation-level integration is evaluated separately from policy training using a project-adapted community ROS~2 port of SCAN-Planner~\cite{zheng2026scan}. In the archived route gates, both morphologies consume a static warehouse point cloud and preset waypoint sequences; morphology-specific envelopes and speed limits parameterize the planner, and the resulting B-spline trajectories are replayed by an open-loop controller. These trials test planner interfaces and kinematic route reachability, not sensor-closed-loop or contact-dynamics navigation. SCAN-Planner's published validation concerns a Unitree Go2; the Carter interface is an engineering adaptation in this project, not evidence that the original planner natively supports wheeled platforms.
+
+A task $i$ is released at time $a_i$ and is described by
+\begin{equation}
+  q_i=(p_i^{\mathrm{s}},p_i^{\mathrm{g}},\ell_i^{\mathrm{s}},
+  \ell_i^{\mathrm{g}},\rho_i,d_i),
+\end{equation}
+where $p_i^{\mathrm{s}}$ and $p_i^{\mathrm{g}}$ are source and goal coordinates, $\ell_i^{\mathrm{s}}$ and $\ell_i^{\mathrm{g}}$ are floors, $\rho_i$ is priority, and $d_i$ is a deadline. Tasks are not pre-labeled with a transport mode. The scheduler must choose a legal mode from the current state.
+
+\subsection{Transport Modes}
+
+For a same-floor task, the legal modes are \modecar and \modedog. A \modecar action assigns one same-floor Carter to collect and deliver the cargo. A \modedog action assigns one Go2 and requires no handover. Cross-floor tasks prohibit \modecar because Carter robots cannot use stairs. They permit either \modedog or \modechain. In \modechain, a source-floor Carter collects the cargo while a Go2 approaches the selected stair sending area and a destination-floor Carter approaches the receiving area. Ownership is transferred from the first Carter to the Go2, the Go2 traverses the reserved stair, and a second transfer gives the cargo to the destination-floor Carter for final delivery. There is no car-to-car handover mode.
+
+Each transfer is a transaction with a unique cargo owner. A timed-out transfer rolls ownership back to the sender before the task is marked failed and its temporary reservations are released. The current implementation models this semantics logically; it does not simulate grasp contact, payload dynamics, or manipulation forces.
+
+\begin{table}[t]
+\centering
+\caption{Transport-mode feasibility by task floor relation.}
+\label{tab:mode_feasibility}
+\begin{tabular}{lccc}
+\toprule
+Task & \modecar & \modedog & \modechain \\
+\midrule
+Same floor  & legal & legal & masked \\
+Cross floor & masked & legal & legal \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Persistent Concurrent Execution}
+
+Robot position, floor, accumulated distance, last completion state, and standby occupancy persist between tasks within an episode. Up to four conflict-free assignments may be in flight. An accepted assignment reserves its participating robots, selected stairway, handover regions, and standby claims until its completion event. Handover sites are induced by the selected stair, and completed robots are routed deterministically to their nearest compatible unclaimed standby slots. This prevents a later candidate from reusing a resource that appears geometrically available but has already been committed.
+
+Let $N(t)$ be the number of released but unresolved tasks. The scheduling objective balances completed and on-time tasks against the time integral of backlog, transfer exposure, robot occupation, and failures. Because decisions have unequal durations, we define this objective through an SMDP rather than a fixed-rate Markov decision process.
+
+\section{Event-Driven Masked SMDP-PPO}
+\label{sec:method}
+
+Fig.~\ref{fig:architecture} summarizes the decision loop. Task arrivals, assignment completions, and dispatch opportunities after the fixed decision gap create decision epochs. A fixed-size state encoder describes the visible task queue, persistent fleet state, active-task fraction, and stair availability. In parallel, the feasibility layer queries the full environment state, enumerates joint assignments, and constructs a conflict mask. The actor scores only legal candidates. Execution then changes the physical and logical state until the next epoch.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  node distance=7mm and 3.5mm,
+  box/.style={draw,rounded corners,align=center,minimum height=10mm,minimum width=23mm,fill=blue!4},
+  resource/.style={draw,rounded corners,align=center,minimum height=10mm,minimum width=25mm,fill=orange!7},
+  arrow/.style={-{Latex[length=2mm]},thick}
+]
+\node[resource] (events) {Dispatch/arrival/\\completion at $t_k$};
+\node[box,right=of events] (state) {284-D persistent state\\tasks, robots, stairs};
+\node[box,right=of state] (enumerate) {Enumerate up to 1536\\joint candidates};
+\node[box,right=of enumerate] (mask) {Feasibility and\\resource mask};
+\node[box,right=of mask] (actor) {Shared context--candidate\\actor and value head};
+\node[resource,right=of actor] (execute) {Reserve and execute\\selected assignment};
+\draw[arrow] (events)--(state);
+\draw[arrow] (state)--(enumerate);
+\draw[arrow] (enumerate)--(mask);
+\draw[arrow] (mask)--(actor);
+\draw[arrow] (actor)--(execute);
+\draw[arrow] (execute.south) -- ++(0,-8mm) -| node[below,pos=.48,align=center]{persistent positions, ownership,\\queue, and released reservations} (state.south);
+\node[below=4mm of enumerate,align=center] (modes) {$\{\modecar,\ \modedog,\ \modechain\}$\\$\times$ task $\times$ robots $\times$ stair};
+\draw[arrow] (modes)--(enumerate);
+\end{tikzpicture}
+\caption{Event-driven high-level scheduling architecture. Navigation and low-level control are outside the learned policy.}
+\label{fig:architecture}
+\end{figure*}
+
+\subsection{SMDP Definition}
+
+Decision epoch $k$ occurs at simulated time $t_k$. The tuple
+$(s_k,a_k,r_k,\Delta t_k,s_{k+1})$ uses holding time
+$\Delta t_k=t_{k+1}-t_k$. The action is
+\begin{equation}
+ a_k=(i,m,r_{\mathrm{src}},r_d,h,r_{\mathrm{dst}}),
+\end{equation}
+where $i$ is a visible task, $m$ is a transport mode, $r_{\mathrm{src}}$ and $r_{\mathrm{dst}}$ are optional source- and destination-floor Carter robots, $r_d$ is an optional Go2, and $h$ is an optional stairway. Fields that do not apply to the selected mode are empty. Handover locations follow from $h$, and standby placement is deterministic rather than learned. If no assignment is legal, one controlled \textsc{Wait} action advances time to the next event; waiting is not freely selectable while a feasible task is available.
+
+Time-aware discounting is
+\begin{equation}
+  \gamma_k=\gamma_0^{\Delta t_k/\tau_\gamma},
+  \qquad \gamma_0=0.99,\quad \tau_\gamma=\SI{10}{s}.
+  \label{eq:discount}
+\end{equation}
+The objective is $\mathbb{E}_{\pi}[\sum_k(\prod_{j<k}\gamma_j)r_k]$. Equation~\eqref{eq:discount} ensures that two action sequences spanning the same simulated duration receive comparable discounting even if they contain different numbers of scheduler events.
+
+\subsection{State and Candidate Encoding}
+
+The global state has 284 normalized components:
+\begin{equation}
+  8 + 8\times13 + 10\times14 + 4\times8 = 284.
+\end{equation}
+The eight global features encode normalized time, waiting and pending task counts, active-task fraction, execution mode, completion and failure fractions, and the dispatch gap. Up to eight visible tasks contribute floor relation, priority, wait, slack, and source/goal geometry. The complete queue is retained internally; the observation exposes the highest-priority eight tasks, ordered by priority, deadline, waiting time, and identifier. Ten robot slots encode morphology, nominal speed, floor, availability, failure and cargo/task flags, position, accumulated distance, completed-task count, and idle time. Four stair slots encode availability and endpoint geometry.
+
+Each decision contains at most 1536 candidate slots. A 30-D candidate vector includes mode indicators; task, robot, and stair identities; cross-floor status; pickup, legged, source-side, stair, and destination-side time estimates; total estimated cost; task priority, wait, slack, and geometry; cost difference and ratio relative to the cheapest legal candidate for the same task; participant count; handover count; and an estimated handover-timeout probability. Padding slots remain masked.
+
+This factorization gives a stable tensor interface without assigning permanent semantics to an index. Candidate slot 17, for example, may represent different tasks and robot tuples at different epochs. All slot-dependent trainable parameters are therefore shared. Candidate travel times use three-dimensional Euclidean distance divided by nominal robot speed. In \modechain, simultaneous approaches are combined by their critical path rather than summed sequentially; nominal transfer durations and a small completed-task load term are then included in the estimated cost. These are scheduler features, not low-level planned path lengths or energy estimates. A single-transfer timeout prior of 0.05 gives a two-transfer relay prior of $1-(1-0.05)^2=0.0975$.
+
+\subsection{Feasibility Mask}
+
+The candidate generator first applies mode compatibility. Same-floor tasks reject \modechain; cross-floor tasks reject \modecar. A \modedog candidate cannot include a Carter, while a \modecar candidate cannot include a Go2 or stairway. A \modechain candidate requires one Carter on each relevant floor, one Go2, one free stairway, and valid sending and receiving regions.
+
+The mask further excludes busy or failed robots, floor mismatches, robots already carrying cargo, conflicting stair and region reservations, occupied handover points, duplicate standby claims, and cargo-ownership violations. Invalid-action masking is particularly useful when a changing combinatorial catalog contains many infeasible choices~\cite{huang2022masking}. Consequently, the categorical policy distribution is supported only on legal candidates:
+\begin{align}
+  \tilde{\ell}_{k,j}&=\begin{cases}
+    \ell_{k,j}, & M_{k,j}=1,\\
+    -\infty, & M_{k,j}=0,
+  \end{cases} \label{eq:masked_logits}\\
+  \pi(a_k=j\mid s_k)&=\operatorname{softmax}(\tilde{\ell}_k)_j.
+  \label{eq:masked_policy}
+\end{align}
+The mask is a safety and consistency mechanism, not a learned penalty. Illegal assignments are never sampled during training or evaluation.
+
+\subsection{Context--Candidate Actor--Critic}
+
+Let $x_k\in\mathbb{R}^{284}$ be the global state and $c_{k,j}\in\mathbb{R}^{30}$ the $j$th candidate. Two multilayer perceptrons produce 96-D embeddings
+\begin{equation}
+ z_s=f_s(x_k),\qquad z_{c,j}=f_c(c_{k,j}).
+\end{equation}
+The actor explicitly combines state, candidate, and their elementwise interaction:
+\begin{equation}
+ \ell_{k,j}=f_\pi([z_s,z_{c,j},z_s\odot z_{c,j}]).
+ \label{eq:actor}
+\end{equation}
+The interaction term makes candidate quality conditional on queue state, robot positions, geometry, and reservations rather than encouraging one global mode preference. The critic uses only the state embedding, $V(s_k)=f_V(z_s)$. All hidden layers use $\tanh$ activations and width 96. The current network has 86,210 trainable parameters.
+
+\subsection{Reward and SMDP-PPO Update}
+
+For transition interval $[t_k,t_{k+1}]$, let $I_k=\int_{t_k}^{t_{k+1}}N(t)\,dt$ be the outstanding-task time integral, $S_k$, $O_k$, $L_k$, and $F_k$ the numbers of successful, on-time, late, and failed task resolutions, $H_k$ the number of completed handovers, and $B_k$ the occupied robot-seconds. The reward is
+\begin{align}
+ r_k={}&-\frac{I_k}{30}+2S_k+0.5O_k-2L_k-0.05H_k \nonumber\\
+ &-2\times10^{-4}B_k-2F_k,
+\label{eq:reward}
+\end{align}
+where $O_k+L_k=S_k$. A separate unrecoverable-fault transition terminates the episode with a penalty of $-10$. No term rewards a particular transport mode. Distance is recorded as an evaluation metric but its reward coefficient is currently zero to avoid duplicating travel-time cost.
+
+Training uses PPO with clipped probability ratio $\epsilon=0.2$~\cite{schulman2017ppo}. The GAE recursion substitutes the variable discount from~\eqref{eq:discount}:
+\begin{align}
+ \delta_k &= \hat r_k + \gamma_k V(s_{k+1})-V(s_k),\\
+ \hat A_k &= \delta_k+\gamma_k\lambda\hat A_{k+1},\qquad \lambda=0.95.
+\end{align}
+Bootstrap is cut at episode termination. Training rewards are divided by the running standard deviation of variable-discount returns, without mean subtraction, and clipped to $[-10,10]$; evaluation retains the raw environment reward. PPO uses learning rate $3\times10^{-4}$, four epochs, minibatches of 32, value coefficient 0.5, entropy coefficient 0.01, and gradient-norm limit 1.0. Before PPO, each independent seed initializes only the actor from 400 legal rule demonstrations using 30 supervised epochs, batch size 32, and Adam learning rate $10^{-3}$. The critic is not distilled.
+
+\section{Experimental Protocol}
+\label{sec:protocol}
+
+Each training episode contains 20 asynchronously released tasks balanced across same-floor, cross-region, upward, and downward transport. Three fixed-profile cohorts are trained under \textsc{Medium}, \textsc{Dense}, and \textsc{Burst} arrival loads. The profile name denotes the training load, not a transport mode: every policy can select \modecar, \modedog, or \modechain at every decision whenever the candidate is legal. Each cohort contains ten independent training seeds with distinct network initialization, rule-distillation warm start, PPO stream, and minibatch order.
+
+The locked mixed-load test concatenates \textsc{Normal}, \textsc{Dense}, \textsc{Burst}, and \textsc{Recovery} in one 80-task episode, with 20 composition-matched tasks per phase. Only inter-arrival intensity changes; robot positions, cargo ownership, outstanding tasks, and resource reservations persist across phase boundaries. The 30 frozen policies are evaluated on 100 fresh shared test seeds (3000 episodes and 240,000 task records). A time-greedy legal-candidate rule and a single-legged-robot-only control use the same 100 task streams, producing another 200 episodes and 16,000 task records. Task-keyed common random numbers are used for handover sampling.
+
+Primary metrics are task success rate, successful throughput, raw episode return, mean and 95th-percentile waiting time, mean flow time, distance per task, and transport-mode distribution. PPO--baseline differences use 10,000 crossed-bootstrap replicates that resample both training seeds and shared test seeds. Mode adaptation uses the same two-dimensional bootstrap. The time-greedy trajectory in the adaptation figure is descriptive because it has no training-seed dimension. Profile-to-profile comparisons are treated as exploratory.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Locked-Test Integrity and Absolute Performance}
+
+The formal data audit found no task-stream fingerprint mismatch, duplicate PPO task key, illegal action, or resource leak. All 240,000 PPO tasks were accounted for, and no PPO episode terminated with unresolved tasks. Table~\ref{tab:stage19_absolute} reports absolute locked-test performance. The three PPO rows average over ten training seeds and 100 test seeds; each baseline row averages over the 100 shared test seeds. Raw return is negative because outstanding-task cost accumulates throughout the 80-task episode, so it is meaningful only under this common protocol.
+
+\begin{table*}[t]
+\centering
+\caption{Absolute performance in the continuous \textsc{Normal}$\rightarrow$\textsc{Dense}$\rightarrow$\textsc{Burst}$\rightarrow$\textsc{Recovery} locked test. Waiting and flow times are in seconds, throughput is in successful tasks/h, and distance is normalized per task. PPO cohort names denote the load used during training.}
+\label{tab:stage19_absolute}
+\footnotesize
+\setlength{\tabcolsep}{3.4pt}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Method & Success (\%) & Return & Throughput & Mean wait & P95 wait & Mean flow & Distance/task \\
+\midrule
+PPO--Medium & 99.159 & -431.94 & 71.62 & 166.02 & 659.34 & 210.43 & 50.87 \\
+PPO--Dense  & 97.990 & -313.01 & 70.80 & 124.96 & 519.09 & 168.32 & 60.91 \\
+PPO--Burst  & 98.066 & -308.35 & 70.85 & 123.03 & 503.34 & 166.30 & 60.07 \\
+Time-greedy rule & 97.087 & -457.12 & 70.16 & 173.38 & 727.11 & 216.04 & 71.09 \\
+Single-dog only  & 96.938 & -935.09 & 69.82 & 330.87 & 1286.68 & 387.41 & 45.23 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Paired Comparison With the Time-Greedy Rule}
+
+Figure~\ref{fig:stage19_paired} reports PPO minus time-greedy differences. All three cohorts improve success and successful throughput with 95\% confidence intervals excluding zero. The Medium cohort gains 2.071 percentage points in success (95\% CI [1.749, 2.403]) and 1.458 tasks/h in throughput ([1.236, 1.695]). Dense and Burst gain 0.903 and 0.979 percentage points in success and 0.636 and 0.693 tasks/h in throughput, respectively.
+
+The waiting-time evidence is load dependent. Dense reduces mean waiting by 48.42~s ([-53.72, -43.24]) and P95 waiting by 208.02~s ([-233.75, -182.40]); Burst reduces them by 50.36~s ([-55.61, -45.10]) and 223.77~s ([-249.28, -198.21]). Medium reduces P95 waiting by 67.77~s ([-118.51, -18.61]), but its mean-wait difference of -7.37~s has an interval crossing zero ([-19.76, 4.34]). We therefore do not claim a mean-wait improvement for Medium.
+
+\begin{figure*}[t]
+\centering
+\IfFileExists{figures/fig_stage19_paired_differences.pdf}
+  {\includegraphics[width=\textwidth]{figures/fig_stage19_paired_differences.pdf}}
+  {\StagePairedFallback}
+\caption{Paired locked-test differences relative to the time-greedy rule. Markers are point estimates and bars are crossed training-seed--test-seed bootstrap 95\% confidence intervals (10,000 replicates). Positive values favor PPO for success and throughput; negative values favor PPO for waiting time.}
+\label{fig:stage19_paired}
+\end{figure*}
+
+\subsection{Mode Adaptation and Recovery}
+
+Figure~\ref{fig:stage19_adaptation}(a) shows that the learned scheduler does not commit to one transport mode. From Normal to Burst, the share of \modechain decreases from 20.71\% to 5.17\% for Medium, from 32.22\% to 19.88\% for Dense, and from 31.62\% to 18.87\% for Burst. The corresponding Burst-minus-Normal changes are -15.54 percentage points ([-18.01, -12.98]), -12.35 ([-15.18, -9.44]), and -12.75 ([-15.84, -9.81]). Because task composition is held fixed across phases, these changes reflect a response to the persistent queue and resource state rather than a change in task mix. The time-greedy rule changes by only -1.85 percentage points and is shown descriptively.
+
+Recovery is quantified at the task level by the mean waiting time of the last ten Recovery arrivals minus that of the first ten. Figure~\ref{fig:stage19_adaptation}(b) gives -174.90~s for Medium ([-201.89, -147.45]), -93.84~s for Dense ([-101.35, -86.93]), and -104.07~s for Burst ([-114.24, -94.02]). All intervals remain below zero, showing that waiting decreases during the recovery phase. This is evidence of queue clearance under the stated 20-task recovery window, not a control-theoretic settling-time guarantee.
+
+\begin{figure*}[t]
+\centering
+\IfFileExists{figures/fig_stage19_adaptation_recovery.pdf}
+  {\includegraphics[width=\textwidth]{figures/fig_stage19_adaptation_recovery.pdf}}
+  {\StageAdaptFallback}
+\caption{Behavior under a continuous four-phase load sequence with no state reset. (a) \modechain{} share; solid symbols are cohort means and bars are crossed-bootstrap 95\% confidence intervals. The gray time-greedy line is descriptive. (b) Recovery waiting-time change, defined as the last ten minus the first ten Recovery arrivals; negative values indicate queue clearance.}
+\label{fig:stage19_adaptation}
+\end{figure*}
+
+\clearpage
+
+\section{Limitations and Scope}
+\label{sec:limitations}
+
+The present implementation evaluates high-level scheduling in a logical continuous-time simulator. Cargo attachment and transfers use transactional ownership rather than contact dynamics. Handover duration is sampled from a reproducible simulation model and is not yet a hardware-measured distribution. Existing community-port SCAN-Planner gates use fixed waypoint routes, a static point cloud, and open-loop kinematic trajectory replay; the learned scheduler has not yet driven randomized closed-loop SCAN missions. The policy therefore should not be interpreted as improving locomotion, manipulation, or low-level collision avoidance.
+
+The fixed-size encoder supports ten robots, four stairs, eight visible tasks, and 1536 candidate slots. Larger teams or denser candidate sets would require either larger tensors or a set/graph representation. Finally, centralized state and deterministic candidate construction assume reliable fleet-state aggregation. Communication delays and partial observability remain future work.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented an event-driven formulation for persistent heterogeneous transport in a multi-floor warehouse. The approach couples task selection, transport-mode choice, robot assignment, and stair reservation in one masked candidate action. A shared context--candidate actor avoids index-specific action parameters, while duration-aware discounting aligns PPO updates with elapsed execution time. In the locked logical-simulation test, all three fixed-load training cohorts improved success and successful throughput relative to a time-greedy rule, while the learned relay share changed substantially as load increased and accumulated waiting decreased during recovery. These results establish multi-seed scheduling evidence under persistent nonstationary load, but not navigation, contact-dynamics, or hardware validity. Future work will train a single mixed-curriculum policy and complete closed-loop navigation and physical handover validation.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

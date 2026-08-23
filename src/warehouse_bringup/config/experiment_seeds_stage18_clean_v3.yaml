@@ -1,0 +1,27 @@
+protocol:
+  version: tro_seed_protocol_stage18_clean_ablation_v3
+  frozen_on: 2026-08-20
+  purpose: >-
+    One-time locked evaluation of the frozen MEDIUM full policy and five
+    semantically isolated context ablations. These seeds must not be used for
+    additional model selection, retraining, or threshold tuning.
+  training_cohort_freeze_manifest: >-
+    results/stage18_clean_ablation/medium_freeze_manifest.json
+
+test:
+  seed_start: 50000000
+  seed_count: 100
+  arrival_profile: MEDIUM
+  paired_across_methods: true
+  handover_sampling: TASK_KEYED_COMMON_RANDOM_NUMBERS
+  run_once_after_protocol_freeze: true
+
+statistics:
+  bootstrap_seed_start: 51000000
+  bootstrap_samples: 10000
+  design: crossed_training_seed_by_shared_test_seed
+  multiplicity:
+    primary_family: clean_ablation_feature_contributions
+    primary_metrics: [reward, success_rate, successful_throughput_tasks_per_hour]
+    familywise_method: HOLM
+    exploratory_method: BENJAMINI_HOCHBERG

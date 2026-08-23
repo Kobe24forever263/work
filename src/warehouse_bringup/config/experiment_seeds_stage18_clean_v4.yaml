@@ -1,0 +1,33 @@
+protocol:
+  version: tro_seed_protocol_stage18_clean_ablation_v4
+  frozen_on: 2026-08-22
+  purpose: >-
+    One-time locked evaluation of frozen DENSE and BURST full policies and
+    five semantically isolated context ablations. These seeds may not be used
+    for model selection, retraining, or threshold tuning.
+
+profiles:
+  DENSE:
+    training_root: results/stage18_dense
+    freeze_manifest: results/stage18_clean_ablation/dense_freeze_manifest_v4.json
+    test_seed_start: 52000000
+    bootstrap_seed_start: 54000000
+  BURST:
+    training_root: results/stage18_burst
+    freeze_manifest: results/stage18_clean_ablation/burst_freeze_manifest_v4.json
+    test_seed_start: 53000000
+    bootstrap_seed_start: 55000000
+
+test:
+  seed_count: 100
+  paired_across_methods: true
+  handover_sampling: TASK_KEYED_COMMON_RANDOM_NUMBERS
+  run_once_after_protocol_freeze: true
+
+statistics:
+  bootstrap_samples: 10000
+  design: crossed_training_seed_by_shared_test_seed
+  multiplicity:
+    primary_metrics: [reward, success_rate, successful_throughput_tasks_per_hour]
+    familywise_method: HOLM
+    exploratory_method: BENJAMINI_HOCHBERG

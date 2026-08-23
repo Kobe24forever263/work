@@ -1,0 +1,30 @@
+scan_planner_node:
+  ros__parameters:
+    # Stair waypoints are spaced at roughly 0.6 m. Keep the local target and
+    # collision search comfortably inside the sliding map.
+    fsm.planning_horizon: 3.0
+    manager.planning_horizon: 3.0
+    fsm.thresh_replan: 0.55
+    # The optimizer refuses segments shorter than about 0.15 m.  Accepting a
+    # waypoint at 0.18 m prevents a near-goal replan loop at the floor-2 exit.
+    fsm.thresh_no_replan: 0.18
+    # Four local-sensing nodes need a few seconds to ingest the 700k-point map.
+    # Keep retrying during that startup window instead of entering emergency.
+    fsm.max_replan_fail_count: 1000
+
+    grid_map.sliding_map_size_x: 8.0
+    grid_map.sliding_map_size_y: 8.0
+    grid_map.sliding_map_size_z: 6.0
+    grid_map.local_update_range_x: 4.0
+    grid_map.local_update_range_y: 4.0
+    grid_map.local_update_range_z: 3.0
+    grid_map.double_cylinder_radius: 0.22
+    grid_map.double_cylinder_offset: 0.17
+    grid_map.body_height: 0.38
+
+    # Keep the execution speed aligned with the high-level ETA model.
+    manager.max_vel: 0.8
+    manager.max_acc: 0.5
+    optimization.max_vel: 0.8
+    optimization.max_acc: 0.5
+    optimization.dist0: 0.16

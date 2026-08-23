@@ -1,0 +1,6 @@
+scan_planner_node:
+  ros__parameters:
+    fsm.navi_mode: 2
+    # The floor-2 Carter performs the long horizontal leg.  It follows the
+    # solid outer ring around the atrium from the NE stair to the SW dock.
+    fsm.waypoints: [11.0, 8.0, 4.70, 5.0, 8.0, 4.70, -5.0, 8.0, 4.70, -11.0, 8.0, 4.70, -11.0, 2.0, 4.70, -11.0, -6.5, 4.70, -7.0, -6.5, 4.70]

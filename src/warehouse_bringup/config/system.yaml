@@ -1,0 +1,32 @@
+system:
+  ros_distro: humble
+  simulation_step_s: 0.01
+  high_level_decision_period_s: 1.0
+  max_concurrent_tasks: 4
+  dispatch_execution:
+    supported_modes: [SERIAL, CONCURRENT]
+    default_mode: CONCURRENT
+    formal_training_mode: CONCURRENT
+    formal_arrival_profile: MEDIUM
+    formal_training_updates: 2000
+    progress_log_every_updates: 20
+    transport_modes_in_one_policy: [SINGLE_CAR, SINGLE_DOG, CAR_DOG_CAR]
+    optional_ablation_modes: [SERIAL, MIXED]
+    reward_v2:
+      outstanding_time_scale: 30.0
+      handover_timeout_penalty: 2.0
+      active_robot_time_penalty: 0.0002
+      mode_specific_bonus: false
+      normalize_by_running_smdp_return_std: true
+  default_task_deadline_s: 300.0
+  random_seed: 20260729
+  cargo: {size_xyz: [0.35, 0.25, 0.20], mass_kg: 2.0}
+  safety:
+    no_progress_timeout_s: 12.0
+    global_stall_timeout_s: 30.0
+    stair_occupancy_timeout_s: 45.0
+    max_recovery_attempts: 3
+    # P95 handover timeout ends the current task; it is not retried.
+    max_handover_retries: 0
+  modes: [single_dog, single_car, rule, mappo_train, mappo_eval]
+  enabled_mode: rule

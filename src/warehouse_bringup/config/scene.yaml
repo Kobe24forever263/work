@@ -1,0 +1,94 @@
+building:
+  floor1: {size_xy: [48.0, 40.0], elevation: 0.0}
+  floor2: {size_xy: [30.0, 24.0], elevation: 4.0, central_void_xy: [8.0, 6.0]}
+  floor_height: 4.0
+  vehicle_lane_width: 3.0
+  intersection_width: 3.6
+  wall_thickness: 0.2
+  stair: {clear_width: 1.4, tread_depth: 0.30, riser_height: 0.1667, steps: 24}
+task_points:
+  F1_NE_OUTER: {floor: 1, region: F1_NE, xyz: [18.0, 14.0, 0.0]}
+  F1_NW_OUTER: {floor: 1, region: F1_NW, xyz: [-18.0, 14.0, 0.0]}
+  F1_SW_OUTER: {floor: 1, region: F1_SW, xyz: [-18.0, -14.0, 0.0]}
+  F1_SE_OUTER: {floor: 1, region: F1_SE, xyz: [18.0, -14.0, 0.0]}
+  F1_NE_INNER: {floor: 1, region: F1_NE, xyz: [7.0, 6.0, 0.0]}
+  F1_NW_INNER: {floor: 1, region: F1_NW, xyz: [-7.0, 6.0, 0.0]}
+  F1_SW_INNER: {floor: 1, region: F1_SW, xyz: [-7.0, -6.0, 0.0]}
+  F1_SE_INNER: {floor: 1, region: F1_SE, xyz: [7.0, -6.0, 0.0]}
+  F1_CENTER: {floor: 1, region: F1_SHARED, xyz: [0.0, 0.0, 0.0]}
+  F2_NW: {floor: 2, region: F2_WEST, xyz: [-11.0, 8.0, 4.0]}
+  F2_SW: {floor: 2, region: F2_WEST, xyz: [-11.0, -8.0, 4.0]}
+  F2_NE: {floor: 2, region: F2_EAST, xyz: [11.0, 8.0, 4.0]}
+  F2_SE: {floor: 2, region: F2_EAST, xyz: [11.0, -8.0, 4.0]}
+  F2_CENTER: {floor: 2, region: F2_SHARED, xyz: [0.0, -5.0, 4.0]}
+regions:
+  F1_NE: {floor: 1, bounds_xy: [0.0, 24.0, 0.0, 20.0], capacity: 3}
+  F1_NW: {floor: 1, bounds_xy: [-24.0, 0.0, 0.0, 20.0], capacity: 3}
+  F1_SW: {floor: 1, bounds_xy: [-24.0, 0.0, -20.0, 0.0], capacity: 3}
+  F1_SE: {floor: 1, bounds_xy: [0.0, 24.0, -20.0, 0.0], capacity: 3}
+  F1_SHARED: {floor: 1, bounds_xy: [-5.0, 5.0, -5.0, 5.0], capacity: 4}
+  F2_WEST: {floor: 2, bounds_xy: [-15.0, 0.0, -12.0, 12.0], capacity: 3}
+  F2_EAST: {floor: 2, bounds_xy: [0.0, 15.0, -12.0, 12.0], capacity: 3}
+  F2_SHARED: {floor: 2, bounds_xy: [-4.0, 4.0, -7.0, -3.0], capacity: 2}
+parking:
+  CAR_F1_NE_HOME: [2.5, 2.5, 0.0]
+  CAR_F1_NW_HOME: [-2.5, 2.5, 0.0]
+  CAR_F1_SW_HOME: [-2.5, -2.5, 0.0]
+  CAR_F1_SE_HOME: [2.5, -2.5, 0.0]
+  CAR_F2_W_HOME: [-5.5, 0.0, 4.0]
+  CAR_F2_E_HOME: [5.5, 0.0, 4.0]
+handover_points:
+  STAIR_NE_F1_SEND: {floor: 1, xyz: [20.30, 18.30, 0.0], yaw: -2.356}
+  STAIR_NE_F2_RECEIVE: {floor: 2, xyz: [9.5, 6.5, 4.0], yaw: -2.356}
+  STAIR_NW_F1_SEND: {floor: 1, xyz: [-20.30, 18.30, 0.0], yaw: -0.785}
+  STAIR_NW_F2_RECEIVE: {floor: 2, xyz: [-9.5, 6.5, 4.0], yaw: -0.785}
+  STAIR_SW_F1_SEND: {floor: 1, xyz: [-20.30, -18.30, 0.0], yaw: 0.785}
+  STAIR_SW_F2_RECEIVE: {floor: 2, xyz: [-9.5, -6.5, 4.0], yaw: 0.785}
+  STAIR_SE_F1_SEND: {floor: 1, xyz: [20.30, -18.30, 0.0], yaw: 2.356}
+  STAIR_SE_F2_RECEIVE: {floor: 2, xyz: [9.5, -6.5, 4.0], yaw: 2.356}
+cargo_docks:
+  # Carter stops beside, rather than on top of, each solid cargo platform.
+  F1_PICKUP_NE: {floor: 1, platform: F1_PLATFORM_NE_A, xyz: [12.0, 8.0, 0.45], yaw: 0.0}
+  F1_PICKUP_NW: {floor: 1, platform: F1_PLATFORM_NW_A, xyz: [-12.0, 8.0, 0.45], yaw: 3.142}
+  F1_PICKUP_SW: {floor: 1, platform: F1_PLATFORM_SW_A, xyz: [-12.0, -8.0, 0.45], yaw: 3.142}
+  F1_PICKUP_SE: {floor: 1, platform: F1_PLATFORM_SE_A, xyz: [12.0, -8.0, 0.45], yaw: 0.0}
+  F2_DROPOFF_NE: {floor: 2, platform: F2_PLATFORM_E_N, xyz: [7.0, 6.5, 4.70], yaw: 3.142}
+  F2_DROPOFF_NW: {floor: 2, platform: F2_PLATFORM_W_N, xyz: [-7.0, 6.5, 4.70], yaw: 0.0}
+  F2_DROPOFF_SW: {floor: 2, platform: F2_PLATFORM_W_S, xyz: [-7.0, -6.5, 4.70], yaw: 0.0}
+  F2_DROPOFF_SE: {floor: 2, platform: F2_PLATFORM_E_S, xyz: [7.0, -6.5, 4.70], yaw: 3.142}
+lane_centerlines:
+  # The expanded outer loop reaches all four stair-side Go2/Carter docks.
+  floor1_ring: [[-20.3, -18.3], [20.3, -18.3], [20.3, 18.3], [-20.3, 18.3], [-20.3, -18.3]]
+  floor1_cross_x: [[-21.0, 0.0], [21.0, 0.0]]
+  floor1_cross_y: [[0.0, -17.0], [0.0, 17.0]]
+  floor2_ring: [[-11.0, -8.0], [11.0, -8.0], [11.0, 8.0], [-11.0, 8.0], [-11.0, -8.0]]
+  floor2_cross_x: [[-14.0, 0.0], [14.0, 0.0]]
+obstacles:
+  F1_PLATFORM_NW_A: {floor: 1, xyz: [-12.0, 9.5, 0.15], size_xyz: [4.0, 1.2, 0.30]}
+  F1_PLATFORM_NE_A: {floor: 1, xyz: [12.0, 9.5, 0.15], size_xyz: [4.0, 1.2, 0.30]}
+  F1_PLATFORM_SW_A: {floor: 1, xyz: [-12.0, -9.5, 0.15], size_xyz: [4.0, 1.2, 0.30]}
+  F1_PLATFORM_SE_A: {floor: 1, xyz: [12.0, -9.5, 0.15], size_xyz: [4.0, 1.2, 0.30]}
+  F1_PLATFORM_W_B: {floor: 1, xyz: [-13.0, 4.0, 0.15], size_xyz: [1.2, 4.0, 0.30]}
+  F1_PLATFORM_E_B: {floor: 1, xyz: [13.0, 4.0, 0.15], size_xyz: [1.2, 4.0, 0.30]}
+  F1_PLATFORM_W_C: {floor: 1, xyz: [-13.0, -4.0, 0.15], size_xyz: [1.2, 4.0, 0.30]}
+  F1_PLATFORM_E_C: {floor: 1, xyz: [13.0, -4.0, 0.15], size_xyz: [1.2, 4.0, 0.30]}
+  F2_PLATFORM_W_N: {floor: 2, xyz: [-7.0, 5.0, 4.15], size_xyz: [3.0, 1.0, 0.30]}
+  F2_PLATFORM_E_N: {floor: 2, xyz: [7.0, 5.0, 4.15], size_xyz: [3.0, 1.0, 0.30]}
+  F2_PLATFORM_W_S: {floor: 2, xyz: [-7.0, -5.0, 4.15], size_xyz: [3.0, 1.0, 0.30]}
+  F2_PLATFORM_E_S: {floor: 2, xyz: [7.0, -5.0, 4.15], size_xyz: [3.0, 1.0, 0.30]}
+structural_columns:
+  COLUMN_NW: {floor: 1, xyz: [-5.2, 4.2, 2.0], radius: 0.32, height: 4.0}
+  COLUMN_NE: {floor: 1, xyz: [5.2, 4.2, 2.0], radius: 0.32, height: 4.0}
+  COLUMN_SW: {floor: 1, xyz: [-5.2, -4.2, 2.0], radius: 0.32, height: 4.0}
+  COLUMN_SE: {floor: 1, xyz: [5.2, -4.2, 2.0], radius: 0.32, height: 4.0}
+  COLUMN_NORTH_CENTER: {floor: 1, xyz: [0.0, 8.0, 2.0], radius: 0.32, height: 4.0}
+lights:
+  F1_LIGHT_NW: {floor: 1, xyz: [-16.0, 12.0, 3.35], intensity: 2.2, range: 18.0}
+  F1_LIGHT_N: {floor: 1, xyz: [0.0, 12.0, 3.35], intensity: 2.2, range: 18.0}
+  F1_LIGHT_NE: {floor: 1, xyz: [16.0, 12.0, 3.35], intensity: 2.2, range: 18.0}
+  F1_LIGHT_W: {floor: 1, xyz: [-16.0, 0.0, 3.35], intensity: 2.2, range: 18.0}
+  F1_LIGHT_CENTER: {floor: 1, xyz: [0.0, 0.0, 3.35], intensity: 2.6, range: 18.0}
+  F1_LIGHT_E: {floor: 1, xyz: [16.0, 0.0, 3.35], intensity: 2.2, range: 18.0}
+  F1_LIGHT_SW: {floor: 1, xyz: [-16.0, -12.0, 3.35], intensity: 2.2, range: 18.0}
+  F1_LIGHT_S: {floor: 1, xyz: [0.0, -12.0, 3.35], intensity: 2.2, range: 18.0}
+  F1_LIGHT_SE: {floor: 1, xyz: [16.0, -12.0, 3.35], intensity: 2.2, range: 18.0}

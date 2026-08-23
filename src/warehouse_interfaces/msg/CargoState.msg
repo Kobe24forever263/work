@@ -1,0 +1,9 @@
+builtin_interfaces/Time stamp
+string cargo_id
+string task_id
+string state
+string owner_id
+string constraint_id
+geometry_msgs/Pose pose
+bool unique_ownership_valid
+string failure_reason

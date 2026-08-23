@@ -1,0 +1,34 @@
+protocol:
+  version: tro_seed_protocol_stage18_confirmatory_v2
+  frozen_on: 2026-08-15
+  supersedes_for_confirmatory_evaluation: tro_seed_protocol_v1.test
+  rationale: >-
+    Stage18 v1 locked results were inspected before paired-randomness and
+    crossed-bootstrap defects were discovered.  The v2 namespace is fresh,
+    disjoint from training, validation, smoke, v1 test, and bootstrap seeds.
+
+training_reference:
+  independent_run_base_seeds: [31000000, 31010000, 31020000, 31030000,
+                               31040000, 31050000, 31060000, 31070000,
+                               31080000, 31090000]
+  checkpoint_policy: validation_selected_best_before_any_test
+  weights_reused_without_retraining: true
+
+test:
+  seed_start: 45000000
+  seed_count: 100
+  paired_across_methods: true
+  handover_sampling: TASK_KEYED_COMMON_RANDOM_NUMBERS
+  run_once_after_protocol_freeze: true
+  scenarios: [MEDIUM, DENSE, BURST]
+
+statistics:
+  bootstrap_seed_start: 46000000
+  bootstrap_samples: 10000
+  design: crossed_training_seed_by_shared_test_seed
+  multiplicity:
+    primary_family: full_context_v2_vs_rule_baseline
+    primary_metrics: [reward, success_rate,
+                      successful_throughput_tasks_per_hour]
+    familywise_method: HOLM
+    exploratory_method: BENJAMINI_HOCHBERG

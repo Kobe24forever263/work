@@ -1,0 +1,9 @@
+string resource_type
+string resource_id
+string requester_id
+string task_id
+float32 lease_seconds
+---
+bool accepted
+string reservation_id
+string reason

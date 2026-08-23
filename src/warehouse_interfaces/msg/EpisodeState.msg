@@ -1,0 +1,9 @@
+builtin_interfaces/Time stamp
+string episode_id
+string status
+int32 active_tasks
+int32 completed_tasks
+int32 failed_tasks
+float32 elapsed_time
+string termination_reason
+uint32 seed

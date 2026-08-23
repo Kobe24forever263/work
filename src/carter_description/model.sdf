@@ -1,0 +1,326 @@
+<sdf version='1.11'>
+  <model name='carter'>
+    <link name='chassis_link'>
+      <inertial>
+        <pose>-0.14492629558047901 0 0.1021050290754775 0 0 0</pose>
+        <mass>65.97999999999999</mass>
+        <inertia>
+          <ixx>2.6920995721185479</ixx>
+          <ixy>0.017957000000000001</ixy>
+          <ixz>-0.53075965212723208</ixz>
+          <iyy>2.7387809024579108</iyy>
+          <iyz>1.8e-05</iyz>
+          <izz>4.0109903303393626</izz>
+        </inertia>
+      </inertial>
+      <collision name='chassis_link_collision'>
+        <pose>-0.07764248 0 0.14683718000000001 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.55000000000000004 0.40000000000000002 0.54000000000000004</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='chassis_link_fixed_joint_lump__com_offset_collision_1'>
+        <pose>-0.29999999999999999 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.25 0.25 0.10000000000000001</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='chassis_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://carter_description/meshes/chassis.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.04 0.24 0.80 1</ambient>
+          <diffuse>0.05 0.32 0.95 1</diffuse>
+          <specular>0.30 0.30 0.35 1</specular>
+        </material>
+      </visual>
+      <visual name='white_upper_cover'>
+        <pose>0.015 0 0.275 0 0 0</pose>
+        <geometry>
+          <box><size>0.30 0.31 0.10</size></box>
+        </geometry>
+        <material>
+          <ambient>0.92 0.94 0.98 1</ambient>
+          <diffuse>0.98 0.99 1.00 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="imu" type="imu">
+        <pose>0 0 0.30 0 0 0</pose>
+        <always_on>true</always_on>
+        <update_rate>100</update_rate>
+      </sensor>
+      <sensor name="lidar" type="gpu_lidar">
+        <pose>0.12 0 0.48 0 0 0</pose>
+        <always_on>true</always_on>
+        <update_rate>10</update_rate>
+        <visualize>true</visualize>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>720</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.14159265</min_angle>
+              <max_angle>3.14159265</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.12</min>
+            <max>25.0</max>
+            <resolution>0.02</resolution>
+          </range>
+        </lidar>
+      </sensor>
+    </link>
+    <joint name='left_wheel' type='revolute'>
+      <pose relative_to='chassis_link'>0 0.31420516999999998 0 0 0 0</pose>
+      <parent>chassis_link</parent>
+      <child>left_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_wheel_link'>
+      <pose relative_to='left_wheel'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 -0.050000000000000003 0 0 0 0</pose>
+        <mass>4.195729</mass>
+        <inertia>
+          <ixx>0.06368</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.12141</iyy>
+          <iyz>0</iyz>
+          <izz>0.06368</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_wheel_link_collision'>
+        <pose>0 -0.050000000000000003 0 1.570796326794897 -1.5707963267948966 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.10000000000000001</length>
+            <radius>0.23999999999999999</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='left_wheel_link_visual'>
+        <pose>0 0 0 1.570796326794897 -1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://carter_description/meshes/side_wheel.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.025 0.03 0.04 1</ambient>
+          <diffuse>0.045 0.05 0.06 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_pivot' type='revolute'>
+      <pose relative_to='chassis_link'>-0.31613606999999999 0 -0.075800000000000006 0 0 0</pose>
+      <parent>chassis_link</parent>
+      <child>rear_pivot_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_pivot_link'>
+      <pose relative_to='rear_pivot'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.01 0 -0.029999999999999999 0 0 0</pose>
+        <mass>0.57951900000000001</mass>
+        <inertia>
+          <ixx>0.001361</ixx>
+          <ixy>-3.0000000000000001e-06</ixy>
+          <ixz>0.00034699999999999998</ixz>
+          <iyy>0.0012869999999999999</iyy>
+          <iyz>-1.0000000000000001e-05</iyz>
+          <izz>0.00063199999999999997</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_pivot_link_collision'>
+        <pose>-0.01 0 -0.029999999999999999 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.089999999999999997 0.080000000000000002 0.12</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='rear_pivot_link_visual'>
+        <pose>-0.038096949999999997 0 -0.087999999999999995 -1.57057 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://carter_description/meshes/pivot.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.025 0.03 0.04 1</ambient>
+          <diffuse>0.045 0.05 0.06 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_axle' type='revolute'>
+      <pose relative_to='rear_pivot_link'>-0.038096949999999997 0 -0.089610220000000004 0 0 0</pose>
+      <parent>rear_pivot_link</parent>
+      <child>rear_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_wheel_link'>
+      <pose relative_to='rear_axle'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 1.57057 0 0</pose>
+        <mass>1.25</mass>
+        <inertia>
+          <ixx>0.028879999999999999</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.028879999999999999</iyy>
+          <iyz>0</iyz>
+          <izz>0.028879999999999999</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_wheel_link_collision'>
+        <pose>0 0 0 1.57057 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.040000000000000001</length>
+            <radius>0.075999999999999998</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='rear_wheel_link_visual'>
+        <pose>0 0 0 1.57057 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://carter_description/meshes/caster_wheel.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.025 0.03 0.04 1</ambient>
+          <diffuse>0.045 0.05 0.06 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name='right_wheel' type='revolute'>
+      <pose relative_to='chassis_link'>0 -0.31420516999999998 0 0 0 0</pose>
+      <parent>chassis_link</parent>
+      <child>right_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_wheel_link'>
+      <pose relative_to='right_wheel'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0.050000000000000003 0 0 0 0</pose>
+        <mass>4.195729</mass>
+        <inertia>
+          <ixx>0.06368</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.12141</iyy>
+          <iyz>0</iyz>
+          <izz>0.06368</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_wheel_link_collision'>
+        <pose>0 0.050000000000000003 0 -1.570796326794897 -1.5707963267948966 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.10000000000000001</length>
+            <radius>0.23999999999999999</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='right_wheel_link_visual'>
+        <pose>0 0 0 -1.570796326794897 -1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://carter_description/meshes/side_wheel.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.025 0.03 0.04 1</ambient>
+          <diffuse>0.045 0.05 0.06 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <frame name='com_joint' attached_to='chassis_link'>
+      <pose>-0.29999999999999999 0 0 0 0 0</pose>
+    </frame>
+    <frame name='com_offset' attached_to='com_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='imu_joint' attached_to='chassis_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='imu' attached_to='imu_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <plugin filename="gz-sim-diff-drive-system"
+            name="gz::sim::systems::DiffDrive">
+      <left_joint>left_wheel</left_joint>
+      <right_joint>right_wheel</right_joint>
+      <wheel_separation>0.62841034</wheel_separation>
+      <wheel_radius>0.24</wheel_radius>
+      <odom_publish_frequency>30</odom_publish_frequency>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+      <max_linear_acceleration>0.8</max_linear_acceleration>
+      <max_angular_acceleration>1.5</max_angular_acceleration>
+    </plugin>
+    <plugin filename="gz-sim-joint-state-publisher-system"
+            name="gz::sim::systems::JointStatePublisher">
+      <joint_name>left_wheel</joint_name>
+      <joint_name>right_wheel</joint_name>
+      <joint_name>rear_pivot</joint_name>
+      <joint_name>rear_axle</joint_name>
+    </plugin>
+  </model>
+</sdf>

@@ -1,0 +1,45 @@
+protocol:
+  version: tro_seed_protocol_v1
+  frozen_on: 2026-08-11
+  principle: >-
+    Training, validation, test, smoke, and statistical-resampling seeds are
+    disjoint. All learning conditions share the same ten training base seeds,
+    validation seeds, and paired test episode seeds.
+
+training:
+  independent_run_base_seeds: [31000000, 31010000, 31020000, 31030000, 31040000,
+                               31050000, 31060000, 31070000, 31080000, 31090000]
+  warm_start_seed_offset: 0
+  warm_start_seed_count: 20
+  ppo_seed_offset: 100
+  episodes_per_run: 8000
+  use_for: [FULL_CONTEXT_V2, NO_QUEUE_RESOURCE, NO_HANDOVER_CUES,
+            NO_PERSISTENT_POSITION, FLAT_MASKED_PPO, FIXED_GAMMA, RTAW]
+  independence_scope:
+    - supervised_warm_start_data_order
+    - network_initialization
+    - rollout_task_stream
+    - ppo_minibatch_order
+
+validation:
+  seed_start: 42000000
+  seed_count: 100
+  use: checkpoint_selection_only
+
+test:
+  seed_start: 43000000
+  seed_count: 100
+  paired_across_methods: true
+  run_once_after_checkpoint_lock: true
+  scenarios: [MEDIUM, DENSE, CROSS_HEAVY, BURST, MIXED_CONTINUOUS_RECOVERY]
+
+smoke:
+  seed_start: 41000000
+  seed_count: 100
+  use: interface_and_schema_gates_only
+
+statistics:
+  bootstrap_seed_start: 44000000
+  seed_count: 100
+  paired_episode_resampling: true
+  hierarchical_training_seed_resampling: true

@@ -1,0 +1,346 @@
+{"kind":"deck","id":"pr/v5u9mr","name":"Deck"}
+{"kind":"layout","layoutId":"1156b096-1f77-48e4-8ec0-3b627c901108","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"49d7ca04-0ba4-4271-bc6b-d7b19da9d3a9","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/y8cdov","slide":1,"title":"异构机器人跨楼层协同调度","textShapes":5}
+{"kind":"shape","id":"sh/7axwn69g","slide":1,"bbox":[72,82,108,6]}
+{"kind":"textbox","id":"sh/8b6xgbq1","slide":1,"text":"异构机器人跨楼层协同调度","textPreview":"异构机器人跨楼层协同调度","textChars":12,"textLines":1,"bbox":[72,162,930,82]}
+{"kind":"textbox","id":"sh/9cfypg7m","slide":1,"text":"项目进展、强化学习方法与阶段性评估","textPreview":"项目进展、强化学习方法与阶段性评估","textChars":17,"textLines":1,"bbox":[72,266,900,42]}
+{"kind":"textbox","id":"sh/udofil8r","slide":1,"text":"Go2 × Carter · SCAN-Planner · SMDP-PPO","textPreview":"Go2 × Carter · SCAN-Planner · SMDP-PPO","textChars":38,"textLines":1,"bbox":[72,352,680,32]}
+{"kind":"shape","id":"sh/vehgrqpc","slide":1,"bbox":[72,548,1136,2]}
+{"kind":"textbox","id":"sh/wfqxkvqx","slide":1,"text":"2026.08.09","textPreview":"2026.08.09","textChars":10,"textLines":1,"bbox":[72,578,220,30]}
+{"kind":"textbox","id":"sh/h0zyt07i","slide":1,"text":"阶段 15 汇报","textPreview":"阶段 15 汇报","textChars":8,"textLines":1,"bbox":[982,578,226,30]}
+{"kind":"notes","id":"nt/y8cdov","slide":1,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/0809交接文档.md\n[/Sources]"}
+{"kind":"slide","id":"sl/hors68","slide":2,"title":"CURRENT STATE","textShapes":29}
+{"kind":"textbox","id":"sh/ylgba5kf","slide":2,"text":"CURRENT STATE","textPreview":"CURRENT STATE","textChars":13,"textLines":1,"bbox":[72,44,280,24]}
+{"kind":"textbox","id":"sh/lo7a50j6","slide":2,"text":"核心运输链已经形成闭环","textPreview":"核心运输链已经形成闭环","textChars":11,"textLines":1,"bbox":[72,76,1136,58]}
+{"kind":"shape","id":"sh/0nytcf2l","slide":2,"bbox":[72,142,1136,2]}
+{"kind":"textbox","id":"sh/by5szq14","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1160,676,48,20]}
+{"kind":"shape","id":"sh/qxwb6lkj","slide":2,"bbox":[72,196,176,112]}
+{"kind":"textbox","id":"sh/dkna10ju","slide":2,"text":"异步任务","textPreview":"异步任务","textChars":4,"textLines":1,"bbox":[88,218,144,28]}
+{"kind":"textbox","id":"sh/cjet8v2p","slide":2,"text":"取货 / 送货","textPreview":"取货 / 送货","textChars":7,"textLines":1,"bbox":[84,260,152,24]}
+{"kind":"textbox","id":"sh/3u5svqls","slide":2,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[256,228,34,38]}
+{"kind":"shape","id":"sh/2twb2lk7","slide":2,"bbox":[298,196,176,112]}
+{"kind":"textbox","id":"sh/sbep8vi1","slide":2,"text":"高层调度","textPreview":"高层调度","textChars":4,"textLines":1,"bbox":[314,218,144,28]}
+{"kind":"textbox","id":"sh/tcnqh0z6","slide":2,"text":"选任务与组合","textPreview":"选任务与组合","textChars":6,"textLines":1,"bbox":[310,260,152,24]}
+{"kind":"textbox","id":"sh/6pw76l0v","slide":2,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[482,228,34,38]}
+{"kind":"shape","id":"sh/rq58fqhg","slide":2,"bbox":[524,196,176,112]}
+{"kind":"textbox","id":"sh/4nep4bip","slide":2,"text":"车狗协作","textPreview":"车狗协作","textChars":4,"textLines":1,"bbox":[540,218,144,28]}
+{"kind":"textbox","id":"sh/5onqdgza","slide":2,"text":"吸附 / 瞬时交接","textPreview":"吸附 / 瞬时交接","textChars":9,"textLines":1,"bbox":[536,260,152,24]}
+{"kind":"textbox","id":"sh/ilw7210j","slide":2,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[708,228,34,38]}
+{"kind":"shape","id":"sh/jm58b6h4","slide":2,"bbox":[750,196,176,112]}
+{"kind":"textbox","id":"sh/ojy9gfit","slide":2,"text":"SCAN-Planner","textPreview":"SCAN-Planner","textChars":12,"textLines":1,"bbox":[766,218,144,28]}
+{"kind":"textbox","id":"sh/pkrqpkze","slide":2,"text":"执行真实路线","textPreview":"执行真实路线","textChars":6,"textLines":1,"bbox":[762,260,152,24]}
+{"kind":"textbox","id":"sh/do3ydgnm","slide":2,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[934,228,34,38]}
+{"kind":"shape","id":"sh/cnuhkb61","slide":2,"bbox":[976,196,176,112]}
+{"kind":"textbox","id":"sh/bmlgb65g","slide":2,"text":"状态回写","textPreview":"状态回写","textChars":4,"textLines":1,"bbox":[992,218,144,28]}
+{"kind":"textbox","id":"sh/qlszi1ov","slide":2,"text":"位置与资源持续","textPreview":"位置与资源持续","textChars":7,"textLines":1,"bbox":[988,260,152,24]}
+{"kind":"textbox","id":"sh/pkjy9wna","slide":2,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[92,420,90,64]}
+{"kind":"textbox","id":"sh/ozahgr6p","slide":2,"text":"机器人","textPreview":"机器人","textChars":3,"textLines":1,"bbox":[186,430,144,30]}
+{"kind":"textbox","id":"sh/3y1g7654","slide":2,"text":"4 Go2 + 6 Carter","textPreview":"4 Go2 + 6 Carter","textChars":16,"textLines":1,"bbox":[92,500,238,44]}
+{"kind":"shape","id":"sh/2xsze1oz","slide":2,"bbox":[356,420,2,164]}
+{"kind":"textbox","id":"sh/1wjy5wne","slide":2,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[376,420,90,64]}
+{"kind":"textbox","id":"sh/gvahcr6t","slide":2,"text":"楼梯","textPreview":"楼梯","textChars":2,"textLines":1,"bbox":[470,430,144,30]}
+{"kind":"textbox","id":"sh/61ov6x4r","slide":2,"text":"四向跨楼层候选","textPreview":"四向跨楼层候选","textChars":7,"textLines":1,"bbox":[376,500,238,44]}
+{"kind":"shape","id":"sh/r2xwf2lw","slide":2,"bbox":[640,420,2,164]}
+{"kind":"textbox","id":"sh/s3qd87mh","slide":2,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[660,420,90,64]}
+{"kind":"textbox","id":"sh/t4zehs32","slide":2,"text":"运输模式","textPreview":"运输模式","textChars":4,"textLines":1,"bbox":[754,430,144,30]}
+{"kind":"textbox","id":"sh/ixov2d4f","slide":2,"text":"单车 / 单狗 / 车狗车","textPreview":"单车 / 单狗 / 车狗车","textChars":13,"textLines":1,"bbox":[660,500,238,44]}
+{"kind":"shape","id":"sh/jyxwbil0","slide":2,"bbox":[924,420,2,164]}
+{"kind":"textbox","id":"sh/4z6d4nml","slide":2,"text":"0","textPreview":"0","textChars":1,"textLines":1,"bbox":[944,420,90,64]}
+{"kind":"textbox","id":"sh/50feds36","slide":2,"text":"非法动作","textPreview":"非法动作","textChars":4,"textLines":1,"bbox":[1038,430,144,30]}
+{"kind":"textbox","id":"sh/a94vyd4j","slide":2,"text":"正式评估与回归门禁","textPreview":"正式评估与回归门禁","textChars":9,"textLines":1,"bbox":[944,500,238,44]}
+{"kind":"notes","id":"nt/hors68","slide":2,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/0809交接文档.md\n- /Users/lab4099/Desktop/Mujoco/work/src/warehouse_core/warehouse_core/stage14_training.py\n[/Sources]"}
+{"kind":"slide","id":"sl/oxsw1c","slide":3,"title":"PROGRESS","textShapes":17}
+{"kind":"textbox","id":"sh/ps3u1k7q","slide":3,"text":"PROGRESS","textPreview":"PROGRESS","textChars":8,"textLines":1,"bbox":[72,44,280,24]}
+{"kind":"textbox","id":"sh/25cb658z","slide":3,"text":"项目已从仿真演示推进到可复现实验","textPreview":"项目已从仿真演示推进到可复现实验","textChars":16,"textLines":1,"bbox":[72,76,1136,58]}
+{"kind":"shape","id":"sh/36lczapk","slide":3,"bbox":[72,142,1136,2]}
+{"kind":"textbox","id":"sh/g3ut4fq9","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1160,676,48,20]}
+{"kind":"shape","id":"sh/143uxk7e","slide":3,"bbox":[112,322,1028,4]}
+{"kind":"shape","id":"sh/e1sb2583","slide":3,"bbox":[136,303,42,42]}
+{"kind":"shape","id":"sh/f21cvapo","slide":3,"bbox":[120,190,144,34]}
+{"kind":"textbox","id":"sh/0zedgzqd","slide":3,"text":"阶段 1–10","textPreview":"阶段 1–10","textChars":7,"textLines":1,"bbox":[120,195,144,24]}
+{"kind":"textbox","id":"sh/l0nu947y","slide":3,"text":"场景与本体","textPreview":"场景与本体","textChars":5,"textLines":1,"bbox":[120,244,200,34]}
+{"kind":"textbox","id":"sh/58b6hobm","slide":3,"text":"两层仓库与完整机器人模型\n货物显示、跨层交接","textPreview":"两层仓库与完整机器人模型 | 货物显示、跨层交接","textChars":22,"textLines":2,"bbox":[120,382,220,82]}
+{"kind":"shape","id":"sh/4n25oja1","slide":3,"bbox":[412,303,42,42]}
+{"kind":"shape","id":"sh/3mtofetw","slide":3,"bbox":[396,190,144,34]}
+{"kind":"textbox","id":"sh/il0nmtsb","slide":3,"text":"阶段 11–13","textPreview":"阶段 11–13","textChars":8,"textLines":1,"bbox":[396,195,144,24]}
+{"kind":"textbox","id":"sh/hkrmdobq","slide":3,"text":"任务闭环","textPreview":"任务闭环","textChars":4,"textLines":1,"bbox":[396,244,200,34]}
+{"kind":"textbox","id":"sh/gji5kju5","slide":3,"text":"异步队列与持久位置\n失败恢复、SMDP奖励","textPreview":"异步队列与持久位置 | 失败恢复、SMDP奖励","textChars":21,"textLines":2,"bbox":[396,382,220,82]}
+{"kind":"shape","id":"sh/vi94betk","slide":3,"bbox":[688,303,42,42]}
+{"kind":"shape","id":"sh/uh0ni9cz","slide":3,"bbox":[672,190,144,34]}
+{"kind":"textbox","id":"sh/1gv6p8bu","slide":3,"text":"阶段 14","textPreview":"阶段 14","textChars":5,"textLines":1,"bbox":[672,195,144,24]}
+{"kind":"textbox","id":"sh/0fm5w3a9","slide":3,"text":"可学习接口","textPreview":"可学习接口","textChars":5,"textLines":1,"bbox":[672,244,200,34]}
+{"kind":"textbox","id":"sh/0jupsril","slide":3,"text":"284维状态与动作掩码\nContext V2 · Reward V2","textPreview":"284维状态与动作掩码 | Context V2 · Reward V2","textChars":34,"textLines":2,"bbox":[672,382,220,82]}
+{"kind":"shape","id":"sh/lk3qlcj6","slide":3,"bbox":[964,303,42,42]}
+{"kind":"shape","id":"sh/yhc7qh0f","slide":3,"bbox":[948,190,144,34]}
+{"kind":"textbox","id":"sh/zil8jm10","slide":3,"text":"阶段 15","textPreview":"阶段 15","textChars":5,"textLines":1,"bbox":[948,195,144,24]}
+{"kind":"textbox","id":"sh/cfapo7ip","slide":3,"text":"正式评估","textPreview":"正式评估","textChars":4,"textLines":1,"bbox":[948,244,200,34]}
+{"kind":"textbox","id":"sh/dgjqhcju","slide":3,"text":"串行/并发正式权重\n压力评估与配对消融","textPreview":"串行/并发正式权重 | 压力评估与配对消融","textChars":19,"textLines":2,"bbox":[948,382,220,82]}
+{"kind":"shape","id":"sh/qts7mx0j","slide":3,"bbox":[72,548,1136,72]}
+{"kind":"textbox","id":"sh/be18f214","slide":3,"text":"当前结论","textPreview":"当前结论","textChars":4,"textLines":1,"bbox":[96,568,120,28]}
+{"kind":"textbox","id":"sh/orapk7id","slide":3,"text":"基础链路和训练接口已稳定；当前重点转向“策略为何提升”与泛化边界。","textPreview":"基础链路和训练接口已稳定；当前重点转向“策略为何提升”与泛化边界。","textChars":33,"textLines":1,"bbox":[228,563,930,36]}
+{"kind":"notes","id":"nt/oxsw1c","slide":3,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/0809交接文档.md\n[/Sources]"}
+{"kind":"slide","id":"sl/zj6doz","slide":4,"title":"METHOD","textShapes":25}
+{"kind":"textbox","id":"sh/3eh0j250","slide":4,"text":"METHOD","textPreview":"METHOD","textChars":6,"textLines":1,"bbox":[72,44,280,24]}
+{"kind":"textbox","id":"sh/4zq1snm5","slide":4,"text":"事件驱动SMDP把“选谁、走哪、何时交接”统一起来","textPreview":"事件驱动SMDP把“选谁、走哪、何时交接”统一起来","textChars":25,"textLines":1,"bbox":[72,76,1136,58]}
+{"kind":"shape","id":"sh/50zilsnq","slide":4,"bbox":[72,142,1136,2]}
+{"kind":"textbox","id":"sh/u9ozmdo3","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1160,676,48,20]}
+{"kind":"textbox","id":"sh/vah0fi5o","slide":4,"text":"策略只在关键事件发生时决策","textPreview":"策略只在关键事件发生时决策","textChars":13,"textLines":1,"bbox":[72,176,520,34]}
+{"kind":"shape","id":"sh/gbqhon69","slide":4,"bbox":[72,228,454,54]}
+{"kind":"textbox","id":"sh/hczihsnu","slide":4,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[88,240,30,28]}
+{"kind":"textbox","id":"sh/65ozido7","slide":4,"text":"任务到达 / 系统可调度","textPreview":"任务到达 / 系统可调度","textChars":12,"textLines":1,"bbox":[132,239,366,28]}
+{"kind":"textbox","id":"sh/76x0bi5s","slide":4,"text":"↓","textPreview":"↓","textChars":1,"textLines":1,"bbox":[267,282,50,28]}
+{"kind":"shape","id":"sh/rqt4jah0","slide":4,"bbox":[72,310,454,54]}
+{"kind":"textbox","id":"sh/qpkna5gf","slide":4,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[88,322,30,28]}
+{"kind":"textbox","id":"sh/dsvmlkz6","slide":4,"text":"输出合法联合分配","textPreview":"输出合法联合分配","textChars":8,"textLines":1,"bbox":[132,321,366,28]}
+{"kind":"textbox","id":"sh/cr25cfyl","slide":4,"text":"↓","textPreview":"↓","textChars":1,"textLines":1,"bbox":[267,364,50,28]}
+{"kind":"shape","id":"sh/zud4nuhc","slide":4,"bbox":[72,392,454,54]}
+{"kind":"textbox","id":"sh/yt4nepgr","slide":4,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[88,404,30,28]}
+{"kind":"textbox","id":"sh/lwvmpkz2","slide":4,"text":"执行完整运输技能","textPreview":"执行完整运输技能","textChars":8,"textLines":1,"bbox":[132,403,366,28]}
+{"kind":"textbox","id":"sh/0vm5gzyh","slide":4,"text":"↓","textPreview":"↓","textChars":1,"textLines":1,"bbox":[267,446,50,28]}
+{"kind":"shape","id":"sh/fy94bqhs","slide":4,"bbox":[72,474,454,54]}
+{"kind":"textbox","id":"sh/ux032lg7","slide":4,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[88,486,30,28]}
+{"kind":"textbox","id":"sh/it87at0v","slide":4,"text":"完成、超时或资源释放","textPreview":"完成、超时或资源释放","textChars":10,"textLines":1,"bbox":[132,485,366,28]}
+{"kind":"shape","id":"sh/juh8jy1g","slide":4,"bbox":[598,176,2,432]}
+{"kind":"textbox","id":"sh/kfqpc3i1","slide":4,"text":"284","textPreview":"284","textChars":3,"textLines":1,"bbox":[646,190,500,52]}
+{"kind":"textbox","id":"sh/5gzql8jm","slide":4,"text":"状态维度","textPreview":"状态维度","textChars":4,"textLines":1,"bbox":[646,246,190,28]}
+{"kind":"textbox","id":"sh/apo76t0z","slide":4,"text":"任务、机器人、楼梯、队列、执行模式","textPreview":"任务、机器人、楼梯、队列、执行模式","textChars":17,"textLines":1,"bbox":[844,246,332,48]}
+{"kind":"textbox","id":"sh/vqx8fy1k","slide":4,"text":"1536 × 28","textPreview":"1536 × 28","textChars":9,"textLines":1,"bbox":[646,322,500,52]}
+{"kind":"textbox","id":"sh/wrqp8jip","slide":4,"text":"候选动作","textPreview":"候选动作","textChars":4,"textLines":1,"bbox":[646,378,190,28]}
+{"kind":"textbox","id":"sh/xszqhoja","slide":4,"text":"候选上下文特征 + 1536维合法掩码","textPreview":"候选上下文特征 + 1536维合法掩码","textChars":19,"textLines":1,"bbox":[844,378,332,48]}
+{"kind":"textbox","id":"sh/mlo7290n","slide":4,"text":"γₖ=0.99^(Δt/10)","textPreview":"γₖ=0.99^(Δt/10)","textChars":15,"textLines":1,"bbox":[646,454,500,52]}
+{"kind":"textbox","id":"sh/nmxobe18","slide":4,"text":"变时折扣","textPreview":"变时折扣","textChars":4,"textLines":1,"bbox":[646,510,190,28]}
+{"kind":"textbox","id":"sh/pg3ahc3q","slide":4,"text":"不同持续时间的技能按真实时间折扣","textPreview":"不同持续时间的技能按真实时间折扣","textChars":16,"textLines":1,"bbox":[844,510,332,48]}
+{"kind":"textbox","id":"sh/4futo725","slide":4,"text":"任务结束只清理本任务资源；机器人位置、楼层和累计状态不重置。","textPreview":"任务结束只清理本任务资源；机器人位置、楼层和累计状态不重置。","textChars":30,"textLines":1,"bbox":[646,578,530,30]}
+{"kind":"notes","id":"nt/zj6doz","slide":4,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/0809交接文档.md\n- /Users/lab4099/Desktop/Mujoco/work/阶段14_SMDP_PPO训练与测试说明.md\n[/Sources]"}
+{"kind":"slide","id":"sl/0f9k7z","slide":5,"title":"ACTION SPACE","textShapes":16}
+{"kind":"textbox","id":"sh/je507y10","slide":5,"text":"ACTION SPACE","textPreview":"ACTION SPACE","textChars":12,"textLines":1,"bbox":[72,44,280,24]}
+{"kind":"textbox","id":"sh/kfe103i5","slide":5,"text":"策略面对的是环境权衡，而不是固定运输模式","textPreview":"策略面对的是环境权衡，而不是固定运输模式","textChars":20,"textLines":1,"bbox":[72,76,1136,58]}
+{"kind":"shape","id":"sh/lgni9ojq","slide":5,"bbox":[72,142,1136,2]}
+{"kind":"textbox","id":"sh/apczu903","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1160,676,48,20]}
+{"kind":"textbox","id":"sh/bql03e1o","slide":5,"text":"同层任务","textPreview":"同层任务","textChars":4,"textLines":1,"bbox":[72,184,480,34]}
+{"kind":"shape","id":"sh/wbuhwji9","slide":5,"bbox":[72,236,500,146]}
+{"kind":"textbox","id":"sh/xcni5oju","slide":5,"text":"Carter 直送","textPreview":"Carter 直送","textChars":9,"textLines":1,"bbox":[104,264,190,32]}
+{"kind":"textbox","id":"sh/mlczq907","slide":5,"text":"2.0 m/s","textPreview":"2.0 m/s","textChars":7,"textLines":1,"bbox":[104,314,190,34]}
+{"kind":"shape","id":"sh/nml0ze1s","slide":5,"bbox":[318,254,2,102]}
+{"kind":"textbox","id":"sh/3i5wfup0","slide":5,"text":"Go2 直送","textPreview":"Go2 直送","textChars":6,"textLines":1,"bbox":[350,264,180,32]}
+{"kind":"textbox","id":"sh/2hwfm9of","slide":5,"text":"0.8 m/s","textPreview":"0.8 m/s","textChars":7,"textLines":1,"bbox":[350,314,180,34]}
+{"kind":"textbox","id":"sh/pkneh476","slide":5,"text":"跨层任务","textPreview":"跨层任务","textChars":4,"textLines":1,"bbox":[648,184,480,34]}
+{"kind":"shape","id":"sh/4jexoz6l","slide":5,"bbox":[648,236,560,146]}
+{"kind":"textbox","id":"sh/rmpwjepc","slide":5,"text":"Go2 单独跨层","textPreview":"Go2 单独跨层","textChars":8,"textLines":1,"bbox":[680,264,214,32]}
+{"kind":"textbox","id":"sh/qlgfq9or","slide":5,"text":"少交接 · 速度慢","textPreview":"少交接 · 速度慢","textChars":9,"textLines":1,"bbox":[680,314,214,28]}
+{"kind":"shape","id":"sh/do7elo72","slide":5,"bbox":[926,254,2,102]}
+{"kind":"textbox","id":"sh/cnyxsj6h","slide":5,"text":"Carter → Go2 → Carter","textPreview":"Carter → Go2 → Carter","textChars":21,"textLines":1,"bbox":[958,264,218,32]}
+{"kind":"textbox","id":"sh/7qlw7aps","slide":5,"text":"速度快 · 占用3台 · 两次交接","textPreview":"速度快 · 占用3台 · 两次交接","textChars":17,"textLines":1,"bbox":[958,314,218,50]}
+{"kind":"shape","id":"sh/6pcvepo7","slide":5,"bbox":[72,444,1136,132]}
+{"kind":"textbox","id":"sh/a5kzmx8v","slide":5,"text":"每次任务重新评估","textPreview":"每次任务重新评估","textChars":8,"textLines":1,"bbox":[100,468,250,32]}
+{"kind":"textbox","id":"sh/v6t0vi9g","slide":5,"text":"起终点几何  ×  当前机器人位置  ×  队列压力  ×  楼梯/资源占用  ×  交接风险","textPreview":"起终点几何  ×  当前机器人位置  ×  队列压力  ×  楼梯/资源占用  ×  交接风险","textChars":47,"textLines":1,"bbox":[100,516,1030,32]}
+{"kind":"textbox","id":"sh/w72honq1","slide":5,"text":"车—车交接已从候选空间删除；同一权重在合法方案间动态切换。","textPreview":"车—车交接已从候选空间删除；同一权重在合法方案间动态切换。","textChars":29,"textLines":1,"bbox":[100,586,1030,28]}
+{"kind":"notes","id":"nt/0f9k7z","slide":5,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/0809交接文档.md\n[/Sources]"}
+{"kind":"slide","id":"sl/7o7s26","slide":6,"title":"BASELINES","textShapes":14}
+{"kind":"textbox","id":"sh/a5kz6d0z","slide":6,"text":"BASELINES","textPreview":"BASELINES","textChars":9,"textLines":1,"bbox":[72,44,280,24]}
+{"kind":"textbox","id":"sh/x8bih8zq","slide":6,"text":"对照基线逐步增强，PPO的价值集中在长期资源代价","textPreview":"对照基线逐步增强，PPO的价值集中在长期资源代价","textChars":24,"textLines":1,"bbox":[72,76,1136,58]}
+{"kind":"shape","id":"sh/c72h83i5","slide":6,"bbox":[72,142,1136,2]}
+{"kind":"textbox","id":"sh/zat0jihg","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1160,676,48,20]}
+{"kind":"textbox","id":"sh/y9kzad0b","slide":6,"text":"时间贪心规则","textPreview":"时间贪心规则","textChars":6,"textLines":1,"bbox":[72,190,320,40]}
+{"kind":"shape","id":"sh/lwvilszm","slide":6,"bbox":[72,242,304,4]}
+{"kind":"textbox","id":"sh/kbmhcni1","slide":6,"text":"按优先级选任务\n以当前预计完成时间选组合","textPreview":"按优先级选任务 | 以当前预计完成时间选组合","textChars":20,"textLines":2,"bbox":[72,274,304,90]}
+{"kind":"textbox","id":"sh/7yd0n2hs","slide":6,"text":"只优化眼前一单","textPreview":"只优化眼前一单","textChars":7,"textLines":1,"bbox":[72,384,304,56]}
+{"kind":"textbox","id":"sh/mx4zex07","slide":6,"text":"风险感知规则","textPreview":"风险感知规则","textChars":6,"textLines":1,"bbox":[444,190,320,40]}
+{"kind":"shape","id":"sh/svypczyp","slide":6,"bbox":[444,242,304,4]}
+{"kind":"textbox","id":"sh/tw76l4fa","slide":6,"text":"ETA + P95交接失败风险\n+ 交接和机器人占用代价","textPreview":"ETA + P95交接失败风险 | + 交接和机器人占用代价","textChars":28,"textLines":2,"bbox":[444,274,304,90]}
+{"kind":"textbox","id":"sh/6tw7apgz","slide":6,"text":"更强且因果，不看实际随机样本","textPreview":"更强且因果，不看实际随机样本","textChars":14,"textLines":1,"bbox":[444,384,304,56]}
+{"kind":"textbox","id":"sh/7u5ojuxk","slide":6,"text":"Context V2 PPO","textPreview":"Context V2 PPO","textChars":14,"textLines":1,"bbox":[816,190,320,40]}
+{"kind":"shape","id":"sh/gjypgzy1","slide":6,"bbox":[816,242,304,4]}
+{"kind":"textbox","id":"sh/hk7qp4fm","slide":6,"text":"状态 × 候选 × 交互特征\n学习队列、资源和持续位置后果","textPreview":"状态 × 候选 × 交互特征 | 学习队列、资源和持续位置后果","textChars":29,"textLines":2,"bbox":[816,274,304,90]}
+{"kind":"textbox","id":"sh/uxg7e9gv","slide":6,"text":"优化跨任务长期回报","textPreview":"优化跨任务长期回报","textChars":9,"textLines":1,"bbox":[816,384,304,56]}
+{"kind":"shape","id":"sh/fip8nexg","slide":6,"bbox":[72,486,1136,116]}
+{"kind":"textbox","id":"sh/4nipkjyx","slide":6,"text":"提升机制","textPreview":"提升机制","textChars":4,"textLines":1,"bbox":[96,510,130,30]}
+{"kind":"textbox","id":"sh/porqtofi","slide":6,"text":"负载升高时，PPO减少同时占用三台机器人的车—狗—车链，把资源让给更多任务；规则只给单个候选加成本，难以学习队列的长期连锁效应。","textPreview":"负载升高时，PPO减少同时占用三台机器人的车—狗—车链，把资源让给更多任务；规则只给单个候选加成本，难以学习队列的长期连锁效应。","textChars":64,"textLines":1,"bbox":[244,504,920,70]}
+{"kind":"notes","id":"nt/7o7s26","slide":6,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/results/stage15/stage15_three_way_100ep.md\n- /Users/lab4099/Desktop/Mujoco/work/0809交接文档.md\n[/Sources]"}
+{"kind":"slide","id":"sl/816ixd","slide":7,"title":"TRAINING","textShapes":34}
+{"kind":"textbox","id":"sh/w36hcfid","slide":7,"text":"TRAINING","textPreview":"TRAINING","textChars":8,"textLines":1,"bbox":[72,44,280,24]}
+{"kind":"textbox","id":"sh/b2x0jahs","slide":7,"text":"正式训练使用统一Context V2与Reward V2","textPreview":"正式训练使用统一Context V2与Reward V2","textChars":28,"textLines":1,"bbox":[72,76,1136,58]}
+{"kind":"shape","id":"sh/a1oza507","slide":7,"bbox":[72,142,1136,2]}
+{"kind":"textbox","id":"sh/l8zipkzu","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1160,676,48,20]}
+{"kind":"textbox","id":"sh/k7q1gfi9","slide":7,"text":"模型与PPO","textPreview":"模型与PPO","textChars":6,"textLines":1,"bbox":[72,178,500,32]}
+{"kind":"textbox","id":"sh/j6h0nuh4","slide":7,"text":"网络","textPreview":"网络","textChars":2,"textLines":1,"bbox":[72,228,150,28]}
+{"kind":"textbox","id":"sh/y58jep0j","slide":7,"text":"contextual masked actor–critic","textPreview":"contextual masked actor–critic","textChars":30,"textLines":1,"bbox":[236,228,336,28]}
+{"kind":"shape","id":"sh/1cfid0zq","slide":7,"bbox":[72,264,500,1]}
+{"kind":"textbox","id":"sh/0bmh4vi5","slide":7,"text":"隐藏层","textPreview":"隐藏层","textChars":3,"textLines":1,"bbox":[72,276,150,28]}
+{"kind":"textbox","id":"sh/ap4r6t0v","slide":7,"text":"96","textPreview":"96","textChars":2,"textLines":1,"bbox":[236,276,336,28]}
+{"kind":"shape","id":"sh/vqdsfy1g","slide":7,"bbox":[72,312,500,1]}
+{"kind":"textbox","id":"sh/wr6983il","slide":7,"text":"学习率","textPreview":"学习率","textChars":3,"textLines":1,"bbox":[72,324,150,28]}
+{"kind":"textbox","id":"sh/xsfah8j6","slide":7,"text":"3 × 10⁻⁴","textPreview":"3 × 10⁻⁴","textChars":8,"textLines":1,"bbox":[236,324,336,28]}
+{"kind":"shape","id":"sh/itorad0r","slide":7,"bbox":[72,360,500,1]}
+{"kind":"textbox","id":"sh/juxsji1c","slide":7,"text":"PPO clip","textPreview":"PPO clip","textChars":8,"textLines":1,"bbox":[72,372,150,28]}
+{"kind":"textbox","id":"sh/kf69c3ix","slide":7,"text":"0.20","textPreview":"0.20","textChars":4,"textLines":1,"bbox":[236,372,336,28]}
+{"kind":"shape","id":"sh/5gfal8ji","slide":7,"bbox":[72,408,500,1]}
+{"kind":"textbox","id":"sh/6hored03","slide":7,"text":"GAE λ","textPreview":"GAE λ","textChars":5,"textLines":1,"bbox":[72,420,150,28]}
+{"kind":"textbox","id":"sh/7ihsni18","slide":7,"text":"0.95","textPreview":"0.95","textChars":4,"textLines":1,"bbox":[236,420,336,28]}
+{"kind":"shape","id":"sh/3mh8vixg","slide":7,"bbox":[72,456,500,1]}
+{"kind":"textbox","id":"sh/2l8r2dgv","slide":7,"text":"熵系数","textPreview":"熵系数","textChars":3,"textLines":1,"bbox":[72,468,150,28]}
+{"kind":"textbox","id":"sh/pozqxsfm","slide":7,"text":"0.01","textPreview":"0.01","textChars":4,"textLines":1,"bbox":[236,468,336,28]}
+{"kind":"shape","id":"sh/onq94ny1","slide":7,"bbox":[72,504,500,1]}
+{"kind":"textbox","id":"sh/fih8rihk","slide":7,"text":"每轮更新","textPreview":"每轮更新","textChars":4,"textLines":1,"bbox":[72,516,150,28]}
+{"kind":"textbox","id":"sh/uhorydgz","slide":7,"text":"4 epochs · minibatch 32","textPreview":"4 epochs · minibatch 32","textChars":23,"textLines":1,"bbox":[236,516,336,28]}
+{"kind":"shape","id":"sh/hkzqt8fa","slide":7,"bbox":[72,552,500,1]}
+{"kind":"shape","id":"sh/gjq90ny5","slide":7,"bbox":[620,178,2,404]}
+{"kind":"textbox","id":"sh/7ux8nyh8","slide":7,"text":"Reward V2与训练规模","textPreview":"Reward V2与训练规模","textChars":14,"textLines":1,"bbox":[668,178,520,32]}
+{"kind":"textbox","id":"sh/6to7utgn","slide":7,"text":"未完成时间尺度","textPreview":"未完成时间尺度","textChars":7,"textLines":1,"bbox":[668,228,190,28]}
+{"kind":"textbox","id":"sh/wzm54zel","slide":7,"text":"30 s","textPreview":"30 s","textChars":4,"textLines":1,"bbox":[874,228,314,28]}
+{"kind":"shape","id":"sh/x0v6x4v6","slide":7,"bbox":[668,264,520,1]}
+{"kind":"textbox","id":"sh/axkn2pwf","slide":7,"text":"超时 / 失败惩罚","textPreview":"超时 / 失败惩罚","textChars":9,"textLines":1,"bbox":[668,276,190,28]}
+{"kind":"textbox","id":"sh/vytovux0","slide":7,"text":"2.0","textPreview":"2.0","textChars":3,"textLines":1,"bbox":[874,276,314,28]}
+{"kind":"shape","id":"sh/knm58jex","slide":7,"bbox":[668,312,520,1]}
+{"kind":"textbox","id":"sh/5ov61ov2","slide":7,"text":"机器人占用系数","textPreview":"机器人占用系数","textChars":7,"textLines":1,"bbox":[668,324,190,28]}
+{"kind":"textbox","id":"sh/i14n69wr","slide":7,"text":"0.0002","textPreview":"0.0002","textChars":6,"textLines":1,"bbox":[874,324,314,28]}
+{"kind":"shape","id":"sh/j2dozedc","slide":7,"bbox":[668,360,520,1]}
+{"kind":"textbox","id":"sh/0r25wfed","slide":7,"text":"折扣","textPreview":"折扣","textChars":2,"textLines":1,"bbox":[668,372,190,28]}
+{"kind":"textbox","id":"sh/lsbmpkfy","slide":7,"text":"γ₀=0.99 · τ=10 s","textPreview":"γ₀=0.99 · τ=10 s","textChars":16,"textLines":1,"bbox":[874,372,314,28]}
+{"kind":"shape","id":"sh/tony5kfi","slide":7,"bbox":[668,408,520,1]}
+{"kind":"textbox","id":"sh/snexwfex","slide":7,"text":"归一化","textPreview":"归一化","textChars":3,"textLines":1,"bbox":[668,420,190,28]}
+{"kind":"textbox","id":"sh/rmlw3axc","slide":7,"text":"回报标准差 · 裁剪 ±10","textPreview":"回报标准差 · 裁剪 ±10","textChars":14,"textLines":1,"bbox":[874,420,314,28]}
+{"kind":"shape","id":"sh/6lcfu5wr","slide":7,"bbox":[668,456,520,1]}
+{"kind":"textbox","id":"sh/5k3e10f6","slide":7,"text":"正式训练","textPreview":"正式训练","textChars":4,"textLines":1,"bbox":[668,468,190,28]}
+{"kind":"textbox","id":"sh/4juxsfel","slide":7,"text":"2000 updates · 8000 episodes","textPreview":"2000 updates · 8000 episodes","textChars":28,"textLines":1,"bbox":[874,468,314,28]}
+{"kind":"shape","id":"sh/jylwzax0","slide":7,"bbox":[668,504,520,1]}
+{"kind":"textbox","id":"sh/ixcfq5wv","slide":7,"text":"每episode","textPreview":"每episode","textChars":8,"textLines":1,"bbox":[668,516,190,28]}
+{"kind":"textbox","id":"sh/hw3ex0fa","slide":7,"text":"20个连续任务","textPreview":"20个连续任务","textChars":7,"textLines":1,"bbox":[874,516,314,28]}
+{"kind":"shape","id":"sh/wvaxovep","slide":7,"bbox":[668,552,520,1]}
+{"kind":"textbox","id":"sh/m18vy1cn","slide":7,"text":"没有给任何运输模式专属奖励；训练目标是由环境代价自然决定方案。","textPreview":"没有给任何运输模式专属奖励；训练目标是由环境代价自然决定方案。","textChars":31,"textLines":1,"bbox":[72,618,1116,30]}
+{"kind":"notes","id":"nt/816ixd","slide":7,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/阶段14_SMDP_PPO训练与测试说明.md\n- /Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/long/realistic_concurrent_medium_reward_v2_context_v2/stage14_realistic_concurrent_medium_reward_v2_context_v2.summary.json\n- /Users/lab4099/Desktop/Mujoco/work/src/warehouse_core/warehouse_core/stage14_training.py\n[/Sources]"}
+{"kind":"slide","id":"sl/3joalj","slide":8,"title":"SERIAL RESULT","textShapes":10}
+{"kind":"textbox","id":"sh/n65w7qxc","slide":8,"text":"SERIAL RESULT","textPreview":"SERIAL RESULT","textChars":13,"textLines":1,"bbox":[72,44,280,24]}
+{"kind":"textbox","id":"sh/87yxgvex","slide":8,"text":"单任务策略已验收：可靠性与里程略优","textPreview":"单任务策略已验收：可靠性与里程略优","textChars":17,"textLines":1,"bbox":[72,76,1136,58]}
+{"kind":"shape","id":"sh/987e90f2","slide":8,"bbox":[72,142,1136,2]}
+{"kind":"textbox","id":"sh/a9gfi5wn","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1160,676,48,20]}
+{"kind":"shape","id":"sh/wvyxkfet","slide":8,"bbox":[724,190,2,394]}
+{"kind":"textbox","id":"sh/hw7ed0fe","slide":8,"text":"97.15%","textPreview":"97.15%","textChars":6,"textLines":1,"bbox":[772,202,390,66]}
+{"kind":"textbox","id":"sh/ixgfm5wz","slide":8,"text":"任务成功率","textPreview":"任务成功率","textChars":5,"textLines":1,"bbox":[772,274,250,28]}
+{"kind":"textbox","id":"sh/jy9wfaxk","slide":8,"text":"比时间规则 +0.90 个百分点\n比风险规则 +0.25 个百分点","textPreview":"比时间规则 +0.90 个百分点 | 比风险规则 +0.25 个百分点","textChars":33,"textLines":2,"bbox":[772,318,390,64]}
+{"kind":"textbox","id":"sh/ryx8f25c","slide":8,"text":"59.985 m","textPreview":"59.985 m","textChars":8,"textLines":1,"bbox":[772,422,390,48]}
+{"kind":"textbox","id":"sh/6xormhor","slide":8,"text":"每任务总里程","textPreview":"每任务总里程","textChars":6,"textLines":1,"bbox":[772,474,250,28]}
+{"kind":"textbox","id":"sh/t0fqhcni","slide":8,"text":"比时间规则少 7.176 m\n比风险规则少 2.310 m","textPreview":"比时间规则少 7.176 m | 比风险规则少 2.310 m","textChars":29,"textLines":2,"bbox":[772,516,390,56]}
+{"kind":"shape","id":"sh/sz69o76x","slide":8,"bbox":[72,594,1136,50]}
+{"kind":"textbox","id":"sh/jad8b25g","slide":8,"text":"边界：相对风险规则，回报 +0.170 的95%置信区间跨0；时延近似持平。","textPreview":"边界：相对风险规则，回报 +0.170 的95%置信区间跨0；时延近似持平。","textChars":38,"textLines":1,"bbox":[92,607,1096,28]}
+{"kind":"chart","id":"ch/falkzuh0","slide":8,"name":"","chartType":"bar","bbox":[72,186,610,360]}
+{"kind":"notes","id":"nt/3joalj","slide":8,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/results/stage15/stage15_serial_medium_three_way_100ep.md\n- /Users/lab4099/Desktop/Mujoco/work/阶段15_SERIAL回报对比.md\n[/Sources]"}
+{"kind":"slide","id":"sl/b5uslp","slide":9,"title":"CONCURRENCY","textShapes":17}
+{"kind":"textbox","id":"sh/1onmpgjq","slide":9,"text":"CONCURRENCY","textPreview":"CONCURRENCY","textChars":11,"textLines":1,"bbox":[72,44,280,24]}
+{"kind":"textbox","id":"sh/e1w3e1kz","slide":9,"text":"并发收益随任务负载迅速扩大","textPreview":"并发收益随任务负载迅速扩大","textChars":13,"textLines":1,"bbox":[72,76,1136,58]}
+{"kind":"shape","id":"sh/zm54n61k","slide":9,"bbox":[72,142,1136,2]}
+{"kind":"textbox","id":"sh/czulcb2t","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1160,676,48,20]}
+{"kind":"textbox","id":"sh/qxc3a1k3","slide":9,"text":"回报提升","textPreview":"回报提升","textChars":4,"textLines":1,"bbox":[846,190,300,30]}
+{"kind":"textbox","id":"sh/ryl4j6lo","slide":9,"text":"+2.526","textPreview":"+2.526","textChars":6,"textLines":1,"bbox":[846,236,300,44]}
+{"kind":"textbox","id":"sh/4vul8r2x","slide":9,"text":"MEDIUM","textPreview":"MEDIUM","textChars":6,"textLines":1,"bbox":[1050,246,120,26]}
+{"kind":"shape","id":"sh/pw32hw3i","slide":9,"bbox":[846,292,324,1]}
+{"kind":"textbox","id":"sh/x03m1032","slide":9,"text":"+65.632","textPreview":"+65.632","textChars":7,"textLines":1,"bbox":[846,340,300,44]}
+{"kind":"textbox","id":"sh/wzu5svmx","slide":9,"text":"DENSE","textPreview":"DENSE","textChars":5,"textLines":1,"bbox":[1050,350,120,26]}
+{"kind":"shape","id":"sh/byl4zqlc","slide":9,"bbox":[846,396,324,1]}
+{"kind":"textbox","id":"sh/axcnql4r","slide":9,"text":"+132.268","textPreview":"+132.268","textChars":8,"textLines":1,"bbox":[846,444,300,44]}
+{"kind":"textbox","id":"sh/9w3mxg36","slide":9,"text":"BURST","textPreview":"BURST","textChars":5,"textLines":1,"bbox":[1050,454,120,26]}
+{"kind":"shape","id":"sh/ovalobml","slide":9,"bbox":[846,500,324,1]}
+{"kind":"shape","id":"sh/nu14v6l0","slide":9,"bbox":[72,592,1136,52]}
+{"kind":"textbox","id":"sh/mts3ml4f","slide":9,"text":"平均等待减少","textPreview":"平均等待减少","textChars":6,"textLines":1,"bbox":[92,606,160,26]}
+{"kind":"textbox","id":"sh/18jmtg3a","slide":9,"text":"3.482 s","textPreview":"3.482 s","textChars":7,"textLines":1,"bbox":[270,604,160,28]}
+{"kind":"textbox","id":"sh/07alkbmp","slide":9,"text":"84.114 s","textPreview":"84.114 s","textChars":8,"textLines":1,"bbox":[516,604,180,28]}
+{"kind":"textbox","id":"sh/sbe50bul","slide":9,"text":"171.034 s","textPreview":"171.034 s","textChars":9,"textLines":1,"bbox":[812,604,200,28]}
+{"kind":"textbox","id":"sh/dcnm9gbq","slide":9,"text":"MEDIUM","textPreview":"MEDIUM","textChars":6,"textLines":1,"bbox":[368,606,100,24]}
+{"kind":"textbox","id":"sh/q9cny1cf","slide":9,"text":"DENSE","textPreview":"DENSE","textChars":5,"textLines":1,"bbox":[622,606,80,24]}
+{"kind":"textbox","id":"sh/ra5476t0","slide":9,"text":"BURST","textPreview":"BURST","textChars":5,"textLines":1,"bbox":[936,606,80,24]}
+{"kind":"chart","id":"ch/5wfyt0zy","slide":9,"name":"","chartType":"bar","bbox":[72,178,720,388]}
+{"kind":"notes","id":"nt/b5uslp","slide":9,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/results/stage15/stage15_serial_vs_concurrent_100ep.md\n[/Sources]"}
+{"kind":"slide","id":"sl/v3x442","slide":10,"title":"ADAPTATION","textShapes":10}
+{"kind":"textbox","id":"sh/xcra1ozi","slide":10,"text":"ADAPTATION","textPreview":"ADAPTATION","textChars":10,"textLines":1,"bbox":[72,44,280,24]}
+{"kind":"textbox","id":"sh/a90bq9g7","slide":10,"text":"同一权重会随负载改变跨层运输方案","textPreview":"同一权重会随负载改变跨层运输方案","textChars":16,"textLines":1,"bbox":[72,76,1136,58]}
+{"kind":"shape","id":"sh/ba9szehs","slide":10,"bbox":[72,142,1136,2]}
+{"kind":"textbox","id":"sh/onytojy1","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1160,676,48,20]}
+{"kind":"shape","id":"sh/2lgbm9gv","slide":10,"bbox":[902,190,2,388]}
+{"kind":"textbox","id":"sh/nmpsvehg","slide":10,"text":"47.6%","textPreview":"47.6%","textChars":5,"textLines":1,"bbox":[948,208,230,52]}
+{"kind":"textbox","id":"sh/8j2t03y5","slide":10,"text":"NORMAL","textPreview":"NORMAL","textChars":6,"textLines":1,"bbox":[948,264,150,24]}
+{"kind":"textbox","id":"sh/94bu98zq","slide":10,"text":"↓","textPreview":"↓","textChars":1,"textLines":1,"bbox":[1016,304,60,34]}
+{"kind":"textbox","id":"sh/poratoj6","slide":10,"text":"5.7%","textPreview":"5.7%","textChars":4,"textLines":1,"bbox":[948,354,230,52]}
+{"kind":"textbox","id":"sh/oni90j2l","slide":10,"text":"BURST","textPreview":"BURST","textChars":5,"textLines":1,"bbox":[948,410,150,24]}
+{"kind":"textbox","id":"sh/3m9sre10","slide":10,"text":"高负载下主动减少\n三机器人协作链","textPreview":"高负载下主动减少 | 三机器人协作链","textChars":16,"textLines":2,"bbox":[948,472,230,64]}
+{"kind":"textbox","id":"sh/2l0ry9kf","slide":10,"text":"证明不是固定模式策略","textPreview":"证明不是固定模式策略","textChars":10,"textLines":1,"bbox":[948,558,230,26]}
+{"kind":"chart","id":"ch/5kfqtk7a","slide":10,"name":"","chartType":"line","bbox":[72,184,790,404]}
+{"kind":"notes","id":"nt/v3x442","slide":10,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/results/stage15/stage15_mixed_continuous_100ep.md\n[/Sources]"}
+{"kind":"slide","id":"sl/rpjzqt","slide":11,"title":"EVIDENCE","textShapes":26}
+{"kind":"textbox","id":"sh/7q1cni98","slide":11,"text":"EVIDENCE","textPreview":"EVIDENCE","textChars":8,"textLines":1,"bbox":[72,44,280,24]}
+{"kind":"textbox","id":"sh/8ratwnat","slide":11,"text":"提升集中在拥堵场景，同时保留真实边界","textPreview":"提升集中在拥堵场景，同时保留真实边界","textChars":18,"textLines":1,"bbox":[72,76,1136,58]}
+{"kind":"shape","id":"sh/tsjupsre","slide":11,"bbox":[72,142,1136,2]}
+{"kind":"textbox","id":"sh/y18bqdsr","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1160,676,48,20]}
+{"kind":"textbox","id":"sh/j2hsji9w","slide":11,"text":"相对风险规则的配对提升","textPreview":"相对风险规则的配对提升","textChars":11,"textLines":1,"bbox":[72,180,600,30]}
+{"kind":"shape","id":"sh/knatsnah","slide":11,"bbox":[72,230,130,44]}
+{"kind":"textbox","id":"sh/lojal8r2","slide":11,"text":"场景","textPreview":"场景","textChars":2,"textLines":1,"bbox":[78,241,118,24]}
+{"kind":"shape","id":"sh/ixcb2xsv","slide":11,"bbox":[212,230,120,44]}
+{"kind":"textbox","id":"sh/3ylcv29g","slide":11,"text":"回报","textPreview":"回报","textChars":2,"textLines":1,"bbox":[218,241,108,24]}
+{"kind":"shape","id":"sh/ju58jep0","slide":11,"bbox":[342,230,148,44]}
+{"kind":"textbox","id":"sh/ytc7a98f","slide":11,"text":"平均等待","textPreview":"平均等待","textChars":4,"textLines":1,"bbox":[348,241,136,24]}
+{"kind":"shape","id":"sh/lwnqlo76","slide":11,"bbox":[500,230,156,44]}
+{"kind":"textbox","id":"sh/kvepcjql","slide":11,"text":"P95等待","textPreview":"P95等待","textChars":5,"textLines":1,"bbox":[506,241,144,24]}
+{"kind":"shape","id":"sh/7y58nypc","slide":11,"bbox":[666,230,146,44]}
+{"kind":"textbox","id":"sh/6xw7et8r","slide":11,"text":"里程/任务","textPreview":"里程/任务","textChars":5,"textLines":1,"bbox":[672,241,134,24]}
+{"kind":"shape","id":"sh/t0nqp872","slide":11,"bbox":[72,284,130,56]}
+{"kind":"textbox","id":"sh/8zepg3qh","slide":11,"text":"DENSE","textPreview":"DENSE","textChars":5,"textLines":1,"bbox":[78,300,118,26]}
+{"kind":"shape","id":"sh/vmp8ryp8","slide":11,"bbox":[212,284,120,56]}
+{"kind":"textbox","id":"sh/u1writ8n","slide":11,"text":"+15.171","textPreview":"+15.171","textChars":7,"textLines":1,"bbox":[218,300,108,26]}
+{"kind":"shape","id":"sh/qh0baxsv","slide":11,"bbox":[342,284,148,56]}
+{"kind":"textbox","id":"sh/ri9sj29g","slide":11,"text":"−18.112 s","textPreview":"−18.112 s","textChars":9,"textLines":1,"bbox":[348,300,136,26]}
+{"kind":"shape","id":"sh/sjitc7a1","slide":11,"bbox":[500,284,156,56]}
+{"kind":"textbox","id":"sh/dkralcrm","slide":11,"text":"−59.453 s","textPreview":"−59.453 s","textChars":9,"textLines":1,"bbox":[506,300,144,26]}
+{"kind":"shape","id":"sh/it0b6xsz","slide":11,"bbox":[666,284,146,56]}
+{"kind":"textbox","id":"sh/3u9sf29k","slide":11,"text":"−7.227 m","textPreview":"−7.227 m","textChars":8,"textLines":1,"bbox":[672,300,134,26]}
+{"kind":"shape","id":"sh/4vit87ap","slide":11,"bbox":[72,350,130,56]}
+{"kind":"textbox","id":"sh/5grahsra","slide":11,"text":"BURST","textPreview":"BURST","textChars":5,"textLines":1,"bbox":[78,366,118,26]}
+{"kind":"shape","id":"sh/2pkbihs3","slide":11,"bbox":[212,350,120,56]}
+{"kind":"textbox","id":"sh/nqtcrm9o","slide":11,"text":"+28.452","textPreview":"+28.452","textChars":7,"textLines":1,"bbox":[218,366,108,26]}
+{"kind":"shape","id":"sh/xkfehgbq","slide":11,"bbox":[342,350,148,56]}
+{"kind":"textbox","id":"sh/cjmd8bu5","slide":11,"text":"−33.949 s","textPreview":"−33.949 s","textChars":9,"textLines":1,"bbox":[348,366,136,26]}
+{"kind":"shape","id":"sh/bidwfqt0","slide":11,"bbox":[500,350,156,56]}
+{"kind":"textbox","id":"sh/ah4v6lcf","slide":11,"text":"−74.869 s","textPreview":"−74.869 s","textChars":9,"textLines":1,"bbox":[506,366,144,26]}
+{"kind":"shape","id":"sh/pgvedgbu","slide":11,"bbox":[666,350,146,56]}
+{"kind":"textbox","id":"sh/ofmd4bu9","slide":11,"text":"−7.111 m","textPreview":"−7.111 m","textChars":8,"textLines":1,"bbox":[672,366,134,26]}
+{"kind":"shape","id":"sh/nedwb6to","slide":11,"bbox":[850,180,2,418]}
+{"kind":"textbox","id":"sh/2d4v21c3","slide":11,"text":"不回避的边界","textPreview":"不回避的边界","textChars":6,"textLines":1,"bbox":[898,180,270,30]}
+{"kind":"shape","id":"sh/9czep0by","slide":11,"bbox":[900,246,16,16]}
+{"kind":"textbox","id":"sh/8b6xgfad","slide":11,"text":"MEDIUM与CROSS_HEAVY：回报优势不显著","textPreview":"MEDIUM与CROSS_HEAVY：回报优势不显著","textChars":26,"textLines":1,"bbox":[934,238,250,58]}
+{"kind":"shape","id":"sh/gfulgfu9","slide":11,"bbox":[900,326,16,16]}
+{"kind":"textbox","id":"sh/1gnm90bu","slide":11,"text":"吞吐差置信区间跨0，不宣称全面领先","textPreview":"吞吐差置信区间跨0，不宣称全面领先","textChars":17,"textLines":1,"bbox":[934,318,250,58]}
+{"kind":"shape","id":"sh/edc3e5c3","slide":11,"bbox":[900,406,16,16]}
+{"kind":"textbox","id":"sh/fel47ato","slide":11,"text":"BURST绝对等待仍高，策略只缓解拥堵","textPreview":"BURST绝对等待仍高，策略只缓解拥堵","textChars":19,"textLines":1,"bbox":[934,398,250,58]}
+{"kind":"shape","id":"sh/oje5kfa5","slide":11,"bbox":[900,486,16,16]}
+{"kind":"textbox","id":"sh/pknmdkbq","slide":11,"text":"Go2仅0.8 m/s，更多单狗会牺牲时延","textPreview":"Go2仅0.8 m/s，更多单狗会牺牲时延","textChars":21,"textLines":1,"bbox":[934,478,250,58]}
+{"kind":"shape","id":"sh/2hwni5cf","slide":11,"bbox":[72,528,728,72]}
+{"kind":"textbox","id":"sh/3i54batk","slide":11,"text":"24000","textPreview":"24000","textChars":5,"textLines":1,"bbox":[96,541,140,42]}
+{"kind":"textbox","id":"sh/cny5ozah","slide":11,"text":"三方压力评估任务结果 · 指纹严格配对 · 非法动作0 · 资源泄漏0","textPreview":"三方压力评估任务结果 · 指纹严格配对 · 非法动作0 · 资源泄漏0","textChars":35,"textLines":1,"bbox":[240,546,532,36]}
+{"kind":"notes","id":"nt/rpjzqt","slide":11,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/results/stage15/stage15_three_way_100ep.md\n[/Sources]"}
+{"kind":"slide","id":"sl/mh0jfz","slide":12,"title":"NEXT","textShapes":20}
+{"kind":"textbox","id":"sh/v61o3694","slide":12,"text":"NEXT","textPreview":"NEXT","textChars":4,"textLines":1,"bbox":[72,44,280,24]}
+{"kind":"textbox","id":"sh/w7apwbqp","slide":12,"text":"下一阶段先解释“为什么有效”，再进入最终仿真优化","textPreview":"下一阶段先解释“为什么有效”，再进入最终仿真优化","textChars":24,"textLines":1,"bbox":[72,76,1136,58]}
+{"kind":"shape","id":"sh/h8j65gra","slide":12,"bbox":[72,142,1136,2]}
+{"kind":"textbox","id":"sh/mh87qh8n","slide":12,"text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1160,676,48,20]}
+{"kind":"textbox","id":"sh/721ozm98","slide":12,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[72,174,64,40]}
+{"kind":"textbox","id":"sh/83apsrqt","slide":12,"text":"上下文消融","textPreview":"上下文消融","textChars":5,"textLines":1,"bbox":[154,174,210,34]}
+{"kind":"textbox","id":"sh/94j61wre","slide":12,"text":"分别屏蔽队列/资源、交接风险、持久位置","textPreview":"分别屏蔽队列/资源、交接风险、持久位置","textChars":19,"textLines":1,"bbox":[388,174,420,54]}
+{"kind":"textbox","id":"sh/6dc72l8r","slide":12,"text":"确定性能提升来自哪些状态信息","textPreview":"确定性能提升来自哪些状态信息","textChars":14,"textLines":1,"bbox":[840,174,338,54]}
+{"kind":"shape","id":"sh/ryl8bq9c","slide":12,"bbox":[72,252,1136,1]}
+{"kind":"textbox","id":"sh/365cz6lc","slide":12,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[72,282,64,40]}
+{"kind":"textbox","id":"sh/25wvq1kr","slide":12,"text":"负载恢复测试","textPreview":"负载恢复测试","textChars":6,"textLines":1,"bbox":[154,282,210,34]}
+{"kind":"textbox","id":"sh/p8ne1g3i","slide":12,"text":"构造 BURST → NORMAL 连续场景","textPreview":"构造 BURST → NORMAL 连续场景","textChars":22,"textLines":1,"bbox":[388,282,420,54]}
+{"kind":"textbox","id":"sh/47edsb2x","slide":12,"text":"验证拥堵结束后能否恢复高效率协作链","textPreview":"验证拥堵结束后能否恢复高效率协作链","textChars":17,"textLines":1,"bbox":[840,282,338,54]}
+{"kind":"shape","id":"sh/ba5w36l8","slide":12,"bbox":[72,360,1136,1]}
+{"kind":"textbox","id":"sh/q9wvu1kn","slide":12,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[72,390,64,40]}
+{"kind":"textbox","id":"sh/dc7e5g3e","slide":12,"text":"鲁棒性与敏感性","textPreview":"鲁棒性与敏感性","textChars":7,"textLines":1,"bbox":[154,390,210,34]}
+{"kind":"textbox","id":"sh/cbydwb2t","slide":12,"text":"多随机种子、奖励权重、交接超时边界","textPreview":"多随机种子、奖励权重、交接超时边界","textChars":17,"textLines":1,"bbox":[388,390,420,54]}
+{"kind":"textbox","id":"sh/zepw7qlk","slide":12,"text":"确认结论不依赖单一参数配置","textPreview":"确认结论不依赖单一参数配置","textChars":13,"textLines":1,"bbox":[840,390,338,54]}
+{"kind":"shape","id":"sh/ydgvylkz","slide":12,"bbox":[72,468,1136,1]}
+{"kind":"textbox","id":"sh/u5k7m98j","slide":12,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[72,498,64,40]}
+{"kind":"textbox","id":"sh/v6tofe9o","slide":12,"text":"RViz闭环验收","textPreview":"RViz闭环验收","textChars":8,"textLines":1,"bbox":[154,498,210,34]}
+{"kind":"textbox","id":"sh/w72pojq9","slide":12,"text":"加载best权重驱动车、狗、货物与SCAN-Planner","textPreview":"加载best权重驱动车、狗、货物与SCAN-Planner","textChars":29,"textLines":1,"bbox":[388,498,420,54]}
+{"kind":"textbox","id":"sh/h8vqhoru","slide":12,"text":"确认学习决策可映射到完整跨楼层任务","textPreview":"确认学习决策可映射到完整跨楼层任务","textChars":17,"textLines":1,"bbox":[840,498,338,54]}
+{"kind":"shape","id":"sh/mhk7i987","slide":12,"bbox":[72,576,1136,1]}
+{"kind":"shape","id":"sh/7itobe9s","slide":12,"bbox":[72,620,1136,44]}
+{"kind":"textbox","id":"sh/8j2pkjqd","slide":12,"text":"长时间复训仍由用户手动启动；Agent负责配置、短门禁、权重定位和自动评估。","textPreview":"长时间复训仍由用户手动启动；Agent负责配置、短门禁、权重定位和自动评估。","textChars":38,"textLines":1,"bbox":[92,631,1096,24]}
+{"kind":"notes","id":"nt/mh0jfz","slide":12,"text":"[Sources]\n- /Users/lab4099/Desktop/Mujoco/work/0809交接文档.md\n[/Sources]"}

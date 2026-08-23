@@ -1,0 +1,11 @@
+build/
+install/
+log/
+__pycache__/
+.pytest_cache/
+*.pyc
+checkpoints/
+results/
+.DS_Store
+build_context_v2/
+.codex/

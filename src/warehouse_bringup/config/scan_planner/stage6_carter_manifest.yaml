@@ -1,0 +1,36 @@
+robots:
+  car_f1_1:
+    floor: 1
+    routes:
+      ne: {pickup_xyz: [12.0, 8.0, 0.45], goal_xyz: [20.3, 14.0, 0.45], route_file: car_f1_1_stair_ne_send.yaml}
+  car_f1_2:
+    floor: 1
+    routes:
+      nw: {pickup_xyz: [-12.0, 8.0, 0.45], goal_xyz: [-20.3, 14.0, 0.45], route_file: car_f1_2_stair_nw_send.yaml}
+  car_f1_3:
+    floor: 1
+    routes:
+      sw: {pickup_xyz: [-12.0, -8.0, 0.45], goal_xyz: [-20.3, -14.0, 0.45], route_file: car_f1_3_stair_sw_send.yaml}
+  car_f1_4:
+    floor: 1
+    routes:
+      se: {pickup_xyz: [12.0, -8.0, 0.45], goal_xyz: [20.3, -14.0, 0.45], route_file: car_f1_4_stair_se_send.yaml}
+  car_f2_1:
+    floor: 2
+    routes:
+      nw: {receive_xyz: [-9.5, 6.5, 4.70], goal_xyz: [-7.0, 6.5, 4.70], route_file: car_f2_1_stair_nw_receive.yaml}
+      sw: {receive_xyz: [-9.5, -6.5, 4.70], goal_xyz: [-7.0, -6.5, 4.70], route_file: car_f2_1_stair_sw_receive.yaml}
+  car_f2_2:
+    floor: 2
+    routes:
+      ne: {receive_xyz: [9.5, 6.5, 4.70], goal_xyz: [7.0, 6.5, 4.70], route_file: car_f2_2_stair_ne_receive.yaml}
+      se: {receive_xyz: [9.5, -6.5, 4.70], goal_xyz: [7.0, -6.5, 4.70], route_file: car_f2_2_stair_se_receive.yaml}
+
+test_policy:
+  trials_per_robot: 100
+  # Stage 6 first validates repeatability on fixed, accepted routes.
+  # Randomized starts are deferred until the fixed-route gate is stable.
+  initial_jitter_xy: 0.0
+  goal_tolerance: 0.35
+  stable_seconds: 1.0
+  timeout_seconds: 180.0

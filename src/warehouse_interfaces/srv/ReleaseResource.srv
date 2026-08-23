@@ -1,0 +1,6 @@
+string reservation_id
+string requester_id
+string reason
+---
+bool released
+string message

@@ -1,0 +1,75 @@
+environment:
+  api: gymnasium
+  control_level: centralized_joint_assignment
+  event_driven: true
+  task_reset_preserves_robot_state: true
+  episode_task_count: 20
+  forbidden_low_level_outputs: [joint_command, cmd_vel, gait_command]
+
+observation:
+  state_shape: [284]
+  action_feature_shape: [1536, 30]
+  candidate_context_binding: task_geometry_deadline_relative_cost
+  state_candidate_interaction: explicit
+  includes_action_mask: true
+  action_mask_shape: [1536]
+
+action:
+  space: discrete_masked_joint_assignment
+  count: 1536
+  transport_modes: [SINGLE_CAR, SINGLE_DOG, CAR_DOG_CAR]
+  car_car_handover: forbidden
+  wait_only_when_no_task_ready: true
+
+task_mix:
+  profile: stage14_balanced_medium_v1
+  arrival_interval_seconds: [55.0, 75.0]
+  per_episode:
+    f1_same: 3
+    f1_cross_region: 2
+    f2_same: 3
+    f2_cross_region: 2
+    cross_up: 5
+    cross_down: 5
+  same_floor_fraction: 0.5
+  cross_floor_fraction: 0.5
+
+reward:
+  source: system.yaml.system.dispatch_execution.reward_v2
+  version: reward_v2
+  fixed_mode_bonus: false
+  fixed_single_dog_penalty: false
+  fixed_transport_mode_quota: false
+  time_aware_discount: true
+
+curriculum:
+  - id: lesson_1_balanced_rule_replay
+    tasks: 20
+    failures: false
+    random_physical_perturbation: false
+    objective: reproduce_rule_baseline_through_training_api
+  - id: lesson_2_balanced_policy_learning
+    tasks: 20
+    failures: false
+    random_physical_perturbation: false
+    objective: learn_mode_robot_and_stair_selection
+  - id: lesson_3_controlled_failures
+    tasks: 20
+    failures: true
+    random_physical_perturbation: false
+    objective: learn_safe_failure_aware_dispatch
+
+algorithm:
+  target: centralized_masked_smdp_ppo
+  first_gate: masked_centralized_policy_interface
+  agents: [dog_1, dog_2, dog_3, dog_4, car_f1_1, car_f1_2, car_f1_3, car_f1_4, car_f2_1, car_f2_2]
+  parameter_sharing:
+    dogs: [dog_1, dog_2, dog_3, dog_4]
+    floor1_cars: [car_f1_1, car_f1_2, car_f1_3, car_f1_4]
+    floor2_cars: [car_f2_1, car_f2_2]
+  centralized_critic: true
+  execution_uses_permitted_dispatch_state_only: true
+  contextual_acceptance:
+    reference: cheapest_legal_mode_for_current_task_and_fleet
+    minimum_diagonal_rate: 0.20
+    purpose: reject_global_transport_mode_collapse

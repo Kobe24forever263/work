@@ -1,0 +1,32 @@
+rule_cost:
+  navigation: 1.0
+  waiting: 2.0
+  handover: 8.0
+  handover_risk: 20.0
+  stair_congestion: 5.0
+  robot_occupancy: 10.0
+  cross_region: 4.0
+  timeout_risk: 30.0
+traffic:
+  resources: [task, cargo, robot, stair, handover, shared_region]
+  priority_policy: earliest_deadline_then_priority
+  no_preemption_phases: [TRANSFER, VERIFY]
+  deadlock_recovery: release_low_priority_and_return_waiting_pose
+stage13_reward:
+  outstanding_time_scale: 100.0
+  completion_bonus: 2.0
+  on_time_bonus: 0.5
+  timeout_penalty: 5.0
+  handover_penalty: 0.05
+  active_robot_time_penalty: 0.001
+  distance_penalty: 0.0
+  severe_failure_penalty: 10.0
+  gamma0: 0.99
+  discount_tau_s: 10.0
+episode_boundary:
+  terminate_on_task_limit: true
+  truncate_on_time_limit: true
+  severe_failure_reasons:
+    - CARGO_UNRECOVERABLE
+    - NO_FEASIBLE_CHAIN
+    - GLOBAL_DEADLOCK

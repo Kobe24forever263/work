@@ -1,0 +1,6 @@
+scan_planner_node:
+  ros__parameters:
+    fsm.navi_mode: 2
+    # Clear the SW dock into a nearby off-lane standby bay.  Persistent
+    # dispatch keeps this new pose instead of returning to the initial home.
+    fsm.waypoints: [-9.0, -6.5, 4.70, -9.0, -8.0, 4.70, -7.0, -9.5, 4.70, -5.5, -9.5, 4.70]

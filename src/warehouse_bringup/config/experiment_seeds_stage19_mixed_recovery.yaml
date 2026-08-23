@@ -1,0 +1,35 @@
+protocol:
+  version: tro_seed_protocol_stage19_mixed_recovery_v1
+  frozen_on: 2026-08-23
+  purpose: >-
+    Evaluate frozen MEDIUM, DENSE, and BURST full-context policies on one
+    continuous NORMAL -> DENSE -> BURST -> RECOVERY episode. Robot, queue,
+    cargo, and resource state are never reset at phase boundaries.
+
+test:
+  seed_start: 56000000
+  seed_count: 100
+  bootstrap_seed_start: 57000000
+  handover_sampling: TASK_KEYED_COMMON_RANDOM_NUMBERS
+  paired_across_methods: true
+  run_once_after_protocol_freeze: true
+
+smoke:
+  seed_start: 55990000
+  seed_count: 2
+
+profiles:
+  MEDIUM:
+    training_root: results/stage18
+  DENSE:
+    training_root: results/stage18_dense
+  BURST:
+    training_root: results/stage18_burst
+
+acceptance:
+  required_phases: [NORMAL, DENSE, BURST, RECOVERY]
+  tasks_per_phase: 20
+  illegal_action_count: 0
+  resource_leak_count: 0
+  resolved_task_count_per_episode: 80
+  adaptation_metrics_are_outcomes_not_hardcoded_rules: true

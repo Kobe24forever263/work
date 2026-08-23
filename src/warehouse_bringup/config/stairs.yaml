@@ -1,0 +1,30 @@
+stairs:
+  # Each straight external stair ends exactly at the floor-2 perimeter. This avoids
+  # laser cross-floor leakage through internal shafts while preserving continuous geometry.
+  STAIR_NE: {dog_id: dog_1, floor1_xy: [20.091, 17.091], floor2_xy: [15.0, 12.0], state: FREE, queue_length: 0, risk: 0.05}
+  STAIR_NW: {dog_id: dog_2, floor1_xy: [-20.091, 17.091], floor2_xy: [-15.0, 12.0], state: FREE, queue_length: 0, risk: 0.05}
+  STAIR_SW: {dog_id: dog_3, floor1_xy: [-20.091, -17.091], floor2_xy: [-15.0, -12.0], state: FREE, queue_length: 0, risk: 0.05}
+  STAIR_SE: {dog_id: dog_4, floor1_xy: [20.091, -17.091], floor2_xy: [15.0, -12.0], state: FREE, queue_length: 0, risk: 0.05}
+handover:
+  max_distance_m: 0.75
+  min_distance_m: 0.35
+  max_yaw_error_rad: 0.20
+  max_linear_speed_mps: 0.03
+  max_angular_speed_rps: 0.05
+  required_stable_duration_s: 1.5
+  timing_definition:
+    start: BOTH_AGENTS_STABLE_ALIGNMENT_START
+    end: UNIQUE_OWNER_TRANSFER_VERIFIED
+  timeout_policy:
+    percentile: 0.95
+    timeout_s: 2.697870903389276
+    comparison: STRICT_GREATER_THAN
+    failure_code: HANDOVER_TIMEOUT
+    task_result: FAILED
+    retry_count: 0
+    calibration_source: logic_simulation_provisional_v1
+    calibration_seed: 20260809
+    samples_per_kind: 500
+  verify_frames: 10
+  reservation_window_s: 20.0
+  zones_per_stair: [F1_WAIT, F1_SEND, F1_ENTRY, MID_GUIDE, F2_EXIT, F2_RECEIVE, F2_WAIT]

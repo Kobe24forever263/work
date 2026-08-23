@@ -1,0 +1,13 @@
+string robot_id
+string task_id
+string skill
+string target_id
+geometry_msgs/Pose target_pose
+---
+bool success
+string failure_code
+float32 duration
+---
+string state
+float32 progress
+string diagnostic

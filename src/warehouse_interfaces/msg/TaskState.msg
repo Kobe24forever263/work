@@ -1,0 +1,15 @@
+builtin_interfaces/Time stamp
+string task_id
+string cargo_id
+string source_point
+string target_point
+int8 source_floor
+int8 target_floor
+string source_region
+string target_region
+int32 priority
+float32 deadline
+builtin_interfaces/Time spawn_time
+string[] assigned_chain
+string current_stage
+string failure_reason

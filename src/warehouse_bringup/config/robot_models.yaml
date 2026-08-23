@@ -1,0 +1,17 @@
+models:
+  go2:
+    footprint_length_m: 0.70
+    footprint_width_m: 0.40
+    nominal_body_height_m: 0.45
+    navigation_adapter: scan_planner
+    nominal_speed_mps: 0.8
+  differential_car:
+    footprint_length_m: 0.85
+    footprint_width_m: 0.70
+    safety_margin_m: 0.15
+    wheel_radius_m: 0.10
+    wheel_separation_m: 0.55
+    global_planner: nav2
+    local_controller: mppi
+    nominal_speed_mps: 2.0
+    forbidden_regions: [STAIR_NE, STAIR_NW, STAIR_SW, STAIR_SE]

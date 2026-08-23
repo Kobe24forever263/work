@@ -1,0 +1,77 @@
+robots:
+  dog_1:
+    stair_id: STAIR_NE
+    namespace: /dog_1
+    initial_xyz_yaw:
+    - 20.8
+    - 17.8
+    - 0.45
+    - -2.356
+    up_route_file: src/warehouse_bringup/config/scan_planner/dog_1_stair_ne_up.yaml
+    down_route_file: src/warehouse_bringup/config/scan_planner/dog_1_stair_ne_down.yaml
+    up_initial_xyz:
+    - 20.8
+    - 17.8
+    - 0.45
+    down_initial_xyz:
+    - 14.292893218813452
+    - 11.292893218813452
+    - 4.5600000000000005
+    waypoint_count: 13
+  dog_2:
+    stair_id: STAIR_NW
+    namespace: /dog_2
+    initial_xyz_yaw:
+    - -20.8
+    - 17.8
+    - 0.45
+    - -0.785
+    up_route_file: src/warehouse_bringup/config/scan_planner/dog_2_stair_nw_up.yaml
+    down_route_file: src/warehouse_bringup/config/scan_planner/dog_2_stair_nw_down.yaml
+    up_initial_xyz:
+    - -20.8
+    - 17.8
+    - 0.45
+    down_initial_xyz:
+    - -14.292893218813452
+    - 11.292893218813452
+    - 4.5600000000000005
+    waypoint_count: 13
+  dog_3:
+    stair_id: STAIR_SW
+    namespace: /dog_3
+    initial_xyz_yaw:
+    - -20.8
+    - -17.8
+    - 0.45
+    - 0.785
+    up_route_file: src/warehouse_bringup/config/scan_planner/dog_3_stair_sw_up.yaml
+    down_route_file: src/warehouse_bringup/config/scan_planner/dog_3_stair_sw_down.yaml
+    up_initial_xyz:
+    - -20.8
+    - -17.8
+    - 0.45
+    down_initial_xyz:
+    - -14.292893218813452
+    - -11.292893218813452
+    - 4.5600000000000005
+    waypoint_count: 13
+  dog_4:
+    stair_id: STAIR_SE
+    namespace: /dog_4
+    initial_xyz_yaw:
+    - 20.8
+    - -17.8
+    - 0.45
+    - 2.356
+    up_route_file: src/warehouse_bringup/config/scan_planner/dog_4_stair_se_up.yaml
+    down_route_file: src/warehouse_bringup/config/scan_planner/dog_4_stair_se_down.yaml
+    up_initial_xyz:
+    - 20.8
+    - -17.8
+    - 0.45
+    down_initial_xyz:
+    - 14.292893218813452
+    - -11.292893218813452
+    - 4.5600000000000005
+    waypoint_count: 13
