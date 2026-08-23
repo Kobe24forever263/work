@@ -21,7 +21,7 @@ from warehouse_core.stage12_encoding import Stage12Encoder
 from warehouse_core.stage14_ppo import (
     PPOConfig, RunningReturnNormalizer, baseline_relative_score,
     collect_rollouts, evaluate,
-    load_checkpoint, ppo_update)
+    load_checkpoint, ppo_update, tasks_per_episode)
 
 
 RESULT_SCHEMA_VERSION = "warehouse_stage16_training_v1"
@@ -76,8 +76,18 @@ def save_checkpoint(path, model, optimizer, reward_normalizer, args, update,
 
 
 def compact(evaluation):
-    return {key: value for key, value in evaluation.items()
-            if key != "episodes"}
+    result = {key: value for key, value in evaluation.items()
+              if key != "episodes"}
+    schedule_metadata = [
+        episode.get("arrival_schedule_metadata", {})
+        for episode in evaluation.get("episodes", [])
+        if episode.get("arrival_schedule_metadata")
+    ]
+    if schedule_metadata:
+        # Preserve the randomized phase order and lengths needed to audit a
+        # mixed-curriculum result without retaining every per-step episode row.
+        result["arrival_schedule_metadata"] = schedule_metadata
+    return result
 
 
 def main():
@@ -85,7 +95,7 @@ def main():
     parser.add_argument("--execution-mode", choices=(
         "SERIAL", "CONCURRENT", "MIXED"), default="MIXED")
     parser.add_argument("--arrival-profile", choices=(
-        "MEDIUM", "DENSE", "BURST"), default="MEDIUM")
+        "MEDIUM", "DENSE", "BURST", "MIXED_CURRICULUM"), default="MEDIUM")
     parser.add_argument("--observation-variant", choices=(
         "FULL_CONTEXT_V2", "NO_QUEUE_RESOURCE", "NO_HANDOVER_CUES",
         "NO_PERSISTENT_POSITION", "NO_POSITION_ONLY", "NO_ETA_COST_ONLY",
@@ -288,6 +298,12 @@ def main():
                 episode["execution_mode"] for episode in episodes)),
             "rollout_transport_modes": dict(mode_counts),
             "rollout_exposed_transport_modes": sorted(exposed_modes),
+            "rollout_arrival_schedules": dict(Counter(
+                episode["arrival_schedule"] for episode in episodes)),
+            "rollout_curriculum_phase_orders": dict(Counter(
+                "->".join(episode["arrival_schedule_metadata"].get(
+                    "phase_order", [])) or "FIXED"
+                for episode in episodes)),
             **metrics,
         }
         if update % args.eval_every == 0 or update == final_update:
@@ -376,6 +392,18 @@ def main():
         set(last_evaluation["transport_modes"]) == transport_modes and
         all(context_match_rates.get(mode, 0.0) >= .20
             for mode in transport_modes))
+    expected_evaluation_tasks = (
+        args.eval_episodes * tasks_per_episode(args.arrival_profile))
+    curriculum_orders = {
+        tuple(episode.get("arrival_schedule_metadata", {}).get(
+            "phase_order", []))
+        for episode in last_evaluation["episodes"]
+    }
+    mixed_curriculum_contract = (
+        args.arrival_profile != "MIXED_CURRICULUM" or (
+            last_evaluation.get("arrival_schedule") == "MIXED_CURRICULUM" and
+            all(len(order) == 4 for order in curriculum_orders) and
+            (args.eval_episodes < 2 or len(curriculum_orders) >= 2)))
     assertions = {
         "ppo_parameters_updated": parameter_delta > 0,
         "training_metrics_are_finite": finite_metrics,
@@ -390,7 +418,7 @@ def main():
                 abs(row["rollout_discount_max"] - .99) < 1e-7
                 for row in history)))),
         "evaluation_resolved_all_tasks": (
-            last_evaluation["task_count"] == args.eval_episodes * 20),
+            last_evaluation["task_count"] == expected_evaluation_tasks),
         "evaluation_actions_all_legal": (
             last_evaluation["illegal_action_count"] == 0),
         "evaluation_has_no_resource_leak": (
@@ -411,6 +439,7 @@ def main():
         "concurrent_mode_overlaps_when_requested": (
             args.execution_mode == "SERIAL" or
             last_evaluation["maximum_active_tasks"] >= 2),
+        "mixed_curriculum_schedule_contract": mixed_curriculum_contract,
     }
     summary = {
         "schema_version": RESULT_SCHEMA_VERSION,
@@ -424,6 +453,8 @@ def main():
             "Training completed; held-out acceptance is still required."),
         "execution_mode": args.execution_mode,
         "arrival_profile": args.arrival_profile,
+        "arrival_schedule": last_evaluation.get("arrival_schedule"),
+        "tasks_per_episode": tasks_per_episode(args.arrival_profile),
         "observation_variant": args.observation_variant,
         "policy_variant": args.policy_variant,
         "discount_mode": args.discount_mode,

@@ -1,0 +1,73 @@
+protocol:
+  version: tro_stage20_mixed_curriculum_v1
+  frozen_on: 2026-08-23
+  purpose: >-
+    Train one FULL_CONTEXT_V2 policy on randomized persistent mixed-load
+    episodes. Training, validation, future locked test, and bootstrap seeds are
+    disjoint from Stage 18 and Stage 19.
+
+training:
+  independent_run_base_seeds: [61000000, 61010000, 61020000, 61030000, 61040000,
+                               61050000, 61060000, 61070000, 61080000, 61090000]
+  warm_start_seed_offset: 0
+  warm_start_seed_count: 20
+  ppo_seed_offset: 100
+  formal_updates: 2000
+  episodes_per_update: 4
+  episodes_per_run: 8000
+
+validation:
+  seed_start: 62000000
+  seed_count: 100
+  use: checkpoint_selection_only
+
+smoke:
+  seed_start: 63000000
+  seed_count: 100
+  use: interface_schedule_and_safety_gates_only
+
+locked_test:
+  seed_start: 64000000
+  seed_count: 100
+  run_once_after_ten_weights_are_frozen: true
+  reuse_stage19_test_seeds: false
+
+statistics:
+  bootstrap_seed_start: 65000000
+  samples: 10000
+  design: crossed_training_seed_by_shared_test_seed
+
+curriculum:
+  arrival_profile: MIXED_CURRICULUM
+  execution_mode: CONCURRENT
+  tasks_per_episode: 80
+  phases: [NORMAL, DENSE, BURST, RECOVERY]
+  phase_length_tasks:
+    minimum: 12
+    maximum: 28
+    granularity: 4
+    total: 80
+  phase_order:
+    randomized: true
+    constraint: BURST_PRECEDES_RECOVERY
+  switch_gap:
+    randomized: true
+    multiplier_of_next_phase_mean_interval: [0.35, 1.35]
+  state_reset_between_phases: false
+  transport_modes_available: [SINGLE_CAR, SINGLE_DOG, CAR_DOG_CAR]
+  phase_label_exposed_to_policy: false
+
+acceptance:
+  short_gate_seed_count: 3
+  required:
+    - every_episode_accounts_for_80_tasks
+    - multiple_phase_orders_observed
+    - no_illegal_action
+    - no_resource_or_cargo_leak
+    - all_three_transport_modes_exposed
+    - concurrent_execution_observed
+    - checkpoint_and_resume_metadata_complete
+  not_claimed_by_short_gate:
+    - convergence
+    - superiority_to_fixed_profile_policies
+    - superiority_to_rule_or_single_dog_baselines

@@ -333,5 +333,61 @@ Stage 19：**通过**。
 任务级数据完整；随机任务流一致；非法动作和资源泄漏均为 0；crossed bootstrap 可重算；
 三个 PPO cohort 均显示负载相关的运输模式变化和 Recovery 积压下降。
 
-下一动作不是立即再次长训练，而是先完成 Stage 19 的论文图、queue AUC/recovery time 定义和
-统计复核；随后冻结 mixed-curriculum 训练协议，再由用户手动启动正式长训练。
+原计划先画 Stage 19 论文图；2026-08-23 用户调整优先级为“先完成实验，绘图后置”。因此当前
+先执行 Stage 20 mixed-curriculum，Stage 19 的 queue AUC/recovery time 图表代码保留但暂停。
+
+## 12. Stage 20 mixed-curriculum 实施与短门禁（2026-08-23）
+
+Stage 20 不再把 MEDIUM、DENSE、BURST 分开训练成三个策略，而是在每个持续 episode 内随机组合
+`NORMAL`、`DENSE`、`BURST`、`RECOVERY` 四个阶段，训练同一个策略根据实时任务与资源状态选择
+`SINGLE_CAR`、`SINGLE_DOG` 或 `CAR_DOG_CAR`。阶段标签不输入策略；机器人位置、占用资源和队列
+在阶段切换时不重置。
+
+冻结协议：
+
+- 每个 episode 固定 80 个任务；四段长度分别为 12–28 且总和为 80；
+- 阶段顺序随机，但约束 BURST 必须先于 RECOVERY；切换空隙也随机；
+- 同层/跨层任务比例按阶段分别平衡，跨层任务上行/下行平衡；
+- 10 个训练种子为 `61000000–61090000`，验证种子从 `62000000` 起；
+- 正式训练每种子 2000 updates、每 update 4 episodes，共 8000 episodes；
+- 新鲜锁定测试种子从 `64000000` 起，不与 Stage 19 正式测试种子重叠。
+
+三种子短门禁已通过。种子 1/2/3 各评估 320 个任务，总计 960 个任务，940 成功、20 次失败均按
+既定交接超时语义记账；平均成功率 97.92%，平均 resolved throughput 65.24 tasks/h。三个种子均为
+零非法动作、零货物/资源泄漏，均观察到并发执行、三种运输模式和多种随机阶段顺序。种子 1 已从
+update 2 精确续跑至 update 3，检查点中的奖励归一化器及 NumPy、PyTorch、PPO RNG 状态完整。
+短门禁只证明接口、随机日程、持久状态、安全性和断点恢复，不作为收敛或优于基线的证据。
+
+短门禁汇总：
+
+`results/stage20_mixed_curriculum/short_gate/stage20_short_gate.summary.json`
+
+正式长训练必须由用户手动启动，入口为：
+
+```bash
+cd /Users/lab4099/Desktop/Mujoco/work
+./scripts/run_stage20_mixed_curriculum_long.command
+```
+
+该入口顺序运行 10 个种子，已有合格结果自动跳过，中断后重新执行会从每个种子的最新检查点
+续跑；进度状态写入：
+
+`results/stage20_mixed_curriculum/stage20_long_batch.status.json`
+
+每个种子的最终权重位于：
+
+`results/stage20_mixed_curriculum/long/seed_XX/stage20_ppo.pt`
+
+全部 10 个权重完成后必须先冻结清单，再用 `64000000–64000099` 运行一次正式锁定测试；对比对象
+包括 Stage 19 三个 fixed-profile cohort、规则基线与单狗空白对照。只有该锁定测试及 crossed
+bootstrap 完成后，才能判断 mixed-curriculum 是否优于固定负载训练，随后再恢复论文绘图。
+
+Stage 20 关键文件：
+
+- 随机种子与冻结协议：
+  `src/warehouse_bringup/config/experiment_seeds_stage20_mixed_curriculum.yaml`
+- episode 生成器：`src/warehouse_core/warehouse_core/stage14_training.py`
+- 单种子入口：`scripts/run_stage20_mixed_curriculum.py`
+- 10 种子手动长训练入口：`scripts/run_stage20_mixed_curriculum_long.command`
+- 批处理与续跑器：`scripts/run_stage20_mixed_curriculum_long_batch.py`
+- 短门禁汇总器：`scripts/summarize_stage20_short_gate.py`

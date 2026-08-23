@@ -31,7 +31,7 @@ from warehouse_core.stage12_encoding import Stage12Encoder
 from warehouse_core.stage14_training import (
     STAGE14_REWARD_CONFIG, Stage14EpisodeSpec, WarehouseDispatchGymEnv,
     build_balanced_arrivals, build_mixed_load_arrivals,
-    build_mixed_recovery_arrivals)
+    build_mixed_recovery_arrivals, build_mixed_curriculum_arrivals)
 from warehouse_core.stage14_policy import MaskedCandidateActorCritic
 from warehouse_core.stage14_ppo import (
     RolloutStep, RunningReturnNormalizer, compute_smdp_gae, evaluate)
@@ -666,6 +666,53 @@ def test_stage19_mixed_recovery_environment_preserves_tensor_contract():
         1536, Stage12Encoder.ACTION_WIDTH)
     assert info["pending_arrivals"] == 79
     assert observation["state"][2] == .4
+
+
+def test_stage20_mixed_curriculum_randomizes_order_length_and_gaps():
+    first, metadata = build_mixed_curriculum_arrivals(
+        20269001, return_metadata=True)
+    repeated, repeated_metadata = build_mixed_curriculum_arrivals(
+        20269001, return_metadata=True)
+    second, second_metadata = build_mixed_curriculum_arrivals(
+        20269002, return_metadata=True)
+    assert metadata == repeated_metadata
+    assert [(item.arrival_time, kind) for item, kind in first] == [
+        (item.arrival_time, kind) for item, kind in repeated]
+    assert len(first) == len(second) == 80
+    assert sum(metadata["phase_lengths"]) == 80
+    assert all(12 <= value <= 28 and value % 4 == 0
+               for value in metadata["phase_lengths"])
+    assert sorted(metadata["phase_order"]) == [
+        "BURST", "DENSE", "NORMAL", "RECOVERY"]
+    assert (metadata["phase_order"].index("BURST") <
+            metadata["phase_order"].index("RECOVERY"))
+    assert (metadata["phase_order"] != second_metadata["phase_order"] or
+            metadata["phase_lengths"] != second_metadata["phase_lengths"] or
+            [row["switch_gap_s"] for row in metadata["phase_rows"]] !=
+            [row["switch_gap_s"] for row in second_metadata["phase_rows"]])
+    assert len({item.task.task_id for item, _ in first}) == 80
+    assert len({item.task.cargo_id for item, _ in first}) == 80
+    assert all(first[index][0].arrival_time < first[index + 1][0].arrival_time
+               for index in range(79))
+    counts = Counter(kind.split(":", 1)[0] for _, kind in first)
+    assert counts == dict(zip(metadata["phase_order"], metadata["phase_lengths"]))
+
+
+def test_stage20_mixed_curriculum_environment_preserves_tensor_contract():
+    env = WarehouseDispatchGymEnv(
+        seed=20269001, execution_mode="CONCURRENT",
+        handover_sampling="TASK_KEYED", arrival_schedule="MIXED_CURRICULUM")
+    observation, info = env.reset(seed=20269001)
+    assert env.dispatch.task_limit == 80
+    assert env.dispatch.time_limit == 6000
+    assert info["arrival_schedule"] == "MIXED_CURRICULUM"
+    metadata = info["arrival_schedule_metadata"]
+    assert metadata["state_reset_between_phases"] is False
+    assert metadata["total_tasks"] == 80
+    assert observation["state"].shape == (284,)
+    assert observation["action_features"].shape == (
+        1536, Stage12Encoder.ACTION_WIDTH)
+    assert info["pending_arrivals"] == 79
 
 
 def _run_stage14_rule_episode(seed):

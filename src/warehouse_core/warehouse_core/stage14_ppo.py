@@ -147,7 +147,22 @@ def arrival_interval(profile: str) -> tuple[float, float]:
         return DENSE_INTERVAL
     if profile == "BURST":
         return BURST_INTERVAL
+    if profile == "MIXED_CURRICULUM":
+        # Individual phases own their intervals; this value is only the
+        # constructor fallback and is not used to generate phase arrivals.
+        return MEDIUM_INTERVAL
     raise ValueError(f"unsupported arrival profile: {profile}")
+
+
+def profile_environment(profile: str) -> tuple[tuple[float, float], str, int]:
+    profile = profile.upper()
+    if profile == "MIXED_CURRICULUM":
+        return MEDIUM_INTERVAL, "MIXED_CURRICULUM", 80
+    return arrival_interval(profile), "BALANCED", 20
+
+
+def tasks_per_episode(profile: str) -> int:
+    return profile_environment(profile)[2]
 
 
 def _distribution(model, observation, mask, device):
@@ -170,16 +185,18 @@ def collect_rollouts(model: MaskedCandidateActorCritic, seeds,
     model.eval()
     steps: list[RolloutStep] = []
     episodes = []
-    interval = arrival_interval(profile)
+    interval, arrival_schedule, _ = profile_environment(profile)
     for seed in seeds:
         env = WarehouseDispatchGymEnv(
             seed=seed, execution_mode=execution_mode,
             arrival_interval=interval,
+            arrival_schedule=arrival_schedule,
             observation_variant=observation_variant)
         observation, info = env.reset(seed=seed)
         done = False
         reward_total = 0.0
         mode_counts = Counter()
+        modes_by_phase = Counter()
         exposed_modes = set()
         peak_active = 0
         while not done:
@@ -198,6 +215,8 @@ def collect_rollouts(model: MaskedCandidateActorCritic, seeds,
             decoded = env.decision.action_ids[action]
             if isinstance(decoded, Assignment):
                 mode_counts[decoded.transport_mode] += 1
+                phase = env.task_types.get(decoded.task_id, "BALANCED").split(":", 1)[0]
+                modes_by_phase[(phase, decoded.transport_mode)] += 1
                 peak_active = max(peak_active, 1)
             next_observation, reward, terminated, truncated, next_info = (
                 env.step(action))
@@ -222,7 +241,11 @@ def collect_rollouts(model: MaskedCandidateActorCritic, seeds,
             "simulated_time": dispatch.now,
             "peak_active_tasks": peak_active,
             "transport_modes": dict(mode_counts),
+            "transport_modes_by_phase": _nested_mode_matrix(modes_by_phase),
             "exposed_transport_modes": sorted(exposed_modes),
+            "arrival_schedule": arrival_schedule,
+            "arrival_schedule_metadata": getattr(
+                dispatch, "arrival_schedule_metadata", {}),
             "resource_leak": bool(
                 dispatch.resource_claims or
                 getattr(dispatch, "active_standby_claims", {}) or
@@ -357,9 +380,10 @@ def evaluate(model: MaskedCandidateActorCritic, seeds,
              handover_sampling: str = "SEQUENTIAL",
              allowed_transport_modes: tuple[str, ...] | None = None):
     model.eval()
-    interval = arrival_interval(profile)
+    interval, arrival_schedule, _ = profile_environment(profile)
     episodes = []
     total_modes = Counter()
+    total_modes_by_phase = Counter()
     total_exposed_modes = set()
     total_mode_by_cost_reference = Counter()
     total_mode_by_floor_relation = Counter()
@@ -369,6 +393,7 @@ def evaluate(model: MaskedCandidateActorCritic, seeds,
         env = WarehouseDispatchGymEnv(
             seed=seed, execution_mode=execution_mode,
             arrival_interval=interval,
+            arrival_schedule=arrival_schedule,
             observation_variant=observation_variant,
             handover_sampling=handover_sampling,
             allowed_transport_modes=allowed_transport_modes)
@@ -378,6 +403,7 @@ def evaluate(model: MaskedCandidateActorCritic, seeds,
         illegal = 0
         peak_active = 0
         modes = Counter()
+        modes_by_phase = Counter()
         exposed_modes = set()
         mode_by_cost_reference = Counter()
         mode_by_floor_relation = Counter()
@@ -399,6 +425,8 @@ def evaluate(model: MaskedCandidateActorCritic, seeds,
             decoded = env.decision.action_ids[action]
             if isinstance(decoded, Assignment):
                 modes[decoded.transport_mode] += 1
+                phase = env.task_types.get(decoded.task_id, "BALANCED").split(":", 1)[0]
+                modes_by_phase[(phase, decoded.transport_mode)] += 1
                 peak_active = max(peak_active, 1)
                 legal_same_task = [
                     candidate for candidate, legal in zip(
@@ -441,6 +469,7 @@ def evaluate(model: MaskedCandidateActorCritic, seeds,
             any(runtime.robot.task_id or runtime.robot.cargo_id
                 for runtime in dispatch.robots.values()))
         total_modes.update(modes)
+        total_modes_by_phase.update(modes_by_phase)
         total_exposed_modes.update(exposed_modes)
         total_mode_by_cost_reference.update(mode_by_cost_reference)
         total_mode_by_floor_relation.update(mode_by_floor_relation)
@@ -459,6 +488,10 @@ def evaluate(model: MaskedCandidateActorCritic, seeds,
             "illegal_actions": illegal,
             "peak_active_tasks": peak_active,
             "transport_modes": dict(modes),
+            "transport_modes_by_phase": _nested_mode_matrix(modes_by_phase),
+            "arrival_schedule": arrival_schedule,
+            "arrival_schedule_metadata": getattr(
+                dispatch, "arrival_schedule_metadata", {}),
             "exposed_transport_modes": sorted(exposed_modes),
             "selected_mode_by_cost_reference": _nested_mode_matrix(
                 mode_by_cost_reference),
@@ -511,6 +544,8 @@ def evaluate(model: MaskedCandidateActorCritic, seeds,
         "resource_leak_count": sum(
             item["resource_leak"] for item in episodes),
         "transport_modes": dict(total_modes),
+        "transport_modes_by_phase": _nested_mode_matrix(total_modes_by_phase),
+        "arrival_schedule": arrival_schedule,
         "exposed_transport_modes": sorted(total_exposed_modes),
         "selected_mode_by_cost_reference": _nested_mode_matrix(
             total_mode_by_cost_reference),

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import itertools
 import random
 from dataclasses import dataclass
 
@@ -133,9 +134,9 @@ def build_balanced_arrivals(seed: int,
     if (len(arrival_interval) != 2 or arrival_interval[0] <= 0 or
             arrival_interval[1] < arrival_interval[0]):
         raise ValueError("arrival interval must be a positive ordered pair")
-    if spec.task_count != 20 or spec.cross_up != spec.cross_down:
+    if spec.task_count <= 0 or spec.cross_up != spec.cross_down:
         raise ValueError(
-            "Stage 14/15 episodes require 20 tasks and balanced "
+            "curriculum episodes require a positive task count and balanced "
             "cross-floor directions")
     task_rng = random.Random(seed)
     arrival_rng = random.Random(seed + 1400)
@@ -256,6 +257,108 @@ def build_mixed_recovery_arrivals(seed: int):
     return arrivals
 
 
+def _mixed_curriculum_lengths(rng: random.Random) -> list[int]:
+    """Draw four 4-task-granular phase lengths that sum to 80.
+
+    The 12--28 range prevents a phase from becoming a token transition while
+    retaining enough variation that policy time cannot identify the load.
+    """
+    units = [3, 3, 3, 3]
+    for _ in range(8):
+        candidates = [index for index, value in enumerate(units) if value < 7]
+        units[rng.choice(candidates)] += 1
+    lengths = [value * 4 for value in units]
+    assert sum(lengths) == 80 and all(12 <= value <= 28 for value in lengths)
+    return lengths
+
+
+def _mixed_curriculum_spec(task_count: int, rng: random.Random) -> Stage14EpisodeSpec:
+    if task_count % 4:
+        raise ValueError("mixed-curriculum phase length must be divisible by four")
+    cross_each_direction = task_count // 4
+    same_total = task_count - 2 * cross_each_direction
+    same_counts = [same_total // 4] * 4
+    for index in rng.sample(range(4), same_total % 4):
+        same_counts[index] += 1
+    return Stage14EpisodeSpec(
+        f1_same=same_counts[0], f1_cross_region=same_counts[1],
+        f2_same=same_counts[2], f2_cross_region=same_counts[3],
+        cross_up=cross_each_direction, cross_down=cross_each_direction)
+
+
+def build_mixed_curriculum_arrivals(seed: int, *, return_metadata: bool = False):
+    """Build a randomized persistent four-load 80-task training episode.
+
+    Phase order, phase lengths, and inter-phase gaps vary by seed. Recovery is
+    constrained to occur after Burst so it remains semantically meaningful;
+    all other ordering is free. The task mix within every phase remains half
+    same-floor and half cross-floor with balanced up/down directions.
+    """
+    schedule_rng = random.Random(seed + 202000)
+    orders = []
+    base = ["NORMAL", "DENSE", "BURST", "RECOVERY"]
+    # Enumerate with a local RNG instead of relying on set iteration order.
+    for order in itertools.permutations(base):
+        if order.index("BURST") < order.index("RECOVERY"):
+            orders.append(order)
+    phase_order = list(schedule_rng.choice(orders))
+    lengths = _mixed_curriculum_lengths(schedule_rng)
+    intervals = {
+        "NORMAL": NORMAL_INTERVAL,
+        "DENSE": DENSE_INTERVAL,
+        "BURST": BURST_INTERVAL,
+        "RECOVERY": NORMAL_INTERVAL,
+    }
+    arrivals = []
+    offset = 0.0
+    global_index = 0
+    phase_rows = []
+    for phase_index, (phase, task_count) in enumerate(zip(phase_order, lengths)):
+        interval = intervals[phase]
+        phase_rng = random.Random(seed + 310000 + phase_index * 1000)
+        spec = _mixed_curriculum_spec(task_count, phase_rng)
+        segment = build_balanced_arrivals(
+            seed + phase_index * 10000, spec=spec, arrival_interval=interval)
+        gap = 0.0
+        if phase_index:
+            mean_interval = sum(interval) / 2.0
+            gap = schedule_rng.uniform(.35, 1.35) * mean_interval
+            offset = arrivals[-1][0].arrival_time + gap
+        phase_start = offset
+        for queued, task_type in segment:
+            global_index += 1
+            task = queued.task
+            shifted = Task(
+                f"S20_CURR_T{global_index:03d}",
+                f"S20_CURR_C{global_index:03d}",
+                task.source, task.target, task.priority,
+                task.deadline + offset)
+            arrivals.append((
+                QueuedTask(shifted, queued.arrival_time + offset),
+                f"{phase}:{task_type}"))
+        phase_rows.append({
+            "phase_index": phase_index,
+            "phase": phase,
+            "task_count": task_count,
+            "arrival_interval_s": list(interval),
+            "switch_gap_s": gap,
+            "first_arrival_s": phase_start,
+            "last_arrival_s": arrivals[-1][0].arrival_time,
+        })
+    metadata = {
+        "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+        "seed": seed,
+        "phase_order": phase_order,
+        "phase_lengths": lengths,
+        "total_tasks": len(arrivals),
+        "state_reset_between_phases": False,
+        "phase_rows": phase_rows,
+    }
+    if return_metadata:
+        return arrivals, metadata
+    return arrivals
+
+
 def build_stage14_environment(
         seed: int, execution_mode: str = "SERIAL",
         arrival_interval: tuple[float, float] = MEDIUM_INTERVAL,
@@ -301,6 +404,11 @@ def build_stage14_environment(
                                      (-2.0, -1.5, height), (2.0, -1.5, height)))
     ]
     arrival_schedule = arrival_schedule.upper()
+    schedule_metadata = {
+        "schema_version": "warehouse_fixed_arrival_schedule_v1",
+        "schedule": arrival_schedule,
+        "seed": seed,
+    }
     if arrival_schedule == "BALANCED":
         arrivals = build_balanced_arrivals(
             seed, spec=episode_spec, arrival_interval=arrival_interval)
@@ -314,6 +422,12 @@ def build_stage14_environment(
             raise ValueError(
                 "MIXED_LOAD_RECOVERY owns its four fixed 20-task phase specs")
         arrivals = build_mixed_recovery_arrivals(seed)
+    elif arrival_schedule == "MIXED_CURRICULUM":
+        if episode_spec is not None:
+            raise ValueError(
+                "MIXED_CURRICULUM owns its randomized phase specs")
+        arrivals, schedule_metadata = build_mixed_curriculum_arrivals(
+            seed, return_metadata=True)
     else:
         raise ValueError(f"unsupported arrival schedule: {arrival_schedule}")
     sampling = handover_sampling.upper()
@@ -328,7 +442,8 @@ def build_stage14_environment(
     environment_class = (PersistentDispatchEnvironment
                          if execution_mode == "SERIAL"
                          else ConcurrentPersistentDispatchEnvironment)
-    time_limit = 5400 if arrival_schedule == "MIXED_LOAD_RECOVERY" else 3600
+    time_limit = (6000 if arrival_schedule == "MIXED_CURRICULUM" else
+                  5400 if arrival_schedule == "MIXED_LOAD_RECOVERY" else 3600)
     env = environment_class(
         robots, stairs, AsyncTaskQueue(item for item, _ in arrivals),
         task_limit=len(arrivals), time_limit=time_limit, decision_gap=3.0,
@@ -338,6 +453,7 @@ def build_stage14_environment(
         handover_duration_provider=duration_provider,
         handover_nominal_s=duration_provider.mean_duration_s,
         handover_timing_source=timeout_policy.source)
+    env.arrival_schedule_metadata = schedule_metadata
     return env, {item.task.task_id: task_type for item, task_type in arrivals}
 
 
@@ -381,7 +497,8 @@ class WarehouseDispatchGymEnv(gym.Env):
                 f"{sorted(self.allowed_transport_modes or ())}")
         self.arrival_schedule = arrival_schedule.upper()
         if self.arrival_schedule not in {
-                "BALANCED", "MIXED_LOAD", "MIXED_LOAD_RECOVERY"}:
+                "BALANCED", "MIXED_LOAD", "MIXED_LOAD_RECOVERY",
+                "MIXED_CURRICULUM"}:
             raise ValueError(
                 f"unsupported arrival schedule: {arrival_schedule}")
         self.current_execution_mode = "SERIAL"
@@ -446,6 +563,9 @@ class WarehouseDispatchGymEnv(gym.Env):
             "execution_mode": self.current_execution_mode,
             "active_task_count": len(getattr(
                 self.dispatch, "active_tasks", {})),
+            "arrival_schedule": self.arrival_schedule,
+            "arrival_schedule_metadata": getattr(
+                self.dispatch, "arrival_schedule_metadata", {}),
         }
         if transition is not None:
             task_id = transition.action.get("task_id", "")

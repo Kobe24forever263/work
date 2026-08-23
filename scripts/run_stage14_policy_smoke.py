@@ -28,17 +28,25 @@ def arrival_interval(profile):
         "MEDIUM": MEDIUM_INTERVAL,
         "DENSE": DENSE_INTERVAL,
         "BURST": BURST_INTERVAL,
+        "MIXED_CURRICULUM": MEDIUM_INTERVAL,
     }[profile]
+
+
+def profile_environment(profile):
+    if profile == "MIXED_CURRICULUM":
+        return MEDIUM_INTERVAL, "MIXED_CURRICULUM", 80
+    return arrival_interval(profile), "BALANCED", 20
 
 
 def collect_rule_dataset(seeds, execution_mode, observation_variant,
                          arrival_profile):
     samples = []
     label_modes = Counter()
+    interval, arrival_schedule, _ = profile_environment(arrival_profile)
     for seed in seeds:
         env = WarehouseDispatchGymEnv(
             seed=seed, execution_mode=execution_mode,
-            arrival_interval=arrival_interval(arrival_profile),
+            arrival_interval=interval, arrival_schedule=arrival_schedule,
             observation_variant=observation_variant)
         observation, info = env.reset(seed=seed)
         done = False
@@ -159,10 +167,11 @@ def evaluate_policy(model, seeds, execution_mode, observation_variant,
                     arrival_profile="MEDIUM", use_rule=False):
     rows = []
     episode_summaries = []
+    interval, arrival_schedule, _ = profile_environment(arrival_profile)
     for seed in seeds:
         env = WarehouseDispatchGymEnv(
             seed=seed, execution_mode=execution_mode,
-            arrival_interval=arrival_interval(arrival_profile),
+            arrival_interval=interval, arrival_schedule=arrival_schedule,
             observation_variant=observation_variant)
         observation, info = env.reset(seed=seed)
         done = False
@@ -263,7 +272,7 @@ def main():
     parser.add_argument("--execution-mode", choices=(
         "SERIAL", "CONCURRENT"), default="CONCURRENT")
     parser.add_argument("--arrival-profile", choices=(
-        "MEDIUM", "DENSE", "BURST"),
+        "MEDIUM", "DENSE", "BURST", "MIXED_CURRICULUM"),
                         default="MEDIUM")
     parser.add_argument("--run-seed", type=int, default=41000040)
     parser.add_argument("--training-seed-count", type=int, default=20)
@@ -322,16 +331,19 @@ def main():
     before_compact = compact_evaluation(before)
     after_compact = compact_evaluation(after)
     rule_compact = compact_evaluation(rule)
+    tasks_each = profile_environment(args.arrival_profile)[2]
+    expected_training_tasks = args.training_seed_count * tasks_each
+    expected_heldout_tasks = args.validation_episodes * tasks_each
     assertions = {
         "training_dataset_has_expected_task_count": (
-            len(dataset) == args.training_seed_count * 20),
+            len(dataset) == expected_training_tasks),
         "training_labels_cover_three_modes": set(label_modes) == {
             "SINGLE_CAR", "SINGLE_DOG", "CAR_DOG_CAR"},
         "loss_decreased": final["loss"] < initial["loss"],
         "classification_accuracy_improved": (
             final["accuracy"] > initial["accuracy"] + .25),
-        "heldout_policy_resolved_one_hundred_tasks": (
-            after["task_count"] == 100),
+        "heldout_policy_resolved_expected_tasks": (
+            after["task_count"] == expected_heldout_tasks),
         "heldout_failures_only_come_from_p95_handover_timeout": (
             after["non_handover_failure_count"] == 0),
         "heldout_actions_all_legal": after["illegal_action_count"] == 0,
@@ -368,8 +380,8 @@ def main():
         "training_labels_cover_three_modes":
             assertions["training_labels_cover_three_modes"],
         "loss_decreased": assertions["loss_decreased"],
-        "heldout_policy_resolved_one_hundred_tasks":
-            assertions["heldout_policy_resolved_one_hundred_tasks"],
+        "heldout_policy_resolved_expected_tasks":
+            assertions["heldout_policy_resolved_expected_tasks"],
         "heldout_failures_only_come_from_p95_handover_timeout":
             assertions["heldout_failures_only_come_from_p95_handover_timeout"],
         "heldout_actions_all_legal":
@@ -394,6 +406,8 @@ def main():
         "training_type": "contextual_rule_actor_distillation_warm_start",
         "execution_mode": args.execution_mode,
         "arrival_profile": args.arrival_profile,
+        "arrival_schedule": profile_environment(args.arrival_profile)[1],
+        "tasks_per_episode": tasks_each,
         "run_seed": args.run_seed,
         "observation_variant": args.observation_variant,
         "policy_variant": args.policy_variant,
