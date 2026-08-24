@@ -377,6 +377,11 @@ cd /Users/lab4099/Desktop/Mujoco/work
 若用户决定使用两个终端并行执行 `1–5` 与 `6–10`，状态文件会分别命名为
 `stage20_long_batch_01_05.status.json` 与 `stage20_long_batch_06_10.status.json`，不会互相覆盖。
 
+2026-08-24 修正：完整训练但未通过上下文模式切换门禁的种子必须作为正式失败样本保留，不能
+选择性重训或删除。批处理器会将其标记为 `COMPLETED_NOT_ACCEPTED` 后继续下一个种子；只有正式
+summary 缺失或不完整时才停止。最终 campaign 可为 `COMPLETED_WITH_GATE_FAILURES`，该状态属于
+真实实验结果，不等同于程序故障。
+
 每个种子的最终权重位于：
 
 `results/stage20_mixed_curriculum/long/seed_XX/stage20_ppo.pt`
