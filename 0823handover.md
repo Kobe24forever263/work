@@ -399,3 +399,57 @@ Stage 20 关键文件：
 - 10 种子手动长训练入口：`scripts/run_stage20_mixed_curriculum_long.command`
 - 批处理与续跑器：`scripts/run_stage20_mixed_curriculum_long_batch.py`
 - 短门禁汇总器：`scripts/summarize_stage20_short_gate.py`
+
+## 13. Stage 20 正式冻结与锁定测试（2026-08-24）
+
+10 个预注册 Stage 20 权重已全部冻结，未选择性删除种子 4、7、9。冻结清单对 summary、history、
+最终/最佳 checkpoint 和 warm-start 权重保存 SHA-256，并核查模型元数据、奖励归一化器、NumPy/
+PyTorch/PPO RNG 状态及训练/验证/测试/bootstrap 种子互斥。冻结门禁通过：7 个训练门禁通过权重
+与 3 个门禁失败权重全部保留。
+
+冻结清单：
+
+`results/stage20_mixed_curriculum/stage20_policy_freeze_manifest.json`
+
+正式锁定测试只运行一次，使用全新 `64000000–64000099`：
+
+- Stage 20 mixed-curriculum：10 个权重；
+- Stage 19 MEDIUM/DENSE/BURST：各 10 个权重，共 30 个；
+- 基线：time-greedy rule 与 single-dog only；
+- 每个权重 100 个 episode、每 episode 80 个任务；
+- 40 个策略共 320,000 个任务，所有方法使用同一个 task fingerprint；
+- 所有策略和基线非法动作、资源泄漏均为 0；
+- 10 个 Stage 20 种子全部纳入统计，未按锁定测试结果筛选。
+
+正式结果目录：
+
+`results/stage20_mixed_curriculum/locked_test_v1/`
+
+质量审计与 10,000 次 crossed bootstrap 摘要：
+
+`results/stage20_mixed_curriculum/stage20_locked_test_summary.json`
+
+统计口径为训练种子 × 共享测试种子的 crossed bootstrap。episode-level P95 的平均与 pooled-task
+P95 分开命名和报告；episode throughput 平均与总成功数/总时间也分开，禁止混用 estimand。
+
+主要结果（Stage 20 mixed-curriculum 为 A）：
+
+- 相对 time-greedy rule：成功率差 `+0.039` 个百分点，95% CI
+  `[-0.239, +0.320]`，没有明确差异；回报提高 `+89.46 [69.98, 108.63]`；平均等待减少
+  `30.14 s [24.28, 36.09]`；mean-episode throughput 差异不明确。
+- 相对 single-dog only：成功率差 `-0.374` 个百分点，95% CI
+  `[-1.206, +0.589]`，没有明确差异；回报提高 `+548.23 [497.91, 601.45]`；平均等待减少
+  `178.88 s [160.88, 198.10]`，但每任务距离增加 `25.72 [23.76, 27.78]`。
+- 相对 Stage 19 MEDIUM：回报提高 `+61.01 [28.43, 92.87]`、平均等待减少
+  `22.94 s [12.60, 33.05]`，但成功率降低 `2.494` 个百分点、throughput 降低、距离增加。
+- 相对 Stage 19 DENSE/BURST：Stage 20 在成功率、回报、平均等待、throughput 和距离上均显著较差。
+
+因此 Stage 20 支持“相对规则和单狗对照显著降低等待并改善综合回报”，但不支持“随机混合负载训练
+全面优于固定高负载专用策略”。这一负面结果必须保留。模式结果给出一个可能机制：Stage 20 总体
+选择 `SINGLE_CAR 48.52% / SINGLE_DOG 18.71% / CAR_DOG_CAR 32.78%`，且四阶段之间变化较小；
+Stage 19 DENSE/BURST 的车–狗–车比例更低且 BURST→RECOVERY 的切换幅度更明显。
+
+`64000000–64000099` 已经解锁并使用，禁止再用于调参、重新选择权重或验证 Stage 21。若继续改进
+mixed-curriculum，必须建立全新的训练/验证/锁定测试种子族，并把本次结果作为探索性设计依据。
+下一实验优先补外部有效性（规模扩展、推理延迟、导航失败/楼梯占用/机器人不可用鲁棒性）；若另开
+Stage 21，应显式提高策略对负载历史和资源拥塞变化的辨识能力，而不是直接硬编码阶段标签。
