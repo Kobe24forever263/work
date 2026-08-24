@@ -41,6 +41,7 @@ class StressScenario:
         return {
             "MIXED_LOAD": 60,
             "MIXED_LOAD_RECOVERY": 80,
+            "MIXED_CURRICULUM": 80,
         }.get(self.arrival_schedule, 20)
 
 
