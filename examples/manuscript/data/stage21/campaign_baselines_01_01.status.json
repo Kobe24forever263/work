@@ -1,0 +1,86 @@
+{
+  "stage": 21,
+  "campaign": "locked_v1",
+  "execute": true,
+  "groups": [
+    "BASELINES"
+  ],
+  "faults": [
+    "CONTROL",
+    "NAVIGATION_FAILURE",
+    "STAIR_OUTAGE",
+    "ROBOT_OUTAGE"
+  ],
+  "weight_range": [
+    1,
+    1
+  ],
+  "seed_range": [
+    66100000,
+    66100099
+  ],
+  "episodes_per_job": 100,
+  "job_count": 8,
+  "task_count": 64000,
+  "output_root": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1",
+  "state": "COMPLETED",
+  "jobs": [
+    {
+      "method": "TIME_GREEDY_RULE",
+      "fault": "CONTROL",
+      "training_seed_index": null,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/time_greedy_rule.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "SINGLE_DOG_ONLY",
+      "fault": "CONTROL",
+      "training_seed_index": null,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/single_dog_only.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "TIME_GREEDY_RULE",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": null,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/time_greedy_rule.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "SINGLE_DOG_ONLY",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": null,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/single_dog_only.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "TIME_GREEDY_RULE",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": null,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/time_greedy_rule.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "SINGLE_DOG_ONLY",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": null,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/single_dog_only.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "TIME_GREEDY_RULE",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": null,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/time_greedy_rule.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "SINGLE_DOG_ONLY",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": null,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/single_dog_only.json",
+      "state": "COMPLETED"
+    }
+  ],
+  "updated_at_utc": "2026-08-25T01:35:58.514256+00:00"
+}

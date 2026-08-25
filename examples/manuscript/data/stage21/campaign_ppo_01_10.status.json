@@ -1,0 +1,310 @@
+{
+  "stage": 21,
+  "campaign": "locked_v1",
+  "execute": true,
+  "groups": [
+    "PPO"
+  ],
+  "faults": [
+    "CONTROL",
+    "NAVIGATION_FAILURE",
+    "STAIR_OUTAGE",
+    "ROBOT_OUTAGE"
+  ],
+  "weight_range": [
+    1,
+    10
+  ],
+  "seed_range": [
+    66100000,
+    66100099
+  ],
+  "episodes_per_job": 100,
+  "job_count": 40,
+  "task_count": 320000,
+  "output_root": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1",
+  "state": "COMPLETED",
+  "jobs": [
+    {
+      "method": "PPO",
+      "fault": "CONTROL",
+      "training_seed_index": 1,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/ppo_seed_01.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "CONTROL",
+      "training_seed_index": 2,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/ppo_seed_02.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "CONTROL",
+      "training_seed_index": 3,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/ppo_seed_03.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "CONTROL",
+      "training_seed_index": 4,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/ppo_seed_04.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "CONTROL",
+      "training_seed_index": 5,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/ppo_seed_05.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "CONTROL",
+      "training_seed_index": 6,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/ppo_seed_06.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "CONTROL",
+      "training_seed_index": 7,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/ppo_seed_07.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "CONTROL",
+      "training_seed_index": 8,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/ppo_seed_08.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "CONTROL",
+      "training_seed_index": 9,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/ppo_seed_09.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "CONTROL",
+      "training_seed_index": 10,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/control/ppo_seed_10.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": 1,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/ppo_seed_01.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": 2,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/ppo_seed_02.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": 3,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/ppo_seed_03.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": 4,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/ppo_seed_04.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": 5,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/ppo_seed_05.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": 6,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/ppo_seed_06.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": 7,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/ppo_seed_07.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": 8,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/ppo_seed_08.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": 9,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/ppo_seed_09.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "NAVIGATION_FAILURE",
+      "training_seed_index": 10,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/navigation_failure/ppo_seed_10.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": 1,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/ppo_seed_01.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": 2,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/ppo_seed_02.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": 3,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/ppo_seed_03.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": 4,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/ppo_seed_04.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": 5,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/ppo_seed_05.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": 6,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/ppo_seed_06.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": 7,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/ppo_seed_07.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": 8,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/ppo_seed_08.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": 9,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/ppo_seed_09.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "STAIR_OUTAGE",
+      "training_seed_index": 10,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/stair_outage/ppo_seed_10.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": 1,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/ppo_seed_01.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": 2,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/ppo_seed_02.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": 3,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/ppo_seed_03.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": 4,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/ppo_seed_04.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": 5,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/ppo_seed_05.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": 6,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/ppo_seed_06.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": 7,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/ppo_seed_07.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": 8,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/ppo_seed_08.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": 9,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/ppo_seed_09.json",
+      "state": "COMPLETED"
+    },
+    {
+      "method": "PPO",
+      "fault": "ROBOT_OUTAGE",
+      "training_seed_index": 10,
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/locked_v1/robot_outage/ppo_seed_10.json",
+      "state": "COMPLETED"
+    }
+  ],
+  "updated_at_utc": "2026-08-25T01:56:15.949235+00:00"
+}

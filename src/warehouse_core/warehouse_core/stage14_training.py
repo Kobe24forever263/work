@@ -364,7 +364,8 @@ def build_stage14_environment(
         arrival_interval: tuple[float, float] = MEDIUM_INTERVAL,
         episode_spec: Stage14EpisodeSpec | None = None,
         handover_sampling: str = "SEQUENTIAL",
-        arrival_schedule: str = "BALANCED"):
+        arrival_schedule: str = "BALANCED",
+        environment_class_override=None):
     execution_mode = execution_mode.upper()
     if execution_mode not in {"SERIAL", "CONCURRENT"}:
         raise ValueError(f"unsupported execution mode: {execution_mode}")
@@ -439,9 +440,16 @@ def build_stage14_environment(
             build_provisional_policy_and_keyed_provider(seed + 141400)
     else:
         raise ValueError(f"unsupported handover sampling: {handover_sampling}")
-    environment_class = (PersistentDispatchEnvironment
-                         if execution_mode == "SERIAL"
-                         else ConcurrentPersistentDispatchEnvironment)
+    environment_class = environment_class_override or (
+        PersistentDispatchEnvironment if execution_mode == "SERIAL"
+        else ConcurrentPersistentDispatchEnvironment)
+    expected_base = (PersistentDispatchEnvironment
+                     if execution_mode == "SERIAL"
+                     else ConcurrentPersistentDispatchEnvironment)
+    if not issubclass(environment_class, expected_base):
+        raise TypeError(
+            "environment_class_override must preserve the requested "
+            "dispatch execution semantics")
     time_limit = (6000 if arrival_schedule == "MIXED_CURRICULUM" else
                   5400 if arrival_schedule == "MIXED_LOAD_RECOVERY" else 3600)
     env = environment_class(
@@ -475,7 +483,9 @@ class WarehouseDispatchGymEnv(gym.Env):
                  handover_sampling: str = "SEQUENTIAL",
                  arrival_schedule: str = "BALANCED",
                  observation_variant: str = "FULL_CONTEXT_V2",
-                 allowed_transport_modes: tuple[str, ...] | None = None):
+                 allowed_transport_modes: tuple[str, ...] | None = None,
+                 dispatch_environment_class=None,
+                 dispatch_setup_callback=None):
         super().__init__()
         execution_mode = execution_mode.upper()
         if execution_mode not in {"SERIAL", "CONCURRENT", "MIXED"}:
@@ -502,6 +512,8 @@ class WarehouseDispatchGymEnv(gym.Env):
             raise ValueError(
                 f"unsupported arrival schedule: {arrival_schedule}")
         self.current_execution_mode = "SERIAL"
+        self.dispatch_environment_class = dispatch_environment_class
+        self.dispatch_setup_callback = dispatch_setup_callback
         self.reset_count = 0
         self.encoder = Stage12Encoder(observation_variant)
         self.action_space = spaces.Discrete(self.encoder.MAX_ACTIONS)
@@ -592,7 +604,10 @@ class WarehouseDispatchGymEnv(gym.Env):
         self.dispatch, self.task_types = build_stage14_environment(
             episode_seed, self.current_execution_mode,
             self.arrival_interval, self.episode_spec,
-            self.handover_sampling, self.arrival_schedule)
+            self.handover_sampling, self.arrival_schedule,
+            self.dispatch_environment_class)
+        if self.dispatch_setup_callback is not None:
+            self.dispatch_setup_callback(self.dispatch, episode_seed)
         self.decision = self._encode_decision()
         return self._observation(), self._info()
 

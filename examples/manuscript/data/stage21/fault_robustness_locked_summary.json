@@ -1,0 +1,1925 @@
+{
+  "schema_version": "warehouse_stage21_fault_locked_summary_v1",
+  "stage": 21,
+  "gate": "FAULT_ROBUSTNESS_ALL_WEIGHT_LOCKED_V1",
+  "claim_boundary": "Logical SMDP fault injection only. Navigation failure is a task-keyed route-segment abstraction; stair and robot outages are observable external availability windows. This protocol does not establish ROS, planner, dynamics, or hardware fault robustness.",
+  "protocol": {
+    "training_seed_count": 10,
+    "test_seed_count": 100,
+    "test_seed_start": 66100000,
+    "bootstrap_seed": 66200000,
+    "bootstrap_samples": 10000,
+    "statistics": "crossed training-seed x shared-test-seed bootstrap for PPO; paired test-seed bootstrap for baselines"
+  },
+  "absolute": {
+    "CONTROL": {
+      "PPO": {
+        "success_rate": {
+          "mean": 0.9674,
+          "std": 0.01936788876246235,
+          "sample_count": 1000
+        },
+        "reward": {
+          "mean": -257.4275537830069,
+          "std": 172.33029595788707,
+          "sample_count": 1000
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 68.59959483778698,
+          "std": 8.143226375659925,
+          "sample_count": 1000
+        },
+        "mean_waiting_time": {
+          "mean": 105.2816000211608,
+          "std": 57.541294479053725,
+          "sample_count": 1000
+        },
+        "p95_waiting_time": {
+          "mean": 446.38961459034704,
+          "std": 183.90591722276167,
+          "sample_count": 1000
+        },
+        "mean_flow_time": {
+          "mean": 149.50918273179047,
+          "std": 57.65640682917578,
+          "sample_count": 1000
+        },
+        "p95_flow_time": {
+          "mean": 497.3777025043323,
+          "std": 175.88981178429876,
+          "sample_count": 1000
+        },
+        "distance_per_task": {
+          "mean": 72.00440988430643,
+          "std": 4.086164390778717,
+          "sample_count": 1000
+        },
+        "recovery_time_s": {
+          "mean": null,
+          "std": null,
+          "sample_count": 0
+        }
+      },
+      "TIME_GREEDY_RULE": {
+        "success_rate": {
+          "mean": 0.9672499999999999,
+          "std": 0.018784059973576246,
+          "sample_count": 100
+        },
+        "reward": {
+          "mean": -352.74870896398386,
+          "std": 213.12772268240522,
+          "sample_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 68.57873363395203,
+          "std": 8.140121366727232,
+          "sample_count": 100
+        },
+        "mean_waiting_time": {
+          "mean": 137.70259488966843,
+          "std": 72.47449036919883,
+          "sample_count": 100
+        },
+        "p95_waiting_time": {
+          "mean": 580.7977944264721,
+          "std": 251.25400284188697,
+          "sample_count": 100
+        },
+        "mean_flow_time": {
+          "mean": 180.9085879210785,
+          "std": 72.56913151474544,
+          "sample_count": 100
+        },
+        "p95_flow_time": {
+          "mean": 615.1140687889582,
+          "std": 238.2852831172164,
+          "sample_count": 100
+        },
+        "distance_per_task": {
+          "mean": 72.42475042970639,
+          "std": 1.7572679806088047,
+          "sample_count": 100
+        },
+        "recovery_time_s": {
+          "mean": null,
+          "std": null,
+          "sample_count": 0
+        }
+      },
+      "SINGLE_DOG_ONLY": {
+        "success_rate": {
+          "mean": 0.9660000000000001,
+          "std": 0.04891757652346744,
+          "sample_count": 100
+        },
+        "reward": {
+          "mean": -839.4078578934276,
+          "std": 408.8375973400724,
+          "sample_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 67.91259388649576,
+          "std": 7.404677618558663,
+          "sample_count": 100
+        },
+        "mean_waiting_time": {
+          "mean": 295.8554872686368,
+          "std": 146.2225886475323,
+          "sample_count": 100
+        },
+        "p95_waiting_time": {
+          "mean": 1142.166894712646,
+          "std": 552.8847734155057,
+          "sample_count": 100
+        },
+        "mean_flow_time": {
+          "mean": 353.56295192211445,
+          "std": 145.9359427822112,
+          "sample_count": 100
+        },
+        "p95_flow_time": {
+          "mean": 1174.4728635324195,
+          "std": 549.6795325065949,
+          "sample_count": 100
+        },
+        "distance_per_task": {
+          "mean": 46.16597172278215,
+          "std": 1.4302453148001675,
+          "sample_count": 100
+        },
+        "recovery_time_s": {
+          "mean": null,
+          "std": null,
+          "sample_count": 0
+        }
+      }
+    },
+    "NAVIGATION_FAILURE": {
+      "PPO": {
+        "success_rate": {
+          "mean": 0.8869625000000001,
+          "std": 0.03957819826024837,
+          "sample_count": 1000
+        },
+        "reward": {
+          "mean": -303.67661890653824,
+          "std": 181.80800548470384,
+          "sample_count": 1000
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 62.878928190103586,
+          "std": 7.800106965130786,
+          "sample_count": 1000
+        },
+        "mean_waiting_time": {
+          "mean": 111.64506947923762,
+          "std": 61.61054938600537,
+          "sample_count": 1000
+        },
+        "p95_waiting_time": {
+          "mean": 467.530019609611,
+          "std": 193.90333271776186,
+          "sample_count": 1000
+        },
+        "mean_flow_time": {
+          "mean": 157.0376492776383,
+          "std": 61.71982856859804,
+          "sample_count": 1000
+        },
+        "p95_flow_time": {
+          "mean": 520.1553235818104,
+          "std": 186.07719334289294,
+          "sample_count": 1000
+        },
+        "distance_per_task": {
+          "mean": 72.52130516676577,
+          "std": 3.982439872304966,
+          "sample_count": 1000
+        },
+        "recovery_time_s": {
+          "mean": 35.93448894467113,
+          "std": 21.76829406235446,
+          "sample_count": 1000
+        }
+      },
+      "TIME_GREEDY_RULE": {
+        "success_rate": {
+          "mean": 0.8858750000000001,
+          "std": 0.03862598271117565,
+          "sample_count": 100
+        },
+        "reward": {
+          "mean": -404.6972449361047,
+          "std": 225.3351302764912,
+          "sample_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 62.79665796785562,
+          "std": 7.805096044663473,
+          "sample_count": 100
+        },
+        "mean_waiting_time": {
+          "mean": 146.07490305451265,
+          "std": 78.07280681953536,
+          "sample_count": 100
+        },
+        "p95_waiting_time": {
+          "mean": 606.040039324046,
+          "std": 262.96896123424136,
+          "sample_count": 100
+        },
+        "mean_flow_time": {
+          "mean": 190.41971790753902,
+          "std": 78.09975554358493,
+          "sample_count": 100
+        },
+        "p95_flow_time": {
+          "mean": 639.826762598224,
+          "std": 249.63000505216687,
+          "sample_count": 100
+        },
+        "distance_per_task": {
+          "mean": 73.00691470555167,
+          "std": 1.5584519699434731,
+          "sample_count": 100
+        },
+        "recovery_time_s": {
+          "mean": 34.10002503324439,
+          "std": 21.839510226414177,
+          "sample_count": 100
+        }
+      },
+      "SINGLE_DOG_ONLY": {
+        "success_rate": {
+          "mean": 0.891125,
+          "std": 0.055598641751813185,
+          "sample_count": 100
+        },
+        "reward": {
+          "mean": -896.2726898003351,
+          "std": 419.88417348577195,
+          "sample_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 62.661952118218814,
+          "std": 7.198087836201051,
+          "sample_count": 100
+        },
+        "mean_waiting_time": {
+          "mean": 308.2808196366844,
+          "std": 151.62437915132227,
+          "sample_count": 100
+        },
+        "p95_waiting_time": {
+          "mean": 1200.0036089620894,
+          "std": 589.9506345966579,
+          "sample_count": 100
+        },
+        "mean_flow_time": {
+          "mean": 366.92601251783867,
+          "std": 151.24940850129576,
+          "sample_count": 100
+        },
+        "p95_flow_time": {
+          "mean": 1230.1431560308672,
+          "std": 585.7223051723312,
+          "sample_count": 100
+        },
+        "distance_per_task": {
+          "mean": 46.05815430492349,
+          "std": 1.5017894413263948,
+          "sample_count": 100
+        },
+        "recovery_time_s": {
+          "mean": 47.5644699102194,
+          "std": 32.39803242468319,
+          "sample_count": 100
+        }
+      }
+    },
+    "STAIR_OUTAGE": {
+      "PPO": {
+        "success_rate": {
+          "mean": 0.9672250000000001,
+          "std": 0.01988894026701637,
+          "sample_count": 1000
+        },
+        "reward": {
+          "mean": -265.8258443885897,
+          "std": 175.3441013043498,
+          "sample_count": 1000
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 68.57722885486685,
+          "std": 8.123453772229361,
+          "sample_count": 1000
+        },
+        "mean_waiting_time": {
+          "mean": 107.69292730500916,
+          "std": 58.57296853792304,
+          "sample_count": 1000
+        },
+        "p95_waiting_time": {
+          "mean": 455.09373240495916,
+          "std": 187.3994372020417,
+          "sample_count": 1000
+        },
+        "mean_flow_time": {
+          "mean": 152.2841256564662,
+          "std": 58.72825576137529,
+          "sample_count": 1000
+        },
+        "p95_flow_time": {
+          "mean": 507.1796575356878,
+          "std": 180.40967336541328,
+          "sample_count": 1000
+        },
+        "distance_per_task": {
+          "mean": 73.36744000799858,
+          "std": 4.184760483069294,
+          "sample_count": 1000
+        },
+        "recovery_time_s": {
+          "mean": 32.69013790852932,
+          "std": 18.25387170506833,
+          "sample_count": 1000
+        }
+      },
+      "TIME_GREEDY_RULE": {
+        "success_rate": {
+          "mean": 0.9667499999999998,
+          "std": 0.019641676469829523,
+          "sample_count": 100
+        },
+        "reward": {
+          "mean": -360.26543235970604,
+          "std": 215.27762626732928,
+          "sample_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 68.55139020004096,
+          "std": 8.154377246581781,
+          "sample_count": 100
+        },
+        "mean_waiting_time": {
+          "mean": 139.85441669824814,
+          "std": 73.26700810559198,
+          "sample_count": 100
+        },
+        "p95_waiting_time": {
+          "mean": 584.8550997825574,
+          "std": 251.02235250036892,
+          "sample_count": 100
+        },
+        "mean_flow_time": {
+          "mean": 183.4091306438039,
+          "std": 73.36402095168063,
+          "sample_count": 100
+        },
+        "p95_flow_time": {
+          "mean": 619.4478621057934,
+          "std": 237.12458494550094,
+          "sample_count": 100
+        },
+        "distance_per_task": {
+          "mean": 73.76773948854392,
+          "std": 2.2987997426094906,
+          "sample_count": 100
+        },
+        "recovery_time_s": {
+          "mean": 33.39222928022365,
+          "std": 16.5663818430508,
+          "sample_count": 100
+        }
+      },
+      "SINGLE_DOG_ONLY": {
+        "success_rate": {
+          "mean": 0.9616250000000001,
+          "std": 0.05573926381199371,
+          "sample_count": 100
+        },
+        "reward": {
+          "mean": -913.7867411247782,
+          "std": 446.97930828109435,
+          "sample_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 67.4809824470486,
+          "std": 7.298336465134207,
+          "sample_count": 100
+        },
+        "mean_waiting_time": {
+          "mean": 321.6426892738786,
+          "std": 160.51850085683122,
+          "sample_count": 100
+        },
+        "p95_waiting_time": {
+          "mean": 1249.8629198860885,
+          "std": 630.7510770847446,
+          "sample_count": 100
+        },
+        "mean_flow_time": {
+          "mean": 380.3335080093789,
+          "std": 160.12437971730887,
+          "sample_count": 100
+        },
+        "p95_flow_time": {
+          "mean": 1280.3280509114056,
+          "std": 625.0955809153068,
+          "sample_count": 100
+        },
+        "distance_per_task": {
+          "mean": 46.95265498840016,
+          "std": 1.7033050416941773,
+          "sample_count": 100
+        },
+        "recovery_time_s": {
+          "mean": 36.105497616654446,
+          "std": 25.07430165515673,
+          "sample_count": 100
+        }
+      }
+    },
+    "ROBOT_OUTAGE": {
+      "PPO": {
+        "success_rate": {
+          "mean": 0.9678625,
+          "std": 0.018954131551006316,
+          "sample_count": 1000
+        },
+        "reward": {
+          "mean": -269.3424904158073,
+          "std": 176.6045188979374,
+          "sample_count": 1000
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 68.62128038462117,
+          "std": 8.151902470635795,
+          "sample_count": 1000
+        },
+        "mean_waiting_time": {
+          "mean": 108.97245700268782,
+          "std": 59.03640014466506,
+          "sample_count": 1000
+        },
+        "p95_waiting_time": {
+          "mean": 452.83554340472045,
+          "std": 185.00766373360224,
+          "sample_count": 1000
+        },
+        "mean_flow_time": {
+          "mean": 153.37117396490748,
+          "std": 59.106660051863216,
+          "sample_count": 1000
+        },
+        "p95_flow_time": {
+          "mean": 504.5765316366091,
+          "std": 177.12506280332587,
+          "sample_count": 1000
+        },
+        "distance_per_task": {
+          "mean": 71.86572929721564,
+          "std": 3.9905841189215434,
+          "sample_count": 1000
+        },
+        "recovery_time_s": {
+          "mean": 33.45961938295262,
+          "std": 18.871601856967082,
+          "sample_count": 1000
+        }
+      },
+      "TIME_GREEDY_RULE": {
+        "success_rate": {
+          "mean": 0.9673749999999999,
+          "std": 0.018369025174423008,
+          "sample_count": 100
+        },
+        "reward": {
+          "mean": -357.1012326978312,
+          "std": 210.80400209699346,
+          "sample_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 68.60426338541498,
+          "std": 8.14903620909495,
+          "sample_count": 100
+        },
+        "mean_waiting_time": {
+          "mean": 138.73346272453475,
+          "std": 71.9444173749721,
+          "sample_count": 100
+        },
+        "p95_waiting_time": {
+          "mean": 575.4897046016171,
+          "std": 243.28474316649599,
+          "sample_count": 100
+        },
+        "mean_flow_time": {
+          "mean": 182.09176636168854,
+          "std": 71.96485648691373,
+          "sample_count": 100
+        },
+        "p95_flow_time": {
+          "mean": 608.9729200219818,
+          "std": 231.44542172846005,
+          "sample_count": 100
+        },
+        "distance_per_task": {
+          "mean": 72.36448125621646,
+          "std": 1.633119754744494,
+          "sample_count": 100
+        },
+        "recovery_time_s": {
+          "mean": 32.98328986651163,
+          "std": 18.176578122923846,
+          "sample_count": 100
+        }
+      },
+      "SINGLE_DOG_ONLY": {
+        "success_rate": {
+          "mean": 0.964375,
+          "std": 0.05253591244053535,
+          "sample_count": 100
+        },
+        "reward": {
+          "mean": -872.5824781477511,
+          "std": 434.8340909473249,
+          "sample_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "mean": 67.76549988237966,
+          "std": 7.352192712709889,
+          "sample_count": 100
+        },
+        "mean_waiting_time": {
+          "mean": 307.8136762735695,
+          "std": 156.02223816808194,
+          "sample_count": 100
+        },
+        "p95_waiting_time": {
+          "mean": 1199.8075792376483,
+          "std": 614.8266169475739,
+          "sample_count": 100
+        },
+        "mean_flow_time": {
+          "mean": 365.56256099706576,
+          "std": 155.6160152927883,
+          "sample_count": 100
+        },
+        "p95_flow_time": {
+          "mean": 1232.3199316425637,
+          "std": 610.8404003105405,
+          "sample_count": 100
+        },
+        "distance_per_task": {
+          "mean": 46.199107778797,
+          "std": 1.6157922434776615,
+          "sample_count": 100
+        },
+        "recovery_time_s": {
+          "mean": 37.44351507871938,
+          "std": 23.252283224353455,
+          "sample_count": 100
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "CONTROL": {
+      "PPO_MINUS_TIME_GREEDY_RULE": {
+        "success_rate": {
+          "difference": 0.0001499999999999978,
+          "crossed_bootstrap_95ci": [
+            -0.0022003125000000096,
+            0.0025999999999999977
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": 95.32115518097704,
+          "crossed_bootstrap_95ci": [
+            77.12420341588385,
+            113.7825650191408
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": 0.02086120383494982,
+          "crossed_bootstrap_95ci": [
+            -0.13620972329900072,
+            0.16785212380285086
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": -32.420994868507634,
+          "crossed_bootstrap_95ci": [
+            -37.90827336585528,
+            -26.88228481210835
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": -134.4081798361251,
+          "crossed_bootstrap_95ci": [
+            -161.23553695300495,
+            -109.31503954056573
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": -31.399405189288057,
+          "crossed_bootstrap_95ci": [
+            -37.68300073061407,
+            -25.20660129564585
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": -117.73636628462583,
+          "crossed_bootstrap_95ci": [
+            -142.70030931526514,
+            -93.54668827172893
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": -0.4203405453999644,
+          "crossed_bootstrap_95ci": [
+            -2.5608032165200076,
+            1.725276459333136
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        }
+      },
+      "PPO_MINUS_SINGLE_DOG_ONLY": {
+        "success_rate": {
+          "difference": 0.001399999999999999,
+          "crossed_bootstrap_95ci": [
+            -0.008137500000000008,
+            0.011875312499999997
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": 581.9803041104207,
+          "crossed_bootstrap_95ci": [
+            525.7350105566398,
+            639.582996180048
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": 0.6870009512912196,
+          "crossed_bootstrap_95ci": [
+            -0.09864199135053105,
+            1.5620686834532267
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": -190.57388724747602,
+          "crossed_bootstrap_95ci": [
+            -211.32444070389664,
+            -170.46959792893566
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": -695.7772801222989,
+          "crossed_bootstrap_95ci": [
+            -785.6518635304294,
+            -609.4892553409933
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": -204.053769190324,
+          "crossed_bootstrap_95ci": [
+            -224.6507278542284,
+            -183.9763517626182
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": -677.0951610280873,
+          "crossed_bootstrap_95ci": [
+            -766.4653569692483,
+            -591.2434166275874
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": 25.83843816152426,
+          "crossed_bootstrap_95ci": [
+            23.705264607165336,
+            28.008825245269534
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        }
+      }
+    },
+    "NAVIGATION_FAILURE": {
+      "PPO_MINUS_TIME_GREEDY_RULE": {
+        "success_rate": {
+          "difference": 0.0010875,
+          "crossed_bootstrap_95ci": [
+            -0.0029000000000000007,
+            0.004949999999999998
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": 101.0206260295664,
+          "crossed_bootstrap_95ci": [
+            81.9145949848652,
+            119.71620440422198
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": 0.08227022224796178,
+          "crossed_bootstrap_95ci": [
+            -0.1886804512474456,
+            0.3380442699958253
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": -34.429833575275005,
+          "crossed_bootstrap_95ci": [
+            -40.521836288811826,
+            -28.44578702922686
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": -138.5100197144351,
+          "crossed_bootstrap_95ci": [
+            -165.4817063303789,
+            -112.16656873118708
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": -33.38206862990075,
+          "crossed_bootstrap_95ci": [
+            -39.90275520378569,
+            -26.991276791901978
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": -119.67143901641367,
+          "crossed_bootstrap_95ci": [
+            -146.6140938392515,
+            -94.03277839183995
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": -0.48560953878588137,
+          "crossed_bootstrap_95ci": [
+            -2.4707007107189876,
+            1.5721729225358576
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "recovery_time_s": {
+          "difference": 1.8344639114267371,
+          "crossed_bootstrap_95ci": [
+            -1.027352354444999,
+            4.719703634735005
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        }
+      },
+      "PPO_MINUS_SINGLE_DOG_ONLY": {
+        "success_rate": {
+          "difference": -0.004162500000000002,
+          "crossed_bootstrap_95ci": [
+            -0.0157,
+            0.007888437499999984
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": 592.5960708937969,
+          "crossed_bootstrap_95ci": [
+            537.5609878155882,
+            651.5208391391083
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": 0.2169760718847753,
+          "crossed_bootstrap_95ci": [
+            -0.7104332422003875,
+            1.16702370486722
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": -196.63575015744684,
+          "crossed_bootstrap_95ci": [
+            -218.28951189273096,
+            -176.324061853253
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": -732.4735893524787,
+          "crossed_bootstrap_95ci": [
+            -828.5659629297222,
+            -642.5398705297674
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": -209.88836324020048,
+          "crossed_bootstrap_95ci": [
+            -231.43191045469183,
+            -189.06557128169456
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": -709.9878324490569,
+          "crossed_bootstrap_95ci": [
+            -804.7236703955292,
+            -619.8226117805948
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": 26.463150861842287,
+          "crossed_bootstrap_95ci": [
+            24.4085872776759,
+            28.534566941840545
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "recovery_time_s": {
+          "difference": -11.62998096554826,
+          "crossed_bootstrap_95ci": [
+            -18.568822767668223,
+            -4.76871177829396
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        }
+      }
+    },
+    "STAIR_OUTAGE": {
+      "PPO_MINUS_TIME_GREEDY_RULE": {
+        "success_rate": {
+          "difference": 0.00047500000000000054,
+          "crossed_bootstrap_95ci": [
+            -0.0018253125000000049,
+            0.0028875000000000003
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": 94.4395879711163,
+          "crossed_bootstrap_95ci": [
+            75.72868606003199,
+            112.93547162268915
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": 0.02583865482587435,
+          "crossed_bootstrap_95ci": [
+            -0.13240008614258938,
+            0.17111748027176688
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": -32.16148939323898,
+          "crossed_bootstrap_95ci": [
+            -37.94829492324336,
+            -26.379493063670225
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": -129.7613673775982,
+          "crossed_bootstrap_95ci": [
+            -155.87512990191257,
+            -104.62971092447344
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": -31.12500498733772,
+          "crossed_bootstrap_95ci": [
+            -37.286683140272224,
+            -24.683886745548506
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": -112.26820457010571,
+          "crossed_bootstrap_95ci": [
+            -137.30153215503083,
+            -88.49959046955664
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": -0.4002994805453533,
+          "crossed_bootstrap_95ci": [
+            -2.47791548067259,
+            1.748957006578741
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "recovery_time_s": {
+          "difference": -0.7020913716943229,
+          "crossed_bootstrap_95ci": [
+            -2.4829039172299945,
+            0.9836982376049607
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        }
+      },
+      "PPO_MINUS_SINGLE_DOG_ONLY": {
+        "success_rate": {
+          "difference": 0.0056000000000000025,
+          "crossed_bootstrap_95ci": [
+            -0.005299999999999997,
+            0.017462500000000002
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": 647.9608967361884,
+          "crossed_bootstrap_95ci": [
+            587.7850393282934,
+            710.4183933573288
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": 1.0962464078182361,
+          "crossed_bootstrap_95ci": [
+            0.19124500243435613,
+            2.0964911992689212
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": -213.9497619688695,
+          "crossed_bootstrap_95ci": [
+            -237.33189692974648,
+            -191.64110131471276
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": -794.7691874811295,
+          "crossed_bootstrap_95ci": [
+            -900.2782510145477,
+            -698.0202540862806
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": -228.0493823529126,
+          "crossed_bootstrap_95ci": [
+            -251.5128909123203,
+            -205.2281984598797
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": -773.1483933757178,
+          "crossed_bootstrap_95ci": [
+            -877.7853627570041,
+            -673.7773190107508
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": 26.414785019598423,
+          "crossed_bootstrap_95ci": [
+            24.34017699873233,
+            28.5173923279204
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "recovery_time_s": {
+          "difference": -3.415359708125118,
+          "crossed_bootstrap_95ci": [
+            -8.857465833816631,
+            1.6060446923496037
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        }
+      }
+    },
+    "ROBOT_OUTAGE": {
+      "PPO_MINUS_TIME_GREEDY_RULE": {
+        "success_rate": {
+          "difference": 0.00048749999999999916,
+          "crossed_bootstrap_95ci": [
+            -0.0016753125000000064,
+            0.002825000000000001
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": 87.75874228202389,
+          "crossed_bootstrap_95ci": [
+            70.04388342192885,
+            105.07188276884027
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": 0.017016999206210366,
+          "crossed_bootstrap_95ci": [
+            -0.11741375813762128,
+            0.14847843361363036
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": -29.76100572184694,
+          "crossed_bootstrap_95ci": [
+            -34.99678676750161,
+            -24.381313233965546
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": -122.65416119689652,
+          "crossed_bootstrap_95ci": [
+            -147.98117659134195,
+            -99.09909131707431
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": -28.720592396781083,
+          "crossed_bootstrap_95ci": [
+            -34.51516205391223,
+            -22.816105094165586
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": -104.39638838537279,
+          "crossed_bootstrap_95ci": [
+            -128.5392363118891,
+            -80.97376286937843
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": -0.4987519590008089,
+          "crossed_bootstrap_95ci": [
+            -2.474096689709701,
+            1.576820967833751
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "recovery_time_s": {
+          "difference": 0.4763295164409809,
+          "crossed_bootstrap_95ci": [
+            -1.542486163234637,
+            2.425857245513607
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        }
+      },
+      "PPO_MINUS_SINGLE_DOG_ONLY": {
+        "success_rate": {
+          "difference": 0.003487499999999997,
+          "crossed_bootstrap_95ci": [
+            -0.006737812500000008,
+            0.014650312499999995
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": 603.2399877319439,
+          "crossed_bootstrap_95ci": [
+            542.3246540462723,
+            666.0855500588266
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": 0.8557805022415201,
+          "crossed_bootstrap_95ci": [
+            0.02982759785668601,
+            1.7816877422309814
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": -198.84121927088168,
+          "crossed_bootstrap_95ci": [
+            -222.03131513301585,
+            -176.516338423977
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": -746.9720358329276,
+          "crossed_bootstrap_95ci": [
+            -851.7419259697615,
+            -649.8844912922522
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": -212.19138703215827,
+          "crossed_bootstrap_95ci": [
+            -235.8136657878222,
+            -189.9915199436452
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": -727.7434000059549,
+          "crossed_bootstrap_95ci": [
+            -830.5614362240898,
+            -630.2423683351144
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": 25.666621518418637,
+          "crossed_bootstrap_95ci": [
+            23.681276567160182,
+            27.703137703448316
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "recovery_time_s": {
+          "difference": -3.983895695766767,
+          "crossed_bootstrap_95ci": [
+            -8.641426261186016,
+            0.4615988429534279
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        }
+      }
+    }
+  },
+  "degradation_from_control": {
+    "CONTROL": {},
+    "NAVIGATION_FAILURE": {
+      "PPO": {
+        "success_rate": {
+          "difference": -0.0804375,
+          "crossed_bootstrap_95ci": [
+            -0.08780031250000002,
+            -0.073499375
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": -46.249065123531366,
+          "crossed_bootstrap_95ci": [
+            -51.562958703752365,
+            -41.20519464629629
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": -5.720666647683387,
+          "crossed_bootstrap_95ci": [
+            -6.2405970097336985,
+            -5.213737463921419
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": 6.3634694580768105,
+          "crossed_bootstrap_95ci": [
+            4.932639848294224,
+            7.954128373385917
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": 21.140405019263927,
+          "crossed_bootstrap_95ci": [
+            14.387888923582922,
+            28.162769680451884
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": 7.528466545847838,
+          "crossed_bootstrap_95ci": [
+            6.058645058943338,
+            9.123558928858092
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": 22.777621077478088,
+          "crossed_bootstrap_95ci": [
+            15.731299532380467,
+            30.0619641884634
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": 0.5168952824593684,
+          "crossed_bootstrap_95ci": [
+            0.29590539110485664,
+            0.7564845429831664
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        }
+      },
+      "TIME_GREEDY_RULE": {
+        "success_rate": {
+          "difference": -0.08137500000000002,
+          "paired_bootstrap_95ci": [
+            -0.0885,
+            -0.07450000000000001
+          ],
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": -51.94853597212074,
+          "paired_bootstrap_95ci": [
+            -60.270102367275534,
+            -44.608416950182786
+          ],
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": -5.782075666096398,
+          "paired_bootstrap_95ci": [
+            -6.313602235374634,
+            -5.275469057651434
+          ],
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": 8.372308164844185,
+          "paired_bootstrap_95ci": [
+            6.019891149084358,
+            11.124034355052395
+          ],
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": 25.242244897573922,
+          "paired_bootstrap_95ci": [
+            15.996211273371621,
+            35.7663355695741
+          ],
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": 9.511129986460533,
+          "paired_bootstrap_95ci": [
+            7.124316081177974,
+            12.28690221596387
+          ],
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": 24.71269380926593,
+          "paired_bootstrap_95ci": [
+            15.042803407765726,
+            35.32159331711243
+          ],
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": 0.5821642758452853,
+          "paired_bootstrap_95ci": [
+            0.32259111127553314,
+            0.84438179061286
+          ],
+          "test_seed_count": 100
+        }
+      },
+      "SINGLE_DOG_ONLY": {
+        "success_rate": {
+          "difference": -0.074875,
+          "paired_bootstrap_95ci": [
+            -0.08112812500000002,
+            -0.06862499999999999
+          ],
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": -56.86483190690754,
+          "paired_bootstrap_95ci": [
+            -72.8722138287824,
+            -42.75311606555693
+          ],
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": -5.250641768276942,
+          "paired_bootstrap_95ci": [
+            -5.707911835475866,
+            -4.786559375753441
+          ],
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": 12.425332368047602,
+          "paired_bootstrap_95ci": [
+            7.296825315538749,
+            18.121238374673407
+          ],
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": 57.83671424944374,
+          "paired_bootstrap_95ci": [
+            22.544629474211504,
+            98.29901172989108
+          ],
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": 13.363060595724273,
+          "paired_bootstrap_95ci": [
+            8.228219579599235,
+            19.27819401904538
+          ],
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": 55.67029249844751,
+          "paired_bootstrap_95ci": [
+            21.91626401016935,
+            95.56370660711633
+          ],
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": -0.10781741785866367,
+          "paired_bootstrap_95ci": [
+            -0.17885561195212127,
+            -0.04618672043660318
+          ],
+          "test_seed_count": 100
+        }
+      }
+    },
+    "STAIR_OUTAGE": {
+      "PPO": {
+        "success_rate": {
+          "difference": -0.00017499999999999883,
+          "crossed_bootstrap_95ci": [
+            -0.0008124999999999976,
+            0.0004128124999999987
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": -8.398290605582801,
+          "crossed_bootstrap_95ci": [
+            -11.42952407547709,
+            -5.609755883188219
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": -0.022365982920128667,
+          "crossed_bootstrap_95ci": [
+            -0.06987844491885373,
+            0.023806049750501497
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": 2.4113272838483537,
+          "crossed_bootstrap_95ci": [
+            1.482471984329337,
+            3.4277092279134513
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": 8.704117814612099,
+          "crossed_bootstrap_95ci": [
+            3.9591335125528646,
+            13.610843086076912
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": 2.7749429246757384,
+          "crossed_bootstrap_95ci": [
+            1.8432166856070142,
+            3.8094226779452542
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": 9.801955031355467,
+          "crossed_bootstrap_95ci": [
+            4.92143262931415,
+            14.86310706995142
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": 1.3630301236921618,
+          "crossed_bootstrap_95ci": [
+            1.0891021480483387,
+            1.6389707852349695
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        }
+      },
+      "TIME_GREEDY_RULE": {
+        "success_rate": {
+          "difference": -0.0005000000000000015,
+          "paired_bootstrap_95ci": [
+            -0.0013750000000000019,
+            0.00037499999999999865
+          ],
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": -7.516723395722055,
+          "paired_bootstrap_95ci": [
+            -11.06184805982108,
+            -3.9339985953147414
+          ],
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": -0.027343433911053195,
+          "paired_bootstrap_95ci": [
+            -0.09516353600636293,
+            0.03813168870509786
+          ],
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": 2.151821808579702,
+          "paired_bootstrap_95ci": [
+            0.9924686960738808,
+            3.325864723266678
+          ],
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": 4.057305356085198,
+          "paired_bootstrap_95ci": [
+            -2.379856434383148,
+            9.92351421167805
+          ],
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": 2.500542722725397,
+          "paired_bootstrap_95ci": [
+            1.3130708238687523,
+            3.7184795001687085
+          ],
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": 4.333793316835349,
+          "paired_bootstrap_95ci": [
+            -1.8083616948333576,
+            10.136795554948668
+          ],
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": 1.3429890588375506,
+          "paired_bootstrap_95ci": [
+            0.9709353593386435,
+            1.7298870661724597
+          ],
+          "test_seed_count": 100
+        }
+      },
+      "SINGLE_DOG_ONLY": {
+        "success_rate": {
+          "difference": -0.004375000000000002,
+          "paired_bootstrap_95ci": [
+            -0.008250000000000006,
+            -0.0012500000000000011
+          ],
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": -74.37888323135051,
+          "paired_bootstrap_95ci": [
+            -98.92208507233819,
+            -53.12057528344296
+          ],
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": -0.43161143944714503,
+          "paired_bootstrap_95ci": [
+            -0.7704708304218773,
+            -0.17876296569318195
+          ],
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": 25.787202005241816,
+          "paired_bootstrap_95ci": [
+            17.83930984347546,
+            34.70354701369478
+          ],
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": 107.6960251734427,
+          "paired_bootstrap_95ci": [
+            60.76191736041943,
+            164.82490077564054
+          ],
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": 26.770556087264314,
+          "paired_bootstrap_95ci": [
+            18.743206322389067,
+            35.67457043063641
+          ],
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": 105.8551873789859,
+          "paired_bootstrap_95ci": [
+            60.44793112185241,
+            159.7095903918984
+          ],
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": 0.7866832656180001,
+          "paired_bootstrap_95ci": [
+            0.6371846707091994,
+            0.9351238712058246
+          ],
+          "test_seed_count": 100
+        }
+      }
+    },
+    "ROBOT_OUTAGE": {
+      "PPO": {
+        "success_rate": {
+          "difference": 0.0004624999999999998,
+          "crossed_bootstrap_95ci": [
+            -0.00017499999999999994,
+            0.0011499999999999995
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": -11.914936632800417,
+          "crossed_bootstrap_95ci": [
+            -15.738778115387982,
+            -8.40810922380103
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": 0.021685546834205118,
+          "crossed_bootstrap_95ci": [
+            -0.028928060081923213,
+            0.07081821856139323
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": 3.69085698152702,
+          "crossed_bootstrap_95ci": [
+            2.502704938192346,
+            4.939859610133874
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": 6.445928814373422,
+          "crossed_bootstrap_95ci": [
+            1.343876384599776,
+            11.644729358128542
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": 3.861991233117018,
+          "crossed_bootstrap_95ci": [
+            2.719067529966511,
+            5.1339151155756895
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": 7.198829132276769,
+          "crossed_bootstrap_95ci": [
+            2.4230205300341043,
+            12.328517358412139
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": -0.13868058709077333,
+          "crossed_bootstrap_95ci": [
+            -0.37104939187117686,
+            0.09505325811051026
+          ],
+          "training_seed_count": 10,
+          "test_seed_count": 100
+        }
+      },
+      "TIME_GREEDY_RULE": {
+        "success_rate": {
+          "difference": 0.00012499999999999846,
+          "paired_bootstrap_95ci": [
+            -0.0006250000000000022,
+            0.0008781249999999567
+          ],
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": -4.352523733847272,
+          "paired_bootstrap_95ci": [
+            -11.043337670629338,
+            3.247128411204983
+          ],
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": 0.025529751462944575,
+          "paired_bootstrap_95ci": [
+            -0.03768259656202782,
+            0.09020244714111292
+          ],
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": 1.030867834866324,
+          "paired_bootstrap_95ci": [
+            -1.5300830648620807,
+            3.2843250106737236
+          ],
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": -5.3080898248551565,
+          "paired_bootstrap_95ci": [
+            -16.149770368425894,
+            4.620383489893347
+          ],
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": 1.1831784406100423,
+          "paired_bootstrap_95ci": [
+            -1.3694823010389487,
+            3.497763092385243
+          ],
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": -6.141148766976275,
+          "paired_bootstrap_95ci": [
+            -16.83484099660037,
+            3.5290148690887686
+          ],
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": -0.060269173489928815,
+          "paired_bootstrap_95ci": [
+            -0.3696719493022079,
+            0.24532988664578884
+          ],
+          "test_seed_count": 100
+        }
+      },
+      "SINGLE_DOG_ONLY": {
+        "success_rate": {
+          "difference": -0.0016249999999999986,
+          "paired_bootstrap_95ci": [
+            -0.005875,
+            0.002250000000000004
+          ],
+          "test_seed_count": 100
+        },
+        "reward": {
+          "difference": -33.174620254323564,
+          "paired_bootstrap_95ci": [
+            -67.12626032124344,
+            -4.0341547501637125
+          ],
+          "test_seed_count": 100
+        },
+        "successful_throughput_tasks_per_hour": {
+          "difference": -0.14709400411609536,
+          "paired_bootstrap_95ci": [
+            -0.4778156715890142,
+            0.11710210197043905
+          ],
+          "test_seed_count": 100
+        },
+        "mean_waiting_time": {
+          "difference": 11.958189004932674,
+          "paired_bootstrap_95ci": [
+            1.11981299498339,
+            24.7324645235005
+          ],
+          "test_seed_count": 100
+        },
+        "p95_waiting_time": {
+          "difference": 57.64068452500231,
+          "paired_bootstrap_95ci": [
+            2.010590124257418,
+            122.15024930351757
+          ],
+          "test_seed_count": 100
+        },
+        "mean_flow_time": {
+          "difference": 11.999609074951227,
+          "paired_bootstrap_95ci": [
+            1.5337256846638707,
+            24.31386146157272
+          ],
+          "test_seed_count": 100
+        },
+        "p95_flow_time": {
+          "difference": 57.8470681101443,
+          "paired_bootstrap_95ci": [
+            2.739072316625355,
+            119.97175001838609
+          ],
+          "test_seed_count": 100
+        },
+        "distance_per_task": {
+          "difference": 0.03313605601484326,
+          "paired_bootstrap_95ci": [
+            -0.1130492532742367,
+            0.17195718766866938
+          ],
+          "test_seed_count": 100
+        }
+      }
+    }
+  },
+  "fault_event_counts": {
+    "CONTROL": {
+      "PPO": 0,
+      "TIME_GREEDY_RULE": 0,
+      "SINGLE_DOG_ONLY": 0
+    },
+    "NAVIGATION_FAILURE": {
+      "PPO": 6393,
+      "TIME_GREEDY_RULE": 648,
+      "SINGLE_DOG_ONLY": 572
+    },
+    "STAIR_OUTAGE": {
+      "PPO": 0,
+      "TIME_GREEDY_RULE": 0,
+      "SINGLE_DOG_ONLY": 0
+    },
+    "ROBOT_OUTAGE": {
+      "PPO": 0,
+      "TIME_GREEDY_RULE": 0,
+      "SINGLE_DOG_ONLY": 0
+    }
+  },
+  "fault_window_start_counts": {
+    "CONTROL": {
+      "PPO": 0,
+      "TIME_GREEDY_RULE": 0,
+      "SINGLE_DOG_ONLY": 0
+    },
+    "NAVIGATION_FAILURE": {
+      "PPO": 2000,
+      "TIME_GREEDY_RULE": 200,
+      "SINGLE_DOG_ONLY": 200
+    },
+    "STAIR_OUTAGE": {
+      "PPO": 2000,
+      "TIME_GREEDY_RULE": 200,
+      "SINGLE_DOG_ONLY": 200
+    },
+    "ROBOT_OUTAGE": {
+      "PPO": 2000,
+      "TIME_GREEDY_RULE": 200,
+      "SINGLE_DOG_ONLY": 200
+    }
+  },
+  "assertions": {
+    "all_40_policy_jobs_loaded": true,
+    "all_8_baseline_jobs_loaded": true,
+    "all_methods_share_one_task_stream_family": true,
+    "fault_schedule_shared_within_each_scenario": true,
+    "control_has_no_fault_events": true,
+    "navigation_failure_activated_for_all_methods": true,
+    "all_outage_windows_observed": true
+  },
+  "passed": true
+}

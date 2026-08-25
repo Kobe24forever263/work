@@ -1,0 +1,193 @@
+{
+  "schema_version": "warehouse_stage21_fault_protocol_freeze_v1",
+  "stage": 21,
+  "campaign": "FAULT_ROBUSTNESS_ALL_WEIGHT_LOCKED_V1",
+  "protocol": {
+    "schema_version": "warehouse_stage21_fault_robustness_protocol_v1",
+    "stage": 21,
+    "campaign": "FAULT_ROBUSTNESS_ALL_WEIGHT_LOCKED_V1",
+    "smoke": {
+      "seed_start": 66000000,
+      "seed_count": 2,
+      "status": "consumed"
+    },
+    "preflight": {
+      "seed_start": 66001000,
+      "seed_count": 2,
+      "status": "protocol_only"
+    },
+    "locked_test": {
+      "seed_start": 66100000,
+      "seed_count": 100,
+      "status": "locked_until_freeze_gate_passes"
+    },
+    "bootstrap": {
+      "seed": 66200000,
+      "samples": 10000
+    },
+    "execution": {
+      "mode": "CONCURRENT",
+      "arrival_schedule": "MIXED_CURRICULUM",
+      "tasks_per_episode": 80,
+      "methods": [
+        "PPO",
+        "TIME_GREEDY_RULE",
+        "SINGLE_DOG_ONLY"
+      ],
+      "fault_scenarios": [
+        "CONTROL",
+        "NAVIGATION_FAILURE",
+        "STAIR_OUTAGE",
+        "ROBOT_OUTAGE"
+      ],
+      "active_task_preemption": false,
+      "shared_task_randomness": true,
+      "shared_fault_schedule": true,
+      "navigation_randomness": "TASK_KEYED_PREFIX_COUPLING"
+    },
+    "formal_scope": {
+      "stage20_weight_count": 10,
+      "ppo_job_count": 40,
+      "baseline_job_count": 8,
+      "ppo_episode_count": 4000,
+      "baseline_episode_count": 800,
+      "total_task_count": 384000
+    },
+    "claim_boundary": "Logical SMDP fault injection only. Navigation failure is a task-keyed route-segment abstraction; stair and robot outages are observable external availability windows. This protocol does not establish ROS, planner, dynamics, or hardware fault robustness."
+  },
+  "frozen_files": [
+    {
+      "path": "/Users/lab4099/Desktop/Mujoco/work/src/warehouse_core/warehouse_core/stage14_training.py",
+      "sha256": "0faed646cd9b35051e24df0c2b46c1d49fea2a86baaf2ffec839a3e8f9406b8e"
+    },
+    {
+      "path": "/Users/lab4099/Desktop/Mujoco/work/src/warehouse_core/warehouse_core/stage21_faults.py",
+      "sha256": "22d21e5f752c17a71dea18587ed9a6539823eb9a98d34d6c5d4d0ad02351c93f"
+    },
+    {
+      "path": "/Users/lab4099/Desktop/Mujoco/work/src/warehouse_bringup/config/experiment_seeds_stage21_fault_robustness.yaml",
+      "sha256": "7694f4b47fb7987365f59f7f6108b4776cc6368ffdaa00320dc8260f3fa73dd0"
+    },
+    {
+      "path": "/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage15_stress_evaluation.py",
+      "sha256": "db9ec0df66389ce1894047411e4d6012a0391f24b7a962264ca10f721f3f598a"
+    },
+    {
+      "path": "/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage21_fault_robustness.py",
+      "sha256": "2975a5f2e2b073b7ef6c893f28552cef84f865dfa18ce87dfd02112966565632"
+    },
+    {
+      "path": "/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage21_fault_locked_campaign.py",
+      "sha256": "1674352f4584ec487b6eb0128fb3f8d39291a44ebe58a3c0e1c90b6ae78fa4e6"
+    },
+    {
+      "path": "/Users/lab4099/Desktop/Mujoco/work/scripts/summarize_stage21_fault_locked.py",
+      "sha256": "082cd065ffa8393f1fd23c1be057934d35b8d3f5f570c2628e1ff9fb9d4395fe"
+    },
+    {
+      "path": "/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage21_fault_locked.command",
+      "sha256": "ce55d34b1b1f6cf0c1d5e6b183f2d19f56d88b02254c270af2ee6b24a967a220"
+    }
+  ],
+  "frozen_weights": [
+    {
+      "training_seed_index": 1,
+      "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage20_mixed_curriculum/long/seed_01/stage20_ppo.best.pt",
+      "expected_sha256": "9c490db7874ddb296facd51d4b1d175013080652fcda19f2cefbf6924c9f81dd",
+      "actual_sha256": "9c490db7874ddb296facd51d4b1d175013080652fcda19f2cefbf6924c9f81dd"
+    },
+    {
+      "training_seed_index": 2,
+      "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage20_mixed_curriculum/long/seed_02/stage20_ppo.best.pt",
+      "expected_sha256": "c2ed6cb36e8a768911b521fad2335186b35b961d4a38bf516f65d6c6bdfcf2c7",
+      "actual_sha256": "c2ed6cb36e8a768911b521fad2335186b35b961d4a38bf516f65d6c6bdfcf2c7"
+    },
+    {
+      "training_seed_index": 3,
+      "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage20_mixed_curriculum/long/seed_03/stage20_ppo.best.pt",
+      "expected_sha256": "d70f6d8d96bdacd25e43b7a7761db43bb790de117b295a9b07b3ee27f28fcf99",
+      "actual_sha256": "d70f6d8d96bdacd25e43b7a7761db43bb790de117b295a9b07b3ee27f28fcf99"
+    },
+    {
+      "training_seed_index": 4,
+      "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage20_mixed_curriculum/long/seed_04/stage20_ppo.best.pt",
+      "expected_sha256": "5393285e1ba2b3f16e242089fe23333263cde4d5eefd142d3efd583dbf4f1c16",
+      "actual_sha256": "5393285e1ba2b3f16e242089fe23333263cde4d5eefd142d3efd583dbf4f1c16"
+    },
+    {
+      "training_seed_index": 5,
+      "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage20_mixed_curriculum/long/seed_05/stage20_ppo.best.pt",
+      "expected_sha256": "76520da275b27b21304c542b67461e80471e6f828aebe0d41465ffe5a3c70d60",
+      "actual_sha256": "76520da275b27b21304c542b67461e80471e6f828aebe0d41465ffe5a3c70d60"
+    },
+    {
+      "training_seed_index": 6,
+      "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage20_mixed_curriculum/long/seed_06/stage20_ppo.best.pt",
+      "expected_sha256": "c1c445a255b246e9b350b93bc8036938eae5f2ffcf09c433928a001340a0bab8",
+      "actual_sha256": "c1c445a255b246e9b350b93bc8036938eae5f2ffcf09c433928a001340a0bab8"
+    },
+    {
+      "training_seed_index": 7,
+      "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage20_mixed_curriculum/long/seed_07/stage20_ppo.best.pt",
+      "expected_sha256": "63bec78468e54d49436c8e096958d98c12baf22565930acd4fc0e1427161c7e5",
+      "actual_sha256": "63bec78468e54d49436c8e096958d98c12baf22565930acd4fc0e1427161c7e5"
+    },
+    {
+      "training_seed_index": 8,
+      "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage20_mixed_curriculum/long/seed_08/stage20_ppo.best.pt",
+      "expected_sha256": "7605c0e3c5688c4cc5e209dc928b1aebcda7556474e94a82552fed7d67e288f8",
+      "actual_sha256": "7605c0e3c5688c4cc5e209dc928b1aebcda7556474e94a82552fed7d67e288f8"
+    },
+    {
+      "training_seed_index": 9,
+      "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage20_mixed_curriculum/long/seed_09/stage20_ppo.best.pt",
+      "expected_sha256": "f89b90b9b3caf0f5fa95cfc429767e4373d06bd321263fa98f3f7dac9fdcab2e",
+      "actual_sha256": "f89b90b9b3caf0f5fa95cfc429767e4373d06bd321263fa98f3f7dac9fdcab2e"
+    },
+    {
+      "training_seed_index": 10,
+      "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage20_mixed_curriculum/long/seed_10/stage20_ppo.best.pt",
+      "expected_sha256": "a472c9ffce085d71cf64804224ed48bd8be09a4d41d825e68ebd44490a5262aa",
+      "actual_sha256": "a472c9ffce085d71cf64804224ed48bd8be09a4d41d825e68ebd44490a5262aa"
+    }
+  ],
+  "stage20_freeze_manifest": "/Users/lab4099/Desktop/Mujoco/work/results/stage20_mixed_curriculum/stage20_policy_freeze_manifest.json",
+  "stage20_freeze_manifest_sha256": "81b47e9e9144a9de3e327e2c119531bb56cdb28498f51674617f00d909b913f6",
+  "smoke_result": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_smoke.json",
+  "smoke_result_sha256": "b460e70de0ddf008cc3f61e145e8f08577ac8cf1880e693898fbc47176ca4a8c",
+  "preflight_root": "/Users/lab4099/Desktop/Mujoco/work/results/stage21_external_validity/fault_robustness_campaign/preflight",
+  "preflight_shared_fingerprints": {
+    "CONTROL": {
+      "task": true,
+      "fault": true
+    },
+    "NAVIGATION_FAILURE": {
+      "task": true,
+      "fault": true
+    },
+    "STAIR_OUTAGE": {
+      "task": true,
+      "fault": true
+    },
+    "ROBOT_OUTAGE": {
+      "task": true,
+      "fault": true
+    }
+  },
+  "locked_outputs_seen_before_freeze": [],
+  "hard_gate": {
+    "assertions": {
+      "stage20_freeze_gate_passed": true,
+      "ten_frozen_weights_present": true,
+      "all_weight_hashes_match": true,
+      "fault_smoke_gate_passed": true,
+      "all_preflight_jobs_present": true,
+      "preflight_task_streams_shared": true,
+      "preflight_fault_schedules_shared": true,
+      "seed_namespaces_disjoint": true,
+      "formal_scope_matches_protocol": true,
+      "locked_test_seed_outputs_absent_before_freeze": true
+    },
+    "passed": true
+  }
+}

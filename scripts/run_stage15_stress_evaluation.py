@@ -180,7 +180,8 @@ def reward_aligned_risk_rule_action(env: WarehouseDispatchGymEnv) -> int:
 def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
                execution_mode: str,
                observation_variant: str = "FULL_CONTEXT_V2",
-               allowed_transport_modes: tuple[str, ...] | None = None):
+               allowed_transport_modes: tuple[str, ...] | None = None,
+               env_factory=None, progress_callback=None):
     episodes = []
     total_modes = Counter()
     total_failures = Counter()
@@ -193,8 +194,10 @@ def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
     all_waiting = []
     all_flow = []
     fingerprints = []
-    for seed in seeds:
-        env = WarehouseDispatchGymEnv(
+    fault_fingerprints = []
+    for episode_index, seed in enumerate(seeds, start=1):
+        factory = env_factory or WarehouseDispatchGymEnv
+        env = factory(
             seed=seed, execution_mode=execution_mode,
             arrival_interval=scenario.arrival_interval,
             episode_spec=scenario.episode_spec,
@@ -205,6 +208,9 @@ def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
         observation, info = env.reset(seed=seed)
         fingerprint, arrivals, task_specs = task_fingerprint(env)
         fingerprints.append(fingerprint)
+        fault_fingerprint = getattr(
+            env.dispatch, "fault_schedule_fingerprint", "")
+        fault_fingerprints.append(fault_fingerprint)
         reward_total = 0.0
         illegal = 0
         peak_active = 0
@@ -370,6 +376,7 @@ def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
             "schema_version": RESULT_SCHEMA_VERSION,
             "seed": seed,
             "task_stream_fingerprint": fingerprint,
+            "fault_schedule_fingerprint": fault_fingerprint,
             "task_count": task_count,
             "completed": dispatch.completed,
             "failed": effective_failed,
@@ -394,6 +401,11 @@ def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
             "transport_modes_by_phase": nested_matrix(phase_modes),
             "failure_reasons": dict(failures),
             "tasks": task_rows,
+            "fault_schedule": (
+                env.dispatch.fault_plan.to_dict()
+                if getattr(env.dispatch, "fault_plan", None) else None),
+            "fault_events": list(getattr(
+                env.dispatch, "fault_events", [])),
         }
         episodes.append(episode)
         total_modes.update(modes)
@@ -403,6 +415,8 @@ def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
         total_phase_modes.update(phase_modes)
         all_waiting.extend(waiting)
         all_flow.extend(flow)
+        if progress_callback is not None:
+            progress_callback(episode_index, len(seeds), episode)
 
     task_count = sum(item["task_count"] for item in episodes)
     total_time = sum(item["simulated_time"] for item in episodes)
@@ -466,6 +480,8 @@ def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
             total_floor_relation),
         "task_fingerprint": hashlib.sha256(
             "".join(fingerprints).encode()).hexdigest(),
+        "fault_fingerprint": hashlib.sha256(
+            "".join(fault_fingerprints).encode()).hexdigest(),
         "episodes": episodes,
     }
 

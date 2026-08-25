@@ -1,0 +1,54 @@
+schema_version: warehouse_stage21_fault_robustness_protocol_v1
+stage: 21
+campaign: FAULT_ROBUSTNESS_ALL_WEIGHT_LOCKED_V1
+
+smoke:
+  seed_start: 66000000
+  seed_count: 2
+  status: consumed
+
+preflight:
+  seed_start: 66001000
+  seed_count: 2
+  status: protocol_only
+
+locked_test:
+  seed_start: 66100000
+  seed_count: 100
+  status: locked_until_freeze_gate_passes
+
+bootstrap:
+  seed: 66200000
+  samples: 10000
+
+execution:
+  mode: CONCURRENT
+  arrival_schedule: MIXED_CURRICULUM
+  tasks_per_episode: 80
+  methods:
+    - PPO
+    - TIME_GREEDY_RULE
+    - SINGLE_DOG_ONLY
+  fault_scenarios:
+    - CONTROL
+    - NAVIGATION_FAILURE
+    - STAIR_OUTAGE
+    - ROBOT_OUTAGE
+  active_task_preemption: false
+  shared_task_randomness: true
+  shared_fault_schedule: true
+  navigation_randomness: TASK_KEYED_PREFIX_COUPLING
+
+formal_scope:
+  stage20_weight_count: 10
+  ppo_job_count: 40
+  baseline_job_count: 8
+  ppo_episode_count: 4000
+  baseline_episode_count: 800
+  total_task_count: 384000
+
+claim_boundary: >-
+  Logical SMDP fault injection only. Navigation failure is a task-keyed
+  route-segment abstraction; stair and robot outages are observable external
+  availability windows. This protocol does not establish ROS, planner,
+  dynamics, or hardware fault robustness.

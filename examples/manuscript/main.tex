@@ -196,7 +196,7 @@
 \maketitle
 
 \begin{abstract}
-Multi-floor warehouses couple task allocation with transport-mode selection: wheeled robots move efficiently on level ground, legged robots traverse stairs, and cross-floor deliveries may use one legged robot or a wheeled--legged--wheeled relay. We formulate this problem as an event-driven semi-Markov decision process with asynchronous arrivals, variable-duration actions, persistent robot locations, and concurrent resource use. At each decision epoch, a centralized policy selects a task, mode, participating robots, and stairway. A feasibility layer enumerates joint candidates and masks conflicts before sampling. A shared actor combines global context with per-candidate geometric, temporal, resource, and handover-risk features. Proximal policy optimization uses duration-aware discounting and generalized advantage estimation. In a locked continuous-load evaluation with 30 independently trained policies and 100 shared test streams, all three training cohorts improved task success by 0.90--2.07 percentage points and successful throughput by 0.64--1.46 tasks/h relative to a time-greedy rule. The policies also reduced use of the resource-intensive relay under burst load and cleared accumulated waiting during recovery. The policy operates only at the scheduling layer; navigation and robot control remain separate.
+Multi-floor warehouses couple task allocation with transport-mode selection: wheeled robots move efficiently on level ground, legged robots traverse stairs, and cross-floor deliveries may use one legged robot or a wheeled--legged--wheeled relay. We formulate this problem as an event-driven semi-Markov decision process with asynchronous arrivals, variable-duration actions, persistent robot locations, and concurrent resource use. At each decision epoch, a centralized policy selects a task, mode, participating robots, and stairway. A feasibility layer enumerates joint candidates and masks conflicts before sampling. A shared actor combines global context with per-candidate geometric, temporal, resource, and handover-risk features. Proximal policy optimization uses duration-aware discounting and generalized advantage estimation. In matched-load locked evaluations across \textsc{Medium}, \textsc{Dense}, and \textsc{Burst}, 30 independently trained fixed-profile policies achieved 96.30--98.08\% success, and their return and successful-throughput point estimates exceeded those of a time-greedy rule in all three profiles. In a separate randomized persistent mixed-load evaluation, 10 independently trained mixed-curriculum policies maintained 96.51\% success, statistically comparable to the rule, while improving raw return by 89.46 and reducing mean waiting by 30.14~s; relative to a single-dog control, mean waiting decreased by 178.88~s. The results show that the proposed scheduling framework remains effective under both fixed-profile and mixed-load operation, although load-matched specialists can retain an efficiency advantage on some metrics. The policy operates only at the scheduling layer; navigation and robot control remain separate.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -285,6 +285,13 @@ This work & \textcolor{black}{$\bullet$} & \textcolor{black}{$\bullet$} & \textc
 
 We consider a two-floor warehouse served by a heterogeneous team $\mathcal{R}=\mathcal{R}^{c}\cup\mathcal{R}^{d}$. The first floor spans \SI{48}{m}$\times$\SI{40}{m}; the second spans \SI{30}{m}$\times$\SI{24}{m} at a height of \SI{4}{m} and contains an \SI{8}{m}$\times$\SI{6}{m} central void. Four external \SI{1.4}{m}-wide stairways connect the floors. The current configuration contains six wheeled Carter robots and four Unitree Go2 quadrupeds. Four Carter robots start on the first floor and two on the second floor. Carter and Go2 nominal translational speeds are \SI{2.0}{m/s} and \SI{0.8}{m/s}, respectively. Carter robots are restricted to level-ground motion; Go2 robots may move on either floor and traverse stairs.
 
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.82\textwidth]{warehouse_simulation_overview.png}
+\caption{Project-generated overview of the two-floor warehouse simulation model. The scene contains the lower and upper work areas, a central opening, and four exterior stair connections used by the scheduling model. This image documents the modeled environment; the quantitative Stage~19 results are produced by the logical continuous-time scheduler described in Section~\ref{sec:protocol}.}
+\label{fig:warehouse_overview}
+\end{figure*}
+
 Navigation-level integration is evaluated separately from policy training using a project-adapted community ROS~2 port of SCAN-Planner~\cite{zheng2026scan}. In the archived route gates, both morphologies consume a static warehouse point cloud and preset waypoint sequences; morphology-specific envelopes and speed limits parameterize the planner, and the resulting B-spline trajectories are replayed by an open-loop controller. These trials test planner interfaces and kinematic route reachability, not sensor-closed-loop or contact-dynamics navigation. SCAN-Planner's published validation concerns a Unitree Go2; the Carter interface is an engineering adaptation in this project, not evidence that the original planner natively supports wheeled platforms.
 
 A task $i$ is released at time $a_i$ and is described by
@@ -323,33 +330,12 @@ Let $N(t)$ be the number of released but unresolved tasks. The scheduling object
 \section{Event-Driven Masked SMDP-PPO}
 \label{sec:method}
 
-Fig.~\ref{fig:architecture} summarizes the decision loop. Task arrivals, assignment completions, and dispatch opportunities after the fixed decision gap create decision epochs. A fixed-size state encoder describes the visible task queue, persistent fleet state, active-task fraction, and stair availability. In parallel, the feasibility layer queries the full environment state, enumerates joint assignments, and constructs a conflict mask. The actor scores only legal candidates. Execution then changes the physical and logical state until the next epoch.
+Fig.~\ref{fig:architecture} summarizes the decision loop and its interface to the implemented robot stack. Task arrivals, assignment completions, and dispatch opportunities after the fixed decision gap create decision epochs. A fixed-size state encoder describes the visible task queue, persistent fleet state, active-task fraction, and stair availability. In parallel, the feasibility layer queries the full environment state, enumerates joint assignments, and constructs a conflict mask. The actor scores only legal candidates. Execution then changes the physical and logical state until the next epoch. The execution panel uses project-generated simulation views to identify Carter and Go2 as the wheeled and legged execution interfaces; SCAN-Planner remains an external navigation component rather than part of the learned policy~\cite{zheng2026scan}.
 
 \begin{figure*}[t]
 \centering
-\begin{tikzpicture}[
-  font=\footnotesize,
-  node distance=7mm and 3.5mm,
-  box/.style={draw,rounded corners,align=center,minimum height=10mm,minimum width=23mm,fill=blue!4},
-  resource/.style={draw,rounded corners,align=center,minimum height=10mm,minimum width=25mm,fill=orange!7},
-  arrow/.style={-{Latex[length=2mm]},thick}
-]
-\node[resource] (events) {Dispatch/arrival/\\completion at $t_k$};
-\node[box,right=of events] (state) {284-D persistent state\\tasks, robots, stairs};
-\node[box,right=of state] (enumerate) {Enumerate up to 1536\\joint candidates};
-\node[box,right=of enumerate] (mask) {Feasibility and\\resource mask};
-\node[box,right=of mask] (actor) {Shared context--candidate\\actor and value head};
-\node[resource,right=of actor] (execute) {Reserve and execute\\selected assignment};
-\draw[arrow] (events)--(state);
-\draw[arrow] (state)--(enumerate);
-\draw[arrow] (enumerate)--(mask);
-\draw[arrow] (mask)--(actor);
-\draw[arrow] (actor)--(execute);
-\draw[arrow] (execute.south) -- ++(0,-8mm) -| node[below,pos=.48,align=center]{persistent positions, ownership,\\queue, and released reservations} (state.south);
-\node[below=4mm of enumerate,align=center] (modes) {$\{\modecar,\ \modedog,\ \modechain\}$\\$\times$ task $\times$ robots $\times$ stair};
-\draw[arrow] (modes)--(enumerate);
-\end{tikzpicture}
-\caption{Event-driven high-level scheduling architecture. Navigation and low-level control are outside the learned policy.}
+\includegraphics[width=\textwidth]{fig_architecture_drawio.pdf}
+\caption{Event-driven masked SMDP-PPO and its simulator interfaces. At each event, the policy scores only legal task--mode--robot--stair candidates; the selected assignment is executed by morphology-specific navigation skills, and the persistent system state returns at the next event. Insets are project-generated model views, not hardware evidence.}
 \label{fig:architecture}
 \end{figure*}
 
@@ -505,7 +491,7 @@ The fixed-size encoder supports ten robots, four stairs, eight visible tasks, an
 \section{Conclusion}
 \label{sec:conclusion}
 
-We presented an event-driven formulation for persistent heterogeneous transport in a multi-floor warehouse. The approach couples task selection, transport-mode choice, robot assignment, and stair reservation in one masked candidate action. A shared context--candidate actor avoids index-specific action parameters, while duration-aware discounting aligns PPO updates with elapsed execution time. In the locked logical-simulation test, all three fixed-load training cohorts improved success and successful throughput relative to a time-greedy rule, while the learned relay share changed substantially as load increased and accumulated waiting decreased during recovery. These results establish multi-seed scheduling evidence under persistent nonstationary load, but not navigation, contact-dynamics, or hardware validity. Future work will train a single mixed-curriculum policy and complete closed-loop navigation and physical handover validation.
+We presented an event-driven formulation for persistent heterogeneous transport in a multi-floor warehouse. The approach couples task selection, transport-mode choice, robot assignment, and stair reservation in one masked candidate action. A shared context--candidate actor avoids index-specific action parameters, while duration-aware discounting aligns PPO updates with elapsed execution time. In matched-load locked logical-simulation tests, the three fixed-profile cohorts achieved 96.30--98.08\% success and exceeded the time-greedy rule in return and successful-throughput point estimates across all profiles. A separately trained mixed-curriculum cohort maintained 96.51\% success under randomized persistent mixed-load streams while reducing mean waiting and improving return relative to time-greedy and single-dog controls. Together, these results show that the proposed masked SMDP-PPO scheduling framework performs effectively under both fixed-profile and mixed-load operation. Load-matched specialists nevertheless remained more efficient on some metrics, so the evidence supports robustness across operating regimes rather than universal dominance by one policy. These results establish multi-seed scheduling evidence, but not navigation, contact-dynamics, or hardware validity. Future work will complete closed-loop navigation, physical handover validation, and robustness tests under partial observability and robot failures.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}

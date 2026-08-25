@@ -21,6 +21,13 @@ This file is for internal verification and is not a source of experimental claim
 | Stage 19 per-training-seed and per-task locked-test records | `/Users/lab4099/Desktop/Mujoco/work/results/stage19_mixed_recovery/locked_test_v1/` |
 | Stage 19 formal data-quality audit | `/Users/lab4099/Desktop/Mujoco/work/results/stage19_mixed_recovery/stage19_quality_audit.ipynb` |
 | Stage 19 figure generator and raw-to-summary checks | `scripts/make_stage19_figures.py` |
+| Stage 21 CPU latency and scaling evidence | `examples/manuscript/data/stage21/latency_scaling_formal.json` |
+| Stage 21 logical fault-robustness evidence | `examples/manuscript/data/stage21/fault_robustness_locked_summary.json` |
+| Stage 21 frozen protocol and model hashes | `examples/manuscript/data/stage21/stage21_fault_protocol_freeze_manifest.json` |
+| Stage 21 chart contracts, Origin instructions, and claim boundaries | `examples/manuscript/STAGE21_PLOTTING_GUIDE.md` |
+| Go2 simulation-model inset in the architecture figure | User-generated screenshot `/Users/lab4099/Desktop/workasset/截屏2026-08-24 10.44.30.png`; manuscript asset `go2_simulation_model.png`; SHA-256 `979a7c678a8042ecc13150ec5e4791ba4b31e880c50820d9779c1fc401d19701` |
+| Carter simulation-model inset in the architecture figure | User-generated screenshot `/Users/lab4099/Desktop/workasset/截屏2026-08-24 10.24.06.png`; manuscript asset `carter_simulation_model.png`; SHA-256 `3d2aaef6704fccc906c7de625de6743e6a4ff5229c7c7fbf4b97344796159710` |
+| Two-floor warehouse overview figure | User-generated screenshot `/Users/lab4099/Desktop/截屏2026-08-24 17.17.58.png`; manuscript asset `warehouse_simulation_overview.png`; SHA-256 `ab03755bef8876664740d169aee0fbd1ce982d1363a0256df7947689c245e2a7` |
 
 ## Important version cautions
 
@@ -34,3 +41,7 @@ This file is for internal verification and is not a source of experimental claim
 - Recovery late-minus-early waiting is a task-level clearance trend, not a control-theoretic settling time.
 - The time-greedy adaptation trajectory is descriptive because it has no training-seed dimension.
 - No method/result statement should call the implementation MAPPO, hardware validated, or dynamics validated.
+- Stage 21 latency excludes environment construction, task execution, ROS communication, navigation, and robot control.
+- Stage 21 fault results are logical SMDP injections, not ROS, SCAN-Planner, dynamics, perception, or hardware faults.
+- Stage 21 does not show a significant PPO success-rate or throughput advantage over the time-greedy rule; its
+  statistically supported advantage is lower waiting and flow time.
