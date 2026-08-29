@@ -13,7 +13,7 @@
 
 ## 明确未纳入
 
-- `results/stage23_markov_continuous/long/`：该目录仍包含正在进行的 seed 2、seed 7 及后续种子，不能作为冻结结果上传；
+- `results/stage23_markov_continuous/long/` 中正在变化的 seed 2、seed 7 及后续种子的训练文件不能上传；仅保留已完成 seed 1、seed 6 的不可变 summary/history/status/run-plan 摘要，作为当前进度快照；
 - 所有 `*.pt` 模型权重：权重较大且当前 cohort 尚未全部冻结；正式十种子完成后单独发布权重清单和哈希；
 - `*.jsonl` 逐步日志、缓存、LaTeX 编译临时文件和构建目录；
 - 任何未通过正式 locked test 的中间结果。
