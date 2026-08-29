@@ -1,0 +1,122 @@
+protocol:
+  version: tro_stage22_algorithm_ablation_v1
+  frozen_on: 2026-08-26
+  purpose: >-
+    Isolate four algorithmic design choices under the Stage 20 persistent
+    mixed-curriculum protocol. The frozen Stage 20 ten-weight cohort is the
+    full reference and is not retrained.
+
+conditions:
+  fixed_gamma:
+    observation_variant: FULL_CONTEXT_V2
+    policy_variant: CONTEXT_INTERACTION
+    discount_mode: FIXED_PER_DECISION
+    warm_start: true
+    allowed_transport_modes: [SINGLE_CAR, SINGLE_DOG, CAR_DOG_CAR]
+    isolates: duration_aware_discount
+  no_context_interaction:
+    observation_variant: FULL_CONTEXT_V2
+    policy_variant: FLAT_MASKED_PPO
+    discount_mode: VARIABLE_SMDP
+    warm_start: true
+    allowed_transport_modes: [SINGLE_CAR, SINGLE_DOG, CAR_DOG_CAR]
+    isolates: elementwise_context_candidate_interaction
+  no_warm_start:
+    observation_variant: FULL_CONTEXT_V2
+    policy_variant: CONTEXT_INTERACTION
+    discount_mode: VARIABLE_SMDP
+    warm_start: false
+    allowed_transport_modes: [SINGLE_CAR, SINGLE_DOG, CAR_DOG_CAR]
+    isolates: rule_distillation_warm_start
+  no_relay:
+    observation_variant: FULL_CONTEXT_V2
+    policy_variant: CONTEXT_INTERACTION
+    discount_mode: VARIABLE_SMDP
+    warm_start: true
+    allowed_transport_modes: [SINGLE_CAR, SINGLE_DOG]
+    isolates: car_dog_car_relay_availability
+
+training:
+  paired_with_stage20_full_reference: true
+  independent_run_base_seeds: [61000000, 61010000, 61020000, 61030000,
+                               61040000, 61050000, 61060000, 61070000,
+                               61080000, 61090000]
+  warm_start_seed_offset: 0
+  warm_start_seed_count: 20
+  ppo_seed_offset: 100
+  formal_updates: 2000
+  episodes_per_update: 4
+  episodes_per_run: 8000
+  tasks_per_episode: 80
+  execution_mode: CONCURRENT
+  arrival_profile: MIXED_CURRICULUM
+  ppo:
+    hidden_width: 96
+    epochs: 4
+    minibatch_size: 32
+    learning_rate: 0.0003
+    clip_ratio: 0.2
+    gae_lambda: 0.95
+    entropy_coefficient: 0.01
+    value_coefficient: 0.5
+
+validation:
+  seed_start: 62000000
+  seed_count: 100
+  use: checkpoint_selection_only
+  note: shared_with_stage20_full_reference_for_paired_training_selection
+
+smoke:
+  independent_run_base_seeds: [67000000, 67010000, 67020000]
+  validation_seed_start: 67050000
+  validation_seed_count: 4
+  updates: 2
+  episodes_per_update: 1
+  use: interface_semantics_and_safety_only
+
+locked_test:
+  seed_start: 67100000
+  seed_count: 100
+  shared_across_full_and_all_ablations: true
+  handover_sampling: TASK_KEYED_COMMON_RANDOM_NUMBERS
+  run_once_after_all_weights_are_frozen: true
+  forbidden_for_checkpoint_selection: true
+
+statistics:
+  bootstrap_seed: 67200000
+  bootstrap_samples: 10000
+  design: crossed_training_seed_by_shared_test_seed
+  comparison: full_stage20_minus_each_ablation
+  multiplicity:
+    familywise_method: HOLM
+    primary_metrics:
+      - success_rate
+      - successful_throughput_tasks_per_hour
+      - mean_waiting_time
+      - p95_waiting_time
+    training_stability_is_descriptive: true
+
+acceptance:
+  interface_gate:
+    - condition_changes_only_declared_component
+    - no_relay_restriction_applies_to_teacher_rollout_and_evaluation
+    - no_warm_start_has_no_teacher_checkpoint
+    - fixed_gamma_uses_exactly_0_99_per_decision
+    - no_illegal_action
+    - no_resource_or_cargo_leak
+  formal_training:
+    - all_40_ablation_weights_complete
+    - all_metrics_finite
+    - checkpoints_record_condition_and_seed_metadata
+    - policy_mode_collapse_is_recorded_not_deleted
+  locked_test:
+    - all_methods_share_task_and_handover_fingerprints
+    - all_tasks_have_terminal_outcomes
+    - no_illegal_action
+    - no_resource_or_cargo_leak
+    - crossed_confidence_intervals_and_holm_adjustment_reported
+
+claim_boundary: >-
+  Algorithmic ablation in the logical persistent SMDP simulator. It does not
+  establish ROS, planner, dynamics, perception, or hardware performance.
+

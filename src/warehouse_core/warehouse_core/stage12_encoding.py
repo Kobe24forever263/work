@@ -38,7 +38,7 @@ class Stage12Encoder:
     ACTION_WIDTH = 30
     GLOBAL_WIDTH = 8
     OBSERVATION_VARIANTS = (
-        "FULL_CONTEXT_V2", "NO_QUEUE_RESOURCE",
+        "FULL_CONTEXT_V2", "MARKOV_CONTEXT_V3", "NO_QUEUE_RESOURCE",
         "NO_HANDOVER_CUES", "NO_PERSISTENT_POSITION",
         "NO_POSITION_ONLY", "NO_ETA_COST_ONLY", "NO_HISTORY_ONLY",
         "NO_EXPLICIT_QUEUE_RESOURCE", "NO_EXPLICIT_HANDOVER_RISK")
@@ -51,9 +51,16 @@ class Stage12Encoder:
     # Longer Stage 15 episodes must not expose an out-of-range count of all
     # future releases; waiting/active counts remain the causal load signals.
     PENDING_ARRIVAL_COUNT_CAP = 20
+    MARKOV_MAX_TASKS = 80
+    MARKOV_TASK_WIDTH = 16
+    MARKOV_MAX_ACTIVE = 4
+    MARKOV_ACTIVE_WIDTH = 39
     OBSERVATION_SIZE = (
         GLOBAL_WIDTH + MAX_TASKS * TASK_WIDTH +
         MAX_ROBOTS * ROBOT_WIDTH + MAX_STAIRS * STAIR_WIDTH)
+    MARKOV_OBSERVATION_SIZE = (
+        OBSERVATION_SIZE + MARKOV_MAX_TASKS * MARKOV_TASK_WIDTH +
+        MARKOV_MAX_ACTIVE * MARKOV_ACTIVE_WIDTH)
 
     def __init__(self, observation_variant: str = "FULL_CONTEXT_V2"):
         observation_variant = observation_variant.upper()
@@ -61,6 +68,11 @@ class Stage12Encoder:
             raise ValueError(
                 f"unsupported observation variant: {observation_variant}")
         self.observation_variant = observation_variant
+        # Preserve the 284-D class contract for all historical Stage 12--22
+        # variants while allowing the versioned Markov repair to carry the
+        # full unresolved-task and active-event state.
+        if observation_variant == "MARKOV_CONTEXT_V3":
+            self.OBSERVATION_SIZE = self.MARKOV_OBSERVATION_SIZE
 
     @classmethod
     def queue_resource_state_indices(cls) -> tuple[int, ...]:
@@ -149,6 +161,115 @@ class Stage12Encoder:
     def _xyz(values):
         return (values[0] / 25.0, values[1] / 25.0, values[2] / 5.0)
 
+    def _markov_v3_context(self, env: PersistentDispatchEnvironment):
+        """Encode every unresolved task plus every active completion event.
+
+        V2 deliberately exposed only a Top-8 queue view and aggregate active
+        counts. V3 retains that backward-compatible prefix, then appends a
+        lossless 80-task table and explicit four-assignment event table.
+        """
+        active_tasks = getattr(env, "active_tasks", {})
+        records = {}
+        for item in env.queue.waiting:
+            records[item.task.task_id] = (item.task, "WAITING", item.arrival_time)
+        for item in env.queue.pending_arrivals:
+            records[item.task.task_id] = (item.task, "PENDING", item.arrival_time)
+        for task_id, active in active_tasks.items():
+            records[task_id] = (active.task, "ACTIVE", active.started_at)
+        ordered = sorted(records.items())
+        if len(ordered) > self.MARKOV_MAX_TASKS:
+            raise RuntimeError(
+                f"Markov V3 task table overflow: {len(ordered)} > "
+                f"{self.MARKOV_MAX_TASKS}")
+        task_slots = {task_id: index for index, (task_id, _) in enumerate(ordered)}
+        values = []
+        for index in range(self.MARKOV_MAX_TASKS):
+            if index >= len(ordered):
+                values.extend([0.0] * self.MARKOV_TASK_WIDTH)
+                continue
+            _, (task, status, release_time) = ordered[index]
+            values.extend([
+                1.0,
+                float(status == "WAITING"),
+                float(status == "PENDING"),
+                float(status == "ACTIVE"),
+                task.source.floor / 2.0,
+                task.target.floor / 2.0,
+                float(task.source.floor != task.target.floor),
+                task.priority / 3.0,
+                (release_time - env.now) / 600.0,
+                (task.deadline - env.now) / 600.0,
+                *self._xyz(task.source.xyz),
+                *self._xyz(task.target.xyz),
+            ])
+
+        robot_ids = sorted(env.robots)
+        robot_slots = {robot_id: index for index, robot_id in enumerate(robot_ids)}
+        stair_slots = {
+            stair_id: index for index, stair_id in enumerate(sorted(env.stairs))}
+        standby_slots = {
+            slot_id: index for index, slot_id in
+            enumerate(sorted(env.standby_slots))}
+
+        def final_role(active, robot_id):
+            if not robot_id or robot_id not in active.final_runtimes:
+                return [0.0] * 7
+            runtime = active.final_runtimes[robot_id]
+            standby_index = standby_slots.get(runtime.standby_slot_id, -1)
+            return [
+                1.0,
+                runtime.robot.current_floor / 2.0,
+                *self._xyz(runtime.xyz),
+                runtime.tasks_completed / 50.0,
+                (standby_index + 1) / max(1, len(standby_slots) + 1),
+            ]
+
+        ordered_active = sorted(active_tasks.items())
+        if len(ordered_active) > self.MARKOV_MAX_ACTIVE:
+            raise RuntimeError(
+                f"Markov V3 active table overflow: {len(ordered_active)} > "
+                f"{self.MARKOV_MAX_ACTIVE}")
+        for index in range(self.MARKOV_MAX_ACTIVE):
+            if index >= len(ordered_active):
+                values.extend([0.0] * self.MARKOV_ACTIVE_WIDTH)
+                continue
+            task_id, active = ordered_active[index]
+            assignment = active.assignment
+            roles = (assignment.pickup_carter, assignment.dog_id,
+                     assignment.receiving_carter)
+            role_slots = [
+                (robot_slots.get(robot_id, -1) + 1) /
+                (self.MAX_ROBOTS + 1) for robot_id in roles]
+            mode_flags = [
+                float(assignment.transport_mode == mode)
+                for mode in env.TRANSPORT_MODES]
+            values.extend([
+                1.0,
+                (task_slots[task_id] + 1) / (self.MARKOV_MAX_TASKS + 1),
+                max(0.0, active.finish_at - env.now) / 600.0,
+                max(0.0, env.now - active.started_at) / 600.0,
+                active.execution.duration / 600.0,
+                *mode_flags,
+                *role_slots,
+                (stair_slots.get(assignment.stair_id, -1) + 1) /
+                (self.MAX_STAIRS + 1),
+                len(active.resources) / 8.0,
+                len(active.participant_ids) / 3.0,
+                active.execution.travelled / 100.0,
+                len(active.execution.handover_durations) / 2.0,
+                sum(active.execution.handover_durations) / 20.0,
+                (active.task.deadline - active.finish_at) / 600.0,
+                *final_role(active, roles[0]),
+                *final_role(active, roles[1]),
+                *final_role(active, roles[2]),
+            ])
+        expected = (self.MARKOV_MAX_TASKS * self.MARKOV_TASK_WIDTH +
+                    self.MARKOV_MAX_ACTIVE * self.MARKOV_ACTIVE_WIDTH)
+        if len(values) != expected:
+            raise RuntimeError(
+                f"invalid Markov V3 context width {len(values)} != {expected}")
+        return values
+
     def encode_observation(self, env: PersistentDispatchEnvironment):
         visible = env.queue.policy_view(env.now, self.MAX_TASKS)
         values = [
@@ -211,6 +332,8 @@ class Stage12Encoder:
             ])
         stair_padding = self.MAX_STAIRS - min(len(env.stairs), self.MAX_STAIRS)
         values.extend([0.0] * (stair_padding * self.STAIR_WIDTH))
+        if self.observation_variant == "MARKOV_CONTEXT_V3":
+            values.extend(self._markov_v3_context(env))
         output = np.asarray(values, dtype=np.float32)
         if output.shape != (self.OBSERVATION_SIZE,):
             raise RuntimeError(f"invalid observation shape {output.shape}")
@@ -341,6 +464,18 @@ class Stage12Encoder:
             "observation_variant": self.observation_variant,
             "state_width": self.OBSERVATION_SIZE,
             "action_width": self.ACTION_WIDTH,
+            "legacy_prefix_width": (
+                self.__class__.OBSERVATION_SIZE if
+                self.observation_variant == "MARKOV_CONTEXT_V3" else None),
+            "markov_v3_task_table": ({
+                "max_tasks": self.MARKOV_MAX_TASKS,
+                "task_width": self.MARKOV_TASK_WIDTH,
+                "lossless_for_current_80_task_protocol": True,
+            } if self.observation_variant == "MARKOV_CONTEXT_V3" else None),
+            "markov_v3_active_event_table": ({
+                "max_active": self.MARKOV_MAX_ACTIVE,
+                "active_width": self.MARKOV_ACTIVE_WIDTH,
+            } if self.observation_variant == "MARKOV_CONTEXT_V3" else None),
             "queue_resource_state_indices": list(
                 self.queue_resource_state_indices()),
             "persistent_position_state_indices": list(

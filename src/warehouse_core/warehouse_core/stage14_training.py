@@ -56,6 +56,12 @@ STAGE14_REWARD_CONFIG = RewardConfig(
     timeout_penalty=2.0,
     active_robot_time_penalty=0.0002,
 )
+STAGE23_REWARD_CONFIG = RewardConfig(
+    outstanding_time_scale=30.0,
+    timeout_penalty=2.0,
+    active_robot_time_penalty=0.0002,
+    continuous_time_discounting=True,
+)
 
 
 @dataclass(frozen=True)
@@ -365,7 +371,8 @@ def build_stage14_environment(
         episode_spec: Stage14EpisodeSpec | None = None,
         handover_sampling: str = "SEQUENTIAL",
         arrival_schedule: str = "BALANCED",
-        environment_class_override=None):
+        environment_class_override=None,
+        reward_contract: str = "REWARD_V2_LEGACY"):
     execution_mode = execution_mode.upper()
     if execution_mode not in {"SERIAL", "CONCURRENT"}:
         raise ValueError(f"unsupported execution mode: {execution_mode}")
@@ -452,16 +459,24 @@ def build_stage14_environment(
             "dispatch execution semantics")
     time_limit = (6000 if arrival_schedule == "MIXED_CURRICULUM" else
                   5400 if arrival_schedule == "MIXED_LOAD_RECOVERY" else 3600)
+    reward_contract = reward_contract.upper()
+    reward_configs = {
+        "REWARD_V2_LEGACY": STAGE14_REWARD_CONFIG,
+        "CONTINUOUS_TIME_V3": STAGE23_REWARD_CONFIG,
+    }
+    if reward_contract not in reward_configs:
+        raise ValueError(f"unsupported reward contract: {reward_contract}")
     env = environment_class(
         robots, stairs, AsyncTaskQueue(item for item, _ in arrivals),
         task_limit=len(arrivals), time_limit=time_limit, decision_gap=3.0,
         standby_slots=slots,
-        reward_config=STAGE14_REWARD_CONFIG,
+        reward_config=reward_configs[reward_contract],
         handover_timeout_s=timeout_policy.timeout_s,
         handover_duration_provider=duration_provider,
         handover_nominal_s=duration_provider.mean_duration_s,
         handover_timing_source=timeout_policy.source)
     env.arrival_schedule_metadata = schedule_metadata
+    env.reward_contract = reward_contract
     return env, {item.task.task_id: task_type for item, task_type in arrivals}
 
 
@@ -485,7 +500,8 @@ class WarehouseDispatchGymEnv(gym.Env):
                  observation_variant: str = "FULL_CONTEXT_V2",
                  allowed_transport_modes: tuple[str, ...] | None = None,
                  dispatch_environment_class=None,
-                 dispatch_setup_callback=None):
+                 dispatch_setup_callback=None,
+                 reward_contract: str = "REWARD_V2_LEGACY"):
         super().__init__()
         execution_mode = execution_mode.upper()
         if execution_mode not in {"SERIAL", "CONCURRENT", "MIXED"}:
@@ -514,6 +530,11 @@ class WarehouseDispatchGymEnv(gym.Env):
         self.current_execution_mode = "SERIAL"
         self.dispatch_environment_class = dispatch_environment_class
         self.dispatch_setup_callback = dispatch_setup_callback
+        self.reward_contract = reward_contract.upper()
+        if self.reward_contract not in {
+                "REWARD_V2_LEGACY", "CONTINUOUS_TIME_V3"}:
+            raise ValueError(
+                f"unsupported reward contract: {reward_contract}")
         self.reset_count = 0
         self.encoder = Stage12Encoder(observation_variant)
         self.action_space = spaces.Discrete(self.encoder.MAX_ACTIONS)
@@ -578,6 +599,7 @@ class WarehouseDispatchGymEnv(gym.Env):
             "arrival_schedule": self.arrival_schedule,
             "arrival_schedule_metadata": getattr(
                 self.dispatch, "arrival_schedule_metadata", {}),
+            "reward_contract": self.reward_contract,
         }
         if transition is not None:
             task_id = transition.action.get("task_id", "")
@@ -605,7 +627,8 @@ class WarehouseDispatchGymEnv(gym.Env):
             episode_seed, self.current_execution_mode,
             self.arrival_interval, self.episode_spec,
             self.handover_sampling, self.arrival_schedule,
-            self.dispatch_environment_class)
+            self.dispatch_environment_class,
+            self.reward_contract)
         if self.dispatch_setup_callback is not None:
             self.dispatch_setup_callback(self.dispatch, episode_seed)
         self.decision = self._encode_decision()

@@ -1,0 +1,112 @@
+protocol:
+  version: tro_stage23_markov_continuous_v1
+  frozen_on: 2026-08-29
+  purpose: >-
+    Retrain the full mixed-curriculum policy after the constructive Markov
+    observation repair and continuous-time return repair. Stage 20 and Stage
+    22 weights remain immutable legacy-contract evidence and are not resumed.
+
+method:
+  observation_variant: MARKOV_CONTEXT_V3
+  policy_variant: CONTEXT_INTERACTION
+  discount_mode: VARIABLE_SMDP
+  trace_mode: DURATION_SCALED
+  trace_tau_s: 10.0
+  reward_contract: CONTINUOUS_TIME_V3
+  warm_start: true
+  warm_start_admission: INTERFACE_SAFETY_WITH_IMITATION_DIAGNOSTIC
+  imitation_mode_agreement_threshold: 0.90
+  allowed_transport_modes: [SINGLE_CAR, SINGLE_DOG, CAR_DOG_CAR]
+
+training:
+  independent_run_base_seeds: [69000000, 69010000, 69020000, 69030000,
+                               69040000, 69050000, 69060000, 69070000,
+                               69080000, 69090000]
+  warm_start_seed_offset: 0
+  warm_start_seed_count: 20
+  ppo_seed_offset: 100
+  formal_updates: 2000
+  episodes_per_update: 4
+  episodes_per_run: 8000
+  tasks_per_episode: 80
+  execution_mode: CONCURRENT
+  arrival_profile: MIXED_CURRICULUM
+  ppo:
+    hidden_width: 96
+    epochs: 4
+    minibatch_size: 32
+    learning_rate: 0.0003
+    clip_ratio: 0.2
+    gae_lambda: 0.95
+    entropy_coefficient: 0.01
+    value_coefficient: 0.5
+  evaluation_every_updates: 100
+  checkpoint_every_updates: 50
+
+pilot:
+  independent_run_base_seeds: [68100000, 68110000, 68120000]
+  warm_start_seed_count: 8
+  ppo_seed_offset: 100
+  validation_seed_start: 68150000
+  validation_seed_count: 10
+  updates: 50
+  episodes_per_update: 2
+  evaluation_every_updates: 50
+  checkpoint_every_updates: 50
+  use: optimization_and_checkpoint_provenance_gate_only
+
+validation:
+  seed_start: 70000000
+  seed_count: 100
+  use: checkpoint_selection_only
+
+locked_test:
+  seed_start: 71100000
+  seed_count: 100
+  handover_sampling: TASK_KEYED_COMMON_RANDOM_NUMBERS
+  run_once_after_all_weights_are_frozen: true
+  forbidden_for_checkpoint_selection: true
+
+statistics:
+  bootstrap_seed: 71200000
+  bootstrap_samples: 10000
+  design: crossed_training_seed_by_shared_test_seed
+  primary_endpoint: p95_waiting_time
+  guardrails:
+    - success_rate
+    - successful_throughput_tasks_per_hour
+  multiplicity:
+    familywise_method: HOLM
+
+acceptance:
+  interface_gate:
+    - markov_context_v3_constructive_alias_gate_passes
+    - neutral_event_partition_gate_passes
+    - duration_scaled_trace_is_active
+    - reverse_return_to_go_normalizer_is_active
+    - warm_start_and_ppo_checkpoint_metadata_match
+    - no_illegal_action
+    - no_resource_or_cargo_leak
+  pilot:
+    - all_metrics_finite
+    - all_tasks_resolved
+    - all_three_transport_modes_exposed
+    - checkpoint_resume_is_exact
+  formal_training:
+    - all_10_terminal_weights_complete
+    - all_metrics_finite
+    - each_weight_has_unique_training_fingerprint
+    - validation_seeds_never_overlap_training_or_locked_test
+  locked_test:
+    - all_methods_share_task_and_handover_fingerprints
+    - all_tasks_have_terminal_outcomes
+    - no_illegal_action
+    - no_resource_or_cargo_leak
+    - crossed_confidence_intervals_reported
+
+claim_boundary: >-
+  Corrected logical persistent SMDP simulator only. The constructive state
+  audit establishes that the known aliases are removed under the declared
+  operational observability assumptions; it is not a universal mathematical
+  proof of Markov sufficiency and does not establish ROS, planner, dynamics,
+  perception, or hardware performance.

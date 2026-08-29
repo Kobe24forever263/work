@@ -1,7 +1,7 @@
 """Event-driven persistent-state dispatch environment for Stage 11."""
 
 from dataclasses import dataclass, field
-from math import dist
+from math import dist, exp, log
 from typing import Callable, Iterable
 
 from .cargo_task import CargoTaskLifecycle
@@ -103,6 +103,7 @@ class RewardConfig:
     severe_failure_penalty: float = 10.0
     gamma0: float = 0.99
     discount_tau_s: float = 10.0
+    continuous_time_discounting: bool = False
 
 
 @dataclass
@@ -184,6 +185,27 @@ class PersistentDispatchEnvironment:
         self.handover_events: list[dict] = []
         self.resource_claims: dict[str, str] = {}
         self.queue.advance(self.now)
+
+    def _event_discount(self, offset_s: float) -> float:
+        """Discount an impulse occurring ``offset_s`` into a transition."""
+        if not self.reward_config.continuous_time_discounting:
+            return 1.0
+        return self.reward_config.gamma0 ** (
+            max(0.0, offset_s) / self.reward_config.discount_tau_s)
+
+    def _discounted_duration(self, offset_s: float,
+                             duration_s: float) -> float:
+        """Integral of the continuous discount kernel over one interval."""
+        duration_s = max(0.0, duration_s)
+        if not self.reward_config.continuous_time_discounting:
+            return duration_s
+        if self.reward_config.gamma0 == 1.0:
+            return duration_s
+        beta = -log(self.reward_config.gamma0) / \
+            self.reward_config.discount_tau_s
+        start = max(0.0, offset_s)
+        return (exp(-beta * start) -
+                exp(-beta * (start + duration_s))) / beta
 
     def get_mdp_state(self, limit: int = 8) -> dict:
         visible = self.queue.policy_view(self.now, limit)
@@ -504,7 +526,8 @@ class PersistentDispatchEnvironment:
             "handover": 0.0,
             "active_robot_time": 0.0,
             "distance": 0.0,
-            "failure": -config.severe_failure_penalty,
+            "failure": (-config.severe_failure_penalty *
+                        self._event_discount(elapsed)),
         }
         transition = DispatchTransition(
             state,
@@ -788,12 +811,16 @@ class PersistentDispatchEnvironment:
             travelled, duration, False, reason, handover_durations)
 
     def _outstanding_time_cost(self, start: float, end: float,
-                               base_count: int) -> float:
+                               base_count: int,
+                               transition_start: float | None = None) -> float:
         """Integral of outstanding task count over an interval."""
-        cost = max(0, base_count) * max(0.0, end - start)
+        origin = start if transition_start is None else transition_start
+        cost = max(0, base_count) * self._discounted_duration(
+            start - origin, end - start)
         for item in self.queue.pending_arrivals:
             if start < item.arrival_time <= end:
-                cost += end - item.arrival_time
+                cost += self._discounted_duration(
+                    item.arrival_time - origin, end - item.arrival_time)
         return cost
 
     def _move_to_standby(self, runtimes: Iterable[RobotRuntime]) -> tuple[float, float]:
@@ -843,7 +870,7 @@ class PersistentDispatchEnvironment:
         travelled, duration = execution.travelled, execution.duration
         execution_end = start + duration
         waiting_cost = self._outstanding_time_cost(start, execution_end,
-                                                   outstanding)
+                                                   outstanding, start)
         self.queue.remove(assignment.task_id)
         if execution.success:
             self.completed += 1
@@ -854,7 +881,7 @@ class PersistentDispatchEnvironment:
         gap_start = self.now
         gap_end = gap_start + self.decision_gap
         waiting_cost += self._outstanding_time_cost(
-            gap_start, gap_end, len(self.queue.waiting))
+            gap_start, gap_end, len(self.queue.waiting), start)
         self.now = gap_end
         self.queue.advance(self.now)
         elapsed = self.now - start
@@ -865,21 +892,24 @@ class PersistentDispatchEnvironment:
         handover_count = 2 if mode == self.CAR_DOG_CAR else 0
         on_time = execution_end <= selected_task.deadline
         config = self.reward_config
+        completion_discount = self._event_discount(duration)
+        active_robot_duration = self._discounted_duration(0.0, duration)
         components = {
             "outstanding_time": -waiting_cost /
                                 config.outstanding_time_scale,
-            "completion": (config.completion_bonus
+            "completion": (config.completion_bonus * completion_discount
                            if execution.success else 0.0),
             "deadline": ((config.on_time_bonus if on_time else
-                          -config.timeout_penalty)
+                          -config.timeout_penalty) * completion_discount
                          if execution.success else 0.0),
             "handover": (-len(execution.handover_durations) *
-                         config.handover_penalty),
-            "active_robot_time": -(participant_count * duration *
+                         config.handover_penalty * completion_discount),
+            "active_robot_time": -(participant_count * active_robot_duration *
                                    config.active_robot_time_penalty),
-            "distance": -travelled * config.distance_penalty,
+            "distance": (-travelled * config.distance_penalty *
+                         completion_discount),
             "failure": (0.0 if execution.success else
-                        -config.timeout_penalty),
+                        -config.timeout_penalty * completion_discount),
         }
         reward = sum(components.values())
         discount = config.gamma0 ** (elapsed / config.discount_tau_s)

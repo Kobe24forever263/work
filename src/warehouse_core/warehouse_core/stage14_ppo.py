@@ -55,6 +55,8 @@ class PPOConfig:
     learning_rate: float = 3e-4
     ppo_epochs: int = 4
     minibatch_size: int = 32
+    trace_mode: str = "PER_EVENT_LEGACY"
+    trace_tau_s: float = 10.0
 
 
 @dataclass
@@ -68,6 +70,7 @@ class RolloutStep:
     reward: float
     discount: float
     episode_end: bool
+    delta_time: float = 0.0
 
 
 @dataclass
@@ -104,16 +107,24 @@ class RunningReturnNormalizer:
 
     def normalize_rollout(self, steps: list[RolloutStep],
                           update: bool = True) -> np.ndarray:
+        """Scale step rewards by reverse, per-episode return-to-go variance.
+
+        Iterating chronologically computes a discounted prefix accumulator,
+        not a return-to-go.  The reverse traversal below is the contract used
+        by all post-Stage-22 training.  Legacy checkpoints remain readable,
+        but must not be resumed into the corrected protocol.
+        """
         discounted_return = 0.0
-        returns = []
-        for step in steps:
-            discounted_return = (
-                step.reward + step.discount * discounted_return)
-            returns.append(discounted_return)
+        returns = np.zeros(len(steps), dtype=np.float64)
+        for index in range(len(steps) - 1, -1, -1):
+            step = steps[index]
             if step.episode_end:
                 discounted_return = 0.0
+            discounted_return = (
+                step.reward + step.discount * discounted_return)
+            returns[index] = discounted_return
         if update:
-            self._update(np.asarray(returns, dtype=np.float64))
+            self._update(returns)
         scale = float(np.sqrt(self.variance + self.epsilon))
         rewards = np.asarray(
             [step.reward for step in steps], dtype=np.float32) / scale
@@ -127,7 +138,7 @@ class RunningReturnNormalizer:
             "epsilon": self.epsilon,
             "clip": self.clip,
             "subtract_mean": False,
-            "source": "variable_discounted_return_std_v1",
+            "source": "reverse_variable_discounted_return_to_go_std_v2",
         }
 
     @classmethod
@@ -180,7 +191,9 @@ def collect_rollouts(model: MaskedCandidateActorCritic, seeds,
                      execution_mode: str, profile: str,
                      device: torch.device,
                      observation_variant: str = "FULL_CONTEXT_V2",
-                     discount_mode: str = "VARIABLE_SMDP"):
+                     discount_mode: str = "VARIABLE_SMDP",
+                     allowed_transport_modes: tuple[str, ...] | None = None,
+                     reward_contract: str = "REWARD_V2_LEGACY"):
     """Collect complete on-policy episodes and preserve SMDP discounts."""
     model.eval()
     steps: list[RolloutStep] = []
@@ -191,7 +204,9 @@ def collect_rollouts(model: MaskedCandidateActorCritic, seeds,
             seed=seed, execution_mode=execution_mode,
             arrival_interval=interval,
             arrival_schedule=arrival_schedule,
-            observation_variant=observation_variant)
+            observation_variant=observation_variant,
+            allowed_transport_modes=allowed_transport_modes,
+            reward_contract=reward_contract)
         observation, info = env.reset(seed=seed)
         done = False
         reward_total = 0.0
@@ -227,7 +242,8 @@ def collect_rollouts(model: MaskedCandidateActorCritic, seeds,
                 observation["state"].copy(),
                 observation["action_features"].copy(), mask, action,
                 float(log_probability.item()), float(value.item()),
-                float(reward), discount, done))
+                float(reward), discount, done,
+                float(next_info["delta_time"])))
             reward_total += reward
             peak_active = max(peak_active, next_info["active_task_count"])
             observation, info = next_observation, next_info
@@ -257,12 +273,36 @@ def collect_rollouts(model: MaskedCandidateActorCritic, seeds,
 
 
 def compute_smdp_gae(rewards, values, discounts, episode_ends,
-                     gae_lambda: float):
-    """Compute GAE using each event transition's variable-time discount."""
+                     gae_lambda: float, durations=None,
+                     trace_mode: str = "PER_EVENT_LEGACY",
+                     trace_tau_s: float = 10.0):
+    """Compute variable-time GAE with an explicit trace-decay contract.
+
+    ``PER_EVENT_LEGACY`` reproduces Stage 20/22. ``DURATION_SCALED`` uses
+    lambda(delta_t)=lambda0**(delta_t/tau), which preserves the trace
+    coefficient when a physically neutral decision event is inserted.
+    """
     rewards = np.asarray(rewards, dtype=np.float32)
     values = np.asarray(values, dtype=np.float32)
     discounts = np.asarray(discounts, dtype=np.float32)
     episode_ends = np.asarray(episode_ends, dtype=np.bool_)
+    trace_mode = trace_mode.upper()
+    if trace_mode not in {"PER_EVENT_LEGACY", "DURATION_SCALED"}:
+        raise ValueError(f"unsupported trace mode: {trace_mode}")
+    if not 0.0 <= gae_lambda <= 1.0:
+        raise ValueError("GAE lambda must lie in [0, 1]")
+    if trace_mode == "DURATION_SCALED":
+        if durations is None:
+            raise ValueError("duration-scaled GAE requires transition durations")
+        durations = np.asarray(durations, dtype=np.float32)
+        if durations.shape != rewards.shape or np.any(durations < 0):
+            raise ValueError("transition durations must match rewards and be nonnegative")
+        if trace_tau_s <= 0:
+            raise ValueError("trace time scale must be positive")
+        trace_lambdas = np.power(
+            gae_lambda, durations / float(trace_tau_s), dtype=np.float32)
+    else:
+        trace_lambdas = np.full_like(rewards, gae_lambda, dtype=np.float32)
     advantages = np.zeros_like(rewards)
     next_advantage = 0.0
     next_value = 0.0
@@ -272,7 +312,7 @@ def compute_smdp_gae(rewards, values, discounts, episode_ends,
             next_value = 0.0
         delta = rewards[index] + discounts[index] * next_value - values[index]
         advantages[index] = (
-            delta + discounts[index] * gae_lambda * next_advantage)
+            delta + discounts[index] * trace_lambdas[index] * next_advantage)
         next_advantage = float(advantages[index])
         next_value = float(values[index])
     return advantages, advantages + values
@@ -308,7 +348,9 @@ def ppo_update(model: MaskedCandidateActorCritic,
         training_rewards,
         [step.old_value for step in steps],
         [step.discount for step in steps],
-        [step.episode_end for step in steps], config.gae_lambda)
+        [step.episode_end for step in steps], config.gae_lambda,
+        durations=[step.delta_time for step in steps],
+        trace_mode=config.trace_mode, trace_tau_s=config.trace_tau_s)
     advantages = torch.as_tensor(
         advantages_np, dtype=torch.float32, device=device)
     returns = torch.as_tensor(
@@ -378,7 +420,8 @@ def evaluate(model: MaskedCandidateActorCritic, seeds,
              use_rule: bool = False,
              observation_variant: str = "FULL_CONTEXT_V2",
              handover_sampling: str = "SEQUENTIAL",
-             allowed_transport_modes: tuple[str, ...] | None = None):
+             allowed_transport_modes: tuple[str, ...] | None = None,
+             reward_contract: str = "REWARD_V2_LEGACY"):
     model.eval()
     interval, arrival_schedule, _ = profile_environment(profile)
     episodes = []
@@ -396,7 +439,8 @@ def evaluate(model: MaskedCandidateActorCritic, seeds,
             arrival_schedule=arrival_schedule,
             observation_variant=observation_variant,
             handover_sampling=handover_sampling,
-            allowed_transport_modes=allowed_transport_modes)
+            allowed_transport_modes=allowed_transport_modes,
+            reward_contract=reward_contract)
         observation, info = env.reset(seed=seed)
         done = False
         reward_total = 0.0
@@ -564,10 +608,11 @@ def load_checkpoint(path: str | Path, device: torch.device):
     metadata = payload["model_metadata"]
     policy_variant = metadata.get("policy_variant", "CONTEXT_INTERACTION")
     expected = MaskedCandidateActorCritic(
+        state_width=metadata["state_width"],
         action_width=metadata["action_width"],
         policy_variant=policy_variant).metadata()
     if (metadata.get("architecture") != expected["architecture"] or
-            metadata.get("state_width") != expected["state_width"] or
+            int(metadata.get("state_width", 0)) <= 0 or
             metadata.get("action_width") not in {28, 30}):
         raise ValueError(
             "checkpoint is incompatible with contextual policy V2; "

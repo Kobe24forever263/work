@@ -16,6 +16,10 @@ This file is for internal verification and is not a source of experimental claim
 | PPO, variable-discount GAE, reward normalization | `/Users/lab4099/Desktop/Mujoco/work/src/warehouse_core/warehouse_core/stage14_ppo.py` |
 | Reward V2 override | `/Users/lab4099/Desktop/Mujoco/work/src/warehouse_core/warehouse_core/stage14_training.py` |
 | Current 10-seed protocol | `/Users/lab4099/Desktop/Mujoco/work/阶段18_TRO多种子长训练执行说明.md` |
+| Stage 18 fixed-load validation trajectories (Medium) | `/Users/lab4099/Desktop/Mujoco/work/results/stage18/full_context_v2/seed_*/stage18_ppo.history.json` |
+| Stage 18 fixed-load validation trajectories (Dense) | `/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_*/stage18_ppo.history.json` |
+| Stage 18 fixed-load validation trajectories (Burst) | `/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/full_context_v2/seed_*/stage18_ppo.history.json` |
+| Training-trajectory figure generator, long-form data, and validation audit | `scripts/make_training_convergence_figure.py`; `figures/data/training_convergence.csv`; `figures/data/training_convergence_validation.json` |
 | Stage 19 protocol, claim boundary, and handover | `/Users/lab4099/Desktop/Mujoco/work/0823handover.md` |
 | Stage 19 formal summary and crossed-bootstrap intervals | `/Users/lab4099/Desktop/Mujoco/work/results/stage19_mixed_recovery/stage19_mixed_recovery_summary.json` |
 | Stage 19 per-training-seed and per-task locked-test records | `/Users/lab4099/Desktop/Mujoco/work/results/stage19_mixed_recovery/locked_test_v1/` |
@@ -37,6 +41,8 @@ This file is for internal verification and is not a source of experimental claim
 - “Up to four concurrent tasks” is a capacity, not a claim that four tasks are typically active.
 - High-level distances are Euclidean estimates, not SCAN-Planner trajectory lengths or energy measurements.
 - Stage 19 `MEDIUM`, `DENSE`, and `BURST` are fixed training-load cohorts, not transport modes and not one mixed-curriculum policy.
+- Figure 3 combines an optimization diagnostic with validation evidence; it is not a formal locked test. Panel (a) plots the logged composite objective `actor_loss + 0.5 * value_loss - 0.01 * entropy`, using per-seed medians in non-overlapping 50-update blocks and then ten-seed medians/IQRs. Panel (b) reports ten-seed validation-success medians/IQRs at the matching 50-update cadence.
+- PPO loss is not a direct performance metric: the on-policy sample distribution and value targets change during training, and loss magnitude must not rank the three workload profiles. The Stage 18 curves support stable feasible behavior after warm start, not monotonic convergence under every load. Formal tests use preregistered terminal checkpoints rather than retrospectively selected low-loss points.
 - The four Stage 19 phases hold task composition fixed and vary only arrival intensity.
 - Recovery late-minus-early waiting is a task-level clearance trend, not a control-theoretic settling time.
 - The time-greedy adaptation trajectory is descriptive because it has no training-seed dimension.

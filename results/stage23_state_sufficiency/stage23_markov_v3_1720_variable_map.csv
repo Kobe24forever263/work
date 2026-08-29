@@ -1,0 +1,1721 @@
+index,block,slot,field,source_expression,causal_scope
+0,global,,normalized_time,env.now / env.time_limit,aggregate_or_clock
+1,global,,waiting_count,len(queue.waiting) / 50,aggregate_or_clock
+2,global,,pending_arrival_count,"min(len(pending), 20) / 50",aggregate_or_clock
+3,global,,active_task_ratio,len(active_tasks) / max_concurrent_tasks,aggregate_or_clock
+4,global,,is_concurrent,execution_mode == CONCURRENT,aggregate_or_clock
+5,global,,completed_ratio,completed / task_limit,aggregate_or_clock
+6,global,,failed_ratio,failed / task_limit,aggregate_or_clock
+7,global,,decision_gap,decision_gap / 10,aggregate_or_clock
+8,visible_waiting_task,0,present,1,top_8_priority_deadline_age_task_id_order
+9,visible_waiting_task,0,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+10,visible_waiting_task,0,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+11,visible_waiting_task,0,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+12,visible_waiting_task,0,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+13,visible_waiting_task,0,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+14,visible_waiting_task,0,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+15,visible_waiting_task,0,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+16,visible_waiting_task,0,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+17,visible_waiting_task,0,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+18,visible_waiting_task,0,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+19,visible_waiting_task,0,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+20,visible_waiting_task,0,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+21,visible_waiting_task,1,present,1,top_8_priority_deadline_age_task_id_order
+22,visible_waiting_task,1,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+23,visible_waiting_task,1,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+24,visible_waiting_task,1,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+25,visible_waiting_task,1,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+26,visible_waiting_task,1,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+27,visible_waiting_task,1,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+28,visible_waiting_task,1,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+29,visible_waiting_task,1,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+30,visible_waiting_task,1,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+31,visible_waiting_task,1,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+32,visible_waiting_task,1,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+33,visible_waiting_task,1,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+34,visible_waiting_task,2,present,1,top_8_priority_deadline_age_task_id_order
+35,visible_waiting_task,2,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+36,visible_waiting_task,2,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+37,visible_waiting_task,2,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+38,visible_waiting_task,2,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+39,visible_waiting_task,2,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+40,visible_waiting_task,2,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+41,visible_waiting_task,2,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+42,visible_waiting_task,2,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+43,visible_waiting_task,2,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+44,visible_waiting_task,2,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+45,visible_waiting_task,2,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+46,visible_waiting_task,2,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+47,visible_waiting_task,3,present,1,top_8_priority_deadline_age_task_id_order
+48,visible_waiting_task,3,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+49,visible_waiting_task,3,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+50,visible_waiting_task,3,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+51,visible_waiting_task,3,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+52,visible_waiting_task,3,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+53,visible_waiting_task,3,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+54,visible_waiting_task,3,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+55,visible_waiting_task,3,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+56,visible_waiting_task,3,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+57,visible_waiting_task,3,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+58,visible_waiting_task,3,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+59,visible_waiting_task,3,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+60,visible_waiting_task,4,present,1,top_8_priority_deadline_age_task_id_order
+61,visible_waiting_task,4,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+62,visible_waiting_task,4,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+63,visible_waiting_task,4,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+64,visible_waiting_task,4,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+65,visible_waiting_task,4,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+66,visible_waiting_task,4,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+67,visible_waiting_task,4,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+68,visible_waiting_task,4,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+69,visible_waiting_task,4,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+70,visible_waiting_task,4,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+71,visible_waiting_task,4,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+72,visible_waiting_task,4,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+73,visible_waiting_task,5,present,1,top_8_priority_deadline_age_task_id_order
+74,visible_waiting_task,5,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+75,visible_waiting_task,5,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+76,visible_waiting_task,5,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+77,visible_waiting_task,5,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+78,visible_waiting_task,5,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+79,visible_waiting_task,5,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+80,visible_waiting_task,5,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+81,visible_waiting_task,5,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+82,visible_waiting_task,5,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+83,visible_waiting_task,5,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+84,visible_waiting_task,5,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+85,visible_waiting_task,5,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+86,visible_waiting_task,6,present,1,top_8_priority_deadline_age_task_id_order
+87,visible_waiting_task,6,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+88,visible_waiting_task,6,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+89,visible_waiting_task,6,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+90,visible_waiting_task,6,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+91,visible_waiting_task,6,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+92,visible_waiting_task,6,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+93,visible_waiting_task,6,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+94,visible_waiting_task,6,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+95,visible_waiting_task,6,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+96,visible_waiting_task,6,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+97,visible_waiting_task,6,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+98,visible_waiting_task,6,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+99,visible_waiting_task,7,present,1,top_8_priority_deadline_age_task_id_order
+100,visible_waiting_task,7,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+101,visible_waiting_task,7,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+102,visible_waiting_task,7,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+103,visible_waiting_task,7,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+104,visible_waiting_task,7,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+105,visible_waiting_task,7,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+106,visible_waiting_task,7,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+107,visible_waiting_task,7,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+108,visible_waiting_task,7,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+109,visible_waiting_task,7,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+110,visible_waiting_task,7,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+111,visible_waiting_task,7,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+112,robot,0,present,1,sorted_robot_id
+113,robot,0,is_dog,robot_type == dog,sorted_robot_id
+114,robot,0,nominal_speed,speed / 2,sorted_robot_id
+115,robot,0,current_floor,floor / 2,sorted_robot_id
+116,robot,0,available,available,sorted_robot_id
+117,robot,0,faulted,bool(failure_code),sorted_robot_id
+118,robot,0,loaded,bool(cargo_id),sorted_robot_id
+119,robot,0,assigned,bool(task_id),sorted_robot_id
+120,robot,0,x,x / 25,sorted_robot_id
+121,robot,0,y,y / 25,sorted_robot_id
+122,robot,0,z,z / 5,sorted_robot_id
+123,robot,0,distance_total,distance_total / 1000,sorted_robot_id
+124,robot,0,tasks_completed,tasks_completed / 50,sorted_robot_id
+125,robot,0,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+126,robot,1,present,1,sorted_robot_id
+127,robot,1,is_dog,robot_type == dog,sorted_robot_id
+128,robot,1,nominal_speed,speed / 2,sorted_robot_id
+129,robot,1,current_floor,floor / 2,sorted_robot_id
+130,robot,1,available,available,sorted_robot_id
+131,robot,1,faulted,bool(failure_code),sorted_robot_id
+132,robot,1,loaded,bool(cargo_id),sorted_robot_id
+133,robot,1,assigned,bool(task_id),sorted_robot_id
+134,robot,1,x,x / 25,sorted_robot_id
+135,robot,1,y,y / 25,sorted_robot_id
+136,robot,1,z,z / 5,sorted_robot_id
+137,robot,1,distance_total,distance_total / 1000,sorted_robot_id
+138,robot,1,tasks_completed,tasks_completed / 50,sorted_robot_id
+139,robot,1,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+140,robot,2,present,1,sorted_robot_id
+141,robot,2,is_dog,robot_type == dog,sorted_robot_id
+142,robot,2,nominal_speed,speed / 2,sorted_robot_id
+143,robot,2,current_floor,floor / 2,sorted_robot_id
+144,robot,2,available,available,sorted_robot_id
+145,robot,2,faulted,bool(failure_code),sorted_robot_id
+146,robot,2,loaded,bool(cargo_id),sorted_robot_id
+147,robot,2,assigned,bool(task_id),sorted_robot_id
+148,robot,2,x,x / 25,sorted_robot_id
+149,robot,2,y,y / 25,sorted_robot_id
+150,robot,2,z,z / 5,sorted_robot_id
+151,robot,2,distance_total,distance_total / 1000,sorted_robot_id
+152,robot,2,tasks_completed,tasks_completed / 50,sorted_robot_id
+153,robot,2,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+154,robot,3,present,1,sorted_robot_id
+155,robot,3,is_dog,robot_type == dog,sorted_robot_id
+156,robot,3,nominal_speed,speed / 2,sorted_robot_id
+157,robot,3,current_floor,floor / 2,sorted_robot_id
+158,robot,3,available,available,sorted_robot_id
+159,robot,3,faulted,bool(failure_code),sorted_robot_id
+160,robot,3,loaded,bool(cargo_id),sorted_robot_id
+161,robot,3,assigned,bool(task_id),sorted_robot_id
+162,robot,3,x,x / 25,sorted_robot_id
+163,robot,3,y,y / 25,sorted_robot_id
+164,robot,3,z,z / 5,sorted_robot_id
+165,robot,3,distance_total,distance_total / 1000,sorted_robot_id
+166,robot,3,tasks_completed,tasks_completed / 50,sorted_robot_id
+167,robot,3,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+168,robot,4,present,1,sorted_robot_id
+169,robot,4,is_dog,robot_type == dog,sorted_robot_id
+170,robot,4,nominal_speed,speed / 2,sorted_robot_id
+171,robot,4,current_floor,floor / 2,sorted_robot_id
+172,robot,4,available,available,sorted_robot_id
+173,robot,4,faulted,bool(failure_code),sorted_robot_id
+174,robot,4,loaded,bool(cargo_id),sorted_robot_id
+175,robot,4,assigned,bool(task_id),sorted_robot_id
+176,robot,4,x,x / 25,sorted_robot_id
+177,robot,4,y,y / 25,sorted_robot_id
+178,robot,4,z,z / 5,sorted_robot_id
+179,robot,4,distance_total,distance_total / 1000,sorted_robot_id
+180,robot,4,tasks_completed,tasks_completed / 50,sorted_robot_id
+181,robot,4,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+182,robot,5,present,1,sorted_robot_id
+183,robot,5,is_dog,robot_type == dog,sorted_robot_id
+184,robot,5,nominal_speed,speed / 2,sorted_robot_id
+185,robot,5,current_floor,floor / 2,sorted_robot_id
+186,robot,5,available,available,sorted_robot_id
+187,robot,5,faulted,bool(failure_code),sorted_robot_id
+188,robot,5,loaded,bool(cargo_id),sorted_robot_id
+189,robot,5,assigned,bool(task_id),sorted_robot_id
+190,robot,5,x,x / 25,sorted_robot_id
+191,robot,5,y,y / 25,sorted_robot_id
+192,robot,5,z,z / 5,sorted_robot_id
+193,robot,5,distance_total,distance_total / 1000,sorted_robot_id
+194,robot,5,tasks_completed,tasks_completed / 50,sorted_robot_id
+195,robot,5,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+196,robot,6,present,1,sorted_robot_id
+197,robot,6,is_dog,robot_type == dog,sorted_robot_id
+198,robot,6,nominal_speed,speed / 2,sorted_robot_id
+199,robot,6,current_floor,floor / 2,sorted_robot_id
+200,robot,6,available,available,sorted_robot_id
+201,robot,6,faulted,bool(failure_code),sorted_robot_id
+202,robot,6,loaded,bool(cargo_id),sorted_robot_id
+203,robot,6,assigned,bool(task_id),sorted_robot_id
+204,robot,6,x,x / 25,sorted_robot_id
+205,robot,6,y,y / 25,sorted_robot_id
+206,robot,6,z,z / 5,sorted_robot_id
+207,robot,6,distance_total,distance_total / 1000,sorted_robot_id
+208,robot,6,tasks_completed,tasks_completed / 50,sorted_robot_id
+209,robot,6,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+210,robot,7,present,1,sorted_robot_id
+211,robot,7,is_dog,robot_type == dog,sorted_robot_id
+212,robot,7,nominal_speed,speed / 2,sorted_robot_id
+213,robot,7,current_floor,floor / 2,sorted_robot_id
+214,robot,7,available,available,sorted_robot_id
+215,robot,7,faulted,bool(failure_code),sorted_robot_id
+216,robot,7,loaded,bool(cargo_id),sorted_robot_id
+217,robot,7,assigned,bool(task_id),sorted_robot_id
+218,robot,7,x,x / 25,sorted_robot_id
+219,robot,7,y,y / 25,sorted_robot_id
+220,robot,7,z,z / 5,sorted_robot_id
+221,robot,7,distance_total,distance_total / 1000,sorted_robot_id
+222,robot,7,tasks_completed,tasks_completed / 50,sorted_robot_id
+223,robot,7,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+224,robot,8,present,1,sorted_robot_id
+225,robot,8,is_dog,robot_type == dog,sorted_robot_id
+226,robot,8,nominal_speed,speed / 2,sorted_robot_id
+227,robot,8,current_floor,floor / 2,sorted_robot_id
+228,robot,8,available,available,sorted_robot_id
+229,robot,8,faulted,bool(failure_code),sorted_robot_id
+230,robot,8,loaded,bool(cargo_id),sorted_robot_id
+231,robot,8,assigned,bool(task_id),sorted_robot_id
+232,robot,8,x,x / 25,sorted_robot_id
+233,robot,8,y,y / 25,sorted_robot_id
+234,robot,8,z,z / 5,sorted_robot_id
+235,robot,8,distance_total,distance_total / 1000,sorted_robot_id
+236,robot,8,tasks_completed,tasks_completed / 50,sorted_robot_id
+237,robot,8,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+238,robot,9,present,1,sorted_robot_id
+239,robot,9,is_dog,robot_type == dog,sorted_robot_id
+240,robot,9,nominal_speed,speed / 2,sorted_robot_id
+241,robot,9,current_floor,floor / 2,sorted_robot_id
+242,robot,9,available,available,sorted_robot_id
+243,robot,9,faulted,bool(failure_code),sorted_robot_id
+244,robot,9,loaded,bool(cargo_id),sorted_robot_id
+245,robot,9,assigned,bool(task_id),sorted_robot_id
+246,robot,9,x,x / 25,sorted_robot_id
+247,robot,9,y,y / 25,sorted_robot_id
+248,robot,9,z,z / 5,sorted_robot_id
+249,robot,9,distance_total,distance_total / 1000,sorted_robot_id
+250,robot,9,tasks_completed,tasks_completed / 50,sorted_robot_id
+251,robot,9,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+252,stair,0,present,1,sorted_stair_id
+253,stair,0,free,state == FREE,sorted_stair_id
+254,stair,0,floor1_x,x / 25,sorted_stair_id
+255,stair,0,floor1_y,y / 25,sorted_stair_id
+256,stair,0,floor1_z,z / 5,sorted_stair_id
+257,stair,0,floor2_x,x / 25,sorted_stair_id
+258,stair,0,floor2_y,y / 25,sorted_stair_id
+259,stair,0,floor2_z,z / 5,sorted_stair_id
+260,stair,1,present,1,sorted_stair_id
+261,stair,1,free,state == FREE,sorted_stair_id
+262,stair,1,floor1_x,x / 25,sorted_stair_id
+263,stair,1,floor1_y,y / 25,sorted_stair_id
+264,stair,1,floor1_z,z / 5,sorted_stair_id
+265,stair,1,floor2_x,x / 25,sorted_stair_id
+266,stair,1,floor2_y,y / 25,sorted_stair_id
+267,stair,1,floor2_z,z / 5,sorted_stair_id
+268,stair,2,present,1,sorted_stair_id
+269,stair,2,free,state == FREE,sorted_stair_id
+270,stair,2,floor1_x,x / 25,sorted_stair_id
+271,stair,2,floor1_y,y / 25,sorted_stair_id
+272,stair,2,floor1_z,z / 5,sorted_stair_id
+273,stair,2,floor2_x,x / 25,sorted_stair_id
+274,stair,2,floor2_y,y / 25,sorted_stair_id
+275,stair,2,floor2_z,z / 5,sorted_stair_id
+276,stair,3,present,1,sorted_stair_id
+277,stair,3,free,state == FREE,sorted_stair_id
+278,stair,3,floor1_x,x / 25,sorted_stair_id
+279,stair,3,floor1_y,y / 25,sorted_stair_id
+280,stair,3,floor1_z,z / 5,sorted_stair_id
+281,stair,3,floor2_x,x / 25,sorted_stair_id
+282,stair,3,floor2_y,y / 25,sorted_stair_id
+283,stair,3,floor2_z,z / 5,sorted_stair_id
+284,markov_unresolved_task,0,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+285,markov_unresolved_task,0,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+286,markov_unresolved_task,0,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+287,markov_unresolved_task,0,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+288,markov_unresolved_task,0,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+289,markov_unresolved_task,0,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+290,markov_unresolved_task,0,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+291,markov_unresolved_task,0,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+292,markov_unresolved_task,0,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+293,markov_unresolved_task,0,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+294,markov_unresolved_task,0,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+295,markov_unresolved_task,0,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+296,markov_unresolved_task,0,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+297,markov_unresolved_task,0,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+298,markov_unresolved_task,0,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+299,markov_unresolved_task,0,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+300,markov_unresolved_task,1,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+301,markov_unresolved_task,1,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+302,markov_unresolved_task,1,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+303,markov_unresolved_task,1,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+304,markov_unresolved_task,1,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+305,markov_unresolved_task,1,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+306,markov_unresolved_task,1,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+307,markov_unresolved_task,1,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+308,markov_unresolved_task,1,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+309,markov_unresolved_task,1,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+310,markov_unresolved_task,1,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+311,markov_unresolved_task,1,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+312,markov_unresolved_task,1,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+313,markov_unresolved_task,1,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+314,markov_unresolved_task,1,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+315,markov_unresolved_task,1,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+316,markov_unresolved_task,2,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+317,markov_unresolved_task,2,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+318,markov_unresolved_task,2,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+319,markov_unresolved_task,2,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+320,markov_unresolved_task,2,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+321,markov_unresolved_task,2,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+322,markov_unresolved_task,2,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+323,markov_unresolved_task,2,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+324,markov_unresolved_task,2,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+325,markov_unresolved_task,2,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+326,markov_unresolved_task,2,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+327,markov_unresolved_task,2,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+328,markov_unresolved_task,2,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+329,markov_unresolved_task,2,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+330,markov_unresolved_task,2,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+331,markov_unresolved_task,2,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+332,markov_unresolved_task,3,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+333,markov_unresolved_task,3,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+334,markov_unresolved_task,3,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+335,markov_unresolved_task,3,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+336,markov_unresolved_task,3,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+337,markov_unresolved_task,3,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+338,markov_unresolved_task,3,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+339,markov_unresolved_task,3,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+340,markov_unresolved_task,3,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+341,markov_unresolved_task,3,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+342,markov_unresolved_task,3,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+343,markov_unresolved_task,3,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+344,markov_unresolved_task,3,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+345,markov_unresolved_task,3,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+346,markov_unresolved_task,3,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+347,markov_unresolved_task,3,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+348,markov_unresolved_task,4,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+349,markov_unresolved_task,4,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+350,markov_unresolved_task,4,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+351,markov_unresolved_task,4,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+352,markov_unresolved_task,4,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+353,markov_unresolved_task,4,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+354,markov_unresolved_task,4,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+355,markov_unresolved_task,4,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+356,markov_unresolved_task,4,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+357,markov_unresolved_task,4,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+358,markov_unresolved_task,4,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+359,markov_unresolved_task,4,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+360,markov_unresolved_task,4,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+361,markov_unresolved_task,4,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+362,markov_unresolved_task,4,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+363,markov_unresolved_task,4,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+364,markov_unresolved_task,5,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+365,markov_unresolved_task,5,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+366,markov_unresolved_task,5,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+367,markov_unresolved_task,5,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+368,markov_unresolved_task,5,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+369,markov_unresolved_task,5,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+370,markov_unresolved_task,5,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+371,markov_unresolved_task,5,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+372,markov_unresolved_task,5,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+373,markov_unresolved_task,5,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+374,markov_unresolved_task,5,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+375,markov_unresolved_task,5,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+376,markov_unresolved_task,5,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+377,markov_unresolved_task,5,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+378,markov_unresolved_task,5,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+379,markov_unresolved_task,5,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+380,markov_unresolved_task,6,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+381,markov_unresolved_task,6,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+382,markov_unresolved_task,6,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+383,markov_unresolved_task,6,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+384,markov_unresolved_task,6,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+385,markov_unresolved_task,6,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+386,markov_unresolved_task,6,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+387,markov_unresolved_task,6,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+388,markov_unresolved_task,6,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+389,markov_unresolved_task,6,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+390,markov_unresolved_task,6,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+391,markov_unresolved_task,6,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+392,markov_unresolved_task,6,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+393,markov_unresolved_task,6,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+394,markov_unresolved_task,6,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+395,markov_unresolved_task,6,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+396,markov_unresolved_task,7,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+397,markov_unresolved_task,7,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+398,markov_unresolved_task,7,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+399,markov_unresolved_task,7,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+400,markov_unresolved_task,7,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+401,markov_unresolved_task,7,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+402,markov_unresolved_task,7,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+403,markov_unresolved_task,7,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+404,markov_unresolved_task,7,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+405,markov_unresolved_task,7,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+406,markov_unresolved_task,7,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+407,markov_unresolved_task,7,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+408,markov_unresolved_task,7,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+409,markov_unresolved_task,7,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+410,markov_unresolved_task,7,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+411,markov_unresolved_task,7,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+412,markov_unresolved_task,8,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+413,markov_unresolved_task,8,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+414,markov_unresolved_task,8,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+415,markov_unresolved_task,8,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+416,markov_unresolved_task,8,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+417,markov_unresolved_task,8,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+418,markov_unresolved_task,8,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+419,markov_unresolved_task,8,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+420,markov_unresolved_task,8,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+421,markov_unresolved_task,8,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+422,markov_unresolved_task,8,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+423,markov_unresolved_task,8,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+424,markov_unresolved_task,8,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+425,markov_unresolved_task,8,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+426,markov_unresolved_task,8,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+427,markov_unresolved_task,8,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+428,markov_unresolved_task,9,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+429,markov_unresolved_task,9,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+430,markov_unresolved_task,9,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+431,markov_unresolved_task,9,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+432,markov_unresolved_task,9,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+433,markov_unresolved_task,9,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+434,markov_unresolved_task,9,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+435,markov_unresolved_task,9,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+436,markov_unresolved_task,9,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+437,markov_unresolved_task,9,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+438,markov_unresolved_task,9,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+439,markov_unresolved_task,9,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+440,markov_unresolved_task,9,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+441,markov_unresolved_task,9,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+442,markov_unresolved_task,9,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+443,markov_unresolved_task,9,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+444,markov_unresolved_task,10,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+445,markov_unresolved_task,10,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+446,markov_unresolved_task,10,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+447,markov_unresolved_task,10,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+448,markov_unresolved_task,10,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+449,markov_unresolved_task,10,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+450,markov_unresolved_task,10,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+451,markov_unresolved_task,10,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+452,markov_unresolved_task,10,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+453,markov_unresolved_task,10,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+454,markov_unresolved_task,10,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+455,markov_unresolved_task,10,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+456,markov_unresolved_task,10,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+457,markov_unresolved_task,10,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+458,markov_unresolved_task,10,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+459,markov_unresolved_task,10,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+460,markov_unresolved_task,11,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+461,markov_unresolved_task,11,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+462,markov_unresolved_task,11,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+463,markov_unresolved_task,11,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+464,markov_unresolved_task,11,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+465,markov_unresolved_task,11,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+466,markov_unresolved_task,11,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+467,markov_unresolved_task,11,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+468,markov_unresolved_task,11,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+469,markov_unresolved_task,11,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+470,markov_unresolved_task,11,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+471,markov_unresolved_task,11,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+472,markov_unresolved_task,11,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+473,markov_unresolved_task,11,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+474,markov_unresolved_task,11,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+475,markov_unresolved_task,11,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+476,markov_unresolved_task,12,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+477,markov_unresolved_task,12,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+478,markov_unresolved_task,12,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+479,markov_unresolved_task,12,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+480,markov_unresolved_task,12,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+481,markov_unresolved_task,12,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+482,markov_unresolved_task,12,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+483,markov_unresolved_task,12,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+484,markov_unresolved_task,12,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+485,markov_unresolved_task,12,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+486,markov_unresolved_task,12,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+487,markov_unresolved_task,12,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+488,markov_unresolved_task,12,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+489,markov_unresolved_task,12,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+490,markov_unresolved_task,12,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+491,markov_unresolved_task,12,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+492,markov_unresolved_task,13,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+493,markov_unresolved_task,13,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+494,markov_unresolved_task,13,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+495,markov_unresolved_task,13,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+496,markov_unresolved_task,13,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+497,markov_unresolved_task,13,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+498,markov_unresolved_task,13,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+499,markov_unresolved_task,13,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+500,markov_unresolved_task,13,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+501,markov_unresolved_task,13,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+502,markov_unresolved_task,13,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+503,markov_unresolved_task,13,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+504,markov_unresolved_task,13,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+505,markov_unresolved_task,13,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+506,markov_unresolved_task,13,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+507,markov_unresolved_task,13,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+508,markov_unresolved_task,14,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+509,markov_unresolved_task,14,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+510,markov_unresolved_task,14,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+511,markov_unresolved_task,14,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+512,markov_unresolved_task,14,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+513,markov_unresolved_task,14,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+514,markov_unresolved_task,14,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+515,markov_unresolved_task,14,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+516,markov_unresolved_task,14,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+517,markov_unresolved_task,14,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+518,markov_unresolved_task,14,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+519,markov_unresolved_task,14,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+520,markov_unresolved_task,14,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+521,markov_unresolved_task,14,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+522,markov_unresolved_task,14,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+523,markov_unresolved_task,14,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+524,markov_unresolved_task,15,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+525,markov_unresolved_task,15,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+526,markov_unresolved_task,15,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+527,markov_unresolved_task,15,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+528,markov_unresolved_task,15,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+529,markov_unresolved_task,15,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+530,markov_unresolved_task,15,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+531,markov_unresolved_task,15,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+532,markov_unresolved_task,15,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+533,markov_unresolved_task,15,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+534,markov_unresolved_task,15,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+535,markov_unresolved_task,15,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+536,markov_unresolved_task,15,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+537,markov_unresolved_task,15,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+538,markov_unresolved_task,15,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+539,markov_unresolved_task,15,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+540,markov_unresolved_task,16,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+541,markov_unresolved_task,16,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+542,markov_unresolved_task,16,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+543,markov_unresolved_task,16,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+544,markov_unresolved_task,16,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+545,markov_unresolved_task,16,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+546,markov_unresolved_task,16,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+547,markov_unresolved_task,16,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+548,markov_unresolved_task,16,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+549,markov_unresolved_task,16,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+550,markov_unresolved_task,16,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+551,markov_unresolved_task,16,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+552,markov_unresolved_task,16,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+553,markov_unresolved_task,16,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+554,markov_unresolved_task,16,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+555,markov_unresolved_task,16,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+556,markov_unresolved_task,17,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+557,markov_unresolved_task,17,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+558,markov_unresolved_task,17,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+559,markov_unresolved_task,17,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+560,markov_unresolved_task,17,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+561,markov_unresolved_task,17,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+562,markov_unresolved_task,17,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+563,markov_unresolved_task,17,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+564,markov_unresolved_task,17,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+565,markov_unresolved_task,17,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+566,markov_unresolved_task,17,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+567,markov_unresolved_task,17,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+568,markov_unresolved_task,17,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+569,markov_unresolved_task,17,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+570,markov_unresolved_task,17,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+571,markov_unresolved_task,17,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+572,markov_unresolved_task,18,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+573,markov_unresolved_task,18,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+574,markov_unresolved_task,18,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+575,markov_unresolved_task,18,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+576,markov_unresolved_task,18,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+577,markov_unresolved_task,18,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+578,markov_unresolved_task,18,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+579,markov_unresolved_task,18,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+580,markov_unresolved_task,18,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+581,markov_unresolved_task,18,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+582,markov_unresolved_task,18,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+583,markov_unresolved_task,18,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+584,markov_unresolved_task,18,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+585,markov_unresolved_task,18,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+586,markov_unresolved_task,18,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+587,markov_unresolved_task,18,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+588,markov_unresolved_task,19,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+589,markov_unresolved_task,19,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+590,markov_unresolved_task,19,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+591,markov_unresolved_task,19,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+592,markov_unresolved_task,19,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+593,markov_unresolved_task,19,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+594,markov_unresolved_task,19,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+595,markov_unresolved_task,19,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+596,markov_unresolved_task,19,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+597,markov_unresolved_task,19,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+598,markov_unresolved_task,19,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+599,markov_unresolved_task,19,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+600,markov_unresolved_task,19,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+601,markov_unresolved_task,19,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+602,markov_unresolved_task,19,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+603,markov_unresolved_task,19,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+604,markov_unresolved_task,20,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+605,markov_unresolved_task,20,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+606,markov_unresolved_task,20,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+607,markov_unresolved_task,20,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+608,markov_unresolved_task,20,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+609,markov_unresolved_task,20,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+610,markov_unresolved_task,20,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+611,markov_unresolved_task,20,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+612,markov_unresolved_task,20,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+613,markov_unresolved_task,20,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+614,markov_unresolved_task,20,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+615,markov_unresolved_task,20,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+616,markov_unresolved_task,20,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+617,markov_unresolved_task,20,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+618,markov_unresolved_task,20,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+619,markov_unresolved_task,20,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+620,markov_unresolved_task,21,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+621,markov_unresolved_task,21,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+622,markov_unresolved_task,21,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+623,markov_unresolved_task,21,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+624,markov_unresolved_task,21,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+625,markov_unresolved_task,21,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+626,markov_unresolved_task,21,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+627,markov_unresolved_task,21,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+628,markov_unresolved_task,21,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+629,markov_unresolved_task,21,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+630,markov_unresolved_task,21,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+631,markov_unresolved_task,21,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+632,markov_unresolved_task,21,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+633,markov_unresolved_task,21,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+634,markov_unresolved_task,21,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+635,markov_unresolved_task,21,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+636,markov_unresolved_task,22,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+637,markov_unresolved_task,22,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+638,markov_unresolved_task,22,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+639,markov_unresolved_task,22,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+640,markov_unresolved_task,22,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+641,markov_unresolved_task,22,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+642,markov_unresolved_task,22,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+643,markov_unresolved_task,22,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+644,markov_unresolved_task,22,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+645,markov_unresolved_task,22,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+646,markov_unresolved_task,22,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+647,markov_unresolved_task,22,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+648,markov_unresolved_task,22,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+649,markov_unresolved_task,22,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+650,markov_unresolved_task,22,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+651,markov_unresolved_task,22,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+652,markov_unresolved_task,23,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+653,markov_unresolved_task,23,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+654,markov_unresolved_task,23,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+655,markov_unresolved_task,23,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+656,markov_unresolved_task,23,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+657,markov_unresolved_task,23,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+658,markov_unresolved_task,23,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+659,markov_unresolved_task,23,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+660,markov_unresolved_task,23,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+661,markov_unresolved_task,23,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+662,markov_unresolved_task,23,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+663,markov_unresolved_task,23,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+664,markov_unresolved_task,23,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+665,markov_unresolved_task,23,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+666,markov_unresolved_task,23,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+667,markov_unresolved_task,23,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+668,markov_unresolved_task,24,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+669,markov_unresolved_task,24,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+670,markov_unresolved_task,24,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+671,markov_unresolved_task,24,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+672,markov_unresolved_task,24,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+673,markov_unresolved_task,24,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+674,markov_unresolved_task,24,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+675,markov_unresolved_task,24,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+676,markov_unresolved_task,24,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+677,markov_unresolved_task,24,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+678,markov_unresolved_task,24,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+679,markov_unresolved_task,24,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+680,markov_unresolved_task,24,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+681,markov_unresolved_task,24,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+682,markov_unresolved_task,24,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+683,markov_unresolved_task,24,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+684,markov_unresolved_task,25,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+685,markov_unresolved_task,25,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+686,markov_unresolved_task,25,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+687,markov_unresolved_task,25,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+688,markov_unresolved_task,25,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+689,markov_unresolved_task,25,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+690,markov_unresolved_task,25,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+691,markov_unresolved_task,25,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+692,markov_unresolved_task,25,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+693,markov_unresolved_task,25,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+694,markov_unresolved_task,25,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+695,markov_unresolved_task,25,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+696,markov_unresolved_task,25,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+697,markov_unresolved_task,25,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+698,markov_unresolved_task,25,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+699,markov_unresolved_task,25,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+700,markov_unresolved_task,26,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+701,markov_unresolved_task,26,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+702,markov_unresolved_task,26,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+703,markov_unresolved_task,26,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+704,markov_unresolved_task,26,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+705,markov_unresolved_task,26,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+706,markov_unresolved_task,26,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+707,markov_unresolved_task,26,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+708,markov_unresolved_task,26,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+709,markov_unresolved_task,26,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+710,markov_unresolved_task,26,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+711,markov_unresolved_task,26,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+712,markov_unresolved_task,26,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+713,markov_unresolved_task,26,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+714,markov_unresolved_task,26,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+715,markov_unresolved_task,26,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+716,markov_unresolved_task,27,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+717,markov_unresolved_task,27,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+718,markov_unresolved_task,27,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+719,markov_unresolved_task,27,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+720,markov_unresolved_task,27,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+721,markov_unresolved_task,27,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+722,markov_unresolved_task,27,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+723,markov_unresolved_task,27,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+724,markov_unresolved_task,27,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+725,markov_unresolved_task,27,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+726,markov_unresolved_task,27,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+727,markov_unresolved_task,27,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+728,markov_unresolved_task,27,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+729,markov_unresolved_task,27,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+730,markov_unresolved_task,27,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+731,markov_unresolved_task,27,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+732,markov_unresolved_task,28,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+733,markov_unresolved_task,28,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+734,markov_unresolved_task,28,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+735,markov_unresolved_task,28,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+736,markov_unresolved_task,28,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+737,markov_unresolved_task,28,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+738,markov_unresolved_task,28,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+739,markov_unresolved_task,28,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+740,markov_unresolved_task,28,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+741,markov_unresolved_task,28,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+742,markov_unresolved_task,28,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+743,markov_unresolved_task,28,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+744,markov_unresolved_task,28,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+745,markov_unresolved_task,28,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+746,markov_unresolved_task,28,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+747,markov_unresolved_task,28,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+748,markov_unresolved_task,29,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+749,markov_unresolved_task,29,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+750,markov_unresolved_task,29,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+751,markov_unresolved_task,29,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+752,markov_unresolved_task,29,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+753,markov_unresolved_task,29,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+754,markov_unresolved_task,29,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+755,markov_unresolved_task,29,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+756,markov_unresolved_task,29,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+757,markov_unresolved_task,29,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+758,markov_unresolved_task,29,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+759,markov_unresolved_task,29,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+760,markov_unresolved_task,29,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+761,markov_unresolved_task,29,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+762,markov_unresolved_task,29,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+763,markov_unresolved_task,29,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+764,markov_unresolved_task,30,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+765,markov_unresolved_task,30,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+766,markov_unresolved_task,30,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+767,markov_unresolved_task,30,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+768,markov_unresolved_task,30,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+769,markov_unresolved_task,30,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+770,markov_unresolved_task,30,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+771,markov_unresolved_task,30,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+772,markov_unresolved_task,30,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+773,markov_unresolved_task,30,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+774,markov_unresolved_task,30,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+775,markov_unresolved_task,30,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+776,markov_unresolved_task,30,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+777,markov_unresolved_task,30,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+778,markov_unresolved_task,30,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+779,markov_unresolved_task,30,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+780,markov_unresolved_task,31,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+781,markov_unresolved_task,31,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+782,markov_unresolved_task,31,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+783,markov_unresolved_task,31,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+784,markov_unresolved_task,31,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+785,markov_unresolved_task,31,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+786,markov_unresolved_task,31,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+787,markov_unresolved_task,31,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+788,markov_unresolved_task,31,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+789,markov_unresolved_task,31,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+790,markov_unresolved_task,31,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+791,markov_unresolved_task,31,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+792,markov_unresolved_task,31,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+793,markov_unresolved_task,31,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+794,markov_unresolved_task,31,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+795,markov_unresolved_task,31,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+796,markov_unresolved_task,32,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+797,markov_unresolved_task,32,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+798,markov_unresolved_task,32,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+799,markov_unresolved_task,32,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+800,markov_unresolved_task,32,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+801,markov_unresolved_task,32,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+802,markov_unresolved_task,32,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+803,markov_unresolved_task,32,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+804,markov_unresolved_task,32,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+805,markov_unresolved_task,32,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+806,markov_unresolved_task,32,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+807,markov_unresolved_task,32,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+808,markov_unresolved_task,32,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+809,markov_unresolved_task,32,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+810,markov_unresolved_task,32,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+811,markov_unresolved_task,32,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+812,markov_unresolved_task,33,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+813,markov_unresolved_task,33,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+814,markov_unresolved_task,33,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+815,markov_unresolved_task,33,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+816,markov_unresolved_task,33,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+817,markov_unresolved_task,33,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+818,markov_unresolved_task,33,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+819,markov_unresolved_task,33,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+820,markov_unresolved_task,33,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+821,markov_unresolved_task,33,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+822,markov_unresolved_task,33,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+823,markov_unresolved_task,33,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+824,markov_unresolved_task,33,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+825,markov_unresolved_task,33,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+826,markov_unresolved_task,33,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+827,markov_unresolved_task,33,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+828,markov_unresolved_task,34,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+829,markov_unresolved_task,34,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+830,markov_unresolved_task,34,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+831,markov_unresolved_task,34,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+832,markov_unresolved_task,34,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+833,markov_unresolved_task,34,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+834,markov_unresolved_task,34,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+835,markov_unresolved_task,34,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+836,markov_unresolved_task,34,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+837,markov_unresolved_task,34,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+838,markov_unresolved_task,34,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+839,markov_unresolved_task,34,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+840,markov_unresolved_task,34,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+841,markov_unresolved_task,34,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+842,markov_unresolved_task,34,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+843,markov_unresolved_task,34,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+844,markov_unresolved_task,35,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+845,markov_unresolved_task,35,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+846,markov_unresolved_task,35,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+847,markov_unresolved_task,35,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+848,markov_unresolved_task,35,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+849,markov_unresolved_task,35,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+850,markov_unresolved_task,35,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+851,markov_unresolved_task,35,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+852,markov_unresolved_task,35,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+853,markov_unresolved_task,35,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+854,markov_unresolved_task,35,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+855,markov_unresolved_task,35,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+856,markov_unresolved_task,35,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+857,markov_unresolved_task,35,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+858,markov_unresolved_task,35,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+859,markov_unresolved_task,35,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+860,markov_unresolved_task,36,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+861,markov_unresolved_task,36,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+862,markov_unresolved_task,36,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+863,markov_unresolved_task,36,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+864,markov_unresolved_task,36,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+865,markov_unresolved_task,36,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+866,markov_unresolved_task,36,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+867,markov_unresolved_task,36,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+868,markov_unresolved_task,36,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+869,markov_unresolved_task,36,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+870,markov_unresolved_task,36,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+871,markov_unresolved_task,36,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+872,markov_unresolved_task,36,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+873,markov_unresolved_task,36,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+874,markov_unresolved_task,36,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+875,markov_unresolved_task,36,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+876,markov_unresolved_task,37,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+877,markov_unresolved_task,37,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+878,markov_unresolved_task,37,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+879,markov_unresolved_task,37,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+880,markov_unresolved_task,37,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+881,markov_unresolved_task,37,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+882,markov_unresolved_task,37,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+883,markov_unresolved_task,37,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+884,markov_unresolved_task,37,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+885,markov_unresolved_task,37,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+886,markov_unresolved_task,37,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+887,markov_unresolved_task,37,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+888,markov_unresolved_task,37,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+889,markov_unresolved_task,37,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+890,markov_unresolved_task,37,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+891,markov_unresolved_task,37,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+892,markov_unresolved_task,38,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+893,markov_unresolved_task,38,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+894,markov_unresolved_task,38,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+895,markov_unresolved_task,38,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+896,markov_unresolved_task,38,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+897,markov_unresolved_task,38,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+898,markov_unresolved_task,38,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+899,markov_unresolved_task,38,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+900,markov_unresolved_task,38,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+901,markov_unresolved_task,38,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+902,markov_unresolved_task,38,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+903,markov_unresolved_task,38,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+904,markov_unresolved_task,38,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+905,markov_unresolved_task,38,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+906,markov_unresolved_task,38,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+907,markov_unresolved_task,38,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+908,markov_unresolved_task,39,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+909,markov_unresolved_task,39,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+910,markov_unresolved_task,39,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+911,markov_unresolved_task,39,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+912,markov_unresolved_task,39,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+913,markov_unresolved_task,39,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+914,markov_unresolved_task,39,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+915,markov_unresolved_task,39,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+916,markov_unresolved_task,39,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+917,markov_unresolved_task,39,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+918,markov_unresolved_task,39,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+919,markov_unresolved_task,39,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+920,markov_unresolved_task,39,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+921,markov_unresolved_task,39,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+922,markov_unresolved_task,39,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+923,markov_unresolved_task,39,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+924,markov_unresolved_task,40,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+925,markov_unresolved_task,40,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+926,markov_unresolved_task,40,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+927,markov_unresolved_task,40,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+928,markov_unresolved_task,40,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+929,markov_unresolved_task,40,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+930,markov_unresolved_task,40,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+931,markov_unresolved_task,40,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+932,markov_unresolved_task,40,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+933,markov_unresolved_task,40,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+934,markov_unresolved_task,40,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+935,markov_unresolved_task,40,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+936,markov_unresolved_task,40,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+937,markov_unresolved_task,40,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+938,markov_unresolved_task,40,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+939,markov_unresolved_task,40,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+940,markov_unresolved_task,41,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+941,markov_unresolved_task,41,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+942,markov_unresolved_task,41,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+943,markov_unresolved_task,41,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+944,markov_unresolved_task,41,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+945,markov_unresolved_task,41,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+946,markov_unresolved_task,41,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+947,markov_unresolved_task,41,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+948,markov_unresolved_task,41,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+949,markov_unresolved_task,41,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+950,markov_unresolved_task,41,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+951,markov_unresolved_task,41,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+952,markov_unresolved_task,41,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+953,markov_unresolved_task,41,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+954,markov_unresolved_task,41,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+955,markov_unresolved_task,41,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+956,markov_unresolved_task,42,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+957,markov_unresolved_task,42,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+958,markov_unresolved_task,42,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+959,markov_unresolved_task,42,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+960,markov_unresolved_task,42,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+961,markov_unresolved_task,42,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+962,markov_unresolved_task,42,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+963,markov_unresolved_task,42,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+964,markov_unresolved_task,42,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+965,markov_unresolved_task,42,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+966,markov_unresolved_task,42,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+967,markov_unresolved_task,42,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+968,markov_unresolved_task,42,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+969,markov_unresolved_task,42,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+970,markov_unresolved_task,42,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+971,markov_unresolved_task,42,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+972,markov_unresolved_task,43,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+973,markov_unresolved_task,43,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+974,markov_unresolved_task,43,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+975,markov_unresolved_task,43,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+976,markov_unresolved_task,43,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+977,markov_unresolved_task,43,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+978,markov_unresolved_task,43,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+979,markov_unresolved_task,43,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+980,markov_unresolved_task,43,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+981,markov_unresolved_task,43,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+982,markov_unresolved_task,43,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+983,markov_unresolved_task,43,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+984,markov_unresolved_task,43,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+985,markov_unresolved_task,43,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+986,markov_unresolved_task,43,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+987,markov_unresolved_task,43,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+988,markov_unresolved_task,44,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+989,markov_unresolved_task,44,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+990,markov_unresolved_task,44,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+991,markov_unresolved_task,44,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+992,markov_unresolved_task,44,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+993,markov_unresolved_task,44,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+994,markov_unresolved_task,44,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+995,markov_unresolved_task,44,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+996,markov_unresolved_task,44,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+997,markov_unresolved_task,44,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+998,markov_unresolved_task,44,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+999,markov_unresolved_task,44,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1000,markov_unresolved_task,44,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1001,markov_unresolved_task,44,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1002,markov_unresolved_task,44,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1003,markov_unresolved_task,44,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1004,markov_unresolved_task,45,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1005,markov_unresolved_task,45,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1006,markov_unresolved_task,45,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1007,markov_unresolved_task,45,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1008,markov_unresolved_task,45,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1009,markov_unresolved_task,45,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1010,markov_unresolved_task,45,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1011,markov_unresolved_task,45,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1012,markov_unresolved_task,45,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1013,markov_unresolved_task,45,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1014,markov_unresolved_task,45,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1015,markov_unresolved_task,45,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1016,markov_unresolved_task,45,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1017,markov_unresolved_task,45,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1018,markov_unresolved_task,45,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1019,markov_unresolved_task,45,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1020,markov_unresolved_task,46,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1021,markov_unresolved_task,46,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1022,markov_unresolved_task,46,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1023,markov_unresolved_task,46,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1024,markov_unresolved_task,46,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1025,markov_unresolved_task,46,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1026,markov_unresolved_task,46,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1027,markov_unresolved_task,46,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1028,markov_unresolved_task,46,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1029,markov_unresolved_task,46,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1030,markov_unresolved_task,46,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1031,markov_unresolved_task,46,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1032,markov_unresolved_task,46,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1033,markov_unresolved_task,46,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1034,markov_unresolved_task,46,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1035,markov_unresolved_task,46,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1036,markov_unresolved_task,47,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1037,markov_unresolved_task,47,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1038,markov_unresolved_task,47,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1039,markov_unresolved_task,47,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1040,markov_unresolved_task,47,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1041,markov_unresolved_task,47,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1042,markov_unresolved_task,47,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1043,markov_unresolved_task,47,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1044,markov_unresolved_task,47,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1045,markov_unresolved_task,47,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1046,markov_unresolved_task,47,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1047,markov_unresolved_task,47,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1048,markov_unresolved_task,47,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1049,markov_unresolved_task,47,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1050,markov_unresolved_task,47,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1051,markov_unresolved_task,47,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1052,markov_unresolved_task,48,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1053,markov_unresolved_task,48,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1054,markov_unresolved_task,48,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1055,markov_unresolved_task,48,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1056,markov_unresolved_task,48,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1057,markov_unresolved_task,48,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1058,markov_unresolved_task,48,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1059,markov_unresolved_task,48,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1060,markov_unresolved_task,48,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1061,markov_unresolved_task,48,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1062,markov_unresolved_task,48,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1063,markov_unresolved_task,48,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1064,markov_unresolved_task,48,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1065,markov_unresolved_task,48,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1066,markov_unresolved_task,48,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1067,markov_unresolved_task,48,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1068,markov_unresolved_task,49,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1069,markov_unresolved_task,49,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1070,markov_unresolved_task,49,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1071,markov_unresolved_task,49,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1072,markov_unresolved_task,49,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1073,markov_unresolved_task,49,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1074,markov_unresolved_task,49,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1075,markov_unresolved_task,49,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1076,markov_unresolved_task,49,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1077,markov_unresolved_task,49,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1078,markov_unresolved_task,49,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1079,markov_unresolved_task,49,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1080,markov_unresolved_task,49,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1081,markov_unresolved_task,49,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1082,markov_unresolved_task,49,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1083,markov_unresolved_task,49,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1084,markov_unresolved_task,50,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1085,markov_unresolved_task,50,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1086,markov_unresolved_task,50,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1087,markov_unresolved_task,50,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1088,markov_unresolved_task,50,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1089,markov_unresolved_task,50,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1090,markov_unresolved_task,50,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1091,markov_unresolved_task,50,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1092,markov_unresolved_task,50,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1093,markov_unresolved_task,50,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1094,markov_unresolved_task,50,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1095,markov_unresolved_task,50,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1096,markov_unresolved_task,50,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1097,markov_unresolved_task,50,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1098,markov_unresolved_task,50,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1099,markov_unresolved_task,50,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1100,markov_unresolved_task,51,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1101,markov_unresolved_task,51,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1102,markov_unresolved_task,51,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1103,markov_unresolved_task,51,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1104,markov_unresolved_task,51,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1105,markov_unresolved_task,51,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1106,markov_unresolved_task,51,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1107,markov_unresolved_task,51,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1108,markov_unresolved_task,51,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1109,markov_unresolved_task,51,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1110,markov_unresolved_task,51,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1111,markov_unresolved_task,51,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1112,markov_unresolved_task,51,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1113,markov_unresolved_task,51,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1114,markov_unresolved_task,51,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1115,markov_unresolved_task,51,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1116,markov_unresolved_task,52,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1117,markov_unresolved_task,52,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1118,markov_unresolved_task,52,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1119,markov_unresolved_task,52,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1120,markov_unresolved_task,52,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1121,markov_unresolved_task,52,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1122,markov_unresolved_task,52,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1123,markov_unresolved_task,52,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1124,markov_unresolved_task,52,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1125,markov_unresolved_task,52,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1126,markov_unresolved_task,52,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1127,markov_unresolved_task,52,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1128,markov_unresolved_task,52,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1129,markov_unresolved_task,52,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1130,markov_unresolved_task,52,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1131,markov_unresolved_task,52,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1132,markov_unresolved_task,53,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1133,markov_unresolved_task,53,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1134,markov_unresolved_task,53,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1135,markov_unresolved_task,53,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1136,markov_unresolved_task,53,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1137,markov_unresolved_task,53,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1138,markov_unresolved_task,53,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1139,markov_unresolved_task,53,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1140,markov_unresolved_task,53,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1141,markov_unresolved_task,53,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1142,markov_unresolved_task,53,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1143,markov_unresolved_task,53,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1144,markov_unresolved_task,53,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1145,markov_unresolved_task,53,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1146,markov_unresolved_task,53,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1147,markov_unresolved_task,53,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1148,markov_unresolved_task,54,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1149,markov_unresolved_task,54,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1150,markov_unresolved_task,54,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1151,markov_unresolved_task,54,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1152,markov_unresolved_task,54,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1153,markov_unresolved_task,54,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1154,markov_unresolved_task,54,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1155,markov_unresolved_task,54,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1156,markov_unresolved_task,54,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1157,markov_unresolved_task,54,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1158,markov_unresolved_task,54,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1159,markov_unresolved_task,54,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1160,markov_unresolved_task,54,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1161,markov_unresolved_task,54,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1162,markov_unresolved_task,54,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1163,markov_unresolved_task,54,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1164,markov_unresolved_task,55,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1165,markov_unresolved_task,55,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1166,markov_unresolved_task,55,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1167,markov_unresolved_task,55,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1168,markov_unresolved_task,55,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1169,markov_unresolved_task,55,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1170,markov_unresolved_task,55,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1171,markov_unresolved_task,55,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1172,markov_unresolved_task,55,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1173,markov_unresolved_task,55,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1174,markov_unresolved_task,55,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1175,markov_unresolved_task,55,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1176,markov_unresolved_task,55,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1177,markov_unresolved_task,55,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1178,markov_unresolved_task,55,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1179,markov_unresolved_task,55,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1180,markov_unresolved_task,56,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1181,markov_unresolved_task,56,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1182,markov_unresolved_task,56,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1183,markov_unresolved_task,56,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1184,markov_unresolved_task,56,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1185,markov_unresolved_task,56,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1186,markov_unresolved_task,56,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1187,markov_unresolved_task,56,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1188,markov_unresolved_task,56,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1189,markov_unresolved_task,56,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1190,markov_unresolved_task,56,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1191,markov_unresolved_task,56,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1192,markov_unresolved_task,56,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1193,markov_unresolved_task,56,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1194,markov_unresolved_task,56,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1195,markov_unresolved_task,56,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1196,markov_unresolved_task,57,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1197,markov_unresolved_task,57,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1198,markov_unresolved_task,57,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1199,markov_unresolved_task,57,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1200,markov_unresolved_task,57,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1201,markov_unresolved_task,57,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1202,markov_unresolved_task,57,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1203,markov_unresolved_task,57,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1204,markov_unresolved_task,57,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1205,markov_unresolved_task,57,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1206,markov_unresolved_task,57,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1207,markov_unresolved_task,57,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1208,markov_unresolved_task,57,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1209,markov_unresolved_task,57,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1210,markov_unresolved_task,57,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1211,markov_unresolved_task,57,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1212,markov_unresolved_task,58,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1213,markov_unresolved_task,58,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1214,markov_unresolved_task,58,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1215,markov_unresolved_task,58,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1216,markov_unresolved_task,58,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1217,markov_unresolved_task,58,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1218,markov_unresolved_task,58,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1219,markov_unresolved_task,58,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1220,markov_unresolved_task,58,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1221,markov_unresolved_task,58,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1222,markov_unresolved_task,58,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1223,markov_unresolved_task,58,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1224,markov_unresolved_task,58,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1225,markov_unresolved_task,58,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1226,markov_unresolved_task,58,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1227,markov_unresolved_task,58,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1228,markov_unresolved_task,59,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1229,markov_unresolved_task,59,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1230,markov_unresolved_task,59,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1231,markov_unresolved_task,59,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1232,markov_unresolved_task,59,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1233,markov_unresolved_task,59,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1234,markov_unresolved_task,59,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1235,markov_unresolved_task,59,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1236,markov_unresolved_task,59,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1237,markov_unresolved_task,59,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1238,markov_unresolved_task,59,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1239,markov_unresolved_task,59,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1240,markov_unresolved_task,59,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1241,markov_unresolved_task,59,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1242,markov_unresolved_task,59,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1243,markov_unresolved_task,59,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1244,markov_unresolved_task,60,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1245,markov_unresolved_task,60,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1246,markov_unresolved_task,60,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1247,markov_unresolved_task,60,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1248,markov_unresolved_task,60,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1249,markov_unresolved_task,60,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1250,markov_unresolved_task,60,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1251,markov_unresolved_task,60,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1252,markov_unresolved_task,60,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1253,markov_unresolved_task,60,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1254,markov_unresolved_task,60,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1255,markov_unresolved_task,60,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1256,markov_unresolved_task,60,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1257,markov_unresolved_task,60,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1258,markov_unresolved_task,60,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1259,markov_unresolved_task,60,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1260,markov_unresolved_task,61,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1261,markov_unresolved_task,61,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1262,markov_unresolved_task,61,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1263,markov_unresolved_task,61,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1264,markov_unresolved_task,61,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1265,markov_unresolved_task,61,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1266,markov_unresolved_task,61,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1267,markov_unresolved_task,61,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1268,markov_unresolved_task,61,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1269,markov_unresolved_task,61,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1270,markov_unresolved_task,61,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1271,markov_unresolved_task,61,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1272,markov_unresolved_task,61,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1273,markov_unresolved_task,61,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1274,markov_unresolved_task,61,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1275,markov_unresolved_task,61,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1276,markov_unresolved_task,62,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1277,markov_unresolved_task,62,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1278,markov_unresolved_task,62,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1279,markov_unresolved_task,62,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1280,markov_unresolved_task,62,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1281,markov_unresolved_task,62,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1282,markov_unresolved_task,62,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1283,markov_unresolved_task,62,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1284,markov_unresolved_task,62,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1285,markov_unresolved_task,62,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1286,markov_unresolved_task,62,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1287,markov_unresolved_task,62,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1288,markov_unresolved_task,62,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1289,markov_unresolved_task,62,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1290,markov_unresolved_task,62,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1291,markov_unresolved_task,62,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1292,markov_unresolved_task,63,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1293,markov_unresolved_task,63,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1294,markov_unresolved_task,63,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1295,markov_unresolved_task,63,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1296,markov_unresolved_task,63,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1297,markov_unresolved_task,63,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1298,markov_unresolved_task,63,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1299,markov_unresolved_task,63,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1300,markov_unresolved_task,63,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1301,markov_unresolved_task,63,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1302,markov_unresolved_task,63,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1303,markov_unresolved_task,63,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1304,markov_unresolved_task,63,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1305,markov_unresolved_task,63,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1306,markov_unresolved_task,63,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1307,markov_unresolved_task,63,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1308,markov_unresolved_task,64,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1309,markov_unresolved_task,64,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1310,markov_unresolved_task,64,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1311,markov_unresolved_task,64,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1312,markov_unresolved_task,64,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1313,markov_unresolved_task,64,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1314,markov_unresolved_task,64,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1315,markov_unresolved_task,64,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1316,markov_unresolved_task,64,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1317,markov_unresolved_task,64,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1318,markov_unresolved_task,64,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1319,markov_unresolved_task,64,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1320,markov_unresolved_task,64,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1321,markov_unresolved_task,64,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1322,markov_unresolved_task,64,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1323,markov_unresolved_task,64,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1324,markov_unresolved_task,65,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1325,markov_unresolved_task,65,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1326,markov_unresolved_task,65,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1327,markov_unresolved_task,65,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1328,markov_unresolved_task,65,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1329,markov_unresolved_task,65,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1330,markov_unresolved_task,65,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1331,markov_unresolved_task,65,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1332,markov_unresolved_task,65,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1333,markov_unresolved_task,65,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1334,markov_unresolved_task,65,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1335,markov_unresolved_task,65,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1336,markov_unresolved_task,65,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1337,markov_unresolved_task,65,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1338,markov_unresolved_task,65,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1339,markov_unresolved_task,65,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1340,markov_unresolved_task,66,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1341,markov_unresolved_task,66,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1342,markov_unresolved_task,66,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1343,markov_unresolved_task,66,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1344,markov_unresolved_task,66,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1345,markov_unresolved_task,66,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1346,markov_unresolved_task,66,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1347,markov_unresolved_task,66,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1348,markov_unresolved_task,66,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1349,markov_unresolved_task,66,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1350,markov_unresolved_task,66,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1351,markov_unresolved_task,66,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1352,markov_unresolved_task,66,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1353,markov_unresolved_task,66,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1354,markov_unresolved_task,66,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1355,markov_unresolved_task,66,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1356,markov_unresolved_task,67,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1357,markov_unresolved_task,67,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1358,markov_unresolved_task,67,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1359,markov_unresolved_task,67,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1360,markov_unresolved_task,67,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1361,markov_unresolved_task,67,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1362,markov_unresolved_task,67,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1363,markov_unresolved_task,67,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1364,markov_unresolved_task,67,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1365,markov_unresolved_task,67,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1366,markov_unresolved_task,67,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1367,markov_unresolved_task,67,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1368,markov_unresolved_task,67,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1369,markov_unresolved_task,67,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1370,markov_unresolved_task,67,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1371,markov_unresolved_task,67,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1372,markov_unresolved_task,68,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1373,markov_unresolved_task,68,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1374,markov_unresolved_task,68,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1375,markov_unresolved_task,68,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1376,markov_unresolved_task,68,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1377,markov_unresolved_task,68,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1378,markov_unresolved_task,68,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1379,markov_unresolved_task,68,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1380,markov_unresolved_task,68,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1381,markov_unresolved_task,68,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1382,markov_unresolved_task,68,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1383,markov_unresolved_task,68,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1384,markov_unresolved_task,68,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1385,markov_unresolved_task,68,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1386,markov_unresolved_task,68,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1387,markov_unresolved_task,68,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1388,markov_unresolved_task,69,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1389,markov_unresolved_task,69,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1390,markov_unresolved_task,69,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1391,markov_unresolved_task,69,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1392,markov_unresolved_task,69,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1393,markov_unresolved_task,69,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1394,markov_unresolved_task,69,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1395,markov_unresolved_task,69,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1396,markov_unresolved_task,69,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1397,markov_unresolved_task,69,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1398,markov_unresolved_task,69,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1399,markov_unresolved_task,69,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1400,markov_unresolved_task,69,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1401,markov_unresolved_task,69,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1402,markov_unresolved_task,69,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1403,markov_unresolved_task,69,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1404,markov_unresolved_task,70,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1405,markov_unresolved_task,70,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1406,markov_unresolved_task,70,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1407,markov_unresolved_task,70,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1408,markov_unresolved_task,70,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1409,markov_unresolved_task,70,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1410,markov_unresolved_task,70,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1411,markov_unresolved_task,70,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1412,markov_unresolved_task,70,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1413,markov_unresolved_task,70,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1414,markov_unresolved_task,70,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1415,markov_unresolved_task,70,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1416,markov_unresolved_task,70,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1417,markov_unresolved_task,70,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1418,markov_unresolved_task,70,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1419,markov_unresolved_task,70,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1420,markov_unresolved_task,71,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1421,markov_unresolved_task,71,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1422,markov_unresolved_task,71,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1423,markov_unresolved_task,71,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1424,markov_unresolved_task,71,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1425,markov_unresolved_task,71,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1426,markov_unresolved_task,71,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1427,markov_unresolved_task,71,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1428,markov_unresolved_task,71,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1429,markov_unresolved_task,71,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1430,markov_unresolved_task,71,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1431,markov_unresolved_task,71,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1432,markov_unresolved_task,71,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1433,markov_unresolved_task,71,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1434,markov_unresolved_task,71,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1435,markov_unresolved_task,71,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1436,markov_unresolved_task,72,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1437,markov_unresolved_task,72,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1438,markov_unresolved_task,72,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1439,markov_unresolved_task,72,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1440,markov_unresolved_task,72,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1441,markov_unresolved_task,72,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1442,markov_unresolved_task,72,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1443,markov_unresolved_task,72,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1444,markov_unresolved_task,72,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1445,markov_unresolved_task,72,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1446,markov_unresolved_task,72,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1447,markov_unresolved_task,72,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1448,markov_unresolved_task,72,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1449,markov_unresolved_task,72,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1450,markov_unresolved_task,72,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1451,markov_unresolved_task,72,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1452,markov_unresolved_task,73,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1453,markov_unresolved_task,73,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1454,markov_unresolved_task,73,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1455,markov_unresolved_task,73,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1456,markov_unresolved_task,73,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1457,markov_unresolved_task,73,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1458,markov_unresolved_task,73,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1459,markov_unresolved_task,73,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1460,markov_unresolved_task,73,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1461,markov_unresolved_task,73,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1462,markov_unresolved_task,73,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1463,markov_unresolved_task,73,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1464,markov_unresolved_task,73,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1465,markov_unresolved_task,73,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1466,markov_unresolved_task,73,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1467,markov_unresolved_task,73,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1468,markov_unresolved_task,74,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1469,markov_unresolved_task,74,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1470,markov_unresolved_task,74,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1471,markov_unresolved_task,74,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1472,markov_unresolved_task,74,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1473,markov_unresolved_task,74,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1474,markov_unresolved_task,74,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1475,markov_unresolved_task,74,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1476,markov_unresolved_task,74,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1477,markov_unresolved_task,74,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1478,markov_unresolved_task,74,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1479,markov_unresolved_task,74,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1480,markov_unresolved_task,74,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1481,markov_unresolved_task,74,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1482,markov_unresolved_task,74,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1483,markov_unresolved_task,74,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1484,markov_unresolved_task,75,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1485,markov_unresolved_task,75,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1486,markov_unresolved_task,75,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1487,markov_unresolved_task,75,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1488,markov_unresolved_task,75,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1489,markov_unresolved_task,75,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1490,markov_unresolved_task,75,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1491,markov_unresolved_task,75,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1492,markov_unresolved_task,75,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1493,markov_unresolved_task,75,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1494,markov_unresolved_task,75,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1495,markov_unresolved_task,75,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1496,markov_unresolved_task,75,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1497,markov_unresolved_task,75,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1498,markov_unresolved_task,75,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1499,markov_unresolved_task,75,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1500,markov_unresolved_task,76,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1501,markov_unresolved_task,76,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1502,markov_unresolved_task,76,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1503,markov_unresolved_task,76,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1504,markov_unresolved_task,76,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1505,markov_unresolved_task,76,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1506,markov_unresolved_task,76,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1507,markov_unresolved_task,76,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1508,markov_unresolved_task,76,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1509,markov_unresolved_task,76,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1510,markov_unresolved_task,76,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1511,markov_unresolved_task,76,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1512,markov_unresolved_task,76,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1513,markov_unresolved_task,76,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1514,markov_unresolved_task,76,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1515,markov_unresolved_task,76,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1516,markov_unresolved_task,77,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1517,markov_unresolved_task,77,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1518,markov_unresolved_task,77,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1519,markov_unresolved_task,77,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1520,markov_unresolved_task,77,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1521,markov_unresolved_task,77,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1522,markov_unresolved_task,77,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1523,markov_unresolved_task,77,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1524,markov_unresolved_task,77,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1525,markov_unresolved_task,77,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1526,markov_unresolved_task,77,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1527,markov_unresolved_task,77,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1528,markov_unresolved_task,77,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1529,markov_unresolved_task,77,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1530,markov_unresolved_task,77,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1531,markov_unresolved_task,77,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1532,markov_unresolved_task,78,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1533,markov_unresolved_task,78,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1534,markov_unresolved_task,78,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1535,markov_unresolved_task,78,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1536,markov_unresolved_task,78,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1537,markov_unresolved_task,78,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1538,markov_unresolved_task,78,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1539,markov_unresolved_task,78,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1540,markov_unresolved_task,78,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1541,markov_unresolved_task,78,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1542,markov_unresolved_task,78,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1543,markov_unresolved_task,78,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1544,markov_unresolved_task,78,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1545,markov_unresolved_task,78,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1546,markov_unresolved_task,78,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1547,markov_unresolved_task,78,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1548,markov_unresolved_task,79,present,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1549,markov_unresolved_task,79,waiting,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1550,markov_unresolved_task,79,pending,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1551,markov_unresolved_task,79,active,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1552,markov_unresolved_task,79,source_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1553,markov_unresolved_task,79,target_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1554,markov_unresolved_task,79,cross_floor,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1555,markov_unresolved_task,79,priority,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1556,markov_unresolved_task,79,release_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1557,markov_unresolved_task,79,deadline_relative_time,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1558,markov_unresolved_task,79,source_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1559,markov_unresolved_task,79,source_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1560,markov_unresolved_task,79,source_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1561,markov_unresolved_task,79,target_x,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1562,markov_unresolved_task,79,target_y,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1563,markov_unresolved_task,79,target_z,see Stage12Encoder._markov_v3_context,all_waiting_pending_active_tasks
+1564,markov_active_assignment,0,present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1565,markov_active_assignment,0,task_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1566,markov_active_assignment,0,remaining_time,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1567,markov_active_assignment,0,elapsed_time,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1568,markov_active_assignment,0,scheduled_duration,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1569,markov_active_assignment,0,mode_single_car,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1570,markov_active_assignment,0,mode_single_dog,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1571,markov_active_assignment,0,mode_car_dog_car,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1572,markov_active_assignment,0,pickup_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1573,markov_active_assignment,0,dog_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1574,markov_active_assignment,0,receiving_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1575,markov_active_assignment,0,stair_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1576,markov_active_assignment,0,resource_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1577,markov_active_assignment,0,participant_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1578,markov_active_assignment,0,travelled,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1579,markov_active_assignment,0,handover_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1580,markov_active_assignment,0,handover_duration_total,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1581,markov_active_assignment,0,finish_deadline_margin,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1582,markov_active_assignment,0,pickup_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1583,markov_active_assignment,0,pickup_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1584,markov_active_assignment,0,pickup_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1585,markov_active_assignment,0,pickup_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1586,markov_active_assignment,0,pickup_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1587,markov_active_assignment,0,pickup_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1588,markov_active_assignment,0,pickup_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1589,markov_active_assignment,0,dog_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1590,markov_active_assignment,0,dog_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1591,markov_active_assignment,0,dog_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1592,markov_active_assignment,0,dog_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1593,markov_active_assignment,0,dog_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1594,markov_active_assignment,0,dog_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1595,markov_active_assignment,0,dog_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1596,markov_active_assignment,0,receiver_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1597,markov_active_assignment,0,receiver_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1598,markov_active_assignment,0,receiver_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1599,markov_active_assignment,0,receiver_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1600,markov_active_assignment,0,receiver_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1601,markov_active_assignment,0,receiver_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1602,markov_active_assignment,0,receiver_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1603,markov_active_assignment,1,present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1604,markov_active_assignment,1,task_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1605,markov_active_assignment,1,remaining_time,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1606,markov_active_assignment,1,elapsed_time,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1607,markov_active_assignment,1,scheduled_duration,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1608,markov_active_assignment,1,mode_single_car,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1609,markov_active_assignment,1,mode_single_dog,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1610,markov_active_assignment,1,mode_car_dog_car,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1611,markov_active_assignment,1,pickup_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1612,markov_active_assignment,1,dog_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1613,markov_active_assignment,1,receiving_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1614,markov_active_assignment,1,stair_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1615,markov_active_assignment,1,resource_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1616,markov_active_assignment,1,participant_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1617,markov_active_assignment,1,travelled,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1618,markov_active_assignment,1,handover_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1619,markov_active_assignment,1,handover_duration_total,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1620,markov_active_assignment,1,finish_deadline_margin,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1621,markov_active_assignment,1,pickup_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1622,markov_active_assignment,1,pickup_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1623,markov_active_assignment,1,pickup_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1624,markov_active_assignment,1,pickup_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1625,markov_active_assignment,1,pickup_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1626,markov_active_assignment,1,pickup_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1627,markov_active_assignment,1,pickup_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1628,markov_active_assignment,1,dog_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1629,markov_active_assignment,1,dog_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1630,markov_active_assignment,1,dog_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1631,markov_active_assignment,1,dog_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1632,markov_active_assignment,1,dog_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1633,markov_active_assignment,1,dog_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1634,markov_active_assignment,1,dog_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1635,markov_active_assignment,1,receiver_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1636,markov_active_assignment,1,receiver_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1637,markov_active_assignment,1,receiver_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1638,markov_active_assignment,1,receiver_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1639,markov_active_assignment,1,receiver_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1640,markov_active_assignment,1,receiver_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1641,markov_active_assignment,1,receiver_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1642,markov_active_assignment,2,present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1643,markov_active_assignment,2,task_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1644,markov_active_assignment,2,remaining_time,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1645,markov_active_assignment,2,elapsed_time,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1646,markov_active_assignment,2,scheduled_duration,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1647,markov_active_assignment,2,mode_single_car,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1648,markov_active_assignment,2,mode_single_dog,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1649,markov_active_assignment,2,mode_car_dog_car,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1650,markov_active_assignment,2,pickup_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1651,markov_active_assignment,2,dog_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1652,markov_active_assignment,2,receiving_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1653,markov_active_assignment,2,stair_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1654,markov_active_assignment,2,resource_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1655,markov_active_assignment,2,participant_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1656,markov_active_assignment,2,travelled,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1657,markov_active_assignment,2,handover_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1658,markov_active_assignment,2,handover_duration_total,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1659,markov_active_assignment,2,finish_deadline_margin,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1660,markov_active_assignment,2,pickup_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1661,markov_active_assignment,2,pickup_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1662,markov_active_assignment,2,pickup_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1663,markov_active_assignment,2,pickup_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1664,markov_active_assignment,2,pickup_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1665,markov_active_assignment,2,pickup_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1666,markov_active_assignment,2,pickup_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1667,markov_active_assignment,2,dog_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1668,markov_active_assignment,2,dog_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1669,markov_active_assignment,2,dog_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1670,markov_active_assignment,2,dog_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1671,markov_active_assignment,2,dog_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1672,markov_active_assignment,2,dog_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1673,markov_active_assignment,2,dog_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1674,markov_active_assignment,2,receiver_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1675,markov_active_assignment,2,receiver_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1676,markov_active_assignment,2,receiver_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1677,markov_active_assignment,2,receiver_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1678,markov_active_assignment,2,receiver_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1679,markov_active_assignment,2,receiver_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1680,markov_active_assignment,2,receiver_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1681,markov_active_assignment,3,present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1682,markov_active_assignment,3,task_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1683,markov_active_assignment,3,remaining_time,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1684,markov_active_assignment,3,elapsed_time,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1685,markov_active_assignment,3,scheduled_duration,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1686,markov_active_assignment,3,mode_single_car,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1687,markov_active_assignment,3,mode_single_dog,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1688,markov_active_assignment,3,mode_car_dog_car,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1689,markov_active_assignment,3,pickup_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1690,markov_active_assignment,3,dog_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1691,markov_active_assignment,3,receiving_robot_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1692,markov_active_assignment,3,stair_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1693,markov_active_assignment,3,resource_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1694,markov_active_assignment,3,participant_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1695,markov_active_assignment,3,travelled,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1696,markov_active_assignment,3,handover_count,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1697,markov_active_assignment,3,handover_duration_total,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1698,markov_active_assignment,3,finish_deadline_margin,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1699,markov_active_assignment,3,pickup_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1700,markov_active_assignment,3,pickup_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1701,markov_active_assignment,3,pickup_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1702,markov_active_assignment,3,pickup_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1703,markov_active_assignment,3,pickup_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1704,markov_active_assignment,3,pickup_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1705,markov_active_assignment,3,pickup_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1706,markov_active_assignment,3,dog_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1707,markov_active_assignment,3,dog_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1708,markov_active_assignment,3,dog_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1709,markov_active_assignment,3,dog_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1710,markov_active_assignment,3,dog_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1711,markov_active_assignment,3,dog_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1712,markov_active_assignment,3,dog_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1713,markov_active_assignment,3,receiver_final_present,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1714,markov_active_assignment,3,receiver_final_floor,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1715,markov_active_assignment,3,receiver_final_x,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1716,markov_active_assignment,3,receiver_final_y,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1717,markov_active_assignment,3,receiver_final_z,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1718,markov_active_assignment,3,receiver_final_tasks_completed,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states
+1719,markov_active_assignment,3,receiver_final_standby_slot,see Stage12Encoder._markov_v3_context,all_active_completion_events_and_planned_final_states

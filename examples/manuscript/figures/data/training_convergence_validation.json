@@ -1,0 +1,112 @@
+{
+  "passed": true,
+  "question": "PPO optimization stability of the three fixed-load cohorts",
+  "source_history_count": 30,
+  "source_summary_count": 30,
+  "combined_source_sha256": "2ae579ecf6a084b36658ce566c2d34a70b910dbf5ef6176f28c7565874a7a736",
+  "profiles": [
+    "Medium",
+    "Dense",
+    "Burst"
+  ],
+  "training_seed_count_per_profile": 10,
+  "training_update_count_per_seed": 2000,
+  "loss_fields_verified": [
+    "loss",
+    "actor_loss",
+    "value_loss",
+    "entropy",
+    "approximate_kl",
+    "clip_fraction"
+  ],
+  "ppo_config_verified": {
+    "clip_ratio": 0.2,
+    "gae_lambda": 0.95,
+    "value_coefficient": 0.5,
+    "entropy_coefficient": 0.01,
+    "max_gradient_norm": 1.0,
+    "learning_rate": 0.0003,
+    "ppo_epochs": 4,
+    "minibatch_size": 32
+  },
+  "ppo_objective_definition": "actor_loss + 0.5 * value_loss - 0.01 * entropy",
+  "loss_block_width_updates": 50,
+  "validation_checkpoint_count_per_seed": 40,
+  "checkpoint_updates": [
+    50,
+    100,
+    150,
+    200,
+    250,
+    300,
+    350,
+    400,
+    450,
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000,
+    1050,
+    1100,
+    1150,
+    1200,
+    1250,
+    1300,
+    1350,
+    1400,
+    1450,
+    1500,
+    1550,
+    1600,
+    1650,
+    1700,
+    1750,
+    1800,
+    1850,
+    1900,
+    1950,
+    2000
+  ],
+  "evaluation_episodes_per_checkpoint": 100,
+  "evaluation_tasks_per_checkpoint": 2000,
+  "plotted_statistic": "per-seed median within each non-overlapping 50-update loss block, then median and interquartile range across independent training seeds; validation success uses seed median and interquartile range",
+  "temporal_smoothing": "none; non-overlapping 50-update block aggregation only",
+  "validation_return_retained_in_csv_but_not_plotted": true,
+  "validation_seed_range": [
+    42000000,
+    42000099
+  ],
+  "locked_test_reused": false,
+  "final_summary": {
+    "Medium": {
+      "first_block_median_ppo_objective_loss": 0.1424487971853523,
+      "minimum_median_ppo_objective_loss": 0.03820876383360883,
+      "minimum_median_ppo_objective_loss_update": 1650,
+      "final_block_median_ppo_objective_loss": 0.0427441775045736,
+      "final_median_success_percent": 96.925
+    },
+    "Dense": {
+      "first_block_median_ppo_objective_loss": 0.08245032943523256,
+      "minimum_median_ppo_objective_loss": 0.06602225763240963,
+      "minimum_median_ppo_objective_loss_update": 100,
+      "final_block_median_ppo_objective_loss": 0.0795784041789115,
+      "final_median_success_percent": 96.625
+    },
+    "Burst": {
+      "first_block_median_ppo_objective_loss": 0.01255167288244203,
+      "minimum_median_ppo_objective_loss": 0.003394284640394506,
+      "minimum_median_ppo_objective_loss_update": 100,
+      "final_block_median_ppo_objective_loss": 0.011730906092062858,
+      "final_median_success_percent": 97.30000000000001
+    }
+  },
+  "figure": "figures/fig_training_convergence.pdf",
+  "csv": "figures/data/training_convergence.csv"
+}

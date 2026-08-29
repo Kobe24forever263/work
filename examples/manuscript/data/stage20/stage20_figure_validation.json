@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "source": "data/stage20/stage20_locked_test_summary.json",
+  "source_sha256": "646b34ae3a98240e0dbba1e2314f20fb769a87f0603722b162711180e689eb12",
+  "bootstrap_design": "crossed_training_seed_by_shared_test_seed",
+  "bootstrap_samples": 10000,
+  "training_seed_count": 10,
+  "shared_test_seed_count": 100,
+  "plotted_point_count": 16,
+  "figure": "figures/fig_stage20_generalization.pdf",
+  "csv": "figures/data/stage20_generalization_differences.csv",
+  "single_dog_omitted_from_figure_reason": "Its much larger waiting differences would compress the specialist comparisons; it remains in the manuscript table."
+}

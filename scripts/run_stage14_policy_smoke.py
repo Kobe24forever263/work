@@ -17,6 +17,7 @@ WORK_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(WORK_ROOT / "src" / "warehouse_core"))
 
 from warehouse_core.persistent_dispatch import Assignment
+from warehouse_core.stage12_encoding import Stage12Encoder
 from warehouse_core.stage14_policy import MaskedCandidateActorCritic
 from warehouse_core.stage14_training import WarehouseDispatchGymEnv
 from warehouse_core.stage14_training import (
@@ -39,7 +40,8 @@ def profile_environment(profile):
 
 
 def collect_rule_dataset(seeds, execution_mode, observation_variant,
-                         arrival_profile):
+                         arrival_profile, allowed_transport_modes=None,
+                         reward_contract="REWARD_V2_LEGACY"):
     samples = []
     label_modes = Counter()
     interval, arrival_schedule, _ = profile_environment(arrival_profile)
@@ -47,7 +49,9 @@ def collect_rule_dataset(seeds, execution_mode, observation_variant,
         env = WarehouseDispatchGymEnv(
             seed=seed, execution_mode=execution_mode,
             arrival_interval=interval, arrival_schedule=arrival_schedule,
-            observation_variant=observation_variant)
+            observation_variant=observation_variant,
+            allowed_transport_modes=allowed_transport_modes,
+            reward_contract=reward_contract)
         observation, info = env.reset(seed=seed)
         done = False
         while not done:
@@ -164,7 +168,9 @@ def _mode(action):
 
 @torch.no_grad()
 def evaluate_policy(model, seeds, execution_mode, observation_variant,
-                    arrival_profile="MEDIUM", use_rule=False):
+                    arrival_profile="MEDIUM", use_rule=False,
+                    allowed_transport_modes=None,
+                    reward_contract="REWARD_V2_LEGACY"):
     rows = []
     episode_summaries = []
     interval, arrival_schedule, _ = profile_environment(arrival_profile)
@@ -172,7 +178,9 @@ def evaluate_policy(model, seeds, execution_mode, observation_variant,
         env = WarehouseDispatchGymEnv(
             seed=seed, execution_mode=execution_mode,
             arrival_interval=interval, arrival_schedule=arrival_schedule,
-            observation_variant=observation_variant)
+            observation_variant=observation_variant,
+            allowed_transport_modes=allowed_transport_modes,
+            reward_contract=reward_contract)
         observation, info = env.reset(seed=seed)
         done = False
         reward_total = 0.0
@@ -280,13 +288,22 @@ def main():
                         default=42000000)
     parser.add_argument("--validation-episodes", type=int, default=5)
     parser.add_argument("--observation-variant", choices=(
-        "FULL_CONTEXT_V2", "NO_QUEUE_RESOURCE", "NO_HANDOVER_CUES",
+        "FULL_CONTEXT_V2", "MARKOV_CONTEXT_V3",
+        "NO_QUEUE_RESOURCE", "NO_HANDOVER_CUES",
         "NO_PERSISTENT_POSITION", "NO_POSITION_ONLY", "NO_ETA_COST_ONLY",
         "NO_HISTORY_ONLY", "NO_EXPLICIT_QUEUE_RESOURCE",
         "NO_EXPLICIT_HANDOVER_RISK"), default="FULL_CONTEXT_V2")
+    parser.add_argument("--reward-contract", choices=(
+        "REWARD_V2_LEGACY", "CONTINUOUS_TIME_V3"),
+        default="REWARD_V2_LEGACY")
     parser.add_argument("--policy-variant", choices=(
         "CONTEXT_INTERACTION", "FLAT_MASKED_PPO"),
         default="CONTEXT_INTERACTION")
+    parser.add_argument(
+        "--allowed-transport-modes", nargs="+", choices=(
+            "SINGLE_CAR", "SINGLE_DOG", "CAR_DOG_CAR"),
+        help=("Restrict rule distillation and held-out evaluation to these "
+              "transport modes."))
     parser.add_argument(
         "--allow-interface-only-continuation", action="store_true",
         help=("Allow PPO continuation when the ablated observation cannot "
@@ -309,24 +326,33 @@ def main():
         args.validation_seed_start + args.validation_episodes))
     dataset, max_candidates, label_modes = collect_rule_dataset(
         training_seeds, args.execution_mode, args.observation_variant,
-        args.arrival_profile)
+        args.arrival_profile, args.allowed_transport_modes,
+        args.reward_contract)
     print(f"dataset={len(dataset)} max_candidates={max_candidates} "
           f"labels={label_modes}")
 
+    encoder = Stage12Encoder(args.observation_variant)
     model = MaskedCandidateActorCritic(
+        state_width=encoder.OBSERVATION_SIZE,
         hidden_width=96, policy_variant=args.policy_variant)
     before = evaluate_policy(
         model, evaluation_seeds, args.execution_mode,
-        args.observation_variant, args.arrival_profile)
+        args.observation_variant, args.arrival_profile,
+        allowed_transport_modes=args.allowed_transport_modes,
+        reward_contract=args.reward_contract)
     rule = evaluate_policy(
         model, evaluation_seeds, args.execution_mode,
-        args.observation_variant, args.arrival_profile, use_rule=True)
+        args.observation_variant, args.arrival_profile, use_rule=True,
+        allowed_transport_modes=args.allowed_transport_modes,
+        reward_contract=args.reward_contract)
     initial, final, history = train(
         model, dataset, args.epochs, args.batch_size, args.learning_rate,
         args.run_seed)
     after = evaluate_policy(
         model, evaluation_seeds, args.execution_mode,
-        args.observation_variant, args.arrival_profile)
+        args.observation_variant, args.arrival_profile,
+        allowed_transport_modes=args.allowed_transport_modes,
+        reward_contract=args.reward_contract)
 
     before_compact = compact_evaluation(before)
     after_compact = compact_evaluation(after)
@@ -334,11 +360,17 @@ def main():
     tasks_each = profile_environment(args.arrival_profile)[2]
     expected_training_tasks = args.training_seed_count * tasks_each
     expected_heldout_tasks = args.validation_episodes * tasks_each
+    all_transport_modes = {"SINGLE_CAR", "SINGLE_DOG", "CAR_DOG_CAR"}
+    expected_transport_modes = set(
+        args.allowed_transport_modes or sorted(all_transport_modes))
     assertions = {
         "training_dataset_has_expected_task_count": (
             len(dataset) == expected_training_tasks),
-        "training_labels_cover_three_modes": set(label_modes) == {
-            "SINGLE_CAR", "SINGLE_DOG", "CAR_DOG_CAR"},
+        "training_labels_cover_expected_modes": (
+            set(label_modes) == expected_transport_modes),
+        "training_labels_cover_three_modes": (
+            expected_transport_modes != all_transport_modes or
+            set(label_modes) == all_transport_modes),
         "loss_decreased": final["loss"] < initial["loss"],
         "classification_accuracy_improved": (
             final["accuracy"] > initial["accuracy"] + .25),
@@ -347,8 +379,11 @@ def main():
         "heldout_failures_only_come_from_p95_handover_timeout": (
             after["non_handover_failure_count"] == 0),
         "heldout_actions_all_legal": after["illegal_action_count"] == 0,
-        "heldout_uses_all_three_modes": set(after["transport_modes"]) == {
-            "SINGLE_CAR", "SINGLE_DOG", "CAR_DOG_CAR"},
+        "heldout_uses_expected_modes": (
+            set(after["transport_modes"]) == expected_transport_modes),
+        "heldout_uses_all_three_modes": (
+            expected_transport_modes != all_transport_modes or
+            set(after["transport_modes"]) == all_transport_modes),
         "heldout_mode_agreement_at_least_90_percent": (
             after["mode_agreement"] >= .9),
         "heldout_exact_action_agreement_at_least_70_percent": (
@@ -379,6 +414,8 @@ def main():
             assertions["training_dataset_has_expected_task_count"],
         "training_labels_cover_three_modes":
             assertions["training_labels_cover_three_modes"],
+        "training_labels_cover_expected_modes":
+            assertions["training_labels_cover_expected_modes"],
         "loss_decreased": assertions["loss_decreased"],
         "heldout_policy_resolved_expected_tasks":
             assertions["heldout_policy_resolved_expected_tasks"],
@@ -386,6 +423,8 @@ def main():
             assertions["heldout_failures_only_come_from_p95_handover_timeout"],
         "heldout_actions_all_legal":
             assertions["heldout_actions_all_legal"],
+        "heldout_uses_expected_modes":
+            assertions["heldout_uses_expected_modes"],
     }
     continuation_assertions = {
         **interface_continuation_assertions,
@@ -401,7 +440,7 @@ def main():
         all(interface_continuation_assertions.values()))
     summary = {
         "schema_version": "warehouse_stage18_warm_start_v1",
-        "stage": 14,
+        "stage": 23 if args.observation_variant == "MARKOV_CONTEXT_V3" else 14,
         "gate": "CONTEXT_CONDITIONED_POLICY_WARM_START",
         "training_type": "contextual_rule_actor_distillation_warm_start",
         "execution_mode": args.execution_mode,
@@ -410,7 +449,9 @@ def main():
         "tasks_per_episode": tasks_each,
         "run_seed": args.run_seed,
         "observation_variant": args.observation_variant,
+        "reward_contract": args.reward_contract,
         "policy_variant": args.policy_variant,
+        "allowed_transport_modes": sorted(expected_transport_modes),
         "training_seed_start": training_seeds[0],
         "training_seed_end": training_seeds[-1],
         "evaluation_seeds": evaluation_seeds,
@@ -470,7 +511,11 @@ def main():
         "training_seeds": training_seeds,
         "validation_seeds": evaluation_seeds,
         "observation_variant": args.observation_variant,
+        "reward_contract": args.reward_contract,
         "policy_variant": args.policy_variant,
+        "allowed_transport_modes": (
+            sorted(args.allowed_transport_modes)
+            if args.allowed_transport_modes is not None else None),
     }, output)
     output.with_suffix(".history.json").write_text(
         json.dumps(history, ensure_ascii=False, indent=2) + "\n",

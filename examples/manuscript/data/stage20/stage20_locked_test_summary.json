@@ -1,0 +1,1054 @@
+{
+  "schema_version": "warehouse_stage20_locked_summary_v1",
+  "stage": 20,
+  "generated_at_utc": "2026-08-24T12:53:42.347189+00:00",
+  "claim_boundary": "Held-out descriptive and crossed-bootstrap comparison. All ten pre-registered Stage 20 training seeds are retained regardless of their training gate label.",
+  "data_as_of": "2026-08-24 Asia/Shanghai",
+  "test_seed_range": [
+    64000000,
+    64000099
+  ],
+  "test_episode_count": 100,
+  "tasks_per_episode": 80,
+  "bootstrap": {
+    "design": "crossed_training_seed_by_shared_test_seed",
+    "samples": 10000,
+    "seed": 65000000
+  },
+  "episode_level_metric_definitions": {
+    "success_rate": {
+      "source_episode_field": "success_rate",
+      "direction": "higher"
+    },
+    "reward": {
+      "source_episode_field": "reward",
+      "direction": "higher"
+    },
+    "mean_episode_successful_throughput_tasks_per_hour": {
+      "source_episode_field": "successful_throughput_tasks_per_hour",
+      "direction": "higher"
+    },
+    "mean_waiting_time": {
+      "source_episode_field": "mean_waiting_time",
+      "direction": "lower"
+    },
+    "mean_episode_p95_waiting_time": {
+      "source_episode_field": "p95_waiting_time",
+      "direction": "lower"
+    },
+    "mean_flow_time": {
+      "source_episode_field": "mean_flow_time",
+      "direction": "lower"
+    },
+    "mean_episode_p95_flow_time": {
+      "source_episode_field": "p95_flow_time",
+      "direction": "lower"
+    },
+    "distance_per_task": {
+      "source_episode_field": "distance_per_task",
+      "direction": "lower"
+    }
+  },
+  "estimand_note": "Crossed bootstrap operates on episode-level metrics. Therefore tail metrics are explicitly named mean_episode_p95, and the run-level table separately reports pooled-task P95. Throughput is likewise separated into mean-episode and aggregate run-level estimands.",
+  "quality_assurance": {
+    "campaign_completed": true,
+    "freeze_gate_passed": true,
+    "all_40_policy_files_present": true,
+    "all_10_stage20_seeds_retained": true,
+    "stage20_gate_labels_are_7_and_3": true,
+    "all_100_shared_test_seeds_present": true,
+    "multiple_random_phase_orders_observed": true,
+    "burst_precedes_recovery_in_every_observed_order": true,
+    "no_data_quality_failure": true
+  },
+  "quality_failures": [],
+  "phase_order_counts_across_policy_runs": {
+    "BURST->NORMAL->DENSE->RECOVERY": 160,
+    "NORMAL->BURST->RECOVERY->DENSE": 280,
+    "NORMAL->BURST->DENSE->RECOVERY": 280,
+    "DENSE->BURST->RECOVERY->NORMAL": 440,
+    "BURST->RECOVERY->DENSE->NORMAL": 240,
+    "BURST->DENSE->NORMAL->RECOVERY": 240,
+    "BURST->NORMAL->RECOVERY->DENSE": 440,
+    "DENSE->BURST->NORMAL->RECOVERY": 360,
+    "BURST->DENSE->RECOVERY->NORMAL": 520,
+    "NORMAL->DENSE->BURST->RECOVERY": 400,
+    "DENSE->NORMAL->BURST->RECOVERY": 280,
+    "BURST->RECOVERY->NORMAL->DENSE": 360
+  },
+  "cohort_point_estimates": {
+    "STAGE20_MIXED_CURRICULUM": {
+      "success_rate": {
+        "mean": 0.9651375000000001,
+        "training_seed_sd_of_test_seed_means": 0.004411337193338609,
+        "test_episode_count_per_training_seed": 100
+      },
+      "reward": {
+        "mean": -292.41131997687523,
+        "training_seed_sd_of_test_seed_means": 25.67075736427866,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_successful_throughput_tasks_per_hour": {
+        "mean": 68.40147953061195,
+        "training_seed_sd_of_test_seed_means": 0.25912779612500597,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_waiting_time": {
+        "mean": 116.6043539233819,
+        "training_seed_sd_of_test_seed_means": 7.133491517255827,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_p95_waiting_time": {
+        "mean": 466.18167453862003,
+        "training_seed_sd_of_test_seed_means": 24.613197125497443,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_flow_time": {
+        "mean": 160.85084309433995,
+        "training_seed_sd_of_test_seed_means": 8.522259810839367,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_p95_flow_time": {
+        "mean": 516.1967099276932,
+        "training_seed_sd_of_test_seed_means": 24.972645911646886,
+        "test_episode_count_per_training_seed": 100
+      },
+      "distance_per_task": {
+        "mean": 72.12472379198196,
+        "training_seed_sd_of_test_seed_means": 3.376275414155496,
+        "test_episode_count_per_training_seed": 100
+      }
+    },
+    "STAGE19_MEDIUM": {
+      "success_rate": {
+        "mean": 0.9900750000000001,
+        "training_seed_sd_of_test_seed_means": 0.0037449966622148684,
+        "test_episode_count_per_training_seed": 100
+      },
+      "reward": {
+        "mean": -353.42146491380703,
+        "training_seed_sd_of_test_seed_means": 45.982355597522584,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_successful_throughput_tasks_per_hour": {
+        "mean": 70.00121231731313,
+        "training_seed_sd_of_test_seed_means": 0.228214797993147,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_waiting_time": {
+        "mean": 139.5434358815064,
+        "training_seed_sd_of_test_seed_means": 15.081416260958855,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_p95_waiting_time": {
+        "mean": 555.1795266112173,
+        "training_seed_sd_of_test_seed_means": 57.782357288507704,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_flow_time": {
+        "mean": 184.6933011597878,
+        "training_seed_sd_of_test_seed_means": 15.299685261015997,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_p95_flow_time": {
+        "mean": 595.9029175395034,
+        "training_seed_sd_of_test_seed_means": 50.44439542843593,
+        "test_episode_count_per_training_seed": 100
+      },
+      "distance_per_task": {
+        "mean": 52.64696314761519,
+        "training_seed_sd_of_test_seed_means": 3.1366550712033368,
+        "test_episode_count_per_training_seed": 100
+      }
+    },
+    "STAGE19_DENSE": {
+      "success_rate": {
+        "mean": 0.9777375,
+        "training_seed_sd_of_test_seed_means": 0.007377106572965364,
+        "test_episode_count_per_training_seed": 100
+      },
+      "reward": {
+        "mean": -264.75955856062393,
+        "training_seed_sd_of_test_seed_means": 6.496242572652709,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_successful_throughput_tasks_per_hour": {
+        "mean": 69.25653716829079,
+        "training_seed_sd_of_test_seed_means": 0.47108537609128853,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_waiting_time": {
+        "mean": 109.60507146873226,
+        "training_seed_sd_of_test_seed_means": 2.4893013481106814,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_p95_waiting_time": {
+        "mean": 449.1692750895214,
+        "training_seed_sd_of_test_seed_means": 10.240990229932942,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_flow_time": {
+        "mean": 153.71798496754943,
+        "training_seed_sd_of_test_seed_means": 2.990448931935684,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_p95_flow_time": {
+        "mean": 501.97104226320863,
+        "training_seed_sd_of_test_seed_means": 10.923688158159543,
+        "test_episode_count_per_training_seed": 100
+      },
+      "distance_per_task": {
+        "mean": 62.33968760361019,
+        "training_seed_sd_of_test_seed_means": 5.575665518630058,
+        "test_episode_count_per_training_seed": 100
+      }
+    },
+    "STAGE19_BURST": {
+      "success_rate": {
+        "mean": 0.977075,
+        "training_seed_sd_of_test_seed_means": 0.00877876225140346,
+        "test_episode_count_per_training_seed": 100
+      },
+      "reward": {
+        "mean": -258.6765621835698,
+        "training_seed_sd_of_test_seed_means": 7.077578054469092,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_successful_throughput_tasks_per_hour": {
+        "mean": 69.20690059511203,
+        "training_seed_sd_of_test_seed_means": 0.5636910562650355,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_waiting_time": {
+        "mean": 107.2059222375571,
+        "training_seed_sd_of_test_seed_means": 2.7769618742162874,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_p95_waiting_time": {
+        "mean": 433.1426067585601,
+        "training_seed_sd_of_test_seed_means": 11.924300555930024,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_flow_time": {
+        "mean": 151.1957456311586,
+        "training_seed_sd_of_test_seed_means": 3.4117545841785475,
+        "test_episode_count_per_training_seed": 100
+      },
+      "mean_episode_p95_flow_time": {
+        "mean": 486.4661480139723,
+        "training_seed_sd_of_test_seed_means": 12.409164549784151,
+        "test_episode_count_per_training_seed": 100
+      },
+      "distance_per_task": {
+        "mean": 61.974184150200095,
+        "training_seed_sd_of_test_seed_means": 6.425301052522602,
+        "test_episode_count_per_training_seed": 100
+      }
+    }
+  },
+  "baseline_point_estimates": {
+    "TIME_GREEDY_RULE": {
+      "success_rate": {
+        "mean": 0.9647500000000002
+      },
+      "reward": {
+        "mean": -381.8673134089843
+      },
+      "mean_episode_successful_throughput_tasks_per_hour": {
+        "mean": 68.35338597270528
+      },
+      "mean_waiting_time": {
+        "mean": 146.74295923144848
+      },
+      "mean_episode_p95_waiting_time": {
+        "mean": 599.0021509467236
+      },
+      "mean_flow_time": {
+        "mean": 189.99465661866049
+      },
+      "mean_episode_p95_flow_time": {
+        "mean": 623.6505979650726
+      },
+      "distance_per_task": {
+        "mean": 72.55828257705897
+      }
+    },
+    "SINGLE_DOG_ONLY": {
+      "success_rate": {
+        "mean": 0.9688749999999999
+      },
+      "reward": {
+        "mean": -840.645110565367
+      },
+      "mean_episode_successful_throughput_tasks_per_hour": {
+        "mean": 68.23656323078278
+      },
+      "mean_waiting_time": {
+        "mean": 295.48822506192687
+      },
+      "mean_episode_p95_waiting_time": {
+        "mean": 1155.1732195818095
+      },
+      "mean_flow_time": {
+        "mean": 353.49077615545156
+      },
+      "mean_episode_p95_flow_time": {
+        "mean": 1188.8425595488047
+      },
+      "distance_per_task": {
+        "mean": 46.40204087481968
+      }
+    }
+  },
+  "cohort_run_level_point_estimates": {
+    "STAGE20_MIXED_CURRICULUM": {
+      "success_rate": {
+        "mean_across_training_seeds": 0.9651375,
+        "training_seed_sd": 0.00441133719333869
+      },
+      "reward": {
+        "mean_across_training_seeds": -292.41131997687523,
+        "training_seed_sd": 25.67075736427866
+      },
+      "successful_throughput_tasks_per_hour": {
+        "mean_across_training_seeds": 67.59202405440178,
+        "training_seed_sd": 0.25747623583404794
+      },
+      "mean_waiting_time": {
+        "mean_across_training_seeds": 116.60435392338188,
+        "training_seed_sd": 7.133491517255828
+      },
+      "pooled_task_p95_waiting_time": {
+        "mean_across_training_seeds": 578.9227589372997,
+        "training_seed_sd": 31.32864661633747
+      },
+      "mean_flow_time": {
+        "mean_across_training_seeds": 160.85084309433995,
+        "training_seed_sd": 8.522259810839348
+      },
+      "pooled_task_p95_flow_time": {
+        "mean_across_training_seeds": 617.7383796020442,
+        "training_seed_sd": 29.95582540043683
+      },
+      "distance_per_task": {
+        "mean_across_training_seeds": 72.12472379198195,
+        "training_seed_sd": 3.376275414155498
+      }
+    },
+    "STAGE19_MEDIUM": {
+      "success_rate": {
+        "mean_across_training_seeds": 0.990075,
+        "training_seed_sd": 0.0037449966622148108
+      },
+      "reward": {
+        "mean_across_training_seeds": -353.42146491380703,
+        "training_seed_sd": 45.982355597522584
+      },
+      "successful_throughput_tasks_per_hour": {
+        "mean_across_training_seeds": 69.18885176681746,
+        "training_seed_sd": 0.23079036392520597
+      },
+      "mean_waiting_time": {
+        "mean_across_training_seeds": 139.5434358815064,
+        "training_seed_sd": 15.081416260958852
+      },
+      "pooled_task_p95_waiting_time": {
+        "mean_across_training_seeds": 666.6922395994688,
+        "training_seed_sd": 57.26818974027558
+      },
+      "mean_flow_time": {
+        "mean_across_training_seeds": 184.69330115978778,
+        "training_seed_sd": 15.299685261015997
+      },
+      "pooled_task_p95_flow_time": {
+        "mean_across_training_seeds": 702.259963878515,
+        "training_seed_sd": 51.16018614540747
+      },
+      "distance_per_task": {
+        "mean_across_training_seeds": 52.64696314761519,
+        "training_seed_sd": 3.1366550712033328
+      }
+    },
+    "STAGE19_DENSE": {
+      "success_rate": {
+        "mean_across_training_seeds": 0.9777375000000001,
+        "training_seed_sd": 0.007377106572965374
+      },
+      "reward": {
+        "mean_across_training_seeds": -264.75955856062393,
+        "training_seed_sd": 6.496242572652709
+      },
+      "successful_throughput_tasks_per_hour": {
+        "mean_across_training_seeds": 68.44491150217418,
+        "training_seed_sd": 0.469053040955694
+      },
+      "mean_waiting_time": {
+        "mean_across_training_seeds": 109.60507146873226,
+        "training_seed_sd": 2.4893013481106845
+      },
+      "pooled_task_p95_waiting_time": {
+        "mean_across_training_seeds": 561.2247304647289,
+        "training_seed_sd": 18.296993842016164
+      },
+      "mean_flow_time": {
+        "mean_across_training_seeds": 153.71798496754943,
+        "training_seed_sd": 2.9904489319356853
+      },
+      "pooled_task_p95_flow_time": {
+        "mean_across_training_seeds": 603.3026575979445,
+        "training_seed_sd": 20.209657750023315
+      },
+      "distance_per_task": {
+        "mean_across_training_seeds": 62.339687603610194,
+        "training_seed_sd": 5.575665518630061
+      }
+    },
+    "STAGE19_BURST": {
+      "success_rate": {
+        "mean_across_training_seeds": 0.9770749999999999,
+        "training_seed_sd": 0.008778762251403472
+      },
+      "reward": {
+        "mean_across_training_seeds": -258.6765621835698,
+        "training_seed_sd": 7.077578054469092
+      },
+      "successful_throughput_tasks_per_hour": {
+        "mean_across_training_seeds": 68.39498926776693,
+        "training_seed_sd": 0.5585373551462018
+      },
+      "mean_waiting_time": {
+        "mean_across_training_seeds": 107.20592223755712,
+        "training_seed_sd": 2.776961874216288
+      },
+      "pooled_task_p95_waiting_time": {
+        "mean_across_training_seeds": 539.3242564990105,
+        "training_seed_sd": 14.91831084409881
+      },
+      "mean_flow_time": {
+        "mean_across_training_seeds": 151.19574563115856,
+        "training_seed_sd": 3.4117545841785395
+      },
+      "pooled_task_p95_flow_time": {
+        "mean_across_training_seeds": 583.1856767895983,
+        "training_seed_sd": 16.074210922638
+      },
+      "distance_per_task": {
+        "mean_across_training_seeds": 61.974184150200095,
+        "training_seed_sd": 6.4253010525226
+      }
+    }
+  },
+  "baseline_run_level_point_estimates": {
+    "TIME_GREEDY_RULE": {
+      "success_rate": {
+        "value": 0.96475
+      },
+      "reward": {
+        "value": -381.8673134089843
+      },
+      "successful_throughput_tasks_per_hour": {
+        "value": 67.53648198076918
+      },
+      "mean_waiting_time": {
+        "value": 146.74295923144848
+      },
+      "pooled_task_p95_waiting_time": {
+        "value": 695.1804581040724
+      },
+      "mean_flow_time": {
+        "value": 189.99465661866049
+      },
+      "pooled_task_p95_flow_time": {
+        "value": 714.3206807915042
+      },
+      "distance_per_task": {
+        "value": 72.55828257705897
+      }
+    },
+    "SINGLE_DOG_ONLY": {
+      "success_rate": {
+        "value": 0.968875
+      },
+      "reward": {
+        "value": -840.645110565367
+      },
+      "successful_throughput_tasks_per_hour": {
+        "value": 67.50020534784251
+      },
+      "mean_waiting_time": {
+        "value": 295.48822506192687
+      },
+      "pooled_task_p95_waiting_time": {
+        "value": 1274.9809690300817
+      },
+      "mean_flow_time": {
+        "value": 353.4907761554515
+      },
+      "pooled_task_p95_flow_time": {
+        "value": 1309.0751767983302
+      },
+      "distance_per_task": {
+        "value": 46.40204087481968
+      }
+    }
+  },
+  "cohort_transport_mode_summaries": {
+    "STAGE20_MIXED_CURRICULUM": {
+      "counts": {
+        "CAR_DOG_CAR": 26220,
+        "SINGLE_CAR": 38814,
+        "SINGLE_DOG": 14966
+      },
+      "shares": {
+        "CAR_DOG_CAR": 0.32775,
+        "SINGLE_CAR": 0.485175,
+        "SINGLE_DOG": 0.187075
+      },
+      "by_phase": {
+        "NORMAL": {
+          "count": 19720,
+          "shares": {
+            "SINGLE_CAR": 0.4746450304259635,
+            "SINGLE_DOG": 0.19421906693711968,
+            "CAR_DOG_CAR": 0.33113590263691683
+          }
+        },
+        "DENSE": {
+          "count": 20320,
+          "shares": {
+            "SINGLE_CAR": 0.494242125984252,
+            "SINGLE_DOG": 0.1812007874015748,
+            "CAR_DOG_CAR": 0.3245570866141732
+          }
+        },
+        "BURST": {
+          "count": 19440,
+          "shares": {
+            "SINGLE_CAR": 0.4940843621399177,
+            "SINGLE_DOG": 0.16291152263374487,
+            "CAR_DOG_CAR": 0.34300411522633745
+          }
+        },
+        "RECOVERY": {
+          "count": 20520,
+          "shares": {
+            "SINGLE_CAR": 0.47787524366471734,
+            "SINGLE_DOG": 0.20891812865497075,
+            "CAR_DOG_CAR": 0.3132066276803119
+          }
+        }
+      }
+    },
+    "STAGE19_MEDIUM": {
+      "counts": {
+        "CAR_DOG_CAR": 7934,
+        "SINGLE_DOG": 32738,
+        "SINGLE_CAR": 39328
+      },
+      "shares": {
+        "CAR_DOG_CAR": 0.099175,
+        "SINGLE_DOG": 0.409225,
+        "SINGLE_CAR": 0.4916
+      },
+      "by_phase": {
+        "NORMAL": {
+          "count": 19720,
+          "shares": {
+            "SINGLE_CAR": 0.4948782961460446,
+            "SINGLE_DOG": 0.39614604462474645,
+            "CAR_DOG_CAR": 0.10897565922920892
+          }
+        },
+        "DENSE": {
+          "count": 20320,
+          "shares": {
+            "SINGLE_CAR": 0.4907972440944882,
+            "SINGLE_DOG": 0.4124015748031496,
+            "CAR_DOG_CAR": 0.0968011811023622
+          }
+        },
+        "BURST": {
+          "count": 19440,
+          "shares": {
+            "SINGLE_CAR": 0.4898148148148148,
+            "SINGLE_DOG": 0.388940329218107,
+            "CAR_DOG_CAR": 0.1212448559670782
+          }
+        },
+        "RECOVERY": {
+          "count": 20520,
+          "shares": {
+            "SINGLE_CAR": 0.4909356725146199,
+            "SINGLE_DOG": 0.4378654970760234,
+            "CAR_DOG_CAR": 0.07119883040935672
+          }
+        }
+      }
+    },
+    "STAGE19_DENSE": {
+      "counts": {
+        "CAR_DOG_CAR": 17573,
+        "SINGLE_CAR": 39999,
+        "SINGLE_DOG": 22428
+      },
+      "shares": {
+        "CAR_DOG_CAR": 0.2196625,
+        "SINGLE_CAR": 0.4999875,
+        "SINGLE_DOG": 0.28035
+      },
+      "by_phase": {
+        "NORMAL": {
+          "count": 19720,
+          "shares": {
+            "SINGLE_CAR": 0.5,
+            "SINGLE_DOG": 0.2823022312373225,
+            "CAR_DOG_CAR": 0.2176977687626775
+          }
+        },
+        "DENSE": {
+          "count": 20320,
+          "shares": {
+            "SINGLE_CAR": 0.5,
+            "SINGLE_DOG": 0.27391732283464565,
+            "CAR_DOG_CAR": 0.22608267716535432
+          }
+        },
+        "BURST": {
+          "count": 19440,
+          "shares": {
+            "SINGLE_CAR": 0.4999485596707819,
+            "SINGLE_DOG": 0.22973251028806585,
+            "CAR_DOG_CAR": 0.27031893004115226
+          }
+        },
+        "RECOVERY": {
+          "count": 20520,
+          "shares": {
+            "SINGLE_CAR": 0.5,
+            "SINGLE_DOG": 0.3327972709551657,
+            "CAR_DOG_CAR": 0.1672027290448343
+          }
+        }
+      }
+    },
+    "STAGE19_BURST": {
+      "counts": {
+        "CAR_DOG_CAR": 17768,
+        "SINGLE_CAR": 40000,
+        "SINGLE_DOG": 22232
+      },
+      "shares": {
+        "CAR_DOG_CAR": 0.2221,
+        "SINGLE_CAR": 0.5,
+        "SINGLE_DOG": 0.2779
+      },
+      "by_phase": {
+        "NORMAL": {
+          "count": 19720,
+          "shares": {
+            "SINGLE_CAR": 0.5,
+            "SINGLE_DOG": 0.27814401622718055,
+            "CAR_DOG_CAR": 0.22185598377281948
+          }
+        },
+        "DENSE": {
+          "count": 20320,
+          "shares": {
+            "SINGLE_CAR": 0.5,
+            "SINGLE_DOG": 0.2767224409448819,
+            "CAR_DOG_CAR": 0.22327755905511812
+          }
+        },
+        "BURST": {
+          "count": 19440,
+          "shares": {
+            "SINGLE_CAR": 0.5,
+            "SINGLE_DOG": 0.23441358024691358,
+            "CAR_DOG_CAR": 0.26558641975308644
+          }
+        },
+        "RECOVERY": {
+          "count": 20520,
+          "shares": {
+            "SINGLE_CAR": 0.5,
+            "SINGLE_DOG": 0.3200292397660819,
+            "CAR_DOG_CAR": 0.17997076023391814
+          }
+        }
+      }
+    }
+  },
+  "primary_comparisons": {
+    "STAGE20_MIXED_CURRICULUM_vs_STAGE19_MEDIUM": {
+      "success_rate": {
+        "a_minus_b": -0.024937500000000057,
+        "crossed_bootstrap_95ci": [
+          -0.029337500000000127,
+          -0.020625000000000112
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.0
+      },
+      "reward": {
+        "a_minus_b": 61.010144936931795,
+        "crossed_bootstrap_95ci": [
+          28.42876835692259,
+          92.87389283303041
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 1.0
+      },
+      "mean_episode_successful_throughput_tasks_per_hour": {
+        "a_minus_b": -1.599732786701182,
+        "crossed_bootstrap_95ci": [
+          -1.8866012367640779,
+          -1.3231043844711763
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.0
+      },
+      "mean_waiting_time": {
+        "a_minus_b": -22.939081958124518,
+        "crossed_bootstrap_95ci": [
+          -33.05105966612772,
+          -12.600709145354877
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "mean_episode_p95_waiting_time": {
+        "a_minus_b": -88.99785207259725,
+        "crossed_bootstrap_95ci": [
+          -127.2570105822934,
+          -50.614944671379526
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "mean_flow_time": {
+        "a_minus_b": -23.842458065447858,
+        "crossed_bootstrap_95ci": [
+          -34.358131544645346,
+          -13.023373150040479
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "mean_episode_p95_flow_time": {
+        "a_minus_b": -79.70620761181021,
+        "crossed_bootstrap_95ci": [
+          -114.37734107154394,
+          -45.24005947597676
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "distance_per_task": {
+        "a_minus_b": 19.477760644366775,
+        "crossed_bootstrap_95ci": [
+          16.748437476597108,
+          22.177372981920193
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0
+      }
+    },
+    "STAGE20_MIXED_CURRICULUM_vs_STAGE19_DENSE": {
+      "success_rate": {
+        "a_minus_b": -0.012599999999999945,
+        "crossed_bootstrap_95ci": [
+          -0.018050000000000236,
+          -0.007537187499999658
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.0
+      },
+      "reward": {
+        "a_minus_b": -27.651761416251304,
+        "crossed_bootstrap_95ci": [
+          -45.31093447213704,
+          -12.364336848230218
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.0
+      },
+      "mean_episode_successful_throughput_tasks_per_hour": {
+        "a_minus_b": -0.8550576376788399,
+        "crossed_bootstrap_95ci": [
+          -1.2037229658921693,
+          -0.5352489620131584
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.0
+      },
+      "mean_waiting_time": {
+        "a_minus_b": 6.999282454649631,
+        "crossed_bootstrap_95ci": [
+          2.478627975162179,
+          12.117855136596793
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0007
+      },
+      "mean_episode_p95_waiting_time": {
+        "a_minus_b": 17.01239944909861,
+        "crossed_bootstrap_95ci": [
+          0.08606744894882082,
+          35.24213017749473
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0244
+      },
+      "mean_flow_time": {
+        "a_minus_b": 7.132858126790524,
+        "crossed_bootstrap_95ci": [
+          1.8944422634384603,
+          13.124923695707325
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0029
+      },
+      "mean_episode_p95_flow_time": {
+        "a_minus_b": 14.225667664484547,
+        "crossed_bootstrap_95ci": [
+          -2.976726234535923,
+          32.82189197085449
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0528
+      },
+      "distance_per_task": {
+        "a_minus_b": 9.785036188371777,
+        "crossed_bootstrap_95ci": [
+          6.204847686060947,
+          13.734322189378132
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0
+      }
+    },
+    "STAGE20_MIXED_CURRICULUM_vs_STAGE19_BURST": {
+      "success_rate": {
+        "a_minus_b": -0.011937499999999934,
+        "crossed_bootstrap_95ci": [
+          -0.018200312500000215,
+          -0.006099999999999992
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.0
+      },
+      "reward": {
+        "a_minus_b": -33.73475779330545,
+        "crossed_bootstrap_95ci": [
+          -51.71852352638631,
+          -18.1425481348452
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.0
+      },
+      "mean_episode_successful_throughput_tasks_per_hour": {
+        "a_minus_b": -0.8054210645000808,
+        "crossed_bootstrap_95ci": [
+          -1.2043377858745619,
+          -0.4325910904791322
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.0
+      },
+      "mean_waiting_time": {
+        "a_minus_b": 9.39843168582479,
+        "crossed_bootstrap_95ci": [
+          4.813175502165688,
+          14.658593468201719
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0
+      },
+      "mean_episode_p95_waiting_time": {
+        "a_minus_b": 33.03906778005995,
+        "crossed_bootstrap_95ci": [
+          15.73225063832072,
+          51.72387128446008
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0001
+      },
+      "mean_flow_time": {
+        "a_minus_b": 9.655097463181363,
+        "crossed_bootstrap_95ci": [
+          4.293217534975031,
+          15.731130521785243
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0
+      },
+      "mean_episode_p95_flow_time": {
+        "a_minus_b": 29.730561913720862,
+        "crossed_bootstrap_95ci": [
+          12.188961374823162,
+          48.520486164406606
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0004
+      },
+      "distance_per_task": {
+        "a_minus_b": 10.150539641781869,
+        "crossed_bootstrap_95ci": [
+          6.0197982814496,
+          14.54669422509763
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0
+      }
+    },
+    "STAGE20_MIXED_CURRICULUM_vs_TIME_GREEDY_RULE": {
+      "success_rate": {
+        "a_minus_b": 0.00038749999999987406,
+        "crossed_bootstrap_95ci": [
+          -0.002387500000000098,
+          0.0031999999999999863
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.6011
+      },
+      "reward": {
+        "a_minus_b": 89.45599343210904,
+        "crossed_bootstrap_95ci": [
+          69.98417112155322,
+          108.62979489603627
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 1.0
+      },
+      "mean_episode_successful_throughput_tasks_per_hour": {
+        "a_minus_b": 0.04809355790666814,
+        "crossed_bootstrap_95ci": [
+          -0.13476776045467212,
+          0.2259172964040079
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.6964
+      },
+      "mean_waiting_time": {
+        "a_minus_b": -30.138605308066587,
+        "crossed_bootstrap_95ci": [
+          -36.08554405648844,
+          -24.27709667654312
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "mean_episode_p95_waiting_time": {
+        "a_minus_b": -132.82047640810362,
+        "crossed_bootstrap_95ci": [
+          -158.31646902970408,
+          -106.77046308800577
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "mean_flow_time": {
+        "a_minus_b": -29.143813524320535,
+        "crossed_bootstrap_95ci": [
+          -35.54228805856537,
+          -22.567839156051793
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "mean_episode_p95_flow_time": {
+        "a_minus_b": -107.45388803737944,
+        "crossed_bootstrap_95ci": [
+          -132.63037363346234,
+          -81.6392647434234
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "distance_per_task": {
+        "a_minus_b": -0.43355878507701107,
+        "crossed_bootstrap_95ci": [
+          -2.3653197872095704,
+          1.591706014015125
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.664
+      }
+    },
+    "STAGE20_MIXED_CURRICULUM_vs_SINGLE_DOG_ONLY": {
+      "success_rate": {
+        "a_minus_b": -0.003737499999999838,
+        "crossed_bootstrap_95ci": [
+          -0.012062812500000084,
+          0.005887500000000051
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.1993
+      },
+      "reward": {
+        "a_minus_b": 548.2337905884917,
+        "crossed_bootstrap_95ci": [
+          497.9132828529988,
+          601.4531530559115
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 1.0
+      },
+      "mean_episode_successful_throughput_tasks_per_hour": {
+        "a_minus_b": 0.16491629982917289,
+        "crossed_bootstrap_95ci": [
+          -0.5266117706392087,
+          1.0293780884660464
+        ],
+        "direction_better": "higher",
+        "probability_a_better": 0.6469
+      },
+      "mean_waiting_time": {
+        "a_minus_b": -178.88387113854498,
+        "crossed_bootstrap_95ci": [
+          -198.0970852754107,
+          -160.87857603895054
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "mean_episode_p95_waiting_time": {
+        "a_minus_b": -688.9915450431895,
+        "crossed_bootstrap_95ci": [
+          -775.5006795395301,
+          -605.7547519984627
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "mean_flow_time": {
+        "a_minus_b": -192.6399330611116,
+        "crossed_bootstrap_95ci": [
+          -211.9530163575058,
+          -174.39319182653412
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "mean_episode_p95_flow_time": {
+        "a_minus_b": -672.6458496211116,
+        "crossed_bootstrap_95ci": [
+          -758.7175270514961,
+          -589.1346871612452
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 1.0
+      },
+      "distance_per_task": {
+        "a_minus_b": 25.72268291716228,
+        "crossed_bootstrap_95ci": [
+          23.762777831861907,
+          27.775798305930138
+        ],
+        "direction_better": "lower",
+        "probability_a_better": 0.0
+      }
+    }
+  },
+  "passed": true
+}

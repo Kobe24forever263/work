@@ -1,0 +1,103 @@
+{
+  "schema_version": "warehouse_stage23_pilot_gate_v1",
+  "created_at_utc": "2026-08-29T03:56:42.849955+00:00",
+  "stage": 23,
+  "gate": "THREE_SEED_OPTIMIZATION_PILOT",
+  "claim_boundary": "Optimization stability, safety and provenance only. The pilot is underpowered and is not a formal performance comparison.",
+  "rows": [
+    {
+      "seed_index": 1,
+      "experiment_run_seed": 68100000,
+      "passed": true,
+      "updates": 50,
+      "parameter_delta_l2": 9.85789680480957,
+      "success_rate": 0.96625,
+      "rule_success_rate": 0.9675,
+      "mean_reward": -299.86297164713267,
+      "rule_mean_reward": -306.52132950856037,
+      "successful_throughput_tasks_per_hour": 66.66548780357246,
+      "rule_successful_throughput_tasks_per_hour": 66.79456540333653,
+      "cost_reference_mode_agreement": 0.98625,
+      "transport_modes": {
+        "CAR_DOG_CAR": 275,
+        "SINGLE_CAR": 400,
+        "SINGLE_DOG": 125
+      },
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "normalizer_source": "reverse_variable_discounted_return_to_go_std_v2",
+      "warm_start_source": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01/warm_start.pt",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01/stage23_ppo.pt",
+      "weight_sha256": "f6b71bdd12632c818c81ce4eb2882ebf15b575a5c0660970dff807075d268152"
+    },
+    {
+      "seed_index": 2,
+      "experiment_run_seed": 68110000,
+      "passed": true,
+      "updates": 50,
+      "parameter_delta_l2": 9.550506591796875,
+      "success_rate": 0.9575,
+      "rule_success_rate": 0.9675,
+      "mean_reward": -289.2369373315422,
+      "rule_mean_reward": -306.52132950856037,
+      "successful_throughput_tasks_per_hour": 66.07986667788947,
+      "rule_successful_throughput_tasks_per_hour": 66.79456540333653,
+      "cost_reference_mode_agreement": 0.89875,
+      "transport_modes": {
+        "CAR_DOG_CAR": 338,
+        "SINGLE_CAR": 400,
+        "SINGLE_DOG": 62
+      },
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "normalizer_source": "reverse_variable_discounted_return_to_go_std_v2",
+      "warm_start_source": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_02/warm_start.pt",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_02/stage23_ppo.pt",
+      "weight_sha256": "1bbd2939d4412f6fff9a392a4535cfe63245c3aada4f495b24c41714a9e59ebe"
+    },
+    {
+      "seed_index": 3,
+      "experiment_run_seed": 68120000,
+      "passed": true,
+      "updates": 50,
+      "parameter_delta_l2": 9.695910453796387,
+      "success_rate": 0.9575,
+      "rule_success_rate": 0.9675,
+      "mean_reward": -255.3315150501384,
+      "rule_mean_reward": -306.52132950856037,
+      "successful_throughput_tasks_per_hour": 65.80835390424897,
+      "rule_successful_throughput_tasks_per_hour": 66.79456540333653,
+      "cost_reference_mode_agreement": 0.8875,
+      "transport_modes": {
+        "CAR_DOG_CAR": 343,
+        "SINGLE_CAR": 400,
+        "SINGLE_DOG": 57
+      },
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "normalizer_source": "reverse_variable_discounted_return_to_go_std_v2",
+      "warm_start_source": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_03/warm_start.pt",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_03/stage23_ppo.pt",
+      "weight_sha256": "afe35e642b5554596f5d694f4171c9ed65614214d4fe278a52ecd968d288c828"
+    }
+  ],
+  "descriptive_summary": {
+    "mean_policy_success_rate": 0.9604166666666667,
+    "mean_rule_success_rate": 0.9675,
+    "mean_policy_reward": -281.4771413429378,
+    "mean_rule_reward": -306.52132950856037,
+    "mean_cost_reference_mode_agreement": 0.9241666666666667
+  },
+  "checks": {
+    "all_three_runs_present_and_passed": true,
+    "all_runs_have_50_updates": true,
+    "all_parameters_changed": true,
+    "all_tasks_safe_and_resolved": true,
+    "all_runs_select_three_modes": true,
+    "all_runs_use_corrected_normalizer": true,
+    "training_weights_are_unique": true,
+    "exact_resume_equivalence_passes": true
+  },
+  "passed": true,
+  "next_gate": "MANUAL_TEN_SEED_FORMAL_TRAINING"
+}

@@ -1,0 +1,2910 @@
+[
+  {
+    "update": 1,
+    "episodes_trained": 2,
+    "rollout_steps": 446,
+    "rollout_discount_min": 0.9120638251768273,
+    "rollout_discount_max": 0.9999562551253932,
+    "rollout_mean_reward": -578.8036864470649,
+    "raw_episode_reward_mean": -578.8036864470649,
+    "rollout_completed": 154,
+    "rollout_failed": 6,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 53,
+      "SINGLE_CAR": 78,
+      "SINGLE_DOG": 29
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->DENSE->NORMAL->RECOVERY": 1,
+      "BURST->DENSE->RECOVERY->NORMAL": 1
+    },
+    "loss": 0.040077855494538586,
+    "actor_loss": -0.0027178418157356127,
+    "value_loss": 0.0899686813021877,
+    "entropy": 0.2188643272300916,
+    "approximate_kl": 0.014802046991202846,
+    "clip_fraction": 0.0538318453888808,
+    "gradient_norm": 1.1847019818212305,
+    "raw_reward_mean": -2.595532178878784,
+    "normalized_reward_mean": -0.015449113212525845,
+    "normalized_reward_std": 0.03534545749425888,
+    "return_normalizer_variance": 28225.761652619607
+  },
+  {
+    "update": 2,
+    "episodes_trained": 4,
+    "rollout_steps": 457,
+    "rollout_discount_min": 0.9130209779090681,
+    "rollout_discount_max": 0.9999860520515664,
+    "rollout_mean_reward": -443.7667574793145,
+    "raw_episode_reward_mean": -443.7667574793145,
+    "rollout_completed": 155,
+    "rollout_failed": 5,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 27,
+      "CAR_DOG_CAR": 53
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->RECOVERY->DENSE->NORMAL": 1,
+      "BURST->DENSE->NORMAL->RECOVERY": 1
+    },
+    "loss": 0.004026985828143855,
+    "actor_loss": -0.0015802199797083935,
+    "value_loss": 0.015622078469217133,
+    "entropy": 0.22038341409837206,
+    "approximate_kl": 0.016985326799719282,
+    "clip_fraction": 0.055266203731298445,
+    "gradient_norm": 0.5850782684981823,
+    "raw_reward_mean": -1.9420864582061768,
+    "normalized_reward_mean": -0.012239464558660984,
+    "normalized_reward_std": 0.03820735588669777,
+    "return_normalizer_variance": 25177.48636737528
+  },
+  {
+    "update": 3,
+    "episodes_trained": 6,
+    "rollout_steps": 456,
+    "rollout_discount_min": 0.9129041668717433,
+    "rollout_discount_max": 0.9995528018327928,
+    "rollout_mean_reward": -485.46446911069125,
+    "raw_episode_reward_mean": -485.46446911069125,
+    "rollout_completed": 155,
+    "rollout_failed": 5,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 53,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 27
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->BURST->NORMAL->RECOVERY": 1,
+      "BURST->DENSE->NORMAL->RECOVERY": 1
+    },
+    "loss": -0.005382427875883877,
+    "actor_loss": -0.011474384988347689,
+    "value_loss": 0.01718702426102633,
+    "entropy": 0.2501555131560958,
+    "approximate_kl": 0.012420854430335264,
+    "clip_fraction": 0.06197916666666667,
+    "gradient_norm": 0.7707843830188116,
+    "raw_reward_mean": -2.129230260848999,
+    "normalized_reward_mean": -0.01402693148702383,
+    "normalized_reward_std": 0.04122567176818848,
+    "return_normalizer_variance": 23041.98383307053
+  },
+  {
+    "update": 4,
+    "episodes_trained": 8,
+    "rollout_steps": 458,
+    "rollout_discount_min": 0.9153261836253724,
+    "rollout_discount_max": 0.9999345742306851,
+    "rollout_mean_reward": -315.94787913753123,
+    "raw_episode_reward_mean": -315.94787913753123,
+    "rollout_completed": 153,
+    "rollout_failed": 7,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 53,
+      "SINGLE_DOG": 27
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->NORMAL->BURST->RECOVERY": 1,
+      "BURST->DENSE->NORMAL->RECOVERY": 1
+    },
+    "loss": 0.0006112219532951712,
+    "actor_loss": -0.0006801576974491279,
+    "value_loss": 0.008611873434468483,
+    "entropy": 0.30145568003257117,
+    "approximate_kl": 0.054056367592420426,
+    "clip_fraction": 0.06375000004967053,
+    "gradient_norm": 0.9626592415074507,
+    "raw_reward_mean": -1.3796851634979248,
+    "normalized_reward_mean": -0.009665745310485363,
+    "normalized_reward_std": 0.029837999492883682,
+    "return_normalizer_variance": 20374.602912750466
+  },
+  {
+    "update": 5,
+    "episodes_trained": 10,
+    "rollout_steps": 456,
+    "rollout_discount_min": 0.9117311259146439,
+    "rollout_discount_max": 0.9999968179205658,
+    "rollout_mean_reward": -800.5378424459384,
+    "raw_episode_reward_mean": -800.5378424459384,
+    "rollout_completed": 151,
+    "rollout_failed": 9,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 79,
+      "CAR_DOG_CAR": 59,
+      "SINGLE_DOG": 22
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->DENSE->BURST->RECOVERY": 1,
+      "BURST->DENSE->RECOVERY->NORMAL": 1
+    },
+    "loss": -0.0022498532586420574,
+    "actor_loss": -0.013114658060173194,
+    "value_loss": 0.02801462512385721,
+    "entropy": 0.31425073485200605,
+    "approximate_kl": 0.03064035626593977,
+    "clip_fraction": 0.0703125,
+    "gradient_norm": 1.1499456303815048,
+    "raw_reward_mean": -3.5111308097839355,
+    "normalized_reward_mean": -0.02115005813539028,
+    "normalized_reward_std": 0.05378980189561844,
+    "return_normalizer_variance": 27559.470308181113
+  },
+  {
+    "update": 6,
+    "episodes_trained": 12,
+    "rollout_steps": 452,
+    "rollout_discount_min": 0.9115450695306769,
+    "rollout_discount_max": 0.999986532635358,
+    "rollout_mean_reward": -327.53289057988,
+    "raw_episode_reward_mean": -327.53289057988,
+    "rollout_completed": 155,
+    "rollout_failed": 5,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 57,
+      "SINGLE_DOG": 23
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->DENSE->NORMAL->RECOVERY": 1,
+      "BURST->RECOVERY->NORMAL->DENSE": 1
+    },
+    "loss": -0.01433658559496204,
+    "actor_loss": -0.017303392260024943,
+    "value_loss": 0.011302444375663375,
+    "entropy": 0.2684416434188127,
+    "approximate_kl": 0.06671950106198589,
+    "clip_fraction": 0.059895833333333336,
+    "gradient_norm": 0.8376976614197095,
+    "raw_reward_mean": -1.4492605924606323,
+    "normalized_reward_mean": -0.009094479493796825,
+    "normalized_reward_std": 0.028488764539361,
+    "return_normalizer_variance": 25394.358657155462
+  },
+  {
+    "update": 7,
+    "episodes_trained": 14,
+    "rollout_steps": 458,
+    "rollout_discount_min": 0.9126221876363795,
+    "rollout_discount_max": 0.999989911135384,
+    "rollout_mean_reward": -272.81082739682125,
+    "raw_episode_reward_mean": -272.81082739682125,
+    "rollout_completed": 149,
+    "rollout_failed": 11,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 79,
+      "SINGLE_DOG": 26,
+      "CAR_DOG_CAR": 55
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->BURST->RECOVERY->NORMAL": 1,
+      "BURST->DENSE->RECOVERY->NORMAL": 1
+    },
+    "loss": 0.0022058153913045923,
+    "actor_loss": 0.0005039960766832033,
+    "value_loss": 0.008053266718828429,
+    "entropy": 0.23248134296833692,
+    "approximate_kl": 0.01909404644878426,
+    "clip_fraction": 0.05354166676600774,
+    "gradient_norm": 0.9261627912521362,
+    "raw_reward_mean": -1.191313624382019,
+    "normalized_reward_mean": -0.007818030193448067,
+    "normalized_reward_std": 0.02539178915321827,
+    "return_normalizer_variance": 23219.752348416958
+  },
+  {
+    "update": 8,
+    "episodes_trained": 16,
+    "rollout_steps": 461,
+    "rollout_discount_min": 0.9127938371994337,
+    "rollout_discount_max": 0.999956851358974,
+    "rollout_mean_reward": -499.4819639234757,
+    "raw_episode_reward_mean": -499.4819639234757,
+    "rollout_completed": 155,
+    "rollout_failed": 5,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 50,
+      "SINGLE_DOG": 30,
+      "SINGLE_CAR": 80
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->BURST->RECOVERY->NORMAL": 1,
+      "NORMAL->DENSE->BURST->RECOVERY": 1
+    },
+    "loss": -0.00846471565697963,
+    "actor_loss": -0.011099749151617289,
+    "value_loss": 0.010434222382415707,
+    "entropy": 0.25820782855153085,
+    "approximate_kl": 0.010274121017816166,
+    "clip_fraction": 0.04186698732276758,
+    "gradient_norm": 0.8949254972239336,
+    "raw_reward_mean": -2.166949987411499,
+    "normalized_reward_mean": -0.014113700948655605,
+    "normalized_reward_std": 0.04413064196705818,
+    "return_normalizer_variance": 23573.054667296645
+  },
+  {
+    "update": 9,
+    "episodes_trained": 18,
+    "rollout_steps": 454,
+    "rollout_discount_min": 0.912915046315381,
+    "rollout_discount_max": 0.9999995735860505,
+    "rollout_mean_reward": -306.6714128963241,
+    "raw_episode_reward_mean": -306.6714128963241,
+    "rollout_completed": 158,
+    "rollout_failed": 2,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_DOG": 30,
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 50
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->BURST->DENSE->RECOVERY": 1,
+      "NORMAL->BURST->RECOVERY->DENSE": 1
+    },
+    "loss": 0.021216516146281113,
+    "actor_loss": 0.020875651141007742,
+    "value_loss": 0.006419194787546682,
+    "entropy": 0.2868731774325473,
+    "approximate_kl": 0.005442339598403123,
+    "clip_fraction": 0.06145833358168602,
+    "gradient_norm": 1.726249839613835,
+    "raw_reward_mean": -1.3509753942489624,
+    "normalized_reward_mean": -0.009183771908283234,
+    "normalized_reward_std": 0.02565719000995159,
+    "return_normalizer_variance": 21639.770836161006
+  },
+  {
+    "update": 10,
+    "episodes_trained": 20,
+    "rollout_steps": 451,
+    "rollout_discount_min": 0.9118619819220587,
+    "rollout_discount_max": 0.9999860520515665,
+    "rollout_mean_reward": -367.7052475716069,
+    "raw_episode_reward_mean": -367.7052475716069,
+    "rollout_completed": 156,
+    "rollout_failed": 4,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 50,
+      "SINGLE_CAR": 78,
+      "SINGLE_DOG": 32
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->NORMAL->BURST->RECOVERY": 1,
+      "BURST->DENSE->NORMAL->RECOVERY": 1
+    },
+    "loss": 0.03493371959775686,
+    "actor_loss": 0.0321512550736467,
+    "value_loss": 0.011632798825545857,
+    "entropy": 0.30339353947588277,
+    "approximate_kl": 0.008382669076996762,
+    "clip_fraction": 0.05260416666666667,
+    "gradient_norm": 1.3270342449347179,
+    "raw_reward_mean": -1.6306220293045044,
+    "normalized_reward_mean": -0.01132887788116932,
+    "normalized_reward_std": 0.033938486129045486,
+    "return_normalizer_variance": 20717.28286299591
+  },
+  {
+    "update": 11,
+    "episodes_trained": 22,
+    "rollout_steps": 452,
+    "rollout_discount_min": 0.9123548876734824,
+    "rollout_discount_max": 0.9999840399265941,
+    "rollout_mean_reward": -428.642945369176,
+    "raw_episode_reward_mean": -428.642945369176,
+    "rollout_completed": 156,
+    "rollout_failed": 4,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_DOG": 31,
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 49
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->BURST->DENSE->RECOVERY": 1,
+      "BURST->NORMAL->RECOVERY->DENSE": 1
+    },
+    "loss": -0.015103233621145289,
+    "actor_loss": -0.015938921241710584,
+    "value_loss": 0.00750266489922069,
+    "entropy": 0.29156438005447854,
+    "approximate_kl": 0.0013486694214710345,
+    "clip_fraction": 0.05572916666666667,
+    "gradient_norm": 1.1384384498621027,
+    "raw_reward_mean": -1.8966501951217651,
+    "normalized_reward_mean": -0.013441747054457664,
+    "normalized_reward_std": 0.03912634402513504,
+    "return_normalizer_variance": 19909.62354836667
+  },
+  {
+    "update": 12,
+    "episodes_trained": 24,
+    "rollout_steps": 459,
+    "rollout_discount_min": 0.9108507343687414,
+    "rollout_discount_max": 0.9999823848897043,
+    "rollout_mean_reward": -209.6158882772827,
+    "raw_episode_reward_mean": -209.6158882772827,
+    "rollout_completed": 156,
+    "rollout_failed": 4,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 49,
+      "SINGLE_DOG": 31
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->RECOVERY->NORMAL->DENSE": 1,
+      "NORMAL->BURST->RECOVERY->DENSE": 1
+    },
+    "loss": 0.0013284913574655851,
+    "actor_loss": 0.0020268131668368977,
+    "value_loss": 0.00453904052459014,
+    "entropy": 0.2967842270930608,
+    "approximate_kl": 0.03829122417179557,
+    "clip_fraction": 0.04630681822697322,
+    "gradient_norm": 0.8682593097289403,
+    "raw_reward_mean": -0.9133589863777161,
+    "normalized_reward_mean": -0.006685941945761442,
+    "normalized_reward_std": 0.024158161133527756,
+    "return_normalizer_variance": 18661.983290528628
+  },
+  {
+    "update": 13,
+    "episodes_trained": 26,
+    "rollout_steps": 453,
+    "rollout_discount_min": 0.912950629576795,
+    "rollout_discount_max": 0.9999729024982162,
+    "rollout_mean_reward": -334.58965750305606,
+    "raw_episode_reward_mean": -334.58965750305606,
+    "rollout_completed": 154,
+    "rollout_failed": 6,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 57,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 23
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->BURST->DENSE->RECOVERY": 1,
+      "DENSE->BURST->RECOVERY->NORMAL": 1
+    },
+    "loss": 0.00011582783190533519,
+    "actor_loss": 0.0007140430311361949,
+    "value_loss": 0.005323893792228774,
+    "entropy": 0.326016218525668,
+    "approximate_kl": 0.015225186684013655,
+    "clip_fraction": 0.06510416666666667,
+    "gradient_norm": 0.888065102448066,
+    "raw_reward_mean": -1.4772170782089233,
+    "normalized_reward_mean": -0.010995322838425636,
+    "normalized_reward_std": 0.03167036920785904,
+    "return_normalizer_variance": 18049.807528312922
+  },
+  {
+    "update": 14,
+    "episodes_trained": 28,
+    "rollout_steps": 459,
+    "rollout_discount_min": 0.9142544645278087,
+    "rollout_discount_max": 0.9999860520515665,
+    "rollout_mean_reward": -771.2921557572813,
+    "raw_episode_reward_mean": -771.2921557572813,
+    "rollout_completed": 156,
+    "rollout_failed": 4,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 55,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 25
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->BURST->RECOVERY->NORMAL": 1,
+      "BURST->DENSE->NORMAL->RECOVERY": 1
+    },
+    "loss": -0.0015793516805085043,
+    "actor_loss": -0.008616891146327058,
+    "value_loss": 0.023428984475322066,
+    "entropy": 0.4676952663809061,
+    "approximate_kl": 0.01813638798582057,
+    "clip_fraction": 0.06960227290789286,
+    "gradient_norm": 0.9008020461847385,
+    "raw_reward_mean": -3.3607499599456787,
+    "normalized_reward_mean": -0.02323928289115429,
+    "normalized_reward_std": 0.0589442178606987,
+    "return_normalizer_variance": 20913.511819328633
+  },
+  {
+    "update": 15,
+    "episodes_trained": 30,
+    "rollout_steps": 454,
+    "rollout_discount_min": 0.9111982564127746,
+    "rollout_discount_max": 0.9999660504398528,
+    "rollout_mean_reward": -341.854755057448,
+    "raw_episode_reward_mean": -341.854755057448,
+    "rollout_completed": 154,
+    "rollout_failed": 6,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 56,
+      "SINGLE_DOG": 24
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->DENSE->NORMAL->RECOVERY": 1,
+      "DENSE->NORMAL->BURST->RECOVERY": 1
+    },
+    "loss": 0.003979784479209532,
+    "actor_loss": 0.0042346991753826535,
+    "value_loss": 0.00686948032816872,
+    "entropy": 0.36896536353354653,
+    "approximate_kl": 0.030337178660556675,
+    "clip_fraction": 0.04722222238779068,
+    "gradient_norm": 0.7907418883095185,
+    "raw_reward_mean": -1.5059680938720703,
+    "normalized_reward_mean": -0.010528170503675938,
+    "normalized_reward_std": 0.03419671580195427,
+    "return_normalizer_variance": 20460.94735100737
+  },
+  {
+    "update": 16,
+    "episodes_trained": 32,
+    "rollout_steps": 454,
+    "rollout_discount_min": 0.9124942445510991,
+    "rollout_discount_max": 0.9999861727121636,
+    "rollout_mean_reward": -684.6181166269183,
+    "raw_episode_reward_mean": -684.6181166269183,
+    "rollout_completed": 152,
+    "rollout_failed": 8,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 58,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 22
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->BURST->DENSE->RECOVERY": 1,
+      "DENSE->BURST->NORMAL->RECOVERY": 1
+    },
+    "loss": 0.004894160743181904,
+    "actor_loss": -0.0008581504769002398,
+    "value_loss": 0.021695481586114816,
+    "entropy": 0.5095431166390578,
+    "approximate_kl": 0.022871265203381577,
+    "clip_fraction": 0.0942708338300387,
+    "gradient_norm": 0.7644864055017631,
+    "raw_reward_mean": -3.0159387588500977,
+    "normalized_reward_mean": -0.020051097497344017,
+    "normalized_reward_std": 0.050609786063432693,
+    "return_normalizer_variance": 22623.96817175724
+  },
+  {
+    "update": 17,
+    "episodes_trained": 34,
+    "rollout_steps": 456,
+    "rollout_discount_min": 0.9130813544312057,
+    "rollout_discount_max": 0.9999860520515665,
+    "rollout_mean_reward": -681.7805759888391,
+    "raw_episode_reward_mean": -681.7805759888391,
+    "rollout_completed": 153,
+    "rollout_failed": 7,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 67,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 13
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->DENSE->NORMAL->RECOVERY": 1,
+      "NORMAL->DENSE->BURST->RECOVERY": 1
+    },
+    "loss": -0.00039460820068294803,
+    "actor_loss": -0.001588880301763614,
+    "value_loss": 0.013468360159701357,
+    "entropy": 0.5539907035262635,
+    "approximate_kl": 0.0026206736685708163,
+    "clip_fraction": 0.04635416666666667,
+    "gradient_norm": 0.7187089345107476,
+    "raw_reward_mean": -2.9902656078338623,
+    "normalized_reward_mean": -0.019374987110495567,
+    "normalized_reward_std": 0.053541261702775955,
+    "return_normalizer_variance": 23819.72475215103
+  },
+  {
+    "update": 18,
+    "episodes_trained": 36,
+    "rollout_steps": 457,
+    "rollout_discount_min": 0.9155350135439401,
+    "rollout_discount_max": 0.9999860520515665,
+    "rollout_mean_reward": -537.963266298974,
+    "raw_episode_reward_mean": -537.963266298974,
+    "rollout_completed": 155,
+    "rollout_failed": 5,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 67,
+      "SINGLE_CAR": 78,
+      "SINGLE_DOG": 15
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->DENSE->BURST->RECOVERY": 1,
+      "BURST->RECOVERY->NORMAL->DENSE": 1
+    },
+    "loss": 0.008710479860504468,
+    "actor_loss": 0.007625690816591184,
+    "value_loss": 0.012366264616139233,
+    "entropy": 0.5098343226903429,
+    "approximate_kl": 0.030593230373536548,
+    "clip_fraction": 0.049479166666666664,
+    "gradient_norm": 0.8100301027297974,
+    "raw_reward_mean": -2.35432505607605,
+    "normalized_reward_mean": -0.015216730535030365,
+    "normalized_reward_std": 0.044133737683296204,
+    "return_normalizer_variance": 23938.127233038525
+  },
+  {
+    "update": 19,
+    "episodes_trained": 38,
+    "rollout_steps": 460,
+    "rollout_discount_min": 0.9136375953167301,
+    "rollout_discount_max": 0.9999860520515665,
+    "rollout_mean_reward": -290.79837182311985,
+    "raw_episode_reward_mean": -290.79837182311985,
+    "rollout_completed": 146,
+    "rollout_failed": 14,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 68,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 12
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->RECOVERY->DENSE->NORMAL": 1,
+      "BURST->RECOVERY->NORMAL->DENSE": 1
+    },
+    "loss": -0.009279223748793204,
+    "actor_loss": -0.007161286162833373,
+    "value_loss": 0.007103762368205935,
+    "entropy": 0.5669818434088181,
+    "approximate_kl": 0.00738455168902874,
+    "clip_fraction": 0.05399305559694767,
+    "gradient_norm": 0.5773699243863424,
+    "raw_reward_mean": -1.2643407583236694,
+    "normalized_reward_mean": -0.00834241509437561,
+    "normalized_reward_std": 0.022549675777554512,
+    "return_normalizer_variance": 22969.136424526525
+  },
+  {
+    "update": 20,
+    "episodes_trained": 40,
+    "rollout_steps": 456,
+    "rollout_discount_min": 0.9109043017221118,
+    "rollout_discount_max": 0.9998643808044221,
+    "rollout_mean_reward": -430.26326873538693,
+    "raw_episode_reward_mean": -430.26326873538693,
+    "rollout_completed": 149,
+    "rollout_failed": 11,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 64,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 16
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->BURST->RECOVERY->DENSE": 1,
+      "NORMAL->BURST->DENSE->RECOVERY": 1
+    },
+    "loss": -0.003940916301993032,
+    "actor_loss": -0.0021080203354358674,
+    "value_loss": 0.006736143938420962,
+    "entropy": 0.5200968161314234,
+    "approximate_kl": 0.012397039891220629,
+    "clip_fraction": 0.05,
+    "gradient_norm": 0.6832319992283981,
+    "raw_reward_mean": -1.8871196508407593,
+    "normalized_reward_mean": -0.01241922564804554,
+    "normalized_reward_std": 0.03894307091832161,
+    "return_normalizer_variance": 23089.250610616284
+  },
+  {
+    "update": 21,
+    "episodes_trained": 42,
+    "rollout_steps": 458,
+    "rollout_discount_min": 0.9132285000121333,
+    "rollout_discount_max": 0.9999759019697236,
+    "rollout_mean_reward": -159.3772650438023,
+    "raw_episode_reward_mean": -159.3772650438023,
+    "rollout_completed": 151,
+    "rollout_failed": 9,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_DOG": 19,
+      "CAR_DOG_CAR": 61,
+      "SINGLE_CAR": 80
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->RECOVERY->DENSE->NORMAL": 2
+    },
+    "loss": -0.011742774144901583,
+    "actor_loss": -0.009083348388473193,
+    "value_loss": 0.005143323820084334,
+    "entropy": 0.523108712832133,
+    "approximate_kl": 0.004925644483106831,
+    "clip_fraction": 0.039583333457509674,
+    "gradient_norm": 0.44460331797599795,
+    "raw_reward_mean": -0.6959705352783203,
+    "normalized_reward_mean": -0.004656302742660046,
+    "normalized_reward_std": 0.017249632626771927,
+    "return_normalizer_variance": 22340.827549506015
+  },
+  {
+    "update": 22,
+    "episodes_trained": 44,
+    "rollout_steps": 453,
+    "rollout_discount_min": 0.9110795775178049,
+    "rollout_discount_max": 0.999984137389656,
+    "rollout_mean_reward": -336.3045327406673,
+    "raw_episode_reward_mean": -336.3045327406673,
+    "rollout_completed": 145,
+    "rollout_failed": 15,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 66,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 14
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->RECOVERY->NORMAL->DENSE": 1,
+      "BURST->NORMAL->DENSE->RECOVERY": 1
+    },
+    "loss": 0.011959049136688311,
+    "actor_loss": 0.013812382658943533,
+    "value_loss": 0.0065852409228682515,
+    "entropy": 0.514595386137565,
+    "approximate_kl": 0.028183431535338362,
+    "clip_fraction": 0.06447916676600775,
+    "gradient_norm": 0.8687327865511179,
+    "raw_reward_mean": -1.4847880601882935,
+    "normalized_reward_mean": -0.010077251121401787,
+    "normalized_reward_std": 0.03505044803023338,
+    "return_normalizer_variance": 21709.256431080947
+  },
+  {
+    "update": 23,
+    "episodes_trained": 46,
+    "rollout_steps": 454,
+    "rollout_discount_min": 0.9111959962146069,
+    "rollout_discount_max": 0.9999860520515664,
+    "rollout_mean_reward": -355.21532273611314,
+    "raw_episode_reward_mean": -355.21532273611314,
+    "rollout_completed": 155,
+    "rollout_failed": 5,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 63,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 17
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->DENSE->RECOVERY->NORMAL": 1,
+      "DENSE->BURST->NORMAL->RECOVERY": 1
+    },
+    "loss": -0.0201251894972908,
+    "actor_loss": -0.018284766686459383,
+    "value_loss": 0.007301920080984322,
+    "entropy": 0.5491384019881177,
+    "approximate_kl": 0.010651649803427669,
+    "clip_fraction": 0.06267361119389533,
+    "gradient_norm": 0.4984748056779305,
+    "raw_reward_mean": -1.5648252964019775,
+    "normalized_reward_mean": -0.01071755401790142,
+    "normalized_reward_std": 0.032270971685647964,
+    "return_normalizer_variance": 21317.695708028023
+  },
+  {
+    "update": 24,
+    "episodes_trained": 48,
+    "rollout_steps": 453,
+    "rollout_discount_min": 0.9100997793588317,
+    "rollout_discount_max": 0.9999390712516029,
+    "rollout_mean_reward": -160.00791966657295,
+    "raw_episode_reward_mean": -160.00791966657295,
+    "rollout_completed": 152,
+    "rollout_failed": 8,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 67,
+      "SINGLE_CAR": 79,
+      "SINGLE_DOG": 14
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->BURST->RECOVERY->DENSE": 1,
+      "BURST->RECOVERY->NORMAL->DENSE": 1
+    },
+    "loss": -0.0009716251127732297,
+    "actor_loss": 0.001782932225614786,
+    "value_loss": 0.0060388665122445674,
+    "entropy": 0.5773991562426091,
+    "approximate_kl": 0.025453803587394457,
+    "clip_fraction": 0.05489583338300387,
+    "gradient_norm": 0.6753476587434609,
+    "raw_reward_mean": -0.7064367532730103,
+    "normalized_reward_mean": -0.004913237411528826,
+    "normalized_reward_std": 0.01940532959997654,
+    "return_normalizer_variance": 20673.358332783228
+  },
+  {
+    "update": 25,
+    "episodes_trained": 50,
+    "rollout_steps": 457,
+    "rollout_discount_min": 0.9109840658062425,
+    "rollout_discount_max": 0.9999471208973852,
+    "rollout_mean_reward": -485.80153616201596,
+    "raw_episode_reward_mean": -485.80153616201596,
+    "rollout_completed": 150,
+    "rollout_failed": 10,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 67,
+      "SINGLE_DOG": 13
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->BURST->NORMAL->RECOVERY": 1,
+      "BURST->NORMAL->DENSE->RECOVERY": 1
+    },
+    "loss": -0.011529795181316634,
+    "actor_loss": -0.010905906309684117,
+    "value_loss": 0.011033031222177669,
+    "entropy": 0.614040234281371,
+    "approximate_kl": 0.0012151081449701452,
+    "clip_fraction": 0.03859953706463178,
+    "gradient_norm": 0.6180990907053153,
+    "raw_reward_mean": -2.1260461807250977,
+    "normalized_reward_mean": -0.014796179719269276,
+    "normalized_reward_std": 0.04588999226689339,
+    "return_normalizer_variance": 20646.489881135836
+  },
+  {
+    "update": 26,
+    "episodes_trained": 52,
+    "rollout_steps": 460,
+    "rollout_discount_min": 0.9136403774575831,
+    "rollout_discount_max": 0.9999999634171225,
+    "rollout_mean_reward": -492.80925154740453,
+    "raw_episode_reward_mean": -492.80925154740453,
+    "rollout_completed": 155,
+    "rollout_failed": 5,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 61,
+      "SINGLE_DOG": 19
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->DENSE->BURST->RECOVERY": 2
+    },
+    "loss": -0.014956789176600675,
+    "actor_loss": -0.012613657272110383,
+    "value_loss": 0.007234702754067257,
+    "entropy": 0.5960483747224014,
+    "approximate_kl": 0.00858140740019735,
+    "clip_fraction": 0.049652777860562006,
+    "gradient_norm": 0.487408259883523,
+    "raw_reward_mean": -2.142648935317993,
+    "normalized_reward_mean": -0.014919756911695004,
+    "normalized_reward_std": 0.04707701876759529,
+    "return_normalizer_variance": 20624.269559634737
+  },
+  {
+    "update": 27,
+    "episodes_trained": 54,
+    "rollout_steps": 453,
+    "rollout_discount_min": 0.9033156315235741,
+    "rollout_discount_max": 0.9999383492274853,
+    "rollout_mean_reward": -359.1992569676207,
+    "raw_episode_reward_mean": -359.1992569676207,
+    "rollout_completed": 153,
+    "rollout_failed": 7,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 79,
+      "CAR_DOG_CAR": 68,
+      "SINGLE_DOG": 13
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->RECOVERY->NORMAL->DENSE": 1,
+      "BURST->NORMAL->DENSE->RECOVERY": 1
+    },
+    "loss": -0.015963455336168407,
+    "actor_loss": -0.012321351716915766,
+    "value_loss": 0.00539484200029013,
+    "entropy": 0.633952463666598,
+    "approximate_kl": -0.0033120960618058842,
+    "clip_fraction": 0.04729166676600774,
+    "gradient_norm": 0.5039034052441518,
+    "raw_reward_mean": -1.5858688354492188,
+    "normalized_reward_mean": -0.01114286296069622,
+    "normalized_reward_std": 0.03376101702451706,
+    "return_normalizer_variance": 20255.398096663517
+  },
+  {
+    "update": 28,
+    "episodes_trained": 56,
+    "rollout_steps": 460,
+    "rollout_discount_min": 0.9125589459076479,
+    "rollout_discount_max": 0.9999617177220769,
+    "rollout_mean_reward": -185.30403650783757,
+    "raw_episode_reward_mean": -185.30403650783757,
+    "rollout_completed": 155,
+    "rollout_failed": 5,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 66,
+      "SINGLE_DOG": 14
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->NORMAL->DENSE->RECOVERY": 1,
+      "BURST->RECOVERY->DENSE->NORMAL": 1
+    },
+    "loss": 0.003622364392504096,
+    "actor_loss": 0.0077006287562350435,
+    "value_loss": 0.0034503124634890506,
+    "entropy": 0.580342096897463,
+    "approximate_kl": 0.006664717405025537,
+    "clip_fraction": 0.05208333345750968,
+    "gradient_norm": 0.7630950750162204,
+    "raw_reward_mean": -0.8056697845458984,
+    "normalized_reward_mean": -0.005726849194616079,
+    "normalized_reward_std": 0.02117316983640194,
+    "return_normalizer_variance": 19791.67885853856
+  },
+  {
+    "update": 29,
+    "episodes_trained": 58,
+    "rollout_steps": 460,
+    "rollout_discount_min": 0.912323047969984,
+    "rollout_discount_max": 0.9998494470421488,
+    "rollout_mean_reward": -493.78205546206755,
+    "raw_episode_reward_mean": -493.78205546206755,
+    "rollout_completed": 153,
+    "rollout_failed": 7,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 61,
+      "SINGLE_DOG": 19
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->BURST->NORMAL->RECOVERY": 1,
+      "BURST->NORMAL->DENSE->RECOVERY": 1
+    },
+    "loss": 0.0035094654342780513,
+    "actor_loss": 0.005001008075972398,
+    "value_loss": 0.008669944912738477,
+    "entropy": 0.5826514890417457,
+    "approximate_kl": -0.0033639291922251385,
+    "clip_fraction": 0.033854166666666664,
+    "gradient_norm": 0.5784248555699985,
+    "raw_reward_mean": -2.146878480911255,
+    "normalized_reward_mean": -0.015111256390810013,
+    "normalized_reward_std": 0.05041768401861191,
+    "return_normalizer_variance": 20184.30484524668
+  },
+  {
+    "update": 30,
+    "episodes_trained": 60,
+    "rollout_steps": 449,
+    "rollout_discount_min": 0.9124165722327396,
+    "rollout_discount_max": 0.9997971333056187,
+    "rollout_mean_reward": -301.32442851759504,
+    "raw_episode_reward_mean": -301.32442851759504,
+    "rollout_completed": 156,
+    "rollout_failed": 4,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 61,
+      "SINGLE_DOG": 19
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->RECOVERY->NORMAL->DENSE": 1,
+      "BURST->NORMAL->RECOVERY->DENSE": 1
+    },
+    "loss": -0.03339407886766518,
+    "actor_loss": -0.03026237472270926,
+    "value_loss": 0.0067966731342797475,
+    "entropy": 0.653004174134306,
+    "approximate_kl": 0.01621731404059877,
+    "clip_fraction": 0.06302083333333333,
+    "gradient_norm": 0.5764816073079904,
+    "raw_reward_mean": -1.3422024250030518,
+    "normalized_reward_mean": -0.009572584182024002,
+    "normalized_reward_std": 0.02631361223757267,
+    "return_normalizer_variance": 19659.73360397394
+  },
+  {
+    "update": 31,
+    "episodes_trained": 62,
+    "rollout_steps": 460,
+    "rollout_discount_min": 0.9139765001135655,
+    "rollout_discount_max": 0.9999624628211904,
+    "rollout_mean_reward": -181.24745908998787,
+    "raw_episode_reward_mean": -181.24745908998787,
+    "rollout_completed": 159,
+    "rollout_failed": 1,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 79,
+      "CAR_DOG_CAR": 61,
+      "SINGLE_DOG": 20
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->NORMAL->DENSE->RECOVERY": 1,
+      "BURST->NORMAL->RECOVERY->DENSE": 1
+    },
+    "loss": 0.0003624274007355173,
+    "actor_loss": 0.003047936859851082,
+    "value_loss": 0.005703859958642473,
+    "entropy": 0.5537440011433016,
+    "approximate_kl": 0.0034543578745797276,
+    "clip_fraction": 0.03715277786056201,
+    "gradient_norm": 0.7330347596357266,
+    "raw_reward_mean": -0.7880324721336365,
+    "normalized_reward_mean": -0.005685986485332251,
+    "normalized_reward_std": 0.02051018737256527,
+    "return_normalizer_variance": 19207.747749957198
+  },
+  {
+    "update": 32,
+    "episodes_trained": 64,
+    "rollout_steps": 462,
+    "rollout_discount_min": 0.9114741322175433,
+    "rollout_discount_max": 0.9998888712521057,
+    "rollout_mean_reward": -310.2821379421427,
+    "raw_episode_reward_mean": -310.2821379421427,
+    "rollout_completed": 158,
+    "rollout_failed": 2,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 63,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 17
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->DENSE->RECOVERY->NORMAL": 1,
+      "DENSE->BURST->RECOVERY->NORMAL": 1
+    },
+    "loss": 0.0026612141480048495,
+    "actor_loss": 0.005893744590381781,
+    "value_loss": 0.005704376510887717,
+    "entropy": 0.608471867442131,
+    "approximate_kl": 0.005714721962188681,
+    "clip_fraction": 0.03407738121847312,
+    "gradient_norm": 0.556628464659055,
+    "raw_reward_mean": -1.3432128429412842,
+    "normalized_reward_mean": -0.009723209775984287,
+    "normalized_reward_std": 0.0318390317261219,
+    "return_normalizer_variance": 19084.035960243673
+  },
+  {
+    "update": 33,
+    "episodes_trained": 66,
+    "rollout_steps": 458,
+    "rollout_discount_min": 0.9109149027256099,
+    "rollout_discount_max": 0.9999860520515664,
+    "rollout_mean_reward": -460.0346369671827,
+    "raw_episode_reward_mean": -460.0346369671827,
+    "rollout_completed": 154,
+    "rollout_failed": 6,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 65,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 15
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->DENSE->RECOVERY->NORMAL": 1,
+      "NORMAL->BURST->RECOVERY->DENSE": 1
+    },
+    "loss": 0.0017629041336476802,
+    "actor_loss": 0.00238441980133454,
+    "value_loss": 0.010249077309466278,
+    "entropy": 0.5746052693575621,
+    "approximate_kl": 0.014912354924793666,
+    "clip_fraction": 0.0683333333581686,
+    "gradient_norm": 0.6497753477344911,
+    "raw_reward_mean": -2.008884906768799,
+    "normalized_reward_mean": -0.014547118917107582,
+    "normalized_reward_std": 0.04109201580286026,
+    "return_normalizer_variance": 19070.238806351314
+  },
+  {
+    "update": 34,
+    "episodes_trained": 68,
+    "rollout_steps": 456,
+    "rollout_discount_min": 0.9110944812150482,
+    "rollout_discount_max": 0.9999982784785822,
+    "rollout_mean_reward": -305.3002287100673,
+    "raw_episode_reward_mean": -305.3002287100673,
+    "rollout_completed": 152,
+    "rollout_failed": 8,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 63,
+      "SINGLE_DOG": 17
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->NORMAL->BURST->RECOVERY": 2
+    },
+    "loss": -0.013573864878465732,
+    "actor_loss": -0.01203259052708745,
+    "value_loss": 0.008510776663509507,
+    "entropy": 0.5796664304177587,
+    "approximate_kl": 0.00023734879990418753,
+    "clip_fraction": 0.03802083333333333,
+    "gradient_norm": 0.5474381292859714,
+    "raw_reward_mean": -1.3390361070632935,
+    "normalized_reward_mean": -0.009802843444049358,
+    "normalized_reward_std": 0.030823012813925743,
+    "return_normalizer_variance": 18658.655507636286
+  },
+  {
+    "update": 35,
+    "episodes_trained": 70,
+    "rollout_steps": 458,
+    "rollout_discount_min": 0.9115701402440185,
+    "rollout_discount_max": 0.999949686567016,
+    "rollout_mean_reward": -166.99713740777196,
+    "raw_episode_reward_mean": -166.99713740777196,
+    "rollout_completed": 154,
+    "rollout_failed": 6,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 64,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 16
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->BURST->RECOVERY->DENSE": 2
+    },
+    "loss": 0.0002673763937006394,
+    "actor_loss": 0.003922903258353472,
+    "value_loss": 0.004437577693412701,
+    "entropy": 0.5874316208064556,
+    "approximate_kl": 0.012342096709956726,
+    "clip_fraction": 0.046979166691501935,
+    "gradient_norm": 0.5205009065568447,
+    "raw_reward_mean": -0.729245126247406,
+    "normalized_reward_mean": -0.0054003712721168995,
+    "normalized_reward_std": 0.020523875951766968,
+    "return_normalizer_variance": 18234.747621233895
+  },
+  {
+    "update": 36,
+    "episodes_trained": 72,
+    "rollout_steps": 452,
+    "rollout_discount_min": 0.910899477329197,
+    "rollout_discount_max": 0.9999946441818633,
+    "rollout_mean_reward": -313.36893717472515,
+    "raw_episode_reward_mean": -313.36893717472515,
+    "rollout_completed": 152,
+    "rollout_failed": 8,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 62,
+      "SINGLE_DOG": 18
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->BURST->RECOVERY->DENSE": 1,
+      "BURST->RECOVERY->DENSE->NORMAL": 1
+    },
+    "loss": -0.027185397401141623,
+    "actor_loss": -0.0239742045601209,
+    "value_loss": 0.00660448701819405,
+    "entropy": 0.6513436657687028,
+    "approximate_kl": 0.02792577032620708,
+    "clip_fraction": 0.0859375,
+    "gradient_norm": 0.43213443929950396,
+    "raw_reward_mean": -1.386588215827942,
+    "normalized_reward_mean": -0.010361118242144585,
+    "normalized_reward_std": 0.02967064455151558,
+    "return_normalizer_variance": 17909.426602996395
+  },
+  {
+    "update": 37,
+    "episodes_trained": 74,
+    "rollout_steps": 458,
+    "rollout_discount_min": 0.9134624556984704,
+    "rollout_discount_max": 0.9999860520515665,
+    "rollout_mean_reward": -477.310123214333,
+    "raw_episode_reward_mean": -477.310123214333,
+    "rollout_completed": 151,
+    "rollout_failed": 9,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 66,
+      "SINGLE_DOG": 14
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->BURST->RECOVERY->NORMAL": 1,
+      "DENSE->BURST->NORMAL->RECOVERY": 1
+    },
+    "loss": -0.00656929916003719,
+    "actor_loss": -0.006256977127244075,
+    "value_loss": 0.013405275721258174,
+    "entropy": 0.7014960745970408,
+    "approximate_kl": 0.004166718550550286,
+    "clip_fraction": 0.040416666741172474,
+    "gradient_norm": 0.5698195366809765,
+    "raw_reward_mean": -2.0843236446380615,
+    "normalized_reward_mean": -0.015504712238907814,
+    "normalized_reward_std": 0.04742380231618881,
+    "return_normalizer_variance": 18071.8637641171
+  },
+  {
+    "update": 38,
+    "episodes_trained": 76,
+    "rollout_steps": 454,
+    "rollout_discount_min": 0.9129176387424714,
+    "rollout_discount_max": 0.9999860520515665,
+    "rollout_mean_reward": -682.5196768524165,
+    "raw_episode_reward_mean": -682.5196768524165,
+    "rollout_completed": 150,
+    "rollout_failed": 10,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 65,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 15
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->DENSE->RECOVERY->NORMAL": 1,
+      "DENSE->BURST->RECOVERY->NORMAL": 1
+    },
+    "loss": -0.010171199915930629,
+    "actor_loss": -0.01153329409038027,
+    "value_loss": 0.016326544111749778,
+    "entropy": 0.6801176543347538,
+    "approximate_kl": -0.001100946372995774,
+    "clip_fraction": 0.029340277860562005,
+    "gradient_norm": 0.5948222011327744,
+    "raw_reward_mean": -3.006694793701172,
+    "normalized_reward_mean": -0.02205217443406582,
+    "normalized_reward_std": 0.05649610236287117,
+    "return_normalizer_variance": 18589.848691362222
+  },
+  {
+    "update": 39,
+    "episodes_trained": 78,
+    "rollout_steps": 452,
+    "rollout_discount_min": 0.910853358032725,
+    "rollout_discount_max": 0.999804421874875,
+    "rollout_mean_reward": -641.4229420601584,
+    "raw_episode_reward_mean": -641.4229420601584,
+    "rollout_completed": 156,
+    "rollout_failed": 4,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 67,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 13
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->DENSE->NORMAL->RECOVERY": 1,
+      "NORMAL->BURST->RECOVERY->DENSE": 1
+    },
+    "loss": -0.012398655681560436,
+    "actor_loss": -0.013716076997419198,
+    "value_loss": 0.016239255158385882,
+    "entropy": 0.680220635732015,
+    "approximate_kl": -0.006011511059477925,
+    "clip_fraction": 0.0390625,
+    "gradient_norm": 0.5398378323763608,
+    "raw_reward_mean": -2.8381547927856445,
+    "normalized_reward_mean": -0.02061930112540722,
+    "normalized_reward_std": 0.050261929631233215,
+    "return_normalizer_variance": 18946.291026117524
+  },
+  {
+    "update": 40,
+    "episodes_trained": 80,
+    "rollout_steps": 452,
+    "rollout_discount_min": 0.9117008814437284,
+    "rollout_discount_max": 0.9998109837168552,
+    "rollout_mean_reward": -351.3502095284609,
+    "raw_episode_reward_mean": -351.3502095284609,
+    "rollout_completed": 154,
+    "rollout_failed": 6,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 66,
+      "SINGLE_DOG": 14
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->RECOVERY->DENSE->NORMAL": 1,
+      "BURST->NORMAL->RECOVERY->DENSE": 1
+    },
+    "loss": -0.013579099997878074,
+    "actor_loss": -0.012488506858547528,
+    "value_loss": 0.009554718708386645,
+    "entropy": 0.5867952343304249,
+    "approximate_kl": 0.0072972991387359794,
+    "clip_fraction": 0.04739583333333333,
+    "gradient_norm": 0.49766515418887136,
+    "raw_reward_mean": -1.5546469688415527,
+    "normalized_reward_mean": -0.011355390772223473,
+    "normalized_reward_std": 0.0376291498541832,
+    "return_normalizer_variance": 18743.875529585297
+  },
+  {
+    "update": 41,
+    "episodes_trained": 82,
+    "rollout_steps": 457,
+    "rollout_discount_min": 0.9074459892783788,
+    "rollout_discount_max": 0.9998917429033218,
+    "rollout_mean_reward": -347.2506516368955,
+    "raw_episode_reward_mean": -347.2506516368955,
+    "rollout_completed": 156,
+    "rollout_failed": 4,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 79,
+      "CAR_DOG_CAR": 70,
+      "SINGLE_DOG": 11
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->BURST->NORMAL->RECOVERY": 1,
+      "BURST->NORMAL->RECOVERY->DENSE": 1
+    },
+    "loss": -0.00477097313463067,
+    "actor_loss": -0.0014460721363623937,
+    "value_loss": 0.005870591763717433,
+    "entropy": 0.6260197111715873,
+    "approximate_kl": 0.0016031732705111305,
+    "clip_fraction": 0.03940972226361434,
+    "gradient_norm": 0.43731297900279364,
+    "raw_reward_mean": -1.5196964740753174,
+    "normalized_reward_mean": -0.011092033237218857,
+    "normalized_reward_std": 0.038010746240615845,
+    "return_normalizer_variance": 18771.17313038522
+  },
+  {
+    "update": 42,
+    "episodes_trained": 84,
+    "rollout_steps": 460,
+    "rollout_discount_min": 0.9125985352058595,
+    "rollout_discount_max": 0.9999881998309504,
+    "rollout_mean_reward": -587.5038561222017,
+    "raw_episode_reward_mean": -587.5038561222017,
+    "rollout_completed": 155,
+    "rollout_failed": 5,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 67,
+      "SINGLE_DOG": 13
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->NORMAL->BURST->RECOVERY": 1,
+      "BURST->DENSE->RECOVERY->NORMAL": 1
+    },
+    "loss": -0.019464461714960635,
+    "actor_loss": -0.018609649346520502,
+    "value_loss": 0.010788453428540378,
+    "entropy": 0.624903965741396,
+    "approximate_kl": -0.0019947093795053663,
+    "clip_fraction": 0.028472222263614337,
+    "gradient_norm": 0.41551472718516985,
+    "raw_reward_mean": -2.5543644428253174,
+    "normalized_reward_mean": -0.01860574632883072,
+    "normalized_reward_std": 0.04454629495739937,
+    "return_normalizer_variance": 18848.272404919353
+  },
+  {
+    "update": 43,
+    "episodes_trained": 86,
+    "rollout_steps": 448,
+    "rollout_discount_min": 0.8936520161806505,
+    "rollout_discount_max": 0.9999203705858907,
+    "rollout_mean_reward": -797.7584390972286,
+    "raw_episode_reward_mean": -797.7584390972286,
+    "rollout_completed": 155,
+    "rollout_failed": 5,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 68,
+      "SINGLE_CAR": 79,
+      "SINGLE_DOG": 13
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->BURST->RECOVERY->NORMAL": 1,
+      "BURST->DENSE->NORMAL->RECOVERY": 1
+    },
+    "loss": -0.01046001595178885,
+    "actor_loss": -0.010635806912822383,
+    "value_loss": 0.014298705317612206,
+    "entropy": 0.6973561490220683,
+    "approximate_kl": 0.0016811412809017514,
+    "clip_fraction": 0.04743303571428571,
+    "gradient_norm": 0.5278495385178498,
+    "raw_reward_mean": -3.5614216327667236,
+    "normalized_reward_mean": -0.025378381833434105,
+    "normalized_reward_std": 0.06840821355581284,
+    "return_normalizer_variance": 19693.320678271295
+  },
+  {
+    "update": 44,
+    "episodes_trained": 88,
+    "rollout_steps": 464,
+    "rollout_discount_min": 0.9112475366746298,
+    "rollout_discount_max": 0.9999484424399623,
+    "rollout_mean_reward": -263.4321859562894,
+    "raw_episode_reward_mean": -263.4321859562894,
+    "rollout_completed": 159,
+    "rollout_failed": 1,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 63,
+      "SINGLE_DOG": 17
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->BURST->RECOVERY->DENSE": 1,
+      "BURST->NORMAL->DENSE->RECOVERY": 1
+    },
+    "loss": -0.008947916616064807,
+    "actor_loss": -0.009508365330596765,
+    "value_loss": 0.0128822695541506,
+    "entropy": 0.5880685726180672,
+    "approximate_kl": 0.012157744239084422,
+    "clip_fraction": 0.06145833333333333,
+    "gradient_norm": 0.5783842126528422,
+    "raw_reward_mean": -1.1354836225509644,
+    "normalized_reward_mean": -0.008157512173056602,
+    "normalized_reward_std": 0.029056088998913765,
+    "return_normalizer_variance": 19375.204937140075
+  },
+  {
+    "update": 45,
+    "episodes_trained": 90,
+    "rollout_steps": 461,
+    "rollout_discount_min": 0.9120033675560522,
+    "rollout_discount_max": 0.9994029123091197,
+    "rollout_mean_reward": -573.2565713624083,
+    "raw_episode_reward_mean": -573.2565713624083,
+    "rollout_completed": 156,
+    "rollout_failed": 4,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 59,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 21
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->DENSE->RECOVERY->NORMAL": 1,
+      "BURST->RECOVERY->DENSE->NORMAL": 1
+    },
+    "loss": 0.002521991908239822,
+    "actor_loss": 0.005187156423926353,
+    "value_loss": 0.006634716351982206,
+    "entropy": 0.5982522699981928,
+    "approximate_kl": 0.007431710984868308,
+    "clip_fraction": 0.04631410265962283,
+    "gradient_norm": 0.4139598029355208,
+    "raw_reward_mean": -2.487013339996338,
+    "normalized_reward_mean": -0.017710085958242416,
+    "normalized_reward_std": 0.04869752377271652,
+    "return_normalizer_variance": 19720.363672841082
+  },
+  {
+    "update": 46,
+    "episodes_trained": 92,
+    "rollout_steps": 459,
+    "rollout_discount_min": 0.9126232621609908,
+    "rollout_discount_max": 0.9997734547280879,
+    "rollout_mean_reward": -543.4973418138366,
+    "raw_episode_reward_mean": -543.4973418138366,
+    "rollout_completed": 152,
+    "rollout_failed": 8,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 65,
+      "SINGLE_CAR": 79,
+      "SINGLE_DOG": 16
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->RECOVERY->DENSE->NORMAL": 1,
+      "NORMAL->BURST->DENSE->RECOVERY": 1
+    },
+    "loss": 0.0058532225588957465,
+    "actor_loss": 0.006559404917061329,
+    "value_loss": 0.011068544754137596,
+    "entropy": 0.6240453884005547,
+    "approximate_kl": -0.0002915288476894299,
+    "clip_fraction": 0.060700757801532744,
+    "gradient_norm": 0.5329572374622027,
+    "raw_reward_mean": -2.368180274963379,
+    "normalized_reward_mean": -0.01679050549864769,
+    "normalized_reward_std": 0.05105292424559593,
+    "return_normalizer_variance": 19893.071795501204
+  },
+  {
+    "update": 47,
+    "episodes_trained": 94,
+    "rollout_steps": 460,
+    "rollout_discount_min": 0.911821078302732,
+    "rollout_discount_max": 0.9997955595192394,
+    "rollout_mean_reward": -617.9292439055482,
+    "raw_episode_reward_mean": -617.9292439055482,
+    "rollout_completed": 156,
+    "rollout_failed": 4,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 65,
+      "SINGLE_CAR": 80,
+      "SINGLE_DOG": 15
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->RECOVERY->DENSE->NORMAL": 1,
+      "BURST->DENSE->RECOVERY->NORMAL": 1
+    },
+    "loss": -0.006246110176046689,
+    "actor_loss": -0.005530051297197739,
+    "value_loss": 0.012073983969942977,
+    "entropy": 0.6753051729251941,
+    "approximate_kl": 0.014574131540333232,
+    "clip_fraction": 0.066840277860562,
+    "gradient_norm": 0.6256210498511792,
+    "raw_reward_mean": -2.6866486072540283,
+    "normalized_reward_mean": -0.01901889033615589,
+    "normalized_reward_std": 0.04916208237409592,
+    "return_normalizer_variance": 19954.991308418525
+  },
+  {
+    "update": 48,
+    "episodes_trained": 96,
+    "rollout_steps": 456,
+    "rollout_discount_min": 0.9147875794221093,
+    "rollout_discount_max": 0.9999191741277101,
+    "rollout_mean_reward": -778.8269362609045,
+    "raw_episode_reward_mean": -778.8269362609045,
+    "rollout_completed": 155,
+    "rollout_failed": 5,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 79,
+      "CAR_DOG_CAR": 68,
+      "SINGLE_DOG": 13
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->BURST->RECOVERY->DENSE": 1,
+      "NORMAL->BURST->DENSE->RECOVERY": 1
+    },
+    "loss": -0.0016607754630967974,
+    "actor_loss": -0.004849522312482198,
+    "value_loss": 0.01981103968185683,
+    "entropy": 0.671677128970623,
+    "approximate_kl": -0.002499148699765404,
+    "clip_fraction": 0.051041666666666666,
+    "gradient_norm": 0.5382391835252444,
+    "raw_reward_mean": -3.415907382965088,
+    "normalized_reward_mean": -0.023496344685554504,
+    "normalized_reward_std": 0.06297772377729416,
+    "return_normalizer_variance": 21135.454440284433
+  },
+  {
+    "update": 49,
+    "episodes_trained": 98,
+    "rollout_steps": 459,
+    "rollout_discount_min": 0.9117047604232318,
+    "rollout_discount_max": 0.999992964762879,
+    "rollout_mean_reward": -273.0085923418645,
+    "raw_episode_reward_mean": -273.0085923418645,
+    "rollout_completed": 153,
+    "rollout_failed": 7,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 67,
+      "SINGLE_DOG": 13
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->BURST->RECOVERY->DENSE": 1,
+      "BURST->NORMAL->DENSE->RECOVERY": 1
+    },
+    "loss": -0.012415285408496856,
+    "actor_loss": -0.009921965623895327,
+    "value_loss": 0.007428662595824183,
+    "entropy": 0.6207651734352112,
+    "approximate_kl": 0.005086780878870437,
+    "clip_fraction": 0.04100378801425298,
+    "gradient_norm": 0.4615280617028475,
+    "raw_reward_mean": -1.1895798444747925,
+    "normalized_reward_mean": -0.008244487456977367,
+    "normalized_reward_std": 0.024935083463788033,
+    "return_normalizer_variance": 20819.004051831656
+  },
+  {
+    "update": 50,
+    "episodes_trained": 100,
+    "rollout_steps": 458,
+    "rollout_discount_min": 0.9132306152247498,
+    "rollout_discount_max": 0.9998613065327866,
+    "rollout_mean_reward": -435.9630790889571,
+    "raw_episode_reward_mean": -435.9630790889571,
+    "rollout_completed": 149,
+    "rollout_failed": 11,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 2
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 80,
+      "CAR_DOG_CAR": 72,
+      "SINGLE_DOG": 8
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 2
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->BURST->NORMAL->RECOVERY": 1,
+      "DENSE->BURST->RECOVERY->NORMAL": 1
+    },
+    "loss": -0.011505566715883712,
+    "actor_loss": -0.013406098478784163,
+    "value_loss": 0.016875912342220543,
+    "entropy": 0.6537425588273132,
+    "approximate_kl": 0.0027017420072904014,
+    "clip_fraction": 0.016666666666666666,
+    "gradient_norm": 0.6352252952754498,
+    "raw_reward_mean": -1.9037688970565796,
+    "normalized_reward_mean": -0.01321333460509777,
+    "normalized_reward_std": 0.041367705911397934,
+    "return_normalizer_variance": 20758.866636502356,
+    "evaluation": {
+      "episode_count": 10,
+      "task_count": 800,
+      "scheduled_task_count": 800,
+      "completed": 773,
+      "failed": 27,
+      "unresolved": 0,
+      "effective_failed": 27,
+      "resolution_rate": 1.0,
+      "success_rate": 0.96625,
+      "reward_units": "raw_environment_episode_sum",
+      "mean_reward": -299.86297164713267,
+      "mean_terminal_adjusted_reward": -299.86297164713267,
+      "mean_simulated_time": 4174.273813460157,
+      "throughput_tasks_per_hour": 68.99403653668561,
+      "resolved_throughput_tasks_per_hour": 68.99403653668561,
+      "successful_throughput_tasks_per_hour": 66.66548780357246,
+      "handover_sampling": "SEQUENTIAL",
+      "allowed_transport_modes": null,
+      "illegal_action_count": 0,
+      "maximum_active_tasks": 4,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 275,
+        "SINGLE_CAR": 400,
+        "SINGLE_DOG": 125
+      },
+      "transport_modes_by_phase": {
+        "BURST": {
+          "CAR_DOG_CAR": 69,
+          "SINGLE_CAR": 96,
+          "SINGLE_DOG": 27
+        },
+        "DENSE": {
+          "CAR_DOG_CAR": 70,
+          "SINGLE_CAR": 102,
+          "SINGLE_DOG": 32
+        },
+        "NORMAL": {
+          "CAR_DOG_CAR": 66,
+          "SINGLE_CAR": 94,
+          "SINGLE_DOG": 28
+        },
+        "RECOVERY": {
+          "CAR_DOG_CAR": 70,
+          "SINGLE_CAR": 108,
+          "SINGLE_DOG": 38
+        }
+      },
+      "arrival_schedule": "MIXED_CURRICULUM",
+      "exposed_transport_modes": [
+        "CAR_DOG_CAR",
+        "SINGLE_CAR",
+        "SINGLE_DOG"
+      ],
+      "selected_mode_by_cost_reference": {
+        "CAR_DOG_CAR": {
+          "CAR_DOG_CAR": 266,
+          "SINGLE_DOG": 2
+        },
+        "SINGLE_CAR": {
+          "SINGLE_CAR": 400
+        },
+        "SINGLE_DOG": {
+          "CAR_DOG_CAR": 9,
+          "SINGLE_DOG": 123
+        }
+      },
+      "selected_mode_by_floor_relation": {
+        "CROSS_FLOOR": {
+          "CAR_DOG_CAR": 275,
+          "SINGLE_DOG": 125
+        },
+        "SAME_FLOOR": {
+          "SINGLE_CAR": 400
+        }
+      },
+      "cost_reference_mode_agreement": 0.98625,
+      "cost_reference_decision_count": 800,
+      "arrival_schedule_metadata": [
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68150000,
+          "phase_order": [
+            "DENSE",
+            "NORMAL",
+            "BURST",
+            "RECOVERY"
+          ],
+          "phase_lengths": [
+            28,
+            12,
+            12,
+            28
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "DENSE",
+              "task_count": 28,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 521.2425916037905
+            },
+            {
+              "phase_index": 1,
+              "phase": "NORMAL",
+              "task_count": 12,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 90.08641159827417,
+              "first_arrival_s": 611.3290032020647,
+              "last_arrival_s": 1600.5356054960557
+            },
+            {
+              "phase_index": 2,
+              "phase": "BURST",
+              "task_count": 12,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 0.7536098133121778,
+              "first_arrival_s": 1601.2892153093678,
+              "last_arrival_s": 1622.6265881748222
+            },
+            {
+              "phase_index": 3,
+              "phase": "RECOVERY",
+              "task_count": 28,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 44.4377271335122,
+              "first_arrival_s": 1667.0643153083345,
+              "last_arrival_s": 4081.436075770639
+            }
+          ]
+        },
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68150001,
+          "phase_order": [
+            "BURST",
+            "NORMAL",
+            "DENSE",
+            "RECOVERY"
+          ],
+          "phase_lengths": [
+            20,
+            20,
+            16,
+            24
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "BURST",
+              "task_count": 20,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 40.5101052218319
+            },
+            {
+              "phase_index": 1,
+              "phase": "NORMAL",
+              "task_count": 20,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 94.72900086265383,
+              "first_arrival_s": 135.23910608448574,
+              "last_arrival_s": 1863.6437824742102
+            },
+            {
+              "phase_index": 2,
+              "phase": "DENSE",
+              "task_count": 16,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 15.205907701803925,
+              "first_arrival_s": 1878.849690176014,
+              "last_arrival_s": 2186.0778635380107
+            },
+            {
+              "phase_index": 3,
+              "phase": "RECOVERY",
+              "task_count": 24,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 37.78044047334265,
+              "first_arrival_s": 2223.8583040113535,
+              "last_arrival_s": 4258.856789466232
+            }
+          ]
+        },
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68150002,
+          "phase_order": [
+            "NORMAL",
+            "BURST",
+            "RECOVERY",
+            "DENSE"
+          ],
+          "phase_lengths": [
+            20,
+            16,
+            28,
+            16
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "NORMAL",
+              "task_count": 20,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 1753.454538072473
+            },
+            {
+              "phase_index": 1,
+              "phase": "BURST",
+              "task_count": 16,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 0.9860287125520566,
+              "first_arrival_s": 1754.440566785025,
+              "last_arrival_s": 1783.9790495793764
+            },
+            {
+              "phase_index": 2,
+              "phase": "RECOVERY",
+              "task_count": 28,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 114.72532047615098,
+              "first_arrival_s": 1898.7043700555273,
+              "last_arrival_s": 4377.887576337089
+            },
+            {
+              "phase_index": 3,
+              "phase": "DENSE",
+              "task_count": 16,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 16.207892080357446,
+              "first_arrival_s": 4394.095468417447,
+              "last_arrival_s": 4697.103963061288
+            }
+          ]
+        },
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68150003,
+          "phase_order": [
+            "BURST",
+            "NORMAL",
+            "RECOVERY",
+            "DENSE"
+          ],
+          "phase_lengths": [
+            20,
+            24,
+            20,
+            16
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "BURST",
+              "task_count": 20,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 39.78333836541776
+            },
+            {
+              "phase_index": 1,
+              "phase": "NORMAL",
+              "task_count": 24,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 104.49164127748213,
+              "first_arrival_s": 144.2749796428999,
+              "last_arrival_s": 2198.5466091560734
+            },
+            {
+              "phase_index": 2,
+              "phase": "RECOVERY",
+              "task_count": 20,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 112.87503334528208,
+              "first_arrival_s": 2311.4216425013556,
+              "last_arrival_s": 3991.416407229769
+            },
+            {
+              "phase_index": 3,
+              "phase": "DENSE",
+              "task_count": 16,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 11.684552293489237,
+              "first_arrival_s": 4003.100959523258,
+              "last_arrival_s": 4324.4616630975115
+            }
+          ]
+        },
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68150004,
+          "phase_order": [
+            "DENSE",
+            "BURST",
+            "NORMAL",
+            "RECOVERY"
+          ],
+          "phase_lengths": [
+            16,
+            28,
+            20,
+            16
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "DENSE",
+              "task_count": 16,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 303.06741741658385
+            },
+            {
+              "phase_index": 1,
+              "phase": "BURST",
+              "task_count": 28,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 2.3390225081556704,
+              "first_arrival_s": 305.4064399247395,
+              "last_arrival_s": 358.7546034667785
+            },
+            {
+              "phase_index": 2,
+              "phase": "NORMAL",
+              "task_count": 20,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 115.29561804241182,
+              "first_arrival_s": 474.05022150919035,
+              "last_arrival_s": 2203.5230846606482
+            },
+            {
+              "phase_index": 3,
+              "phase": "RECOVERY",
+              "task_count": 16,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 31.573834544305118,
+              "first_arrival_s": 2235.0969192049533,
+              "last_arrival_s": 3588.840659020275
+            }
+          ]
+        },
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68150005,
+          "phase_order": [
+            "BURST",
+            "RECOVERY",
+            "NORMAL",
+            "DENSE"
+          ],
+          "phase_lengths": [
+            20,
+            16,
+            16,
+            28
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "BURST",
+              "task_count": 20,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 38.97864164887847
+            },
+            {
+              "phase_index": 1,
+              "phase": "RECOVERY",
+              "task_count": 16,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 75.22627552281071,
+              "first_arrival_s": 114.20491717168917,
+              "last_arrival_s": 1458.4738246789786
+            },
+            {
+              "phase_index": 2,
+              "phase": "NORMAL",
+              "task_count": 16,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 99.33774333814752,
+              "first_arrival_s": 1557.811568017126,
+              "last_arrival_s": 2876.2873080614927
+            },
+            {
+              "phase_index": 3,
+              "phase": "DENSE",
+              "task_count": 28,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 20.09184459132255,
+              "first_arrival_s": 2896.3791526528153,
+              "last_arrival_s": 3425.6653101244174
+            }
+          ]
+        },
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68150006,
+          "phase_order": [
+            "BURST",
+            "DENSE",
+            "RECOVERY",
+            "NORMAL"
+          ],
+          "phase_lengths": [
+            20,
+            20,
+            24,
+            16
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "BURST",
+              "task_count": 20,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 36.27206736422186
+            },
+            {
+              "phase_index": 1,
+              "phase": "DENSE",
+              "task_count": 20,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 25.07731229992723,
+              "first_arrival_s": 61.34937966414909,
+              "last_arrival_s": 432.80883211657186
+            },
+            {
+              "phase_index": 2,
+              "phase": "RECOVERY",
+              "task_count": 24,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 84.17689255174494,
+              "first_arrival_s": 516.9857246683168,
+              "last_arrival_s": 2583.3940741691163
+            },
+            {
+              "phase_index": 3,
+              "phase": "NORMAL",
+              "task_count": 16,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 68.03307210408283,
+              "first_arrival_s": 2651.427146273199,
+              "last_arrival_s": 3962.4411515383454
+            }
+          ]
+        },
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68150007,
+          "phase_order": [
+            "BURST",
+            "RECOVERY",
+            "NORMAL",
+            "DENSE"
+          ],
+          "phase_lengths": [
+            20,
+            20,
+            16,
+            24
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "BURST",
+              "task_count": 20,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 35.26632666307894
+            },
+            {
+              "phase_index": 1,
+              "phase": "RECOVERY",
+              "task_count": 20,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 112.53012212786192,
+              "first_arrival_s": 147.79644879094087,
+              "last_arrival_s": 1887.525242154847
+            },
+            {
+              "phase_index": 2,
+              "phase": "NORMAL",
+              "task_count": 16,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 101.95652489233905,
+              "first_arrival_s": 1989.4817670471862,
+              "last_arrival_s": 3348.282973611297
+            },
+            {
+              "phase_index": 3,
+              "phase": "DENSE",
+              "task_count": 24,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 12.05728321389898,
+              "first_arrival_s": 3360.3402568251963,
+              "last_arrival_s": 3798.844539679423
+            }
+          ]
+        },
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68150008,
+          "phase_order": [
+            "BURST",
+            "NORMAL",
+            "DENSE",
+            "RECOVERY"
+          ],
+          "phase_lengths": [
+            20,
+            20,
+            16,
+            24
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "BURST",
+              "task_count": 20,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 38.34305760541308
+            },
+            {
+              "phase_index": 1,
+              "phase": "NORMAL",
+              "task_count": 20,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 34.0444670348505,
+              "first_arrival_s": 72.38752464026358,
+              "last_arrival_s": 1794.1810587243524
+            },
+            {
+              "phase_index": 2,
+              "phase": "DENSE",
+              "task_count": 16,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 7.735250674824446,
+              "first_arrival_s": 1801.916309399177,
+              "last_arrival_s": 2098.682948930036
+            },
+            {
+              "phase_index": 3,
+              "phase": "RECOVERY",
+              "task_count": 24,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 119.66319323324517,
+              "first_arrival_s": 2218.3461421632815,
+              "last_arrival_s": 4265.584844828072
+            }
+          ]
+        },
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68150009,
+          "phase_order": [
+            "NORMAL",
+            "BURST",
+            "DENSE",
+            "RECOVERY"
+          ],
+          "phase_lengths": [
+            24,
+            16,
+            24,
+            16
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "NORMAL",
+              "task_count": 24,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 2077.517977411382
+            },
+            {
+              "phase_index": 1,
+              "phase": "BURST",
+              "task_count": 16,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 1.2349938441155976,
+              "first_arrival_s": 2078.752971255498,
+              "last_arrival_s": 2109.501827860397
+            },
+            {
+              "phase_index": 2,
+              "phase": "DENSE",
+              "task_count": 24,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 15.134220812801729,
+              "first_arrival_s": 2124.6360486731987,
+              "last_arrival_s": 2600.6009948037545
+            },
+            {
+              "phase_index": 3,
+              "phase": "RECOVERY",
+              "task_count": 16,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 110.3201094428686,
+              "first_arrival_s": 2710.921104246623,
+              "last_arrival_s": 4019.5939549151863
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

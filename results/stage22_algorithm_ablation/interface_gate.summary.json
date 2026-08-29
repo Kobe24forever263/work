@@ -1,0 +1,194 @@
+{
+  "stage": 22,
+  "gate": "ALGORITHM_ABLATION_SEMANTIC_INTERFACE_V1",
+  "claim_boundary": "Interface semantics only; no performance claim.",
+  "protocol": "tro_stage22_algorithm_ablation_v1",
+  "plans": {
+    "fixed_gamma": {
+      "stage": 22,
+      "protocol": "tro_stage22_algorithm_ablation_v1",
+      "gate": "ALGORITHM_ABLATION_SHORT_GATE",
+      "claim_boundary": "Interface and safety only; no performance claim.",
+      "condition": "fixed_gamma",
+      "isolates": "duration_aware_discount",
+      "condition_config": {
+        "observation_variant": "FULL_CONTEXT_V2",
+        "policy_variant": "CONTEXT_INTERACTION",
+        "discount_mode": "FIXED_PER_DECISION",
+        "warm_start": true,
+        "allowed_transport_modes": [
+          "SINGLE_CAR",
+          "SINGLE_DOG",
+          "CAR_DOG_CAR"
+        ],
+        "isolates": "duration_aware_discount"
+      },
+      "seed_index": 1,
+      "experiment_run_seed": 67000000,
+      "ppo_seed": 67000100,
+      "validation_seed_start": 67050000,
+      "updates": 2,
+      "episodes_per_update": 1,
+      "planned_episodes": 2,
+      "tasks_per_episode": 80,
+      "warm_start_enabled": true,
+      "run_dir": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/fixed_gamma/seed_01",
+      "warm_start_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/fixed_gamma/seed_01/warm_start.pt",
+      "final_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/fixed_gamma/seed_01/stage22_ppo.pt",
+      "best_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/fixed_gamma/seed_01/stage22_ppo.best.pt",
+      "history": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/fixed_gamma/seed_01/stage22_ppo.history.json",
+      "resume_audit": null,
+      "warm_start_command": "\"/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python\" \"/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage14_policy_smoke.py\" \"--epochs\" \"10\" \"--batch-size\" \"32\" \"--learning-rate\" \"0.001\" \"--execution-mode\" \"CONCURRENT\" \"--arrival-profile\" \"MIXED_CURRICULUM\" \"--run-seed\" \"67000000\" \"--training-seed-count\" \"5\" \"--validation-seed-start\" \"67050000\" \"--validation-episodes\" \"4\" \"--observation-variant\" \"FULL_CONTEXT_V2\" \"--policy-variant\" \"CONTEXT_INTERACTION\" \"--output\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/fixed_gamma/seed_01/warm_start.pt\"",
+      "ppo_command": "\"/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python\" \"/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage14_smdp_ppo.py\" \"--execution-mode\" \"CONCURRENT\" \"--arrival-profile\" \"MIXED_CURRICULUM\" \"--observation-variant\" \"FULL_CONTEXT_V2\" \"--policy-variant\" \"CONTEXT_INTERACTION\" \"--discount-mode\" \"FIXED_PER_DECISION\" \"--updates\" \"2\" \"--episodes-per-update\" \"1\" \"--ppo-epochs\" \"4\" \"--minibatch-size\" \"32\" \"--learning-rate\" \"0.0003\" \"--clip-ratio\" \"0.2\" \"--gae-lambda\" \"0.95\" \"--entropy-coefficient\" \"0.01\" \"--value-coefficient\" \"0.5\" \"--seed\" \"67000100\" \"--experiment-run-seed\" \"67000000\" \"--validation-seed-start\" \"67050000\" \"--eval-episodes\" \"4\" \"--eval-every\" \"2\" \"--checkpoint-every\" \"2\" \"--log-every\" \"2\" \"--allow-ablation-outcome\" \"--output\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/fixed_gamma/seed_01/stage22_ppo.pt\" \"--warm-start\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/fixed_gamma/seed_01/warm_start.pt\""
+    },
+    "no_context_interaction": {
+      "stage": 22,
+      "protocol": "tro_stage22_algorithm_ablation_v1",
+      "gate": "ALGORITHM_ABLATION_SHORT_GATE",
+      "claim_boundary": "Interface and safety only; no performance claim.",
+      "condition": "no_context_interaction",
+      "isolates": "elementwise_context_candidate_interaction",
+      "condition_config": {
+        "observation_variant": "FULL_CONTEXT_V2",
+        "policy_variant": "FLAT_MASKED_PPO",
+        "discount_mode": "VARIABLE_SMDP",
+        "warm_start": true,
+        "allowed_transport_modes": [
+          "SINGLE_CAR",
+          "SINGLE_DOG",
+          "CAR_DOG_CAR"
+        ],
+        "isolates": "elementwise_context_candidate_interaction"
+      },
+      "seed_index": 1,
+      "experiment_run_seed": 67000000,
+      "ppo_seed": 67000100,
+      "validation_seed_start": 67050000,
+      "updates": 2,
+      "episodes_per_update": 1,
+      "planned_episodes": 2,
+      "tasks_per_episode": 80,
+      "warm_start_enabled": true,
+      "run_dir": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_context_interaction/seed_01",
+      "warm_start_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_context_interaction/seed_01/warm_start.pt",
+      "final_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_context_interaction/seed_01/stage22_ppo.pt",
+      "best_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_context_interaction/seed_01/stage22_ppo.best.pt",
+      "history": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_context_interaction/seed_01/stage22_ppo.history.json",
+      "resume_audit": null,
+      "warm_start_command": "\"/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python\" \"/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage14_policy_smoke.py\" \"--epochs\" \"10\" \"--batch-size\" \"32\" \"--learning-rate\" \"0.001\" \"--execution-mode\" \"CONCURRENT\" \"--arrival-profile\" \"MIXED_CURRICULUM\" \"--run-seed\" \"67000000\" \"--training-seed-count\" \"5\" \"--validation-seed-start\" \"67050000\" \"--validation-episodes\" \"4\" \"--observation-variant\" \"FULL_CONTEXT_V2\" \"--policy-variant\" \"FLAT_MASKED_PPO\" \"--output\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_context_interaction/seed_01/warm_start.pt\"",
+      "ppo_command": "\"/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python\" \"/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage14_smdp_ppo.py\" \"--execution-mode\" \"CONCURRENT\" \"--arrival-profile\" \"MIXED_CURRICULUM\" \"--observation-variant\" \"FULL_CONTEXT_V2\" \"--policy-variant\" \"FLAT_MASKED_PPO\" \"--discount-mode\" \"VARIABLE_SMDP\" \"--updates\" \"2\" \"--episodes-per-update\" \"1\" \"--ppo-epochs\" \"4\" \"--minibatch-size\" \"32\" \"--learning-rate\" \"0.0003\" \"--clip-ratio\" \"0.2\" \"--gae-lambda\" \"0.95\" \"--entropy-coefficient\" \"0.01\" \"--value-coefficient\" \"0.5\" \"--seed\" \"67000100\" \"--experiment-run-seed\" \"67000000\" \"--validation-seed-start\" \"67050000\" \"--eval-episodes\" \"4\" \"--eval-every\" \"2\" \"--checkpoint-every\" \"2\" \"--log-every\" \"2\" \"--allow-ablation-outcome\" \"--output\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_context_interaction/seed_01/stage22_ppo.pt\" \"--warm-start\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_context_interaction/seed_01/warm_start.pt\""
+    },
+    "no_warm_start": {
+      "stage": 22,
+      "protocol": "tro_stage22_algorithm_ablation_v1",
+      "gate": "ALGORITHM_ABLATION_SHORT_GATE",
+      "claim_boundary": "Interface and safety only; no performance claim.",
+      "condition": "no_warm_start",
+      "isolates": "rule_distillation_warm_start",
+      "condition_config": {
+        "observation_variant": "FULL_CONTEXT_V2",
+        "policy_variant": "CONTEXT_INTERACTION",
+        "discount_mode": "VARIABLE_SMDP",
+        "warm_start": false,
+        "allowed_transport_modes": [
+          "SINGLE_CAR",
+          "SINGLE_DOG",
+          "CAR_DOG_CAR"
+        ],
+        "isolates": "rule_distillation_warm_start"
+      },
+      "seed_index": 1,
+      "experiment_run_seed": 67000000,
+      "ppo_seed": 67000100,
+      "validation_seed_start": 67050000,
+      "updates": 2,
+      "episodes_per_update": 1,
+      "planned_episodes": 2,
+      "tasks_per_episode": 80,
+      "warm_start_enabled": false,
+      "run_dir": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_warm_start/seed_01",
+      "warm_start_weight": null,
+      "final_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_warm_start/seed_01/stage22_ppo.pt",
+      "best_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_warm_start/seed_01/stage22_ppo.best.pt",
+      "history": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_warm_start/seed_01/stage22_ppo.history.json",
+      "resume_audit": null,
+      "warm_start_command": null,
+      "ppo_command": "\"/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python\" \"/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage14_smdp_ppo.py\" \"--execution-mode\" \"CONCURRENT\" \"--arrival-profile\" \"MIXED_CURRICULUM\" \"--observation-variant\" \"FULL_CONTEXT_V2\" \"--policy-variant\" \"CONTEXT_INTERACTION\" \"--discount-mode\" \"VARIABLE_SMDP\" \"--updates\" \"2\" \"--episodes-per-update\" \"1\" \"--ppo-epochs\" \"4\" \"--minibatch-size\" \"32\" \"--learning-rate\" \"0.0003\" \"--clip-ratio\" \"0.2\" \"--gae-lambda\" \"0.95\" \"--entropy-coefficient\" \"0.01\" \"--value-coefficient\" \"0.5\" \"--seed\" \"67000100\" \"--experiment-run-seed\" \"67000000\" \"--validation-seed-start\" \"67050000\" \"--eval-episodes\" \"4\" \"--eval-every\" \"2\" \"--checkpoint-every\" \"2\" \"--log-every\" \"2\" \"--allow-ablation-outcome\" \"--output\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_warm_start/seed_01/stage22_ppo.pt\""
+    },
+    "no_relay": {
+      "stage": 22,
+      "protocol": "tro_stage22_algorithm_ablation_v1",
+      "gate": "ALGORITHM_ABLATION_SHORT_GATE",
+      "claim_boundary": "Interface and safety only; no performance claim.",
+      "condition": "no_relay",
+      "isolates": "car_dog_car_relay_availability",
+      "condition_config": {
+        "observation_variant": "FULL_CONTEXT_V2",
+        "policy_variant": "CONTEXT_INTERACTION",
+        "discount_mode": "VARIABLE_SMDP",
+        "warm_start": true,
+        "allowed_transport_modes": [
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "isolates": "car_dog_car_relay_availability"
+      },
+      "seed_index": 1,
+      "experiment_run_seed": 67000000,
+      "ppo_seed": 67000100,
+      "validation_seed_start": 67050000,
+      "updates": 2,
+      "episodes_per_update": 1,
+      "planned_episodes": 2,
+      "tasks_per_episode": 80,
+      "warm_start_enabled": true,
+      "run_dir": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_relay/seed_01",
+      "warm_start_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_relay/seed_01/warm_start.pt",
+      "final_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_relay/seed_01/stage22_ppo.pt",
+      "best_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_relay/seed_01/stage22_ppo.best.pt",
+      "history": "/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_relay/seed_01/stage22_ppo.history.json",
+      "resume_audit": null,
+      "warm_start_command": "\"/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python\" \"/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage14_policy_smoke.py\" \"--epochs\" \"10\" \"--batch-size\" \"32\" \"--learning-rate\" \"0.001\" \"--execution-mode\" \"CONCURRENT\" \"--arrival-profile\" \"MIXED_CURRICULUM\" \"--run-seed\" \"67000000\" \"--training-seed-count\" \"5\" \"--validation-seed-start\" \"67050000\" \"--validation-episodes\" \"4\" \"--observation-variant\" \"FULL_CONTEXT_V2\" \"--policy-variant\" \"CONTEXT_INTERACTION\" \"--output\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_relay/seed_01/warm_start.pt\" \"--allowed-transport-modes\" \"SINGLE_CAR\" \"SINGLE_DOG\"",
+      "ppo_command": "\"/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python\" \"/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage14_smdp_ppo.py\" \"--execution-mode\" \"CONCURRENT\" \"--arrival-profile\" \"MIXED_CURRICULUM\" \"--observation-variant\" \"FULL_CONTEXT_V2\" \"--policy-variant\" \"CONTEXT_INTERACTION\" \"--discount-mode\" \"VARIABLE_SMDP\" \"--updates\" \"2\" \"--episodes-per-update\" \"1\" \"--ppo-epochs\" \"4\" \"--minibatch-size\" \"32\" \"--learning-rate\" \"0.0003\" \"--clip-ratio\" \"0.2\" \"--gae-lambda\" \"0.95\" \"--entropy-coefficient\" \"0.01\" \"--value-coefficient\" \"0.5\" \"--seed\" \"67000100\" \"--experiment-run-seed\" \"67000000\" \"--validation-seed-start\" \"67050000\" \"--eval-episodes\" \"4\" \"--eval-every\" \"2\" \"--checkpoint-every\" \"2\" \"--log-every\" \"2\" \"--allow-ablation-outcome\" \"--output\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_relay/seed_01/stage22_ppo.pt\" \"--allowed-transport-modes\" \"SINGLE_CAR\" \"SINGLE_DOG\" \"--warm-start\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage22_algorithm_ablation/short_gate/no_relay/seed_01/warm_start.pt\""
+    }
+  },
+  "diagnostics": {
+    "variable_discount_range": [
+      0.9108989060758539,
+      0.9999020260116507
+    ],
+    "fixed_discount_values": [
+      0.99
+    ],
+    "contextual_parameter_count": 6690,
+    "flat_parameter_count": 6434,
+    "relay_free_exposed_modes": [
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "relay_free_selected_modes": [
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ]
+  },
+  "assertions": {
+    "four_conditions_registered": true,
+    "all_use_mixed_curriculum_80_task_episodes": true,
+    "fixed_gamma_changes_only_discount": true,
+    "no_context_interaction_uses_flat_scorer": true,
+    "no_warm_start_has_no_teacher_command_or_weight": true,
+    "no_relay_declares_exactly_two_modes": true,
+    "locked_test_seeds_are_fresh_and_disjoint": true,
+    "variable_discount_varies": true,
+    "fixed_discount_is_exactly_0_99": true,
+    "discount_ablation_preserves_rollout_length": true,
+    "flat_scorer_removes_interaction_parameters": true,
+    "both_scorers_keep_state_and_candidate_widths": true,
+    "relay_free_rollout_exposes_only_declared_modes": true,
+    "relay_free_rollout_never_selects_relay": true,
+    "relay_free_rollout_still_resolves_all_tasks": true,
+    "relay_free_rollout_has_no_resource_leak": true,
+    "relay_free_rollout_discounts_are_valid": true
+  },
+  "passed": true
+}

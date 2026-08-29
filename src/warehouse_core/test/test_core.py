@@ -874,6 +874,25 @@ def test_mode_conditioned_observation_and_mixed_episode_selection():
     assert concurrent_observation["state"][4] == 1
 
 
+def test_markov_context_v3_preserves_v2_prefix_and_adds_full_event_state():
+    legacy = WarehouseDispatchGymEnv(
+        seed=20260835, execution_mode="CONCURRENT",
+        observation_variant="FULL_CONTEXT_V2")
+    legacy_observation, _ = legacy.reset(seed=20260835)
+    markov = WarehouseDispatchGymEnv(
+        seed=20260835, execution_mode="CONCURRENT",
+        observation_variant="MARKOV_CONTEXT_V3",
+        reward_contract="CONTINUOUS_TIME_V3")
+    markov_observation, _ = markov.reset(seed=20260835)
+    assert markov_observation["state"].shape == (1720,)
+    assert np.array_equal(
+        markov_observation["state"][:284], legacy_observation["state"])
+    metadata = markov.encoder.metadata()
+    assert metadata["markov_v3_task_table"][
+        "lossless_for_current_80_task_protocol"]
+    assert metadata["markov_v3_active_event_table"]["max_active"] == 4
+
+
 def test_smdp_gae_uses_per_transition_discount():
     advantages, returns = compute_smdp_gae(
         rewards=[1.0, 1.0], values=[0.0, 0.0],
@@ -889,6 +908,43 @@ def test_smdp_gae_does_not_bootstrap_across_episode_boundary():
         discounts=[0.99, 0.99], episode_ends=[True, True],
         gae_lambda=1.0)
     assert np.allclose(advantages, [1.0, 20.0])
+
+
+def test_duration_scaled_smdp_gae_trace_is_event_partition_invariant():
+    gamma0 = .99
+    lambda0 = .95
+    tau_s = 10.0
+    first, second = 4.0, 7.0
+    unsplit = (
+        gamma0 ** ((first + second) / tau_s) *
+        lambda0 ** ((first + second) / tau_s))
+    split = (
+        gamma0 ** (first / tau_s) * lambda0 ** (first / tau_s) *
+        gamma0 ** (second / tau_s) * lambda0 ** (second / tau_s))
+    _, _ = compute_smdp_gae(
+        rewards=[0.0, 1.0], values=[0.0, 0.0],
+        discounts=[gamma0 ** (first / tau_s),
+                   gamma0 ** (second / tau_s)],
+        episode_ends=[False, True], gae_lambda=lambda0,
+        durations=[first, second], trace_mode="DURATION_SCALED",
+        trace_tau_s=tau_s)
+    assert np.isclose(unsplit, split)
+
+
+def test_continuous_time_reward_kernel_is_event_partition_invariant():
+    env = WarehouseDispatchGymEnv(
+        seed=20260835, execution_mode="CONCURRENT",
+        reward_contract="CONTINUOUS_TIME_V3")
+    env.reset(seed=20260835)
+    dispatch = env.dispatch
+    first, second = 4.0, 7.0
+    unsplit = dispatch._discounted_duration(0.0, first + second)
+    split = (
+        dispatch._discounted_duration(0.0, first) +
+        dispatch._event_discount(first) *
+        dispatch._discounted_duration(0.0, second))
+    assert np.isclose(unsplit, split)
+    assert dispatch.reward_config.continuous_time_discounting
 
 
 def test_realistic_concurrent_course_exposes_three_transport_modes_together():
@@ -932,3 +988,17 @@ def test_running_return_normalizer_round_trips_checkpoint_state():
     assert normalizer.count > 2 and normalizer.variance > 0
     assert np.allclose(
         normalized, restored.normalize_rollout(steps, update=False))
+
+
+def test_running_return_normalizer_uses_reverse_return_to_go():
+    steps = [
+        RolloutStep(np.zeros(1), np.zeros((1, 1)), np.ones(1, dtype=bool),
+                    0, 0.0, 0.0, 1.0, .9, False),
+        RolloutStep(np.zeros(1), np.zeros((1, 1)), np.ones(1, dtype=bool),
+                    0, 0.0, 0.0, 2.0, .9, True),
+    ]
+    normalizer = RunningReturnNormalizer()
+    normalizer.normalize_rollout(steps, update=True)
+    assert np.isclose(normalizer.mean, np.mean([2.8, 2.0]), atol=1e-3)
+    assert normalizer.state_dict()["source"] == \
+        "reverse_variable_discounted_return_to_go_std_v2"

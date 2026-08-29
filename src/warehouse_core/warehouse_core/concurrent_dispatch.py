@@ -27,6 +27,7 @@ class ActiveAssignment:
 
 @dataclass
 class AdvanceMetrics:
+    started_at: float = 0.0
     waiting_cost: float = 0.0
     active_robot_seconds: float = 0.0
     finished: list[ActiveAssignment] = field(default_factory=list)
@@ -155,7 +156,7 @@ class ConcurrentPersistentDispatchEnvironment(PersistentDispatchEnvironment):
     def _advance_to(self, target_time: float) -> AdvanceMetrics:
         if target_time < self.now:
             raise ValueError("concurrent event target precedes current time")
-        metrics = AdvanceMetrics()
+        metrics = AdvanceMetrics(started_at=self.now)
         while self.now < target_time:
             event_times = [target_time]
             if self.queue.pending_arrivals:
@@ -166,11 +167,13 @@ class ConcurrentPersistentDispatchEnvironment(PersistentDispatchEnvironment):
             event_time = min(value for value in event_times
                              if value >= self.now)
             elapsed = event_time - self.now
+            offset = self.now - metrics.started_at
             metrics.waiting_cost += (
-                len(self.queue.waiting) + len(self.active_tasks)) * elapsed
+                (len(self.queue.waiting) + len(self.active_tasks)) *
+                self._discounted_duration(offset, elapsed))
             metrics.active_robot_seconds += sum(
                 len(item.participant_ids) for item in self.active_tasks.values()
-            ) * elapsed
+            ) * self._discounted_duration(offset, elapsed)
             self.now = event_time
 
             finished = sorted(
@@ -190,22 +193,33 @@ class ConcurrentPersistentDispatchEnvironment(PersistentDispatchEnvironment):
         failed = [item for item in metrics.finished
                   if not item.execution.success]
         deadline = sum(
-            config.on_time_bonus if item.finish_at <= item.task.deadline
-            else -config.timeout_penalty for item in successful)
+            (config.on_time_bonus if item.finish_at <= item.task.deadline
+             else -config.timeout_penalty) * self._event_discount(
+                 item.finish_at - metrics.started_at)
+            for item in successful)
         return {
             "outstanding_time": -metrics.waiting_cost /
                                 config.outstanding_time_scale,
-            "completion": len(successful) * config.completion_bonus,
+            "completion": sum(
+                config.completion_bonus * self._event_discount(
+                    item.finish_at - metrics.started_at)
+                for item in successful),
             "deadline": deadline,
             "handover": -sum(
-                len(item.execution.handover_durations)
-                for item in metrics.finished) * config.handover_penalty,
+                len(item.execution.handover_durations) *
+                config.handover_penalty * self._event_discount(
+                    item.finish_at - metrics.started_at)
+                for item in metrics.finished),
             "active_robot_time": -(metrics.active_robot_seconds *
                                    config.active_robot_time_penalty),
             "distance": -sum(
-                item.execution.travelled for item in metrics.finished) *
-                        config.distance_penalty,
-            "failure": -len(failed) * config.timeout_penalty,
+                item.execution.travelled * config.distance_penalty *
+                self._event_discount(item.finish_at - metrics.started_at)
+                for item in metrics.finished),
+            "failure": -sum(
+                config.timeout_penalty * self._event_discount(
+                    item.finish_at - metrics.started_at)
+                for item in failed),
         }
 
     @staticmethod

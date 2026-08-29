@@ -1,0 +1,92 @@
+{
+  "schema_version": "warehouse_stage23_interface_gate_v1",
+  "created_at_utc": "2026-08-29T03:49:15.747153+00:00",
+  "stage": 23,
+  "gate": "MARKOV_CONTINUOUS_INTERFACE_AND_PROVENANCE_GATE",
+  "protocol": "tro_stage23_markov_continuous_v1",
+  "claim_boundary": "Interface, deterministic-contract, provenance and safety gate only; not a convergence or performance claim.",
+  "method": {
+    "observation_variant": "MARKOV_CONTEXT_V3",
+    "policy_variant": "CONTEXT_INTERACTION",
+    "discount_mode": "VARIABLE_SMDP",
+    "trace_mode": "DURATION_SCALED",
+    "trace_tau_s": 10.0,
+    "reward_contract": "CONTINUOUS_TIME_V3",
+    "warm_start": true,
+    "allowed_transport_modes": [
+      "SINGLE_CAR",
+      "SINGLE_DOG",
+      "CAR_DOG_CAR"
+    ]
+  },
+  "command_results": [
+    {
+      "command": [
+        "/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python",
+        "/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage23_event_partition_audit.py"
+      ],
+      "returncode": 0,
+      "stdout_tail": "{\n  \"output\": \"/Users/lab4099/Desktop/Mujoco/work/results/stage23_event_partition/stage23_event_partition_audit.json\",\n  \"audit_execution_passed\": true,\n  \"scientific_status\": \"PASS_CORRECTED_CONTINUOUS_TIME_V3\",\n  \"failures\": [],\n  \"formal_locked_test_blocked\": false\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "command": [
+        "/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python",
+        "/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage23_state_sufficiency_audit.py"
+      ],
+      "returncode": 0,
+      "stdout_tail": "{\n  \"json_output\": \"/Users/lab4099/Desktop/Mujoco/work/results/stage23_state_sufficiency/stage23_state_sufficiency_audit.json\",\n  \"csv_output\": \"/Users/lab4099/Desktop/Mujoco/work/results/stage23_state_sufficiency/stage23_observation_284_variable_map.csv\",\n  \"markov_v3_csv_output\": \"/Users/lab4099/Desktop/Mujoco/work/results/stage23_state_sufficiency/stage23_markov_v3_1720_variable_map.csv\",\n  \"audit_execution_passed\": true,\n  \"scientific_status\": \"PASS_MARKOV_CONTEXT_V3_CONSTRUCTIVE_ALIAS_GATE\",\n  \"detected_aliases\": [\n    \"active_assignment_residual_time_alias\",\n    \"next_arrival_residual_time_alias\",\n    \"top8_hidden_waiting_task_alias\"\n  ],\n  \"formal_locked_test_blocked\": false\n}\n",
+      "stderr_tail": ""
+    }
+  ],
+  "core_tests": {
+    "command": [
+      "/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python",
+      "-m",
+      "pytest",
+      "-p",
+      "no:cacheprovider",
+      "src/warehouse_core/test/test_core.py",
+      "-q"
+    ],
+    "returncode": 0,
+    "passed_count": 55,
+    "stdout": ".......................................................                  [100%]\n55 passed in 0.70s\n",
+    "stderr": ""
+  },
+  "seed_partitions": {
+    "training_episode_seed_count": 80000,
+    "warm_start_seed_count": 200,
+    "validation_seed_count": 100,
+    "locked_test_seed_count": 100,
+    "pilot_seed_count": 334,
+    "all_partitions_disjoint": true
+  },
+  "evidence": {
+    "event_audit": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_event_partition/stage23_event_partition_audit.json",
+    "state_audit": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_state_sufficiency/stage23_state_sufficiency_audit.json",
+    "warm_start_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/smoke/stage23_markov_v3_warm_start.summary.json",
+    "warm_ppo_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/smoke/stage23_markov_v3_warm_ppo_smoke.summary.json",
+    "protocol_config": "/Users/lab4099/Desktop/Mujoco/work/src/warehouse_bringup/config/experiment_seeds_stage23_markov_continuous.yaml"
+  },
+  "checks": {
+    "audit_commands_succeeded": true,
+    "core_tests_pass": true,
+    "event_partition_gate_passes": true,
+    "event_audit_hashes_match_current_sources": true,
+    "markov_alias_gate_passes": true,
+    "state_audit_hash_matches_current_source": true,
+    "warm_start_gate_passes": true,
+    "warm_start_covers_all_three_modes": true,
+    "warm_started_ppo_smoke_passes": true,
+    "ppo_uses_markov_context_v3": true,
+    "ppo_uses_continuous_time_contract": true,
+    "ppo_uses_corrected_return_normalizer": true,
+    "ppo_warm_start_provenance_matches": true,
+    "ppo_resolves_all_tasks": true,
+    "ppo_has_no_illegal_action_or_resource_leak": true,
+    "seed_partitions_are_disjoint": true
+  },
+  "passed": true,
+  "next_gate": "THREE_SEED_OPTIMIZATION_PILOT"
+}

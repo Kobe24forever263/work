@@ -1,0 +1,468 @@
+[
+  {
+    "update": 1,
+    "episodes_trained": 1,
+    "rollout_steps": 230,
+    "rollout_discount_min": 0.9113647002378344,
+    "rollout_discount_max": 0.9999631749198977,
+    "rollout_mean_reward": -648.7335716440573,
+    "raw_episode_reward_mean": -648.7335716440573,
+    "rollout_completed": 74,
+    "rollout_failed": 6,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 1
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 28,
+      "SINGLE_CAR": 40,
+      "SINGLE_DOG": 12
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 1
+    },
+    "rollout_curriculum_phase_orders": {
+      "NORMAL->DENSE->BURST->RECOVERY": 1
+    },
+    "loss": 0.04282180918380618,
+    "actor_loss": -0.018744016299024224,
+    "value_loss": 0.12794368201866746,
+    "entropy": 0.2406014468288049,
+    "approximate_kl": 0.14723628672072664,
+    "clip_fraction": 0.09049479197710752,
+    "gradient_norm": 1.3487864015623927,
+    "raw_reward_mean": -2.8205807209014893,
+    "normalized_reward_mean": -0.01900048926472664,
+    "normalized_reward_std": 0.049862515181303024,
+    "return_normalizer_variance": 22036.74410766407
+  },
+  {
+    "update": 2,
+    "episodes_trained": 2,
+    "rollout_steps": 220,
+    "rollout_discount_min": 0.9131594531596807,
+    "rollout_discount_max": 0.9999860520515664,
+    "rollout_mean_reward": -291.2375094531868,
+    "raw_episode_reward_mean": -291.2375094531868,
+    "rollout_completed": 74,
+    "rollout_failed": 6,
+    "rollout_peak_active_tasks": 4,
+    "rollout_execution_modes": {
+      "CONCURRENT": 1
+    },
+    "rollout_transport_modes": {
+      "SINGLE_CAR": 39,
+      "CAR_DOG_CAR": 27,
+      "SINGLE_DOG": 14
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 1
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->DENSE->RECOVERY->NORMAL": 1
+    },
+    "loss": 0.02553996630012989,
+    "actor_loss": 0.0011148391557591303,
+    "value_loss": 0.055456122915659635,
+    "entropy": 0.33029324135610033,
+    "approximate_kl": 0.007525270738239799,
+    "clip_fraction": 0.027742347280894007,
+    "gradient_norm": 1.1488745510578156,
+    "raw_reward_mean": -1.3238067626953125,
+    "normalized_reward_mean": -0.009329380467534065,
+    "normalized_reward_std": 0.027862658724188805,
+    "return_normalizer_variance": 20134.629082020954,
+    "evaluation": {
+      "episode_count": 1,
+      "task_count": 80,
+      "scheduled_task_count": 80,
+      "completed": 76,
+      "failed": 4,
+      "unresolved": 0,
+      "effective_failed": 4,
+      "resolution_rate": 1.0,
+      "success_rate": 0.95,
+      "reward_units": "raw_environment_episode_sum",
+      "mean_reward": -203.86325638916784,
+      "mean_terminal_adjusted_reward": -203.86325638916784,
+      "mean_simulated_time": 5006.8069573709845,
+      "throughput_tasks_per_hour": 57.52169046102496,
+      "resolved_throughput_tasks_per_hour": 57.52169046102496,
+      "successful_throughput_tasks_per_hour": 54.64560593797372,
+      "handover_sampling": "SEQUENTIAL",
+      "allowed_transport_modes": null,
+      "illegal_action_count": 0,
+      "maximum_active_tasks": 3,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 27,
+        "SINGLE_CAR": 40,
+        "SINGLE_DOG": 13
+      },
+      "transport_modes_by_phase": {
+        "BURST": {
+          "CAR_DOG_CAR": 4,
+          "SINGLE_CAR": 6,
+          "SINGLE_DOG": 2
+        },
+        "DENSE": {
+          "CAR_DOG_CAR": 6,
+          "SINGLE_CAR": 8,
+          "SINGLE_DOG": 2
+        },
+        "NORMAL": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 14,
+          "SINGLE_DOG": 4
+        },
+        "RECOVERY": {
+          "CAR_DOG_CAR": 7,
+          "SINGLE_CAR": 12,
+          "SINGLE_DOG": 5
+        }
+      },
+      "arrival_schedule": "MIXED_CURRICULUM",
+      "exposed_transport_modes": [
+        "CAR_DOG_CAR",
+        "SINGLE_CAR",
+        "SINGLE_DOG"
+      ],
+      "selected_mode_by_cost_reference": {
+        "CAR_DOG_CAR": {
+          "CAR_DOG_CAR": 27,
+          "SINGLE_DOG": 1
+        },
+        "SINGLE_CAR": {
+          "SINGLE_CAR": 40
+        },
+        "SINGLE_DOG": {
+          "SINGLE_DOG": 12
+        }
+      },
+      "selected_mode_by_floor_relation": {
+        "CROSS_FLOOR": {
+          "CAR_DOG_CAR": 27,
+          "SINGLE_DOG": 13
+        },
+        "SAME_FLOOR": {
+          "SINGLE_CAR": 40
+        }
+      },
+      "cost_reference_mode_agreement": 0.9875,
+      "cost_reference_decision_count": 80,
+      "arrival_schedule_metadata": [
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68191000,
+          "phase_order": [
+            "DENSE",
+            "BURST",
+            "NORMAL",
+            "RECOVERY"
+          ],
+          "phase_lengths": [
+            16,
+            12,
+            28,
+            24
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "DENSE",
+              "task_count": 16,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 292.6279888884726
+            },
+            {
+              "phase_index": 1,
+              "phase": "BURST",
+              "task_count": 12,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 2.2102779109013335,
+              "first_arrival_s": 294.8382667993739,
+              "last_arrival_s": 316.6459378464322
+            },
+            {
+              "phase_index": 2,
+              "phase": "NORMAL",
+              "task_count": 28,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 58.77515076735457,
+              "first_arrival_s": 375.42108861378676,
+              "last_arrival_s": 2794.1712791915047
+            },
+            {
+              "phase_index": 3,
+              "phase": "RECOVERY",
+              "task_count": 24,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 81.8763243720273,
+              "first_arrival_s": 2876.047603563532,
+              "last_arrival_s": 4919.862609487372
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "update": 3,
+    "episodes_trained": 3,
+    "rollout_steps": 230,
+    "rollout_discount_min": 0.9114695012045427,
+    "rollout_discount_max": 0.9998556125771746,
+    "rollout_mean_reward": -346.0239599285372,
+    "raw_episode_reward_mean": -346.0239599285372,
+    "rollout_completed": 78,
+    "rollout_failed": 2,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 1
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 26,
+      "SINGLE_CAR": 40,
+      "SINGLE_DOG": 14
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 1
+    },
+    "rollout_curriculum_phase_orders": {
+      "DENSE->NORMAL->BURST->RECOVERY": 1
+    },
+    "loss": 0.084025553020183,
+    "actor_loss": 0.03674218337982893,
+    "value_loss": 0.09966633468866348,
+    "entropy": 0.2549801350105554,
+    "approximate_kl": 0.006399291898560477,
+    "clip_fraction": 0.056640625931322575,
+    "gradient_norm": 2.532733019441366,
+    "raw_reward_mean": -1.504451870918274,
+    "normalized_reward_mean": -0.011686601676046848,
+    "normalized_reward_std": 0.036080460995435715,
+    "return_normalizer_variance": 16572.197014178942
+  },
+  {
+    "update": 4,
+    "episodes_trained": 4,
+    "rollout_steps": 228,
+    "rollout_discount_min": 0.9142324832312524,
+    "rollout_discount_max": 0.9999476327819459,
+    "rollout_mean_reward": -82.98177558775498,
+    "raw_episode_reward_mean": -82.98177558775498,
+    "rollout_completed": 79,
+    "rollout_failed": 1,
+    "rollout_peak_active_tasks": 3,
+    "rollout_execution_modes": {
+      "CONCURRENT": 1
+    },
+    "rollout_transport_modes": {
+      "CAR_DOG_CAR": 27,
+      "SINGLE_CAR": 39,
+      "SINGLE_DOG": 14
+    },
+    "rollout_exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "rollout_arrival_schedules": {
+      "MIXED_CURRICULUM": 1
+    },
+    "rollout_curriculum_phase_orders": {
+      "BURST->RECOVERY->DENSE->NORMAL": 1
+    },
+    "loss": 0.04525733971968293,
+    "actor_loss": 0.04010713146999478,
+    "value_loss": 0.015028148314740974,
+    "entropy": 0.23638675127585884,
+    "approximate_kl": -0.006892012141179293,
+    "clip_fraction": 0.03125,
+    "gradient_norm": 0.9779915567487478,
+    "raw_reward_mean": -0.36395516991615295,
+    "normalized_reward_mean": -0.003026141319423914,
+    "normalized_reward_std": 0.017185350880026817,
+    "return_normalizer_variance": 14464.961450300912,
+    "evaluation": {
+      "episode_count": 1,
+      "task_count": 80,
+      "scheduled_task_count": 80,
+      "completed": 76,
+      "failed": 4,
+      "unresolved": 0,
+      "effective_failed": 4,
+      "resolution_rate": 1.0,
+      "success_rate": 0.95,
+      "reward_units": "raw_environment_episode_sum",
+      "mean_reward": -157.3966493023414,
+      "mean_terminal_adjusted_reward": -157.3966493023414,
+      "mean_simulated_time": 5006.8069573709845,
+      "throughput_tasks_per_hour": 57.52169046102496,
+      "resolved_throughput_tasks_per_hour": 57.52169046102496,
+      "successful_throughput_tasks_per_hour": 54.64560593797372,
+      "handover_sampling": "SEQUENTIAL",
+      "allowed_transport_modes": null,
+      "illegal_action_count": 0,
+      "maximum_active_tasks": 3,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 27,
+        "SINGLE_CAR": 40,
+        "SINGLE_DOG": 13
+      },
+      "transport_modes_by_phase": {
+        "BURST": {
+          "CAR_DOG_CAR": 4,
+          "SINGLE_CAR": 6,
+          "SINGLE_DOG": 2
+        },
+        "DENSE": {
+          "CAR_DOG_CAR": 6,
+          "SINGLE_CAR": 8,
+          "SINGLE_DOG": 2
+        },
+        "NORMAL": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 14,
+          "SINGLE_DOG": 4
+        },
+        "RECOVERY": {
+          "CAR_DOG_CAR": 7,
+          "SINGLE_CAR": 12,
+          "SINGLE_DOG": 5
+        }
+      },
+      "arrival_schedule": "MIXED_CURRICULUM",
+      "exposed_transport_modes": [
+        "CAR_DOG_CAR",
+        "SINGLE_CAR",
+        "SINGLE_DOG"
+      ],
+      "selected_mode_by_cost_reference": {
+        "CAR_DOG_CAR": {
+          "CAR_DOG_CAR": 27,
+          "SINGLE_DOG": 1
+        },
+        "SINGLE_CAR": {
+          "SINGLE_CAR": 40
+        },
+        "SINGLE_DOG": {
+          "SINGLE_DOG": 12
+        }
+      },
+      "selected_mode_by_floor_relation": {
+        "CROSS_FLOOR": {
+          "CAR_DOG_CAR": 27,
+          "SINGLE_DOG": 13
+        },
+        "SAME_FLOOR": {
+          "SINGLE_CAR": 40
+        }
+      },
+      "cost_reference_mode_agreement": 0.9875,
+      "cost_reference_decision_count": 80,
+      "arrival_schedule_metadata": [
+        {
+          "schema_version": "warehouse_stage20_mixed_curriculum_v1",
+          "seed": 68191000,
+          "phase_order": [
+            "DENSE",
+            "BURST",
+            "NORMAL",
+            "RECOVERY"
+          ],
+          "phase_lengths": [
+            16,
+            12,
+            28,
+            24
+          ],
+          "total_tasks": 80,
+          "state_reset_between_phases": false,
+          "phase_rows": [
+            {
+              "phase_index": 0,
+              "phase": "DENSE",
+              "task_count": 16,
+              "arrival_interval_s": [
+                15.0,
+                25.0
+              ],
+              "switch_gap_s": 0.0,
+              "first_arrival_s": 0.0,
+              "last_arrival_s": 292.6279888884726
+            },
+            {
+              "phase_index": 1,
+              "phase": "BURST",
+              "task_count": 12,
+              "arrival_interval_s": [
+                1.0,
+                3.0
+              ],
+              "switch_gap_s": 2.2102779109013335,
+              "first_arrival_s": 294.8382667993739,
+              "last_arrival_s": 316.6459378464322
+            },
+            {
+              "phase_index": 2,
+              "phase": "NORMAL",
+              "task_count": 28,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 58.77515076735457,
+              "first_arrival_s": 375.42108861378676,
+              "last_arrival_s": 2794.1712791915047
+            },
+            {
+              "phase_index": 3,
+              "phase": "RECOVERY",
+              "task_count": 24,
+              "arrival_interval_s": [
+                80.0,
+                100.0
+              ],
+              "switch_gap_s": 81.8763243720273,
+              "first_arrival_s": 2876.047603563532,
+              "last_arrival_s": 4919.862609487372
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

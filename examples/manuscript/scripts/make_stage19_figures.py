@@ -590,7 +590,7 @@ def draw_paired_panel(c: canvas.Canvas, left: float, bottom: float,
         return plot_left + (value - xmin) / (xmax - xmin) * plot_w
 
     c.setFillColor(COLORS["TEXT"])
-    c.setFont("Helvetica-Bold", 7.3)
+    c.setFont("Helvetica-Bold", 8.6)
     c.drawString(left, bottom + height - 8.0, title)
 
     for tick in ticks:
@@ -599,7 +599,7 @@ def draw_paired_panel(c: canvas.Canvas, left: float, bottom: float,
         c.setLineWidth(0.4)
         c.line(x, plot_bottom, x, plot_bottom + plot_h)
         c.setFillColor(COLORS["TEXT"])
-        c.setFont("Helvetica", 5.8)
+        c.setFont("Helvetica", 7.0)
         label = f"{tick:g}"
         c.drawCentredString(x, plot_bottom - 8.2, label)
     if xmin < 0 < xmax:
@@ -615,13 +615,13 @@ def draw_paired_panel(c: canvas.Canvas, left: float, bottom: float,
     for profile, y in zip(PROFILES, ys):
         estimate, lo, hi = values[profile]
         c.setFillColor(COLORS["TEXT"])
-        c.setFont("Helvetica", 6.2)
+        c.setFont("Helvetica", 7.2)
         c.drawRightString(plot_left - 4, y - 2, PROFILE_LABELS[profile])
         draw_h_error(c, sx(lo), sx(hi), y, COLORS[profile])
         draw_marker(c, sx(estimate), y, COLORS[profile], shapes[profile], 2.8)
 
     c.setFillColor(COLORS["TEXT"])
-    c.setFont("Helvetica", 6.1)
+    c.setFont("Helvetica", 7.2)
     c.drawCentredString(plot_left + plot_w / 2, bottom + 1.5, xlabel)
 
 
@@ -676,7 +676,7 @@ def make_adaptation_figure(summary: dict, raw: dict, baseline: dict) -> Path:
     plot_left, plot_bottom = left + 39.0, bottom + 24.0
     plot_w, plot_h = panel_w - 47.0, panel_h - 48.0
     c.setFillColor(COLORS["TEXT"])
-    c.setFont("Helvetica-Bold", 7.5)
+    c.setFont("Helvetica-Bold", 8.6)
     c.drawString(left, bottom + panel_h - 8, "(a) Relay-mode share across a continuous load sequence")
 
     def sy_share(value: float) -> float:
@@ -689,16 +689,16 @@ def make_adaptation_figure(summary: dict, raw: dict, baseline: dict) -> Path:
         c.setLineWidth(0.4)
         c.line(plot_left, y, plot_left + plot_w, y)
         c.setFillColor(COLORS["TEXT"])
-        c.setFont("Helvetica", 5.8)
+        c.setFont("Helvetica", 7.0)
         c.drawRightString(plot_left - 4, y - 2, str(tick))
     draw_axes_box(c, plot_left, plot_bottom, plot_w, plot_h)
-    c.setFont("Helvetica", 6.2)
+    c.setFont("Helvetica", 7.2)
     for x, phase in zip(x_positions, PHASES):
         c.drawCentredString(x, plot_bottom - 10, phase.title())
     c.saveState()
     c.translate(left + 8, plot_bottom + plot_h / 2)
     c.rotate(90)
-    c.setFont("Helvetica", 6.2)
+    c.setFont("Helvetica", 7.2)
     c.drawCentredString(0, 0, "Car-dog-car task share (%)")
     c.restoreState()
 
@@ -755,7 +755,7 @@ def make_adaptation_figure(summary: dict, raw: dict, baseline: dict) -> Path:
         c.setDash()
         draw_marker(c, x + 6, legend_y, COLORS[key], shape, 2.1, fill=key != "RULE")
         c.setFillColor(COLORS["TEXT"])
-        c.setFont("Helvetica", 5.7)
+        c.setFont("Helvetica", 6.8)
         c.drawString(x + 15, legend_y - 2, label)
 
     # Panel (b): recovery waiting-time change.
@@ -763,7 +763,7 @@ def make_adaptation_figure(summary: dict, raw: dict, baseline: dict) -> Path:
     plot_left2, plot_bottom2 = left2 + 62.0, bottom2 + 24.0
     plot_w2, plot_h2 = panel_w2 - 70.0, panel_h2 - 48.0
     c.setFillColor(COLORS["TEXT"])
-    c.setFont("Helvetica-Bold", 7.5)
+    c.setFont("Helvetica-Bold", 8.6)
     c.drawString(left2, bottom2 + panel_h2 - 8, "(b) Recovery queue clearance")
     xmin, xmax = -230.0, 20.0
 
@@ -776,7 +776,7 @@ def make_adaptation_figure(summary: dict, raw: dict, baseline: dict) -> Path:
         c.setLineWidth(0.4)
         c.line(x, plot_bottom2, x, plot_bottom2 + plot_h2)
         c.setFillColor(COLORS["TEXT"])
-        c.setFont("Helvetica", 5.8)
+        c.setFont("Helvetica", 7.0)
         c.drawCentredString(x, plot_bottom2 - 9, str(tick))
     c.setStrokeColor(HexColor("#777777"))
     c.setDash(2, 2)
@@ -789,7 +789,7 @@ def make_adaptation_figure(summary: dict, raw: dict, baseline: dict) -> Path:
     for row_idx, (key, y) in enumerate(zip(rows, ys)):
         label = PROFILE_LABELS.get(key, "Time-greedy")
         c.setFillColor(COLORS["TEXT"])
-        c.setFont("Helvetica", 6.1)
+        c.setFont("Helvetica", 7.2)
         c.drawRightString(plot_left2 - 4, y - 2, label)
         if key == "RULE":
             draw_marker(c, sx_wait(baseline["recovery_mean"]), y,
@@ -807,11 +807,11 @@ def make_adaptation_figure(summary: dict, raw: dict, baseline: dict) -> Path:
         draw_marker(c, sx_wait(item["estimate"]), y, COLORS[key], shapes[key], 2.8)
 
     c.setFillColor(COLORS["TEXT"])
-    c.setFont("Helvetica", 6.0)
+    c.setFont("Helvetica", 7.1)
     c.drawCentredString(plot_left2 + plot_w2 / 2, bottom2 + 1.5,
                         "Late - early recovery waiting time (s)")
-    c.setFont("Helvetica-Oblique", 5.7)
-    c.drawString(plot_left2 + 2, bottom2 + panel_h2 - 22, "Negative values indicate queue clearance")
+    c.setFont("Helvetica-Oblique", 6.7)
+    c.drawString(plot_left2 + 2, bottom2 + panel_h2 - 22, "Negative = queue clearance")
 
     c.showPage()
     c.save()

@@ -1,0 +1,285 @@
+index,block,slot,field,source_expression,causal_scope
+0,global,,normalized_time,env.now / env.time_limit,aggregate_or_clock
+1,global,,waiting_count,len(queue.waiting) / 50,aggregate_or_clock
+2,global,,pending_arrival_count,"min(len(pending), 20) / 50",aggregate_or_clock
+3,global,,active_task_ratio,len(active_tasks) / max_concurrent_tasks,aggregate_or_clock
+4,global,,is_concurrent,execution_mode == CONCURRENT,aggregate_or_clock
+5,global,,completed_ratio,completed / task_limit,aggregate_or_clock
+6,global,,failed_ratio,failed / task_limit,aggregate_or_clock
+7,global,,decision_gap,decision_gap / 10,aggregate_or_clock
+8,visible_waiting_task,0,present,1,top_8_priority_deadline_age_task_id_order
+9,visible_waiting_task,0,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+10,visible_waiting_task,0,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+11,visible_waiting_task,0,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+12,visible_waiting_task,0,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+13,visible_waiting_task,0,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+14,visible_waiting_task,0,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+15,visible_waiting_task,0,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+16,visible_waiting_task,0,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+17,visible_waiting_task,0,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+18,visible_waiting_task,0,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+19,visible_waiting_task,0,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+20,visible_waiting_task,0,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+21,visible_waiting_task,1,present,1,top_8_priority_deadline_age_task_id_order
+22,visible_waiting_task,1,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+23,visible_waiting_task,1,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+24,visible_waiting_task,1,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+25,visible_waiting_task,1,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+26,visible_waiting_task,1,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+27,visible_waiting_task,1,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+28,visible_waiting_task,1,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+29,visible_waiting_task,1,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+30,visible_waiting_task,1,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+31,visible_waiting_task,1,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+32,visible_waiting_task,1,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+33,visible_waiting_task,1,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+34,visible_waiting_task,2,present,1,top_8_priority_deadline_age_task_id_order
+35,visible_waiting_task,2,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+36,visible_waiting_task,2,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+37,visible_waiting_task,2,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+38,visible_waiting_task,2,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+39,visible_waiting_task,2,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+40,visible_waiting_task,2,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+41,visible_waiting_task,2,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+42,visible_waiting_task,2,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+43,visible_waiting_task,2,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+44,visible_waiting_task,2,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+45,visible_waiting_task,2,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+46,visible_waiting_task,2,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+47,visible_waiting_task,3,present,1,top_8_priority_deadline_age_task_id_order
+48,visible_waiting_task,3,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+49,visible_waiting_task,3,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+50,visible_waiting_task,3,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+51,visible_waiting_task,3,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+52,visible_waiting_task,3,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+53,visible_waiting_task,3,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+54,visible_waiting_task,3,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+55,visible_waiting_task,3,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+56,visible_waiting_task,3,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+57,visible_waiting_task,3,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+58,visible_waiting_task,3,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+59,visible_waiting_task,3,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+60,visible_waiting_task,4,present,1,top_8_priority_deadline_age_task_id_order
+61,visible_waiting_task,4,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+62,visible_waiting_task,4,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+63,visible_waiting_task,4,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+64,visible_waiting_task,4,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+65,visible_waiting_task,4,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+66,visible_waiting_task,4,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+67,visible_waiting_task,4,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+68,visible_waiting_task,4,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+69,visible_waiting_task,4,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+70,visible_waiting_task,4,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+71,visible_waiting_task,4,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+72,visible_waiting_task,4,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+73,visible_waiting_task,5,present,1,top_8_priority_deadline_age_task_id_order
+74,visible_waiting_task,5,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+75,visible_waiting_task,5,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+76,visible_waiting_task,5,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+77,visible_waiting_task,5,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+78,visible_waiting_task,5,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+79,visible_waiting_task,5,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+80,visible_waiting_task,5,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+81,visible_waiting_task,5,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+82,visible_waiting_task,5,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+83,visible_waiting_task,5,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+84,visible_waiting_task,5,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+85,visible_waiting_task,5,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+86,visible_waiting_task,6,present,1,top_8_priority_deadline_age_task_id_order
+87,visible_waiting_task,6,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+88,visible_waiting_task,6,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+89,visible_waiting_task,6,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+90,visible_waiting_task,6,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+91,visible_waiting_task,6,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+92,visible_waiting_task,6,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+93,visible_waiting_task,6,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+94,visible_waiting_task,6,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+95,visible_waiting_task,6,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+96,visible_waiting_task,6,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+97,visible_waiting_task,6,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+98,visible_waiting_task,6,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+99,visible_waiting_task,7,present,1,top_8_priority_deadline_age_task_id_order
+100,visible_waiting_task,7,source_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+101,visible_waiting_task,7,target_floor,floor / 2,top_8_priority_deadline_age_task_id_order
+102,visible_waiting_task,7,cross_floor,source.floor != target.floor,top_8_priority_deadline_age_task_id_order
+103,visible_waiting_task,7,priority,priority / 3,top_8_priority_deadline_age_task_id_order
+104,visible_waiting_task,7,waiting_age,"max(0, now-arrival) / 600",top_8_priority_deadline_age_task_id_order
+105,visible_waiting_task,7,deadline_slack,"max(0, deadline-now) / 600",top_8_priority_deadline_age_task_id_order
+106,visible_waiting_task,7,source_x,x / 25,top_8_priority_deadline_age_task_id_order
+107,visible_waiting_task,7,source_y,y / 25,top_8_priority_deadline_age_task_id_order
+108,visible_waiting_task,7,source_z,z / 5,top_8_priority_deadline_age_task_id_order
+109,visible_waiting_task,7,target_x,x / 25,top_8_priority_deadline_age_task_id_order
+110,visible_waiting_task,7,target_y,y / 25,top_8_priority_deadline_age_task_id_order
+111,visible_waiting_task,7,target_z,z / 5,top_8_priority_deadline_age_task_id_order
+112,robot,0,present,1,sorted_robot_id
+113,robot,0,is_dog,robot_type == dog,sorted_robot_id
+114,robot,0,nominal_speed,speed / 2,sorted_robot_id
+115,robot,0,current_floor,floor / 2,sorted_robot_id
+116,robot,0,available,available,sorted_robot_id
+117,robot,0,faulted,bool(failure_code),sorted_robot_id
+118,robot,0,loaded,bool(cargo_id),sorted_robot_id
+119,robot,0,assigned,bool(task_id),sorted_robot_id
+120,robot,0,x,x / 25,sorted_robot_id
+121,robot,0,y,y / 25,sorted_robot_id
+122,robot,0,z,z / 5,sorted_robot_id
+123,robot,0,distance_total,distance_total / 1000,sorted_robot_id
+124,robot,0,tasks_completed,tasks_completed / 50,sorted_robot_id
+125,robot,0,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+126,robot,1,present,1,sorted_robot_id
+127,robot,1,is_dog,robot_type == dog,sorted_robot_id
+128,robot,1,nominal_speed,speed / 2,sorted_robot_id
+129,robot,1,current_floor,floor / 2,sorted_robot_id
+130,robot,1,available,available,sorted_robot_id
+131,robot,1,faulted,bool(failure_code),sorted_robot_id
+132,robot,1,loaded,bool(cargo_id),sorted_robot_id
+133,robot,1,assigned,bool(task_id),sorted_robot_id
+134,robot,1,x,x / 25,sorted_robot_id
+135,robot,1,y,y / 25,sorted_robot_id
+136,robot,1,z,z / 5,sorted_robot_id
+137,robot,1,distance_total,distance_total / 1000,sorted_robot_id
+138,robot,1,tasks_completed,tasks_completed / 50,sorted_robot_id
+139,robot,1,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+140,robot,2,present,1,sorted_robot_id
+141,robot,2,is_dog,robot_type == dog,sorted_robot_id
+142,robot,2,nominal_speed,speed / 2,sorted_robot_id
+143,robot,2,current_floor,floor / 2,sorted_robot_id
+144,robot,2,available,available,sorted_robot_id
+145,robot,2,faulted,bool(failure_code),sorted_robot_id
+146,robot,2,loaded,bool(cargo_id),sorted_robot_id
+147,robot,2,assigned,bool(task_id),sorted_robot_id
+148,robot,2,x,x / 25,sorted_robot_id
+149,robot,2,y,y / 25,sorted_robot_id
+150,robot,2,z,z / 5,sorted_robot_id
+151,robot,2,distance_total,distance_total / 1000,sorted_robot_id
+152,robot,2,tasks_completed,tasks_completed / 50,sorted_robot_id
+153,robot,2,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+154,robot,3,present,1,sorted_robot_id
+155,robot,3,is_dog,robot_type == dog,sorted_robot_id
+156,robot,3,nominal_speed,speed / 2,sorted_robot_id
+157,robot,3,current_floor,floor / 2,sorted_robot_id
+158,robot,3,available,available,sorted_robot_id
+159,robot,3,faulted,bool(failure_code),sorted_robot_id
+160,robot,3,loaded,bool(cargo_id),sorted_robot_id
+161,robot,3,assigned,bool(task_id),sorted_robot_id
+162,robot,3,x,x / 25,sorted_robot_id
+163,robot,3,y,y / 25,sorted_robot_id
+164,robot,3,z,z / 5,sorted_robot_id
+165,robot,3,distance_total,distance_total / 1000,sorted_robot_id
+166,robot,3,tasks_completed,tasks_completed / 50,sorted_robot_id
+167,robot,3,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+168,robot,4,present,1,sorted_robot_id
+169,robot,4,is_dog,robot_type == dog,sorted_robot_id
+170,robot,4,nominal_speed,speed / 2,sorted_robot_id
+171,robot,4,current_floor,floor / 2,sorted_robot_id
+172,robot,4,available,available,sorted_robot_id
+173,robot,4,faulted,bool(failure_code),sorted_robot_id
+174,robot,4,loaded,bool(cargo_id),sorted_robot_id
+175,robot,4,assigned,bool(task_id),sorted_robot_id
+176,robot,4,x,x / 25,sorted_robot_id
+177,robot,4,y,y / 25,sorted_robot_id
+178,robot,4,z,z / 5,sorted_robot_id
+179,robot,4,distance_total,distance_total / 1000,sorted_robot_id
+180,robot,4,tasks_completed,tasks_completed / 50,sorted_robot_id
+181,robot,4,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+182,robot,5,present,1,sorted_robot_id
+183,robot,5,is_dog,robot_type == dog,sorted_robot_id
+184,robot,5,nominal_speed,speed / 2,sorted_robot_id
+185,robot,5,current_floor,floor / 2,sorted_robot_id
+186,robot,5,available,available,sorted_robot_id
+187,robot,5,faulted,bool(failure_code),sorted_robot_id
+188,robot,5,loaded,bool(cargo_id),sorted_robot_id
+189,robot,5,assigned,bool(task_id),sorted_robot_id
+190,robot,5,x,x / 25,sorted_robot_id
+191,robot,5,y,y / 25,sorted_robot_id
+192,robot,5,z,z / 5,sorted_robot_id
+193,robot,5,distance_total,distance_total / 1000,sorted_robot_id
+194,robot,5,tasks_completed,tasks_completed / 50,sorted_robot_id
+195,robot,5,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+196,robot,6,present,1,sorted_robot_id
+197,robot,6,is_dog,robot_type == dog,sorted_robot_id
+198,robot,6,nominal_speed,speed / 2,sorted_robot_id
+199,robot,6,current_floor,floor / 2,sorted_robot_id
+200,robot,6,available,available,sorted_robot_id
+201,robot,6,faulted,bool(failure_code),sorted_robot_id
+202,robot,6,loaded,bool(cargo_id),sorted_robot_id
+203,robot,6,assigned,bool(task_id),sorted_robot_id
+204,robot,6,x,x / 25,sorted_robot_id
+205,robot,6,y,y / 25,sorted_robot_id
+206,robot,6,z,z / 5,sorted_robot_id
+207,robot,6,distance_total,distance_total / 1000,sorted_robot_id
+208,robot,6,tasks_completed,tasks_completed / 50,sorted_robot_id
+209,robot,6,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+210,robot,7,present,1,sorted_robot_id
+211,robot,7,is_dog,robot_type == dog,sorted_robot_id
+212,robot,7,nominal_speed,speed / 2,sorted_robot_id
+213,robot,7,current_floor,floor / 2,sorted_robot_id
+214,robot,7,available,available,sorted_robot_id
+215,robot,7,faulted,bool(failure_code),sorted_robot_id
+216,robot,7,loaded,bool(cargo_id),sorted_robot_id
+217,robot,7,assigned,bool(task_id),sorted_robot_id
+218,robot,7,x,x / 25,sorted_robot_id
+219,robot,7,y,y / 25,sorted_robot_id
+220,robot,7,z,z / 5,sorted_robot_id
+221,robot,7,distance_total,distance_total / 1000,sorted_robot_id
+222,robot,7,tasks_completed,tasks_completed / 50,sorted_robot_id
+223,robot,7,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+224,robot,8,present,1,sorted_robot_id
+225,robot,8,is_dog,robot_type == dog,sorted_robot_id
+226,robot,8,nominal_speed,speed / 2,sorted_robot_id
+227,robot,8,current_floor,floor / 2,sorted_robot_id
+228,robot,8,available,available,sorted_robot_id
+229,robot,8,faulted,bool(failure_code),sorted_robot_id
+230,robot,8,loaded,bool(cargo_id),sorted_robot_id
+231,robot,8,assigned,bool(task_id),sorted_robot_id
+232,robot,8,x,x / 25,sorted_robot_id
+233,robot,8,y,y / 25,sorted_robot_id
+234,robot,8,z,z / 5,sorted_robot_id
+235,robot,8,distance_total,distance_total / 1000,sorted_robot_id
+236,robot,8,tasks_completed,tasks_completed / 50,sorted_robot_id
+237,robot,8,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+238,robot,9,present,1,sorted_robot_id
+239,robot,9,is_dog,robot_type == dog,sorted_robot_id
+240,robot,9,nominal_speed,speed / 2,sorted_robot_id
+241,robot,9,current_floor,floor / 2,sorted_robot_id
+242,robot,9,available,available,sorted_robot_id
+243,robot,9,faulted,bool(failure_code),sorted_robot_id
+244,robot,9,loaded,bool(cargo_id),sorted_robot_id
+245,robot,9,assigned,bool(task_id),sorted_robot_id
+246,robot,9,x,x / 25,sorted_robot_id
+247,robot,9,y,y / 25,sorted_robot_id
+248,robot,9,z,z / 5,sorted_robot_id
+249,robot,9,distance_total,distance_total / 1000,sorted_robot_id
+250,robot,9,tasks_completed,tasks_completed / 50,sorted_robot_id
+251,robot,9,idle_duration,"max(0, now-idle_since) / 600",sorted_robot_id
+252,stair,0,present,1,sorted_stair_id
+253,stair,0,free,state == FREE,sorted_stair_id
+254,stair,0,floor1_x,x / 25,sorted_stair_id
+255,stair,0,floor1_y,y / 25,sorted_stair_id
+256,stair,0,floor1_z,z / 5,sorted_stair_id
+257,stair,0,floor2_x,x / 25,sorted_stair_id
+258,stair,0,floor2_y,y / 25,sorted_stair_id
+259,stair,0,floor2_z,z / 5,sorted_stair_id
+260,stair,1,present,1,sorted_stair_id
+261,stair,1,free,state == FREE,sorted_stair_id
+262,stair,1,floor1_x,x / 25,sorted_stair_id
+263,stair,1,floor1_y,y / 25,sorted_stair_id
+264,stair,1,floor1_z,z / 5,sorted_stair_id
+265,stair,1,floor2_x,x / 25,sorted_stair_id
+266,stair,1,floor2_y,y / 25,sorted_stair_id
+267,stair,1,floor2_z,z / 5,sorted_stair_id
+268,stair,2,present,1,sorted_stair_id
+269,stair,2,free,state == FREE,sorted_stair_id
+270,stair,2,floor1_x,x / 25,sorted_stair_id
+271,stair,2,floor1_y,y / 25,sorted_stair_id
+272,stair,2,floor1_z,z / 5,sorted_stair_id
+273,stair,2,floor2_x,x / 25,sorted_stair_id
+274,stair,2,floor2_y,y / 25,sorted_stair_id
+275,stair,2,floor2_z,z / 5,sorted_stair_id
+276,stair,3,present,1,sorted_stair_id
+277,stair,3,free,state == FREE,sorted_stair_id
+278,stair,3,floor1_x,x / 25,sorted_stair_id
+279,stair,3,floor1_y,y / 25,sorted_stair_id
+280,stair,3,floor1_z,z / 5,sorted_stair_id
+281,stair,3,floor2_x,x / 25,sorted_stair_id
+282,stair,3,floor2_y,y / 25,sorted_stair_id
+283,stair,3,floor2_z,z / 5,sorted_stair_id

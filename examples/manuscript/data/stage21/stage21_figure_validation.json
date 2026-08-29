@@ -1,0 +1,50 @@
+{
+  "stage": 21,
+  "status": "PASS",
+  "source": "Frozen Stage 21 manuscript data copied from GitHub main commit 14110377c0607fe7deec0367513720f1874ffb7c",
+  "sha256_files_checked": [
+    "campaign_baselines_01_01.status.json",
+    "campaign_ppo_01_10.status.json",
+    "fault_robustness_locked_summary.json",
+    "latency_scaling_formal.json",
+    "stage21_fault_protocol_freeze_manifest.json",
+    "fault_absolute.csv",
+    "fault_comparisons.csv",
+    "fault_degradation_from_control.csv",
+    "latency_summary.csv"
+  ],
+  "campaigns": {
+    "ppo_jobs": 40,
+    "baseline_jobs": 8,
+    "ppo_tasks": 320000,
+    "baseline_tasks": 64000,
+    "freeze_gate_passed": true
+  },
+  "fault_robustness": {
+    "absolute_rows": 108,
+    "comparison_rows": 70,
+    "degradation_rows": 72,
+    "bootstrap_replicates": 10000,
+    "selected_forest_points": 16
+  },
+  "latency_scaling": {
+    "scenario_count": 54,
+    "samples_per_component_per_scenario": 500,
+    "maximum_visible_tasks": 8,
+    "maximum_candidate_slots": 1536,
+    "engineering_p99_budget_ms": 100.0,
+    "worst_scenario": "R10_S4_Q16",
+    "worst_end_to_end_p99_ms": 4.8145412499999996,
+    "max_p99_ms": {
+      "Candidate generation": 0.98028458,
+      "Legality mask": 1.09132667,
+      "Complete encoder": 3.67870075,
+      "Policy forward": 1.35925149,
+      "End-to-end": 4.8145412499999996
+    }
+  },
+  "outputs": [
+    "fig_stage21_latency_scaling.pdf",
+    "fig_stage21_fault_waiting_effects.pdf"
+  ]
+}

@@ -33,14 +33,18 @@ def checkpoint_payload(model, optimizer, reward_normalizer, args, update,
                        episodes, best_score, ppo_generator=None):
     return {
         "schema_version": RESULT_SCHEMA_VERSION,
-        "format": "warehouse_stage14_smdp_ppo_reward_v2_context_v2",
+        "format": (
+            f"warehouse_smdp_ppo_{args.observation_variant.lower()}_"
+            f"{args.reward_contract.lower()}"),
         "algorithm": ALGORITHM_NAME,
-        "reward_version": REWARD_VERSION,
+        "reward_version": args.reward_contract,
         "reward_config": {
             "outstanding_time_scale": 30.0,
             "handover_timeout_penalty": 2.0,
             "active_robot_time_penalty": 0.0002,
             "mode_specific_bonus": False,
+            "continuous_time_discounting": (
+                args.reward_contract == "CONTINUOUS_TIME_V3"),
         },
         "model_metadata": model.metadata(),
         "model_state_dict": model.state_dict(),
@@ -51,6 +55,13 @@ def checkpoint_payload(model, optimizer, reward_normalizer, args, update,
         "observation_variant": args.observation_variant,
         "policy_variant": args.policy_variant,
         "discount_mode": args.discount_mode,
+        "trace_mode": args.trace_mode,
+        "trace_tau_s": args.trace_tau_s,
+        "reward_contract": args.reward_contract,
+        "allowed_transport_modes": (
+            sorted(args.allowed_transport_modes)
+            if args.allowed_transport_modes is not None else None),
+        "allow_ablation_outcome": args.allow_ablation_outcome,
         "encoder_metadata": Stage12Encoder(
             args.observation_variant).metadata(),
         "update": update,
@@ -97,7 +108,8 @@ def main():
     parser.add_argument("--arrival-profile", choices=(
         "MEDIUM", "DENSE", "BURST", "MIXED_CURRICULUM"), default="MEDIUM")
     parser.add_argument("--observation-variant", choices=(
-        "FULL_CONTEXT_V2", "NO_QUEUE_RESOURCE", "NO_HANDOVER_CUES",
+        "FULL_CONTEXT_V2", "MARKOV_CONTEXT_V3",
+        "NO_QUEUE_RESOURCE", "NO_HANDOVER_CUES",
         "NO_PERSISTENT_POSITION", "NO_POSITION_ONLY", "NO_ETA_COST_ONLY",
         "NO_HISTORY_ONLY", "NO_EXPLICIT_QUEUE_RESOURCE",
         "NO_EXPLICIT_HANDOVER_RISK"), default="FULL_CONTEXT_V2")
@@ -106,6 +118,22 @@ def main():
         default="CONTEXT_INTERACTION")
     parser.add_argument("--discount-mode", choices=(
         "VARIABLE_SMDP", "FIXED_PER_DECISION"), default="VARIABLE_SMDP")
+    parser.add_argument("--trace-mode", choices=(
+        "PER_EVENT_LEGACY", "DURATION_SCALED"),
+        default="PER_EVENT_LEGACY")
+    parser.add_argument("--trace-tau-s", type=float, default=10.0)
+    parser.add_argument("--reward-contract", choices=(
+        "REWARD_V2_LEGACY", "CONTINUOUS_TIME_V3"),
+        default="REWARD_V2_LEGACY")
+    parser.add_argument(
+        "--allowed-transport-modes", nargs="+", choices=(
+            "SINGLE_CAR", "SINGLE_DOG", "CAR_DOG_CAR"),
+        help=("Restrict both training and evaluation to these modes. "
+              "Omit to expose all three modes."))
+    parser.add_argument(
+        "--allow-ablation-outcome", action="store_true",
+        help=("Record context-switching collapse as an experimental outcome "
+              "rather than failing an otherwise safe completed run."))
     parser.add_argument("--updates", type=int, default=2)
     parser.add_argument("--episodes-per-update", type=int, default=2)
     parser.add_argument("--ppo-epochs", type=int, default=2)
@@ -133,6 +161,8 @@ def main():
            args.minibatch_size, args.eval_episodes, args.eval_every,
            args.checkpoint_every, args.log_every) <= 0:
         parser.error("all count arguments must be positive")
+    if args.trace_tau_s <= 0:
+        parser.error("trace time scale must be positive")
 
     mode = args.execution_mode.lower()
     profile = args.arrival_profile.lower()
@@ -150,14 +180,33 @@ def main():
     torch.manual_seed(args.seed)
     torch.set_num_threads(4)
     device = torch.device("cpu")
+    policy_encoder = Stage12Encoder(args.observation_variant)
     if args.resume:
         model, payload = load_checkpoint(args.resume, device)
         if payload["execution_mode"] != args.execution_mode or \
                 payload["arrival_profile"] != args.arrival_profile:
             raise ValueError("resume checkpoint mode/profile mismatch")
-        for key in ("observation_variant", "policy_variant", "discount_mode"):
+        for key in ("observation_variant", "policy_variant", "discount_mode",
+                    "trace_mode", "reward_contract"):
             if payload.get(key, getattr(args, key)) != getattr(args, key):
                 raise ValueError(f"resume checkpoint {key} mismatch")
+        if not math.isclose(
+                float(payload.get("trace_tau_s", args.trace_tau_s)),
+                args.trace_tau_s, rel_tol=0.0, abs_tol=1e-12):
+            raise ValueError("resume checkpoint trace_tau_s mismatch")
+        normalizer_source = payload.get(
+            "reward_normalizer", {}).get("source", "")
+        if normalizer_source != \
+                "reverse_variable_discounted_return_to_go_std_v2":
+            raise ValueError(
+                "legacy forward reward-normalizer checkpoint cannot be "
+                "resumed into the corrected return contract")
+        expected_modes = (
+            sorted(args.allowed_transport_modes)
+            if args.allowed_transport_modes is not None else None)
+        if payload.get("allowed_transport_modes") != expected_modes:
+            raise ValueError(
+                "resume checkpoint allowed_transport_modes mismatch")
         start_update = int(payload["update"])
         trained_episodes = int(payload["episodes_trained"])
         best_score = float(payload.get(
@@ -181,11 +230,22 @@ def main():
         warm_policy_variant = warm_payload.get(
             "policy_variant", metadata.get(
                 "policy_variant", "CONTEXT_INTERACTION"))
+        warm_reward_contract = warm_payload.get(
+            "reward_contract", "REWARD_V2_LEGACY")
         if warm_observation_variant != args.observation_variant:
             raise ValueError("warm-start observation variant mismatch")
         if warm_policy_variant != args.policy_variant:
             raise ValueError("warm-start policy variant mismatch")
+        if warm_reward_contract != args.reward_contract:
+            raise ValueError("warm-start reward contract mismatch")
+        expected_modes = (
+            sorted(args.allowed_transport_modes)
+            if args.allowed_transport_modes is not None else None)
+        if warm_payload.get("allowed_transport_modes") != expected_modes:
+            raise ValueError(
+                "warm-start allowed_transport_modes mismatch")
         expected = MaskedCandidateActorCritic(
+            state_width=policy_encoder.OBSERVATION_SIZE,
             hidden_width=args.hidden_width,
             policy_variant=args.policy_variant).metadata()
         if (metadata.get("architecture") != expected["architecture"] or
@@ -195,6 +255,7 @@ def main():
             raise ValueError(
                 "warm-start model is incompatible with contextual policy V2")
         model = MaskedCandidateActorCritic(
+            state_width=policy_encoder.OBSERVATION_SIZE,
             hidden_width=args.hidden_width,
             policy_variant=args.policy_variant).to(device)
         state_dict = warm_payload.get(
@@ -210,6 +271,7 @@ def main():
         args.warm_start_source = str(args.warm_start.resolve())
     else:
         model = MaskedCandidateActorCritic(
+            state_width=policy_encoder.OBSERVATION_SIZE,
             hidden_width=args.hidden_width,
             policy_variant=args.policy_variant).to(device)
         payload = None
@@ -231,7 +293,9 @@ def main():
         entropy_coefficient=args.entropy_coefficient,
         learning_rate=args.learning_rate,
         ppo_epochs=args.ppo_epochs,
-        minibatch_size=args.minibatch_size)
+        minibatch_size=args.minibatch_size,
+        trace_mode=args.trace_mode,
+        trace_tau_s=args.trace_tau_s)
     generator = torch.Generator().manual_seed(args.seed + 14)
     if payload:
         if payload.get("numpy_random_state") is not None:
@@ -268,7 +332,11 @@ def main():
         steps, episodes = collect_rollouts(
             model, seeds, args.execution_mode,
             args.arrival_profile, device, args.observation_variant,
-            args.discount_mode)
+            args.discount_mode,
+            allowed_transport_modes=(
+                tuple(args.allowed_transport_modes)
+                if args.allowed_transport_modes is not None else None),
+            reward_contract=args.reward_contract)
         metrics = ppo_update(
             model, optimizer, steps, config, device, generator,
             reward_normalizer)
@@ -312,7 +380,11 @@ def main():
             last_evaluation = evaluate(
                 model, eval_seeds, args.execution_mode,
                 args.arrival_profile, device,
-                observation_variant=args.observation_variant)
+                observation_variant=args.observation_variant,
+                allowed_transport_modes=(
+                    tuple(args.allowed_transport_modes)
+                    if args.allowed_transport_modes is not None else None),
+                reward_contract=args.reward_contract)
             score = last_evaluation["mean_reward"]
             row["evaluation"] = compact(last_evaluation)
             if score > best_score:
@@ -363,11 +435,19 @@ def main():
         last_evaluation = evaluate(
             model, eval_seeds, args.execution_mode,
             args.arrival_profile, device,
-            observation_variant=args.observation_variant)
+            observation_variant=args.observation_variant,
+            allowed_transport_modes=(
+                tuple(args.allowed_transport_modes)
+                if args.allowed_transport_modes is not None else None),
+            reward_contract=args.reward_contract)
     rule = evaluate(
         model, eval_seeds, args.execution_mode,
         args.arrival_profile, device, use_rule=True,
-        observation_variant=args.observation_variant)
+        observation_variant=args.observation_variant,
+        allowed_transport_modes=(
+            tuple(args.allowed_transport_modes)
+            if args.allowed_transport_modes is not None else None),
+        reward_contract=args.reward_contract)
     save_checkpoint(
         output, model, optimizer, reward_normalizer, args, final_update,
         trained_episodes, best_score, generator)
@@ -378,6 +458,8 @@ def main():
                    "approximate_kl", "clip_fraction", "gradient_norm"})
     smoke_run = args.updates * args.episodes_per_update <= 20
     transport_modes = {"SINGLE_CAR", "SINGLE_DOG", "CAR_DOG_CAR"}
+    expected_transport_modes = set(
+        args.allowed_transport_modes or sorted(transport_modes))
     context_matrix = last_evaluation["selected_mode_by_cost_reference"]
     positive_relative_score = baseline_relative_score(
         last_evaluation["mean_reward"], rule["mean_reward"])
@@ -388,10 +470,10 @@ def main():
         for reference_mode, selected_counts in context_matrix.items()
     }
     contextual_switching_gate = (
-        set(context_matrix) == transport_modes and
-        set(last_evaluation["transport_modes"]) == transport_modes and
+        set(context_matrix) == expected_transport_modes and
+        set(last_evaluation["transport_modes"]) == expected_transport_modes and
         all(context_match_rates.get(mode, 0.0) >= .20
-            for mode in transport_modes))
+            for mode in expected_transport_modes))
     expected_evaluation_tasks = (
         args.eval_episodes * tasks_per_episode(args.arrival_profile))
     curriculum_orders = {
@@ -423,7 +505,13 @@ def main():
             last_evaluation["illegal_action_count"] == 0),
         "evaluation_has_no_resource_leak": (
             last_evaluation["resource_leak_count"] == 0),
+        "policy_exposes_exactly_allowed_transport_modes": (
+            set(last_evaluation["exposed_transport_modes"]) ==
+            expected_transport_modes),
+        # Backward-compatible key for existing unrestricted protocols.  A
+        # restricted ablation marks the old three-mode contract not applicable.
         "one_policy_exposes_all_three_transport_modes": (
+            expected_transport_modes != transport_modes or
             set(last_evaluation["exposed_transport_modes"]) ==
             transport_modes),
         "context_conditioned_metrics_cover_every_assignment": (
@@ -441,13 +529,24 @@ def main():
             last_evaluation["maximum_active_tasks"] >= 2),
         "mixed_curriculum_schedule_contract": mixed_curriculum_contract,
     }
+    acceptance_assertions = dict(assertions)
+    if args.allow_ablation_outcome:
+        acceptance_assertions.pop("formal_policy_switches_modes_by_context")
+    corrected_v3 = bool(
+        args.observation_variant == "MARKOV_CONTEXT_V3" and
+        args.reward_contract == "CONTINUOUS_TIME_V3" and
+        args.trace_mode == "DURATION_SCALED")
     summary = {
         "schema_version": RESULT_SCHEMA_VERSION,
         "algorithm": ALGORITHM_NAME,
-        "reward_version": REWARD_VERSION,
-        "stage": 14,
-        "gate": ("SHORT_SMDP_PPO_REWARD_V2_SMOKE" if smoke_run else
-                 "SMDP_PPO_REWARD_V2_TRAINING_RUN"),
+        "reward_version": args.reward_contract,
+        "stage": 23 if corrected_v3 else 14,
+        "gate": (
+            "SHORT_MARKOV_CONTINUOUS_SMDP_PPO_V3_SMOKE" if
+            smoke_run and corrected_v3 else
+            "MARKOV_CONTINUOUS_SMDP_PPO_V3_TRAINING_RUN" if corrected_v3 else
+            "SHORT_SMDP_PPO_REWARD_V2_SMOKE" if smoke_run else
+            "SMDP_PPO_REWARD_V2_TRAINING_RUN"),
         "claim_boundary": (
             "Interface smoke only; not a convergence claim." if smoke_run else
             "Training completed; held-out acceptance is still required."),
@@ -458,6 +557,11 @@ def main():
         "observation_variant": args.observation_variant,
         "policy_variant": args.policy_variant,
         "discount_mode": args.discount_mode,
+        "trace_mode": args.trace_mode,
+        "trace_tau_s": args.trace_tau_s,
+        "reward_contract": args.reward_contract,
+        "allowed_transport_modes": sorted(expected_transport_modes),
+        "allow_ablation_outcome": args.allow_ablation_outcome,
         "encoder": Stage12Encoder(args.observation_variant).metadata(),
         "updates": args.updates,
         "episodes_trained_this_run": trained_episodes - episodes_at_resume,
@@ -498,7 +602,8 @@ def main():
         "evaluation": compact(last_evaluation),
         "rule_baseline": compact(rule),
         "assertions": assertions,
-        "passed": all(assertions.values()),
+        "acceptance_assertions": acceptance_assertions,
+        "passed": all(acceptance_assertions.values()),
     }
     history_path.write_text(
         json.dumps(history, ensure_ascii=False, indent=2) + "\n",

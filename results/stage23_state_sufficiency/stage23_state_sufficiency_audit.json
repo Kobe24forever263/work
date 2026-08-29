@@ -1,0 +1,133 @@
+{
+  "schema_version": "warehouse_stage23_state_sufficiency_audit_v2",
+  "created_at_utc": "2026-08-29T03:49:14.822227+00:00",
+  "scope": "Stage20/22 FULL_CONTEXT_V2 and repaired MARKOV_CONTEXT_V3",
+  "claim_boundary": "Constructive logical-simulator audit. It tests encoded-state sufficiency, not learned-policy performance.",
+  "source_path": "/Users/lab4099/Desktop/Mujoco/work/src/warehouse_core/warehouse_core/stage12_encoding.py",
+  "source_sha256": "5e9b987e6b40f81cc8cb600359544062aeae4dda21ec75d660dc84327245e48f",
+  "observation_shape": 284,
+  "block_widths": {
+    "global": 8,
+    "top8_waiting_tasks": 104,
+    "ten_robots": 140,
+    "four_stairs": 32
+  },
+  "variable_map_csv": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_state_sufficiency/stage23_observation_284_variable_map.csv",
+  "markov_v3_variable_map_csv": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_state_sufficiency/stage23_markov_v3_1720_variable_map.csv",
+  "omitted_causally_relevant_families": [
+    {
+      "field_family": "active_assignment_identity_and_mode",
+      "causal_use": "completion result, participant release, mode counts",
+      "currently_encoded": false
+    },
+    {
+      "field_family": "active_assignment_remaining_time",
+      "causal_use": "next event time, reward integral, SMDP discount",
+      "currently_encoded": false
+    },
+    {
+      "field_family": "active_participant_and_resource_owner_mapping",
+      "causal_use": "future availability and legal action set",
+      "currently_encoded": false
+    },
+    {
+      "field_family": "next_arrival_remaining_time",
+      "causal_use": "next event time and SMDP discount",
+      "currently_encoded": false
+    },
+    {
+      "field_family": "pending_arrival_task_attributes",
+      "causal_use": "future queue composition and deadlines",
+      "currently_encoded": false
+    },
+    {
+      "field_family": "waiting_task_attributes_beyond_top8",
+      "causal_use": "future decisions after visible tasks are resolved",
+      "currently_encoded": false
+    },
+    {
+      "field_family": "robot_previous_result_finish_pose_and_standby_slot_id",
+      "causal_use": "persistent history/parking ownership diagnostics",
+      "currently_encoded": false
+    }
+  ],
+  "constructive_alias_probes": [
+    {
+      "name": "active_assignment_residual_time_alias",
+      "seed": 68000001,
+      "perturbation": "Only ActiveAssignment.finish_at differs; all encoded fields, resource occupancy, robot flags and current clock are equal.",
+      "same_encoded_decision": {
+        "state_equal": true,
+        "action_features_equal": true,
+        "action_mask_equal": true,
+        "legal_action_ids_equal": true
+      },
+      "markov_v3_state_equal": false,
+      "left_remaining_time_s": 0.1854779212500267,
+      "right_remaining_time_s": 0.3709558425000534,
+      "left_transition_delta_time_s": 0.1854779212500266,
+      "right_transition_delta_time_s": 0.3709558425000532,
+      "left_discount": 0.9998136058333544,
+      "right_discount": 0.9996272464094942,
+      "same_observation_action_has_different_transition": true,
+      "alias_detected": true
+    },
+    {
+      "name": "next_arrival_residual_time_alias",
+      "seed": 68000002,
+      "perturbation": "Only the first pending arrival timestamp differs; pending count and every currently encoded field are equal.",
+      "same_encoded_decision": {
+        "state_equal": true,
+        "action_features_equal": true,
+        "action_mask_equal": true,
+        "legal_action_ids_equal": true
+      },
+      "markov_v3_state_equal": false,
+      "left_next_arrival_s": 0.25,
+      "right_next_arrival_s": 0.75,
+      "left_transition_delta_time_s": 0.25,
+      "right_transition_delta_time_s": 0.75,
+      "left_discount": 0.9997487731664098,
+      "right_discount": 0.999246508828139,
+      "same_observation_action_has_different_transition": true,
+      "alias_detected": true
+    },
+    {
+      "name": "top8_hidden_waiting_task_alias",
+      "seed": 68000003,
+      "perturbation": "Only task rank 9 target geometry differs; the visible Top-8 and all counts are equal.",
+      "hidden_task_id": "S20_CURR_T005",
+      "same_encoded_decision": {
+        "state_equal": true,
+        "action_features_equal": true,
+        "action_mask_equal": true,
+        "legal_action_ids_equal": true
+      },
+      "markov_v3_state_equal": false,
+      "future_difference_after_identical_top8_removed": true,
+      "alias_detected": true
+    }
+  ],
+  "audit_execution_gate": {
+    "passed": true,
+    "checks": {
+      "variable_map_has_exactly_284_unique_indices": true,
+      "all_three_constructive_alias_probes_ran": true,
+      "all_probes_preserve_current_encoded_decision": true,
+      "all_probes_expose_future_transition_or_state_difference": true,
+      "markov_v3_distinguishes_all_three_alias_pairs": true
+    }
+  },
+  "scientific_assessment": {
+    "full_context_v2_markov_smdp_sufficiency_supported": false,
+    "markov_context_v3_resolves_constructive_alias_gate": true,
+    "status": "PASS_MARKOV_CONTEXT_V3_CONSTRUCTIVE_ALIAS_GATE",
+    "detected_aliases": [
+      "active_assignment_residual_time_alias",
+      "next_arrival_residual_time_alias",
+      "top8_hidden_waiting_task_alias"
+    ],
+    "formal_locked_test_blocked_until_observation_contract_is_resolved": false,
+    "recommended_resolution": "Add active-assignment residual/event/resource descriptors, next-arrival residual time, and a lossless or sufficient hidden-queue summary; then rerun interface gates and retrain the frozen full/ablation cohorts under a new protocol version."
+  }
+}

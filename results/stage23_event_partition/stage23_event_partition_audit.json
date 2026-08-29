@@ -1,0 +1,110 @@
+{
+  "schema_version": "warehouse_stage23_event_partition_audit_v2",
+  "created_at_utc": "2026-08-29T03:49:14.616756+00:00",
+  "scope": "Legacy Stage20/22 versus corrected continuous-time V3 contract",
+  "claim_boundary": "Deterministic algebraic/unit audit. It does not evaluate learned policy performance.",
+  "source_sha256": {
+    "/Users/lab4099/Desktop/Mujoco/work/src/warehouse_core/warehouse_core/stage14_ppo.py": "d8c307847392882074e9d78810008b9aa5e77996f6df45bbf0a7b456002cacc0",
+    "/Users/lab4099/Desktop/Mujoco/work/src/warehouse_core/warehouse_core/concurrent_dispatch.py": "79a86384a014fe1cc3dd05a08aeb420fd639e868485c495b13a4ae2a5a9253ca"
+  },
+  "parameters": {
+    "gamma0": 0.99,
+    "lambda0": 0.95,
+    "tau_s": 10.0,
+    "split_durations_s": [
+      4.0,
+      7.0
+    ]
+  },
+  "duration_discount_semigroup_probe": {
+    "unsplit": 0.9890055165788325,
+    "split_product": 0.9890055165788325,
+    "absolute_difference": 0.0,
+    "invariant": true
+  },
+  "gae_trace_partition_probe": {
+    "current_formula": "gamma(delta_t) * lambda_per_event",
+    "current_unsplit_trace_coefficient": 0.9395552407498908,
+    "current_split_trace_coefficient": 0.8925774787123962,
+    "current_absolute_difference": 0.0469777620374946,
+    "current_event_partition_invariant": false,
+    "duration_scaled_formula": "gamma(delta_t) * lambda0**(delta_t/tau_s)",
+    "duration_scaled_unsplit_trace_coefficient": 0.9347482911474695,
+    "duration_scaled_split_trace_coefficient": 0.9347482911474695,
+    "duration_scaled_absolute_difference": 0.0,
+    "duration_scaled_event_partition_invariant": true
+  },
+  "interval_reward_partition_probe": {
+    "physical_cost_rate": -0.03,
+    "current_environment_formula": "rate * elapsed",
+    "current_unsplit_reward": -0.32999999999999996,
+    "current_split_discounted_return": -0.32915746647200617,
+    "current_absolute_difference": 0.000842533527993794,
+    "current_event_partition_invariant": false,
+    "continuous_discount_integral_formula": "rate * (1-exp(-beta*elapsed)) / beta",
+    "corrected_unsplit_reward": -0.3281825676702268,
+    "corrected_split_discounted_return": -0.32818256767022724,
+    "corrected_absolute_difference": 4.440892098500626e-16,
+    "corrected_event_partition_invariant": true
+  },
+  "reward_normalizer_order_probe": {
+    "two_step_rewards": [
+      1.0,
+      2.0
+    ],
+    "discounts": [
+      0.9,
+      0.9
+    ],
+    "expected_reverse_return_to_go_samples": [
+      2.8,
+      2.0
+    ],
+    "legacy_forward_accumulator_samples": [
+      1.0,
+      2.9
+    ],
+    "observed_running_mean": 2.3998800059997,
+    "expected_reverse_return_mean": 2.4,
+    "implementation_matches_reverse_return_to_go": true,
+    "implementation_matches_legacy_forward_accumulator": false,
+    "normalizer_contract": "reverse_variable_discounted_return_to_go_std_v2"
+  },
+  "implementation_formula_probe": {
+    "legacy_per_event_two_step_a0": 0.9461885690689087,
+    "legacy_expected_a0": 0.9461885388019325,
+    "legacy_mode_reproduced": true,
+    "corrected_duration_scaled_two_step_a0": 0.9757611751556396,
+    "corrected_expected_a0": 0.9757611439336221,
+    "corrected_mode_matches_duration_formula": true
+  },
+  "audit_execution_gate": {
+    "passed": true,
+    "checks": {
+      "duration_discount_has_semigroup_property": true,
+      "legacy_gae_mode_remains_explicitly_reproducible": true,
+      "corrected_gae_mode_matches_duration_formula": true,
+      "duration_scaled_lambda_restores_trace_semigroup": true,
+      "continuous_discount_integral_restores_reward_partition": true,
+      "normalizer_uses_reverse_return_to_go": true
+    }
+  },
+  "scientific_assessment": {
+    "neutral_event_partition_invariance_supported": true,
+    "status": "PASS_CORRECTED_CONTINUOUS_TIME_V3",
+    "failures": [],
+    "legacy_findings_retained": [
+      "PER_EVENT_LEGACY lambda is event-partition dependent.",
+      "REWARD_V2_LEGACY interval costs are event-partition dependent.",
+      "Stage20/22 normalizer checkpoints contain forward accumulator statistics."
+    ],
+    "existing_stage20_stage22_weights_affected": true,
+    "formal_locked_test_blocked_until_return_contract_is_resolved": false,
+    "recommended_resolution": [
+      "Use lambda(delta_t)=lambda0**(delta_t/tau_s).",
+      "Define each SMDP interval reward as the discounted integral of time-rate costs plus correctly timed event impulses.",
+      "Compute reward-normalizer return-to-go samples in reverse within each episode.",
+      "Add neutral-event insertion regression tests before retraining."
+    ]
+  }
+}
