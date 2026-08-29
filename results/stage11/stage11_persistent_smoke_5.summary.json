@@ -1,0 +1,155 @@
+{
+  "trial_count": 5,
+  "success_count": 5,
+  "failure_count": 0,
+  "simulated_time": 242.13987872560676,
+  "assertions": {
+    "five_tasks_completed": true,
+    "positions_persisted": true,
+    "multiple_assignments_used": true,
+    "all_cargo_cleared": true,
+    "all_task_ids_cleared": true,
+    "all_arrivals_consumed": true,
+    "smdp_delta_time_recorded": true,
+    "dog_floor_continuity_observed": true
+  },
+  "moved_robots": {
+    "dog_2": [
+      -20.3,
+      18.3,
+      0.45
+    ],
+    "car_f1_1": [
+      7,
+      6,
+      0.45
+    ],
+    "car_f1_4": [
+      12,
+      -8,
+      0.45
+    ],
+    "car_f2_1": [
+      -9.5,
+      6.5,
+      4.7
+    ],
+    "car_f2_2": [
+      -7,
+      6.5,
+      4.7
+    ]
+  },
+  "final_robots": {
+    "car_f1_1": {
+      "xyz": [
+        7,
+        6,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 16.3624,
+      "tasks_completed": 1,
+      "stairs_traversed": 0
+    },
+    "car_f1_2": {
+      "xyz": [
+        -2.5,
+        2.5,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 0.0,
+      "tasks_completed": 0,
+      "stairs_traversed": 0
+    },
+    "car_f1_3": {
+      "xyz": [
+        -2.5,
+        -2.5,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 0.0,
+      "tasks_completed": 0,
+      "stairs_traversed": 0
+    },
+    "car_f1_4": {
+      "xyz": [
+        12,
+        -8,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 94.8444,
+      "tasks_completed": 3,
+      "stairs_traversed": 0
+    },
+    "car_f2_1": {
+      "xyz": [
+        -9.5,
+        6.5,
+        4.7
+      ],
+      "floor": 2,
+      "distance_total": 55.2758,
+      "tasks_completed": 2,
+      "stairs_traversed": 0
+    },
+    "car_f2_2": {
+      "xyz": [
+        -7,
+        6.5,
+        4.7
+      ],
+      "floor": 2,
+      "distance_total": 18.8478,
+      "tasks_completed": 1,
+      "stairs_traversed": 0
+    },
+    "dog_1": {
+      "xyz": [
+        20.8,
+        17.8,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 0.0,
+      "tasks_completed": 0,
+      "stairs_traversed": 0
+    },
+    "dog_2": {
+      "xyz": [
+        -20.3,
+        18.3,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 33.8095,
+      "tasks_completed": 2,
+      "stairs_traversed": 2
+    },
+    "dog_3": {
+      "xyz": [
+        -20.8,
+        -17.8,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 0.0,
+      "tasks_completed": 0,
+      "stairs_traversed": 0
+    },
+    "dog_4": {
+      "xyz": [
+        20.8,
+        -17.8,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 0.0,
+      "tasks_completed": 0,
+      "stairs_traversed": 0
+    }
+  }
+}

@@ -1,0 +1,1222 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "Stage 18 结果质量审查",
+    "description": "面向T-RO投稿的训练、locked test与统计证据质量审查。",
+    "generatedAt": "2026-08-15T00:29:39.360768+00:00",
+    "cards": [
+      {
+        "id": "training_coverage",
+        "description": "3负载×4条件×10训练种子。",
+        "dataset": "coverage_cards",
+        "sourceId": "audit_results",
+        "metrics": [
+          {
+            "label": "训练运行完整率",
+            "field": "training_rate",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "locked_coverage",
+        "description": "含120个域内与60个跨负载测试。",
+        "dataset": "coverage_cards",
+        "sourceId": "audit_results",
+        "metrics": [
+          {
+            "label": "Locked jobs",
+            "field": "locked_jobs",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "safety_coverage",
+        "description": "所有策略测试中的非法动作与资源泄漏。",
+        "dataset": "coverage_cards",
+        "sourceId": "audit_results",
+        "metrics": [
+          {
+            "label": "安全性违规",
+            "field": "safety_violations",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "holm_results",
+        "description": "36项比较做全局Holm校正后的显著项。",
+        "dataset": "coverage_cards",
+        "sourceId": "audit_results",
+        "metrics": [
+          {
+            "label": "全局Holm显著项",
+            "field": "holm_significant",
+            "format": "number"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "baseline_reward_delta",
+        "title": "Full相对规则基线的回报差",
+        "subtitle": "三种同负载locked测试；正值有利于Full，n=10训练种子×100测试episode。",
+        "type": "bar",
+        "dataset": "baseline_reward_delta",
+        "sourceId": "official_locked_statistics",
+        "valueFormat": "number",
+        "encodings": {
+          "x": {
+            "field": "profile",
+            "type": "nominal",
+            "label": "负载"
+          },
+          "y": {
+            "field": "mean_delta",
+            "type": "quantitative",
+            "label": "回报差"
+          },
+          "tooltip": [
+            {
+              "field": "ci_low",
+              "type": "quantitative",
+              "label": "95% CI下界"
+            },
+            {
+              "field": "ci_high",
+              "type": "quantitative",
+              "label": "95% CI上界"
+            },
+            {
+              "field": "raw_p",
+              "type": "quantitative",
+              "label": "原始p"
+            }
+          ]
+        }
+      },
+      {
+        "id": "successful_throughput_delta",
+        "title": "成功交付吞吐差",
+        "subtitle": "completed-only tasks/hour；正值有利于Full，区间使用两轴交叉Bootstrap。",
+        "type": "bar",
+        "dataset": "successful_throughput",
+        "sourceId": "audit_results",
+        "valueFormat": "number",
+        "encodings": {
+          "x": {
+            "field": "profile",
+            "type": "nominal",
+            "label": "负载"
+          },
+          "y": {
+            "field": "mean_delta",
+            "type": "quantitative",
+            "label": "成功任务/模拟小时差"
+          },
+          "tooltip": [
+            {
+              "field": "ci_low_crossed",
+              "type": "quantitative",
+              "label": "交叉Bootstrap CI下界"
+            },
+            {
+              "field": "ci_high_crossed",
+              "type": "quantitative",
+              "label": "交叉Bootstrap CI上界"
+            }
+          ]
+        }
+      },
+      {
+        "id": "ablation_reward_delta",
+        "title": "Full相对三项消融的回报差",
+        "subtitle": "正值表示Full更好；仅持续位置复合消融在三种负载下稳定退化。",
+        "type": "bar",
+        "dataset": "ablation_reward",
+        "sourceId": "audit_results",
+        "valueFormat": "number",
+        "encodings": {
+          "x": {
+            "field": "profile",
+            "type": "nominal",
+            "label": "负载"
+          },
+          "y": {
+            "field": "mean_delta",
+            "type": "quantitative",
+            "label": "Full−消融回报"
+          },
+          "color": {
+            "field": "condition_label",
+            "type": "nominal",
+            "label": "消融条件"
+          },
+          "tooltip": [
+            {
+              "field": "ci_low",
+              "type": "quantitative",
+              "label": "95% CI下界"
+            },
+            {
+              "field": "ci_high",
+              "type": "quantitative",
+              "label": "95% CI上界"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cross_load_reward_delta",
+        "title": "3×3跨负载回报差",
+        "subtitle": "Full相对规则基线；这些60个jobs尚未进入官方36项统计。",
+        "type": "bar",
+        "dataset": "cross_load",
+        "sourceId": "audit_results",
+        "valueFormat": "number",
+        "encodings": {
+          "x": {
+            "field": "route",
+            "type": "nominal",
+            "label": "训练→测试负载"
+          },
+          "y": {
+            "field": "reward_delta",
+            "type": "quantitative",
+            "label": "回报差"
+          },
+          "color": {
+            "field": "training_profile",
+            "type": "nominal",
+            "label": "训练负载"
+          },
+          "tooltip": [
+            {
+              "field": "success_delta_pp",
+              "type": "quantitative",
+              "label": "成功率差(pp)"
+            },
+            {
+              "field": "successful_throughput_delta",
+              "type": "quantitative",
+              "label": "成功吞吐差"
+            }
+          ]
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "coverage_table",
+        "title": "产物完整性检查",
+        "subtitle": "截至2026年8月15日05:36（中国标准时间）。",
+        "dataset": "coverage_rows",
+        "sourceId": "audit_results",
+        "defaultSort": {
+          "field": "area",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "area",
+            "label": "检查项",
+            "type": "text"
+          },
+          {
+            "field": "expected",
+            "label": "期望",
+            "format": "number"
+          },
+          {
+            "field": "actual",
+            "label": "实际",
+            "format": "number"
+          },
+          {
+            "field": "status",
+            "label": "状态",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "main_effects_table",
+        "title": "Full与规则基线的域内比较",
+        "subtitle": "CI为现有嵌套Bootstrap；Holm/BH为本次审查对36项原始p值的补充校正。",
+        "dataset": "main_effects_table",
+        "sourceId": "audit_results",
+        "defaultSort": {
+          "field": "profile",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "profile",
+            "label": "负载",
+            "type": "text"
+          },
+          {
+            "field": "metric",
+            "label": "指标",
+            "type": "text"
+          },
+          {
+            "field": "delta",
+            "label": "差值",
+            "format": "number"
+          },
+          {
+            "field": "ci_low",
+            "label": "CI下界",
+            "format": "number"
+          },
+          {
+            "field": "ci_high",
+            "label": "CI上界",
+            "format": "number"
+          },
+          {
+            "field": "raw_p",
+            "label": "原始p",
+            "format": "number"
+          },
+          {
+            "field": "bh_q",
+            "label": "BH q",
+            "format": "number"
+          },
+          {
+            "field": "holm_p",
+            "label": "Holm p",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "issues_table",
+        "title": "必须整改的问题",
+        "subtitle": "按对T-RO结论可信度的影响排序。",
+        "dataset": "issues",
+        "sourceId": "audit_results",
+        "defaultSort": {
+          "field": "severity_rank",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "severity_rank",
+            "label": "优先级",
+            "format": "number"
+          },
+          {
+            "field": "severity",
+            "label": "严重性",
+            "type": "text"
+          },
+          {
+            "field": "finding",
+            "label": "问题",
+            "type": "text"
+          },
+          {
+            "field": "impact",
+            "label": "影响",
+            "type": "text"
+          },
+          {
+            "field": "remediation",
+            "label": "整改",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "cross_load_table",
+        "title": "跨负载结果明细",
+        "subtitle": "每个单元10个训练种子；当前为描述性均值，尚非正式确认性统计。",
+        "dataset": "cross_load",
+        "sourceId": "audit_results",
+        "defaultSort": {
+          "field": "route",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "route",
+            "label": "训练→测试",
+            "type": "text"
+          },
+          {
+            "field": "reward_delta",
+            "label": "回报差",
+            "format": "number"
+          },
+          {
+            "field": "success_delta_pp",
+            "label": "成功率差(pp)",
+            "format": "number"
+          },
+          {
+            "field": "successful_throughput_delta",
+            "label": "成功吞吐差",
+            "format": "number"
+          },
+          {
+            "field": "car_dog_car_share_pct",
+            "label": "车狗车占比(%)",
+            "format": "number"
+          },
+          {
+            "field": "single_dog_share_pct",
+            "label": "单狗占比(%)",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "scenario_table",
+        "title": "冻结测试协议覆盖",
+        "subtitle": "协议声明场景与本轮locked campaign实际覆盖的对照。",
+        "dataset": "scenario_coverage",
+        "sourceId": "seed_protocol",
+        "defaultSort": {
+          "field": "scenario",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "scenario",
+            "label": "场景",
+            "type": "text"
+          },
+          {
+            "field": "status",
+            "label": "覆盖状态",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "audit_results",
+        "label": "Stage18质量审计结果",
+        "path": "results/stage18_quality_review/stage18_quality_audit.json",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT * FROM read_json_auto('results/stage18_quality_review/stage18_quality_audit.json')",
+          "description": "读取本次只读质量审查生成的结构化结果快照。",
+          "tables_used": [
+            "results/stage18_quality_review/stage18_quality_audit.json"
+          ],
+          "filters": [
+            "审查快照截至2026-08-15 05:36 CST"
+          ],
+          "metric_definitions": [
+            "训练完整率=实际完成训练单元/期望训练单元",
+            "成功交付吞吐=completed tasks/simulated time×3600",
+            "交叉Bootstrap同时重采训练种子轴与共享测试种子轴"
+          ]
+        }
+      },
+      {
+        "id": "official_locked_statistics",
+        "label": "Stage18 locked-test原统计",
+        "path": "results/stage18_locked_test/stage18_locked_test_statistics.json",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT * FROM read_json_auto('results/stage18_locked_test/stage18_locked_test_statistics.json')",
+          "description": "读取项目原有的36项locked-test统计比较。",
+          "tables_used": [
+            "results/stage18_locked_test/stage18_locked_test_statistics.json"
+          ],
+          "filters": [
+            "comparison=full_context_vs_rule_baseline"
+          ],
+          "metric_definitions": [
+            "回报差=Full策略平均raw episode reward−规则基线平均值",
+            "成功率差=Full完成率−规则基线完成率",
+            "原throughput=(completed+failed)/simulated time×3600"
+          ]
+        }
+      },
+      {
+        "id": "locked_raw",
+        "label": "Stage18 locked-test逐episode结果",
+        "path": "results/stage18_locked_test/trained_*/*/tested_*/seed_*.json"
+      },
+      {
+        "id": "seed_protocol",
+        "label": "冻结实验种子协议",
+        "path": "src/warehouse_bringup/config/experiment_seeds.yaml",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT scenario, status FROM scenario_coverage ORDER BY scenario",
+          "description": "将冻结YAML中声明的场景与locked campaign实际产物做覆盖对照；scenario_coverage由审查脚本解析生成。",
+          "tables_used": [
+            "src/warehouse_bringup/config/experiment_seeds.yaml",
+            "results/stage18_locked_test/trained_*/*/tested_*/seed_*.json"
+          ],
+          "filters": [
+            "仅统计冻结协议中声明的评估场景"
+          ],
+          "metric_definitions": [
+            "覆盖状态=声明场景是否存在对应locked-test产物"
+          ]
+        }
+      },
+      {
+        "id": "evaluation_code",
+        "label": "Stage18 locked-test与环境评估代码",
+        "path": "scripts/run_stage18_locked_test_campaign.py"
+      },
+      {
+        "id": "statistics_code",
+        "label": "Stage18统计脚本",
+        "path": "scripts/summarize_stage18_locked_test.py"
+      },
+      {
+        "id": "encoding_code",
+        "label": "Stage18状态与动作编码",
+        "path": "src/warehouse_core/warehouse_core/stage12_encoding.py"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# Stage 18 结果质量审查"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "body": "## 技术结论：数据完整，但暂不具备T-RO确认性结论资格\n\n**完整性与安全性通过。** 120个训练单元、240,000条更新记录和180个locked jobs均齐全；所有策略测试均无非法动作或资源泄漏。原始统计数值也能独立复算。\n\n**确认性推断需要整改。** Stage18退回了顺序式交接随机流，破坏逐任务配对；Bootstrap把共享测试种子的交叉设计误作嵌套设计；36项检验没有多重校正。因此当前数值可作为探索性v1证据，但不应直接作为T-RO最终表。\n\n**无需立即重训完整模型。** 第一轮应保留现有权重，修复TASK_KEYED评估、成功吞吐和crossed bootstrap，再用新鲜测试种子复验。只有重定义消融和补算法基线时才需要新增训练。"
+      },
+      {
+        "id": "headline_metrics",
+        "type": "metric-strip",
+        "cardIds": [
+          "training_coverage",
+          "locked_coverage",
+          "safety_coverage",
+          "holm_results"
+        ]
+      },
+      {
+        "id": "integrity_section",
+        "type": "markdown",
+        "body": "## 核心数据可以继续使用\n\n训练history严格覆盖update 1–2000，每个运行累计8000个episode；180个locked文件各含100个policy与100个rule episode，测试种子均为43000000–43000099。规则基线在相同评估负载下逐episode完全一致，说明基础任务流可重复。问题集中在评估协议和统计解释，而不是文件丢失或训练崩溃。"
+      },
+      {
+        "id": "coverage_block",
+        "type": "table",
+        "tableId": "coverage_table"
+      },
+      {
+        "id": "observed_effect_section",
+        "type": "markdown",
+        "body": "## Full相对规则基线的收益随负载增强，但不是所有指标都普遍改善\n\n现有v1测试中，回报差从MEDIUM的+0.352扩大到DENSE的+19.224和BURST的+39.740。成功率提升分别为+0.96、+0.195和+0.37个百分点；DENSE成功率优势并不稳健。这些差值只能在同一负载内解释，不能把不同负载下的绝对回报直接比较。"
+      },
+      {
+        "id": "baseline_reward_chart",
+        "type": "chart",
+        "chartId": "baseline_reward_delta"
+      },
+      {
+        "id": "main_effects_block",
+        "type": "table",
+        "tableId": "main_effects_table"
+      },
+      {
+        "id": "throughput_section",
+        "type": "markdown",
+        "body": "## 当前吞吐名称会把快速失败误当成生产力\n\n原指标按(completed+failed)/time计算，更准确的名称是任务结算率。改用completed/time后，Full相对规则基线的成功交付吞吐在MEDIUM、DENSE、BURST分别约为+0.39、+2.14和+1.19任务/模拟小时；BURST区间仍跨零。论文应同时报告resolved-task rate与successful-delivery throughput。"
+      },
+      {
+        "id": "successful_throughput_chart",
+        "type": "chart",
+        "chartId": "successful_throughput_delta"
+      },
+      {
+        "id": "multiplicity_section",
+        "type": "markdown",
+        "body": "## 多重比较与统计层级会改变显著性结论\n\n36项原始检验中17项p<.05；全局BH-FDR后保留16项，但全局Holm校正后为0项。原因之一是10个训练种子的exact sign-flip双侧p最小只能达到0.001953。此外，同一100个测试种子被10个训练种子共同使用，必须按训练种子轴×测试种子轴做交叉Bootstrap，而不是把测试episode独立嵌套在每个训练种子下。应先冻结主要假设族，再决定Holm或BH。"
+      },
+      {
+        "id": "ablation_section",
+        "type": "markdown",
+        "body": "## 当前消融只支持“持续上下文复合信息重要”\n\n去队列/资源显式状态和去交接显式线索没有产生稳定退化；这并不证明这些信息无用，因为候选集合、动作掩码、运输模式和参与者数量仍可旁路推断它们。去持续位置条件在三种负载下显著退化，但它同时删除楼层、XYZ、累计里程、空闲时长、ETA和cost，不能把效果单独归因于‘位置’。"
+      },
+      {
+        "id": "ablation_chart",
+        "type": "chart",
+        "chartId": "ablation_reward_delta"
+      },
+      {
+        "id": "cross_load_section",
+        "type": "markdown",
+        "body": "## 跨负载文件存在，但尚未证明在线自适应\n\n60个跨负载Full结果已生成，却没有进入官方36项统计。描述性模式占比还显示MEDIUM训练策略在更高负载下仍保持约20%的车狗车模式，而DENSE/BURST训练策略约为32%，更像训练负载形成的固定偏好。要证明策略会随实时环境切换，冻结协议中的MIXED_CONTINUOUS_RECOVERY不可缺少。"
+      },
+      {
+        "id": "cross_load_chart",
+        "type": "chart",
+        "chartId": "cross_load_reward_delta"
+      },
+      {
+        "id": "cross_load_block",
+        "type": "table",
+        "tableId": "cross_load_table"
+      },
+      {
+        "id": "protocol_section",
+        "type": "markdown",
+        "body": "## 冻结协议尚未完整执行\n\n本轮locked campaign覆盖MEDIUM、DENSE和BURST，但没有CROSS_HEAVY与MIXED_CONTINUOUS_RECOVERY；学习基线FLAT_MASKED_PPO、FIXED_GAMMA和RTAW也未进入正式比较。因此当前只能陈述‘相对一个贪心规则基线、在三种固定负载下’的结果。"
+      },
+      {
+        "id": "scenario_block",
+        "type": "table",
+        "tableId": "scenario_table"
+      },
+      {
+        "id": "method_section",
+        "type": "markdown",
+        "body": "## 审查范围与方法\n\n审查粒度为训练运行(profile×condition×training seed)、locked job(再加evaluation profile)和test episode。检查包括文件完整性、更新连续性、权重存在性、种子隔离、聚合重算、安全不变量、配对设计、Bootstrap层级、多重比较、指标口径、消融构念及冻结协议覆盖。数值审查基于截至2026年8月15日05:36 CST生成的结果快照。"
+      },
+      {
+        "id": "limitations_section",
+        "type": "markdown",
+        "body": "## 限制与不确定性\n\n当前120个summary内部仍标stage=14/schema=stage16，旧训练manifest也只覆盖较早的5种子批次。locked结果没有保存权重SHA256或源码提交，无法从结果文件独立证明所有训练使用完全相同代码。本报告中的成功吞吐和跨负载表是审查阶段重算，原始episode未被修改；在TASK_KEYED新鲜测试完成前，它们仍属于诊断性证据。"
+      },
+      {
+        "id": "issues_block",
+        "type": "table",
+        "tableId": "issues_table"
+      },
+      {
+        "id": "next_steps_section",
+        "type": "markdown",
+        "body": "## 建议的整改顺序\n\n1. 将现有结果冻结为v1并生成SHA256 manifest，禁止覆盖。\n2. 修复locked评估为TASK_KEYED，修复crossed bootstrap、成功吞吐和多重校正。\n3. 保留现有权重，使用全新的最终测试种子做确认性复验。\n4. 补3×3跨负载统计、CROSS_HEAVY与MIXED_CONTINUOUS_RECOVERY。\n5. 重定义语义干净的消融，并补FLAT、FIXED_GAMMA、RTAW基线；这些步骤才需要新增训练。"
+      },
+      {
+        "id": "questions_section",
+        "type": "markdown",
+        "body": "## 后续需要明确的问题\n\n- 论文主假设是优先强调成功交付、回报，还是实时自适应运输模式？\n- 多重比较要采用少量预注册主要假设的Holm控制，还是探索性BH-FDR？\n- 消融章节是否接受‘持续上下文复合信息’的较窄结论，还是必须拆分位置、ETA与成本？"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-15T00:29:39.360768+00:00",
+    "status": "ready",
+    "datasets": {
+      "coverage_cards": [
+        {
+          "training_rate": 1.0,
+          "locked_jobs": 180,
+          "safety_violations": 0,
+          "holm_significant": 0
+        }
+      ],
+      "coverage_rows": [
+        {
+          "area": "训练单元",
+          "expected": 120,
+          "actual": 120,
+          "status": "PASS"
+        },
+        {
+          "area": "PPO history updates",
+          "expected": 240000,
+          "actual": 240000,
+          "status": "PASS"
+        },
+        {
+          "area": "PPO checkpoint/final/best",
+          "expected": 5040,
+          "actual": 5040,
+          "status": "PASS"
+        },
+        {
+          "area": "Locked-test jobs",
+          "expected": 180,
+          "actual": 180,
+          "status": "PASS"
+        },
+        {
+          "area": "Policy test episodes",
+          "expected": 18000,
+          "actual": 18000,
+          "status": "PASS"
+        },
+        {
+          "area": "统计比较",
+          "expected": 36,
+          "actual": 36,
+          "status": "PASS"
+        }
+      ],
+      "baseline_reward_delta": [
+        {
+          "profile": "MEDIUM",
+          "metric": "reward",
+          "mean_delta": 0.3520364408151257,
+          "ci_low": 0.22016890900882138,
+          "ci_high": 0.4860993935117085,
+          "raw_p": 0.001953125,
+          "bh_q_global36": 0.00439453125,
+          "holm_p_global36": 0.0703125,
+          "positive_seed_count": 10
+        },
+        {
+          "profile": "DENSE",
+          "metric": "reward",
+          "mean_delta": 19.223568318263638,
+          "ci_low": 18.324318822081647,
+          "ci_high": 20.137260909169033,
+          "raw_p": 0.001953125,
+          "bh_q_global36": 0.00439453125,
+          "holm_p_global36": 0.0703125,
+          "positive_seed_count": 10
+        },
+        {
+          "profile": "BURST",
+          "metric": "reward",
+          "mean_delta": 39.73963384876077,
+          "ci_low": 38.16454356525803,
+          "ci_high": 41.280716493798565,
+          "raw_p": 0.001953125,
+          "bh_q_global36": 0.00439453125,
+          "holm_p_global36": 0.0703125,
+          "positive_seed_count": 10
+        }
+      ],
+      "main_effects_table": [
+        {
+          "profile": "MEDIUM",
+          "metric": "reward",
+          "delta": 0.3520364408151257,
+          "ci_low": 0.22016890900882138,
+          "ci_high": 0.4860993935117085,
+          "unit": "raw episode reward",
+          "raw_p": 0.001953125,
+          "bh_q": 0.00439453125,
+          "holm_p": 0.0703125
+        },
+        {
+          "profile": "MEDIUM",
+          "metric": "success_rate",
+          "delta": 0.9600000000000004,
+          "ci_low": 0.8200000000000003,
+          "ci_high": 1.1051249999999988,
+          "unit": "percentage points",
+          "raw_p": 0.001953125,
+          "bh_q": 0.00439453125,
+          "holm_p": 0.0703125
+        },
+        {
+          "profile": "MEDIUM",
+          "metric": "throughput_tasks_per_hour",
+          "delta": -0.14450577758875438,
+          "ci_low": -0.16991514634003646,
+          "ci_high": -0.12137551378017097,
+          "unit": "resolved tasks/hour",
+          "raw_p": 0.001953125,
+          "bh_q": 0.00439453125,
+          "holm_p": 0.0703125
+        },
+        {
+          "profile": "DENSE",
+          "metric": "reward",
+          "delta": 19.223568318263638,
+          "ci_low": 18.324318822081647,
+          "ci_high": 20.137260909169033,
+          "unit": "raw episode reward",
+          "raw_p": 0.001953125,
+          "bh_q": 0.00439453125,
+          "holm_p": 0.0703125
+        },
+        {
+          "profile": "DENSE",
+          "metric": "success_rate",
+          "delta": 0.19500000000000017,
+          "ci_low": 0.02000000000000015,
+          "ci_high": 0.4150000000000002,
+          "unit": "percentage points",
+          "raw_p": 0.078125,
+          "bh_q": 0.14802631578947367,
+          "holm_p": 1.0
+        },
+        {
+          "profile": "DENSE",
+          "metric": "throughput_tasks_per_hour",
+          "delta": 1.9702990839651993,
+          "ci_low": 1.2256670103864549,
+          "ci_high": 2.6917538015797216,
+          "unit": "resolved tasks/hour",
+          "raw_p": 0.001953125,
+          "bh_q": 0.00439453125,
+          "holm_p": 0.0703125
+        },
+        {
+          "profile": "BURST",
+          "metric": "reward",
+          "delta": 39.73963384876077,
+          "ci_low": 38.16454356525803,
+          "ci_high": 41.280716493798565,
+          "unit": "raw episode reward",
+          "raw_p": 0.001953125,
+          "bh_q": 0.00439453125,
+          "holm_p": 0.0703125
+        },
+        {
+          "profile": "BURST",
+          "metric": "success_rate",
+          "delta": 0.37000000000000005,
+          "ci_low": 0.15,
+          "ci_high": 0.6499999999999998,
+          "unit": "percentage points",
+          "raw_p": 0.001953125,
+          "bh_q": 0.00439453125,
+          "holm_p": 0.0703125
+        },
+        {
+          "profile": "BURST",
+          "metric": "throughput_tasks_per_hour",
+          "delta": 0.5979571182048058,
+          "ci_low": -0.49568171346567386,
+          "ci_high": 1.6492346121748962,
+          "unit": "resolved tasks/hour",
+          "raw_p": 0.205078125,
+          "bh_q": 0.3515625,
+          "holm_p": 1.0
+        }
+      ],
+      "successful_throughput": [
+        {
+          "profile": "MEDIUM",
+          "policy_successful_throughput": 54.736701556849695,
+          "baseline_successful_throughput": 54.34481779020617,
+          "mean_delta": 0.39188376664352587,
+          "ci_low_crossed": 0.1785475183747859,
+          "ci_high_crossed": 0.6300735304503543,
+          "exact_sign_flip_p": 0.001953125,
+          "positive_training_seed_count": 10,
+          "unit": "completed tasks per simulated hour"
+        },
+        {
+          "profile": "DENSE",
+          "policy_successful_throughput": 122.10410422938257,
+          "baseline_successful_throughput": 119.96178719958951,
+          "mean_delta": 2.142317029793051,
+          "ci_low_crossed": 0.7791858378290246,
+          "ci_high_crossed": 3.5309469402078295,
+          "exact_sign_flip_p": 0.001953125,
+          "positive_training_seed_count": 10,
+          "unit": "completed tasks per simulated hour"
+        },
+        {
+          "profile": "BURST",
+          "policy_successful_throughput": 143.61897537841799,
+          "baseline_successful_throughput": 142.43142596846448,
+          "mean_delta": 1.187549409953499,
+          "ci_low_crossed": -0.5874531060009849,
+          "ci_high_crossed": 3.0423209501942305,
+          "exact_sign_flip_p": 0.015625,
+          "positive_training_seed_count": 8,
+          "unit": "completed tasks per simulated hour"
+        }
+      ],
+      "ablation_reward": [
+        {
+          "profile": "MEDIUM",
+          "condition": "no_queue_resource",
+          "condition_label": "去队列/资源显式状态",
+          "mean_delta": 0.040113528743674826,
+          "ci_low": -0.049694079919682624,
+          "ci_high": 0.13650641759303278,
+          "raw_p": 0.3046875,
+          "bh_q_global36": 0.47690217391304346,
+          "positive_seed_count": 5
+        },
+        {
+          "profile": "MEDIUM",
+          "condition": "no_handover_cues",
+          "condition_label": "去交接显式线索",
+          "mean_delta": -0.007167016442189647,
+          "ci_low": -0.10989620603833058,
+          "ci_high": 0.10370706191209919,
+          "raw_p": 0.876953125,
+          "bh_q_global36": 0.9285386029411765,
+          "positive_seed_count": 3
+        },
+        {
+          "profile": "MEDIUM",
+          "condition": "no_persistent_position",
+          "condition_label": "去持续位置复合信息",
+          "mean_delta": 9.810682399948096,
+          "ci_low": 9.48476035080013,
+          "ci_high": 10.160314122500619,
+          "raw_p": 0.001953125,
+          "bh_q_global36": 0.00439453125,
+          "positive_seed_count": 10
+        },
+        {
+          "profile": "DENSE",
+          "condition": "no_queue_resource",
+          "condition_label": "去队列/资源显式状态",
+          "mean_delta": -0.19049887862758844,
+          "ci_low": -0.6797025402229456,
+          "ci_high": 0.2997564858930898,
+          "raw_p": 0.35546875,
+          "bh_q_global36": 0.4921875,
+          "positive_seed_count": 4
+        },
+        {
+          "profile": "DENSE",
+          "condition": "no_handover_cues",
+          "condition_label": "去交接显式线索",
+          "mean_delta": -0.18260899823280402,
+          "ci_low": -0.659938273149385,
+          "ci_high": 0.27950489564257436,
+          "raw_p": 0.345703125,
+          "bh_q_global36": 0.4921875,
+          "positive_seed_count": 4
+        },
+        {
+          "profile": "DENSE",
+          "condition": "no_persistent_position",
+          "condition_label": "去持续位置复合信息",
+          "mean_delta": 24.643739858368587,
+          "ci_low": 23.70075002913542,
+          "ci_high": 25.594344138462855,
+          "raw_p": 0.001953125,
+          "bh_q_global36": 0.00439453125,
+          "positive_seed_count": 10
+        },
+        {
+          "profile": "BURST",
+          "condition": "no_queue_resource",
+          "condition_label": "去队列/资源显式状态",
+          "mean_delta": 0.04554477783882667,
+          "ci_low": -1.373520585558026,
+          "ci_high": 1.4414617765041826,
+          "raw_p": 0.939453125,
+          "bh_q_global36": 0.939453125,
+          "positive_seed_count": 5
+        },
+        {
+          "profile": "BURST",
+          "condition": "no_handover_cues",
+          "condition_label": "去交接显式线索",
+          "mean_delta": 0.2802765304852426,
+          "ci_low": -0.8465508908950665,
+          "ci_high": 1.3898051328333543,
+          "raw_p": 0.583984375,
+          "bh_q_global36": 0.70078125,
+          "positive_seed_count": 6
+        },
+        {
+          "profile": "BURST",
+          "condition": "no_persistent_position",
+          "condition_label": "去持续位置复合信息",
+          "mean_delta": 37.71880013475382,
+          "ci_low": 34.357006992956805,
+          "ci_high": 42.34041855606398,
+          "raw_p": 0.001953125,
+          "bh_q_global36": 0.00439453125,
+          "positive_seed_count": 10
+        }
+      ],
+      "cross_load": [
+        {
+          "training_profile": "MEDIUM",
+          "evaluation_profile": "MEDIUM",
+          "route": "MEDIUM→MEDIUM",
+          "reward_delta": 0.35203644081512664,
+          "success_delta_pp": 0.9599999999999975,
+          "successful_throughput_delta": 0.3918837666435209,
+          "positive_reward_seed_count": 10,
+          "car_dog_car_share_pct": 21.634999999999998,
+          "single_dog_share_pct": 28.415000000000003
+        },
+        {
+          "training_profile": "MEDIUM",
+          "evaluation_profile": "DENSE",
+          "route": "MEDIUM→DENSE",
+          "reward_delta": 7.3805959518862085,
+          "success_delta_pp": 1.0549999999999982,
+          "successful_throughput_delta": -1.5578458502179386,
+          "positive_reward_seed_count": 8,
+          "car_dog_car_share_pct": 20.365,
+          "single_dog_share_pct": 29.755
+        },
+        {
+          "training_profile": "MEDIUM",
+          "evaluation_profile": "BURST",
+          "route": "MEDIUM→BURST",
+          "reward_delta": 16.622910835344527,
+          "success_delta_pp": 1.3400000000000034,
+          "successful_throughput_delta": -4.130192805775414,
+          "positive_reward_seed_count": 10,
+          "car_dog_car_share_pct": 19.785,
+          "single_dog_share_pct": 30.349999999999998
+        },
+        {
+          "training_profile": "DENSE",
+          "evaluation_profile": "MEDIUM",
+          "route": "DENSE→MEDIUM",
+          "reward_delta": -0.030599367958087244,
+          "success_delta_pp": 0.21999999999999684,
+          "successful_throughput_delta": 0.07488618467014732,
+          "positive_reward_seed_count": 4,
+          "car_dog_car_share_pct": 32.2,
+          "single_dog_share_pct": 17.8
+        },
+        {
+          "training_profile": "DENSE",
+          "evaluation_profile": "DENSE",
+          "route": "DENSE→DENSE",
+          "reward_delta": 19.223568318263645,
+          "success_delta_pp": 0.1949999999999985,
+          "successful_throughput_delta": 2.1423170297930456,
+          "positive_reward_seed_count": 10,
+          "car_dog_car_share_pct": 32.33,
+          "single_dog_share_pct": 17.669999999999998
+        },
+        {
+          "training_profile": "DENSE",
+          "evaluation_profile": "BURST",
+          "route": "DENSE→BURST",
+          "reward_delta": 38.480925336401825,
+          "success_delta_pp": 0.40000000000000363,
+          "successful_throughput_delta": 0.8416801466643562,
+          "positive_reward_seed_count": 10,
+          "car_dog_car_share_pct": 32.43,
+          "single_dog_share_pct": 17.57
+        },
+        {
+          "training_profile": "BURST",
+          "evaluation_profile": "MEDIUM",
+          "route": "BURST→MEDIUM",
+          "reward_delta": 0.023521851208187883,
+          "success_delta_pp": 0.2849999999999975,
+          "successful_throughput_delta": 0.09602384099194836,
+          "positive_reward_seed_count": 7,
+          "car_dog_car_share_pct": 31.715,
+          "single_dog_share_pct": 18.285
+        },
+        {
+          "training_profile": "BURST",
+          "evaluation_profile": "DENSE",
+          "route": "BURST→DENSE",
+          "reward_delta": 18.990049144884416,
+          "success_delta_pp": 0.2049999999999974,
+          "successful_throughput_delta": 1.5785251105277738,
+          "positive_reward_seed_count": 10,
+          "car_dog_car_share_pct": 32.275,
+          "single_dog_share_pct": 17.724999999999998
+        },
+        {
+          "training_profile": "BURST",
+          "evaluation_profile": "BURST",
+          "route": "BURST→BURST",
+          "reward_delta": 39.73963384876074,
+          "success_delta_pp": 0.37000000000000366,
+          "successful_throughput_delta": 1.1875494099534962,
+          "positive_reward_seed_count": 10,
+          "car_dog_car_share_pct": 32.29,
+          "single_dog_share_pct": 17.71
+        }
+      ],
+      "scenario_coverage": [
+        {
+          "scenario": "MEDIUM",
+          "locked_test_present": true,
+          "status": "COVERED"
+        },
+        {
+          "scenario": "DENSE",
+          "locked_test_present": true,
+          "status": "COVERED"
+        },
+        {
+          "scenario": "CROSS_HEAVY",
+          "locked_test_present": false,
+          "status": "MISSING"
+        },
+        {
+          "scenario": "BURST",
+          "locked_test_present": true,
+          "status": "COVERED"
+        },
+        {
+          "scenario": "MIXED_CONTINUOUS_RECOVERY",
+          "locked_test_present": false,
+          "status": "MISSING"
+        }
+      ],
+      "issues": [
+        {
+          "severity_rank": 1,
+          "severity": "HIGH",
+          "finding": "配对测试使用顺序交接随机流，而非 TASK_KEYED",
+          "evidence": "stage14_training.py:278-285,313-319; stage14_ppo.py:366-371; handover_timing.py:157-162",
+          "impact": "不同策略按不同顺序消耗随机交接时长，逐任务配对不成立。",
+          "remediation": "保留权重，使用 TASK_KEYED 和新鲜最终测试种子重跑 locked evaluation。"
+        },
+        {
+          "severity_rank": 1,
+          "severity": "HIGH",
+          "finding": "Bootstrap 将交叉设计误作嵌套设计",
+          "evidence": "summarize_stage18_locked_test.py:56-66",
+          "impact": "10 个训练种子共享同一 100 个测试种子，当前置信区间可能偏窄。",
+          "remediation": "同时重采训练种子轴和共享测试种子轴，使用 crossed/two-way bootstrap。"
+        },
+        {
+          "severity_rank": 1,
+          "severity": "HIGH",
+          "finding": "36 项显著性检验没有多重比较校正",
+          "evidence": "raw p<.05: 17; global Holm: 0; BH-FDR: 16",
+          "impact": "不能把未校正 p 值直接写成全局确认性证据。",
+          "remediation": "预先定义主要假设族并报告 Holm/BH；若坚持全局 FWER，增加训练种子。"
+        },
+        {
+          "severity_rank": 1,
+          "severity": "HIGH",
+          "finding": "三项消融不是语义干净的单因素消融",
+          "evidence": "stage12_encoding.py:63-98,206-219,247-289",
+          "impact": "交接与资源信息可被其他字段推断；位置消融同时删除 ETA/cost 等复合信息。",
+          "remediation": "重定义互不重叠且不可旁路推断的消融；否则收窄论文表述。"
+        },
+        {
+          "severity_rank": 2,
+          "severity": "MEDIUM",
+          "finding": "throughput 将失败任务计入吞吐",
+          "evidence": "stage14_ppo.py:459-472; summarize_stage18_locked_test.py:40-44",
+          "impact": "快速失败也会提高该指标；当前名称容易被误解为成功交付吞吐。",
+          "remediation": "分别报告 resolved-task rate 与 completed-only successful throughput。"
+        },
+        {
+          "severity_rank": 2,
+          "severity": "MEDIUM",
+          "finding": "冻结协议场景和算法基线未完全覆盖",
+          "evidence": "experiment_seeds.yaml:16-17,29-34; run_stage18_locked_test_campaign.py:27-35",
+          "impact": "尚不能支持混合连续负载、恢复能力或对多种学习基线的普遍性结论。",
+          "remediation": "补 CROSS_HEAVY、MIXED_CONTINUOUS_RECOVERY 与 FLAT/FIXED_GAMMA/RTAW。"
+        },
+        {
+          "severity_rank": 2,
+          "severity": "MEDIUM",
+          "finding": "60 个跨负载结果未进入正式统计",
+          "evidence": "locked jobs=180，但 statistics 仅含 36 个域内比较。",
+          "impact": "已有数据不能直接支撑 3×3 跨负载泛化结论。",
+          "remediation": "增加 3×3 transfer/interactions 的 crossed bootstrap 与校正后检验。"
+        },
+        {
+          "severity_rank": 2,
+          "severity": "MEDIUM",
+          "finding": "实验 manifest 与结果内部阶段元数据已陈旧",
+          "evidence": "120/120 summary 标为 stage=14/schema=stage16；旧 manifest runs=30, missing_paths=0",
+          "impact": "当前文件不能作为投稿级、不可变的实验索引。",
+          "remediation": "生成覆盖代码、环境、配置、权重和结果 SHA256 的只读最终 manifest。"
+        },
+        {
+          "severity_rank": 3,
+          "severity": "LOW",
+          "finding": "锁定结果没有记录权重哈希或源码提交",
+          "evidence": "run_stage18_locked_test_campaign.py:70-90,132-139",
+          "impact": "权重或代码变更后，缓存结果可能仍被误认为同一实验谱系。",
+          "remediation": "缓存有效性校验加入 weight SHA256、config hash 和 commit/source snapshot。"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "audit_results",
+      "label": "Stage18质量审计结果",
+      "path": "results/stage18_quality_review/stage18_quality_audit.json",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT * FROM read_json_auto('results/stage18_quality_review/stage18_quality_audit.json')",
+        "description": "读取本次只读质量审查生成的结构化结果快照。",
+        "tables_used": [
+          "results/stage18_quality_review/stage18_quality_audit.json"
+        ],
+        "filters": [
+          "审查快照截至2026-08-15 05:36 CST"
+        ],
+        "metric_definitions": [
+          "训练完整率=实际完成训练单元/期望训练单元",
+          "成功交付吞吐=completed tasks/simulated time×3600",
+          "交叉Bootstrap同时重采训练种子轴与共享测试种子轴"
+        ]
+      }
+    },
+    {
+      "id": "official_locked_statistics",
+      "label": "Stage18 locked-test原统计",
+      "path": "results/stage18_locked_test/stage18_locked_test_statistics.json",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT * FROM read_json_auto('results/stage18_locked_test/stage18_locked_test_statistics.json')",
+        "description": "读取项目原有的36项locked-test统计比较。",
+        "tables_used": [
+          "results/stage18_locked_test/stage18_locked_test_statistics.json"
+        ],
+        "filters": [
+          "comparison=full_context_vs_rule_baseline"
+        ],
+        "metric_definitions": [
+          "回报差=Full策略平均raw episode reward−规则基线平均值",
+          "成功率差=Full完成率−规则基线完成率",
+          "原throughput=(completed+failed)/simulated time×3600"
+        ]
+      }
+    },
+    {
+      "id": "locked_raw",
+      "label": "Stage18 locked-test逐episode结果",
+      "path": "results/stage18_locked_test/trained_*/*/tested_*/seed_*.json"
+    },
+    {
+      "id": "seed_protocol",
+      "label": "冻结实验种子协议",
+      "path": "src/warehouse_bringup/config/experiment_seeds.yaml",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT scenario, status FROM scenario_coverage ORDER BY scenario",
+        "description": "将冻结YAML中声明的场景与locked campaign实际产物做覆盖对照；scenario_coverage由审查脚本解析生成。",
+        "tables_used": [
+          "src/warehouse_bringup/config/experiment_seeds.yaml",
+          "results/stage18_locked_test/trained_*/*/tested_*/seed_*.json"
+        ],
+        "filters": [
+          "仅统计冻结协议中声明的评估场景"
+        ],
+        "metric_definitions": [
+          "覆盖状态=声明场景是否存在对应locked-test产物"
+        ]
+      }
+    },
+    {
+      "id": "evaluation_code",
+      "label": "Stage18 locked-test与环境评估代码",
+      "path": "scripts/run_stage18_locked_test_campaign.py"
+    },
+    {
+      "id": "statistics_code",
+      "label": "Stage18统计脚本",
+      "path": "scripts/summarize_stage18_locked_test.py"
+    },
+    {
+      "id": "encoding_code",
+      "label": "Stage18状态与动作编码",
+      "path": "src/warehouse_core/warehouse_core/stage12_encoding.py"
+    }
+  ]
+}

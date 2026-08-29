@@ -1,0 +1,398 @@
+{
+  "stage": 15,
+  "gate": "PRE_REGISTERED_PAIRED_STRESS_EVALUATION",
+  "claim_boundary": "Safety/reproducibility gate. Superiority is reported with paired confidence intervals and is not required for PASS.",
+  "weights": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/long/realistic_serial_medium_reward_v2_context_v2/stage14_realistic_serial_medium_reward_v2_context_v2.best.pt",
+  "checkpoint_update": 940,
+  "execution_mode": "SERIAL",
+  "episode_count_per_scenario": 100,
+  "task_count_per_policy_per_scenario": {
+    "MEDIUM": 2000
+  },
+  "seed_start": 20266401,
+  "seed_end": 20266500,
+  "scenario_order_pre_registered": [
+    "MEDIUM"
+  ],
+  "handover_sampling": "TASK_KEYED_COMMON_RANDOM_NUMBERS",
+  "risk_aware_rule_definition": {
+    "causal": true,
+    "realised_handover_sample_visible": false,
+    "single_handover_timeout_probability": 0.05,
+    "two_handover_task_timeout_probability": 0.09750000000000003,
+    "expected_handover_attempts": 1.95,
+    "objective": "estimated ETA + Reward V2-equivalent expected timeout, handover and active-robot premiums"
+  },
+  "results": {
+    "MEDIUM": {
+      "description": "Stage 14 in-distribution anchor",
+      "arrival_interval": [
+        55.0,
+        75.0
+      ],
+      "arrival_schedule": "BALANCED",
+      "task_count_per_episode": 20,
+      "episode_spec": {
+        "f1_same": 3,
+        "f1_cross_region": 2,
+        "f2_same": 3,
+        "f2_cross_region": 2,
+        "cross_up": 5,
+        "cross_down": 5
+      },
+      "policy": {
+        "policy_kind": "PPO",
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed": 1943,
+        "failed": 57,
+        "success_rate": 0.9715,
+        "mean_episode_reward": 15.994491350988607,
+        "throughput_tasks_per_hour": 55.77477937833231,
+        "successful_throughput_tasks_per_hour": 54.185198166049844,
+        "mean_waiting_time": 6.0210034623669255,
+        "p95_waiting_time": 28.287828942770453,
+        "mean_flow_time": 45.91088066873622,
+        "p95_flow_time": 90.79014308452588,
+        "distance_per_task": 59.98474048702938,
+        "maximum_active_tasks": 1,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "SINGLE_CAR": 1000,
+          "CAR_DOG_CAR": 543,
+          "SINGLE_DOG": 457
+        },
+        "phase_results": {
+          "MEDIUM": {
+            "task_count": 2000,
+            "completed": 1943,
+            "failed": 57,
+            "success_rate": 0.9715,
+            "mean_waiting_time": 6.0210034623669255,
+            "p95_waiting_time": 28.287828942770453,
+            "mean_flow_time": 45.91088066873622,
+            "p95_flow_time": 90.79014308452588,
+            "transport_modes": {
+              "CAR_DOG_CAR": 543,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 457
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 57
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 543,
+            "SINGLE_DOG": 157
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 1000
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 300
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 543,
+            "SINGLE_DOG": 457
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 1000
+          }
+        },
+        "task_fingerprint": "70a8ebbaade344e5c3f967cfe4299f16a190a4a36f68567f0973f63b2a904df3"
+      },
+      "rule_baseline": {
+        "policy_kind": "TIME_GREEDY_RULE",
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed": 1925,
+        "failed": 75,
+        "success_rate": 0.9625,
+        "mean_episode_reward": 15.443548237442835,
+        "throughput_tasks_per_hour": 55.82053968192447,
+        "successful_throughput_tasks_per_hour": 53.72726944385231,
+        "mean_waiting_time": 5.634209407539378,
+        "p95_waiting_time": 26.969692651708428,
+        "mean_flow_time": 45.2195237562954,
+        "p95_flow_time": 87.76339795928635,
+        "distance_per_task": 67.16059134147999,
+        "maximum_active_tasks": 1,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "SINGLE_CAR": 1000,
+          "CAR_DOG_CAR": 700,
+          "SINGLE_DOG": 300
+        },
+        "phase_results": {
+          "MEDIUM": {
+            "task_count": 2000,
+            "completed": 1925,
+            "failed": 75,
+            "success_rate": 0.9625,
+            "mean_waiting_time": 5.634209407539378,
+            "p95_waiting_time": 26.969692651708428,
+            "mean_flow_time": 45.2195237562954,
+            "p95_flow_time": 87.76339795928635,
+            "transport_modes": {
+              "CAR_DOG_CAR": 700,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 300
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 75
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 700
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 1000
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 300
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 700,
+            "SINGLE_DOG": 300
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 1000
+          }
+        },
+        "task_fingerprint": "70a8ebbaade344e5c3f967cfe4299f16a190a4a36f68567f0973f63b2a904df3"
+      },
+      "risk_aware_rule_baseline": {
+        "policy_kind": "RISK_AWARE_RULE",
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed": 1938,
+        "failed": 62,
+        "success_rate": 0.969,
+        "mean_episode_reward": 15.82456626288943,
+        "throughput_tasks_per_hour": 55.75985175141726,
+        "successful_throughput_tasks_per_hour": 54.03129634712332,
+        "mean_waiting_time": 5.966065521674636,
+        "p95_waiting_time": 28.36908913968582,
+        "mean_flow_time": 45.744671497441736,
+        "p95_flow_time": 90.80953140816192,
+        "distance_per_task": 62.294636522835596,
+        "maximum_active_tasks": 1,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "SINGLE_CAR": 1000,
+          "CAR_DOG_CAR": 586,
+          "SINGLE_DOG": 414
+        },
+        "phase_results": {
+          "MEDIUM": {
+            "task_count": 2000,
+            "completed": 1938,
+            "failed": 62,
+            "success_rate": 0.969,
+            "mean_waiting_time": 5.966065521674636,
+            "p95_waiting_time": 28.36908913968582,
+            "mean_flow_time": 45.744671497441736,
+            "p95_flow_time": 90.80953140816192,
+            "transport_modes": {
+              "CAR_DOG_CAR": 586,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 414
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 62
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 586,
+            "SINGLE_DOG": 114
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 1000
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 300
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 586,
+            "SINGLE_DOG": 414
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 1000
+          }
+        },
+        "task_fingerprint": "70a8ebbaade344e5c3f967cfe4299f16a190a4a36f68567f0973f63b2a904df3"
+      },
+      "paired_comparison": {
+        "success_rate": {
+          "policy_minus_rule": 0.009000000000000003,
+          "paired_bootstrap_95ci": [
+            0.005500000000000001,
+            0.013000000000000003
+          ]
+        },
+        "reward": {
+          "policy_minus_rule": 0.5509431135457694,
+          "paired_bootstrap_95ci": [
+            0.236700496407002,
+            0.8908310262492813
+          ]
+        },
+        "throughput_tasks_per_hour": {
+          "policy_minus_rule": -0.04447844970368202,
+          "paired_bootstrap_95ci": [
+            -0.07525364165665355,
+            -0.015171434157683721
+          ]
+        },
+        "successful_throughput_tasks_per_hour": {
+          "policy_minus_rule": 0.459478938557472,
+          "paired_bootstrap_95ci": [
+            0.26479377425964057,
+            0.6744037021331535
+          ]
+        },
+        "mean_waiting_time": {
+          "policy_minus_rule": 0.38679405482754686,
+          "paired_bootstrap_95ci": [
+            0.2409386763765851,
+            0.5322581727378408
+          ]
+        },
+        "p95_waiting_time": {
+          "policy_minus_rule": 1.1966052776997294,
+          "paired_bootstrap_95ci": [
+            0.39946905160344165,
+            1.9605614480842444
+          ]
+        },
+        "mean_flow_time": {
+          "policy_minus_rule": 0.6913569124408138,
+          "paired_bootstrap_95ci": [
+            0.49293605831119053,
+            0.8918257087894705
+          ]
+        },
+        "p95_flow_time": {
+          "policy_minus_rule": 1.2950591027868585,
+          "paired_bootstrap_95ci": [
+            0.39492482395716416,
+            2.179796413983195
+          ]
+        },
+        "distance_per_task": {
+          "policy_minus_rule": -7.175850854450618,
+          "paired_bootstrap_95ci": [
+            -8.051714515699649,
+            -6.345007693411252
+          ]
+        }
+      },
+      "paired_comparison_vs_risk_aware_rule": {
+        "success_rate": {
+          "policy_minus_rule": 0.0025000000000000022,
+          "paired_bootstrap_95ci": [
+            0.0005000000000000004,
+            0.0050000000000000044
+          ]
+        },
+        "reward": {
+          "policy_minus_rule": 0.16992508809917284,
+          "paired_bootstrap_95ci": [
+            -0.01787641602206234,
+            0.39644247247324055
+          ]
+        },
+        "throughput_tasks_per_hour": {
+          "policy_minus_rule": 0.014336705193572073,
+          "paired_bootstrap_95ci": [
+            -0.01527466854585953,
+            0.04729153841697187
+          ]
+        },
+        "successful_throughput_tasks_per_hour": {
+          "policy_minus_rule": 0.15308051907577003,
+          "paired_bootstrap_95ci": [
+            0.04554508343354292,
+            0.2853368055778966
+          ]
+        },
+        "mean_waiting_time": {
+          "policy_minus_rule": 0.054937940692288884,
+          "paired_bootstrap_95ci": [
+            -0.06821544232806281,
+            0.16836908731059383
+          ]
+        },
+        "p95_waiting_time": {
+          "policy_minus_rule": -0.11735945406862924,
+          "paired_bootstrap_95ci": [
+            -0.8598030211702429,
+            0.536816938030644
+          ]
+        },
+        "mean_flow_time": {
+          "policy_minus_rule": 0.16620917129447982,
+          "paired_bootstrap_95ci": [
+            0.00284832897753819,
+            0.3251524387740565
+          ]
+        },
+        "p95_flow_time": {
+          "policy_minus_rule": 0.00776991356006036,
+          "paired_bootstrap_95ci": [
+            -0.756721101199893,
+            0.6944384245725768
+          ]
+        },
+        "distance_per_task": {
+          "policy_minus_rule": -2.309896035806221,
+          "paired_bootstrap_95ci": [
+            -2.8604363881541675,
+            -1.7606742695163162
+          ]
+        }
+      },
+      "adaptive_mode_summary": null,
+      "assertions": {
+        "paired_task_streams_identical": true,
+        "policy_resolved_all_tasks": true,
+        "rule_resolved_all_tasks": true,
+        "policy_actions_all_legal": true,
+        "policy_has_no_resource_leak": true,
+        "rule_has_no_resource_leak": true,
+        "risk_rule_resolved_all_tasks": true,
+        "risk_rule_actions_all_legal": true,
+        "risk_rule_has_no_resource_leak": true,
+        "risk_rule_task_streams_identical": true
+      }
+    }
+  },
+  "assertions": {
+    "medium_paired_task_streams_identical": true,
+    "medium_policy_resolved_all_tasks": true,
+    "medium_rule_resolved_all_tasks": true,
+    "medium_policy_actions_all_legal": true,
+    "medium_policy_has_no_resource_leak": true,
+    "medium_rule_has_no_resource_leak": true,
+    "medium_risk_rule_resolved_all_tasks": true,
+    "medium_risk_rule_actions_all_legal": true,
+    "medium_risk_rule_has_no_resource_leak": true,
+    "medium_risk_rule_task_streams_identical": true
+  },
+  "passed": true
+}

@@ -1,0 +1,209 @@
+{
+  "stage": 14,
+  "gate": "BALANCED_GYM_RULE_REPLAY",
+  "seed_start": 20260835,
+  "seed_end": 20260844,
+  "episode_count": 10,
+  "task_count": 200,
+  "completed_task_count": 196,
+  "failed_task_count": 4,
+  "decision_count": 324,
+  "wait_decision_count": 124,
+  "same_floor_task_count": 100,
+  "cross_floor_task_count": 100,
+  "single_dog_favored_task_count": 30,
+  "task_types": {
+    "f1_same": 30,
+    "f1_cross_region": 20,
+    "f2_cross_region": 20,
+    "cross_up": 50,
+    "f2_same": 30,
+    "cross_down": 50
+  },
+  "transport_modes": {
+    "SINGLE_CAR": 100,
+    "CAR_DOG_CAR": 70,
+    "SINGLE_DOG": 30
+  },
+  "observation_shape": [
+    284
+  ],
+  "action_feature_shape": [
+    1536,
+    30
+  ],
+  "action_mask_shape": [
+    1536
+  ],
+  "per_episode": [
+    {
+      "seed": 20260835,
+      "decision_count": 32,
+      "task_count": 20,
+      "completed_task_count": 20,
+      "failed_task_count": 0,
+      "wait_count": 12,
+      "transport_modes": {
+        "SINGLE_CAR": 10,
+        "CAR_DOG_CAR": 7,
+        "SINGLE_DOG": 3
+      },
+      "reward_total": 18.294253,
+      "simulated_time": 1364.737691
+    },
+    {
+      "seed": 20260836,
+      "decision_count": 33,
+      "task_count": 20,
+      "completed_task_count": 20,
+      "failed_task_count": 0,
+      "wait_count": 13,
+      "transport_modes": {
+        "CAR_DOG_CAR": 7,
+        "SINGLE_CAR": 10,
+        "SINGLE_DOG": 3
+      },
+      "reward_total": 20.325957,
+      "simulated_time": 1278.495797
+    },
+    {
+      "seed": 20260837,
+      "decision_count": 32,
+      "task_count": 20,
+      "completed_task_count": 19,
+      "failed_task_count": 1,
+      "wait_count": 12,
+      "transport_modes": {
+        "SINGLE_CAR": 10,
+        "SINGLE_DOG": 3,
+        "CAR_DOG_CAR": 7
+      },
+      "reward_total": 15.551881,
+      "simulated_time": 1270.020361
+    },
+    {
+      "seed": 20260838,
+      "decision_count": 35,
+      "task_count": 20,
+      "completed_task_count": 20,
+      "failed_task_count": 0,
+      "wait_count": 15,
+      "transport_modes": {
+        "CAR_DOG_CAR": 7,
+        "SINGLE_CAR": 10,
+        "SINGLE_DOG": 3
+      },
+      "reward_total": 20.89173,
+      "simulated_time": 1413.780666
+    },
+    {
+      "seed": 20260839,
+      "decision_count": 32,
+      "task_count": 20,
+      "completed_task_count": 20,
+      "failed_task_count": 0,
+      "wait_count": 12,
+      "transport_modes": {
+        "CAR_DOG_CAR": 7,
+        "SINGLE_DOG": 3,
+        "SINGLE_CAR": 10
+      },
+      "reward_total": 16.179215,
+      "simulated_time": 1200.86271
+    },
+    {
+      "seed": 20260840,
+      "decision_count": 34,
+      "task_count": 20,
+      "completed_task_count": 18,
+      "failed_task_count": 2,
+      "wait_count": 14,
+      "transport_modes": {
+        "SINGLE_DOG": 3,
+        "CAR_DOG_CAR": 7,
+        "SINGLE_CAR": 10
+      },
+      "reward_total": 11.159011,
+      "simulated_time": 1338.813224
+    },
+    {
+      "seed": 20260841,
+      "decision_count": 31,
+      "task_count": 20,
+      "completed_task_count": 20,
+      "failed_task_count": 0,
+      "wait_count": 11,
+      "transport_modes": {
+        "SINGLE_CAR": 10,
+        "CAR_DOG_CAR": 7,
+        "SINGLE_DOG": 3
+      },
+      "reward_total": 20.952877,
+      "simulated_time": 1348.099075
+    },
+    {
+      "seed": 20260842,
+      "decision_count": 32,
+      "task_count": 20,
+      "completed_task_count": 20,
+      "failed_task_count": 0,
+      "wait_count": 12,
+      "transport_modes": {
+        "CAR_DOG_CAR": 7,
+        "SINGLE_DOG": 3,
+        "SINGLE_CAR": 10
+      },
+      "reward_total": 19.306787,
+      "simulated_time": 1297.761677
+    },
+    {
+      "seed": 20260843,
+      "decision_count": 31,
+      "task_count": 20,
+      "completed_task_count": 20,
+      "failed_task_count": 0,
+      "wait_count": 11,
+      "transport_modes": {
+        "SINGLE_CAR": 10,
+        "CAR_DOG_CAR": 7,
+        "SINGLE_DOG": 3
+      },
+      "reward_total": 19.175002,
+      "simulated_time": 1259.653214
+    },
+    {
+      "seed": 20260844,
+      "decision_count": 32,
+      "task_count": 20,
+      "completed_task_count": 19,
+      "failed_task_count": 1,
+      "wait_count": 12,
+      "transport_modes": {
+        "SINGLE_CAR": 10,
+        "SINGLE_DOG": 3,
+        "CAR_DOG_CAR": 7
+      },
+      "reward_total": 14.905976,
+      "simulated_time": 1327.463252
+    }
+  ],
+  "assertions": {
+    "ten_episodes_completed": true,
+    "two_hundred_tasks_resolved": true,
+    "failed_tasks_are_only_p95_handover_timeouts": true,
+    "exact_half_cross_floor": true,
+    "six_task_types_exact_counts": true,
+    "fixed_tensor_shapes": true,
+    "every_selected_action_unmasked": true,
+    "wait_only_without_ready_task": true,
+    "both_cross_floor_modes_exposed": true,
+    "three_single_dog_lessons_per_episode": true,
+    "seven_cooperation_lessons_per_episode": true,
+    "no_car_crosses_floor": true,
+    "rewards_and_discounts_finite": true,
+    "fixed_seed_rule_replay_equal": true,
+    "only_final_task_terminates_each_episode": true,
+    "no_unexpected_truncation": true
+  },
+  "passed": true
+}

@@ -1,0 +1,68 @@
+{
+  "stage": 17,
+  "gate": "ALL_ABLATION_SHORT_TRAINING_SMOKES",
+  "claim_boundary": "One-update interface smokes; no performance claim.",
+  "conditions": [
+    {
+      "condition": "full_context_v2",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage17/smoke/stage17_full_context_v2_smoke.summary.json",
+      "observation_variant": "FULL_CONTEXT_V2",
+      "policy_variant": "CONTEXT_INTERACTION",
+      "discount_mode": "VARIABLE_SMDP",
+      "action_width": 30,
+      "passed": true
+    },
+    {
+      "condition": "no_queue_resource",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage17/smoke/stage17_no_queue_resource_smoke.summary.json",
+      "observation_variant": "NO_QUEUE_RESOURCE",
+      "policy_variant": "CONTEXT_INTERACTION",
+      "discount_mode": "VARIABLE_SMDP",
+      "action_width": 30,
+      "passed": true
+    },
+    {
+      "condition": "no_handover_cues",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage17/smoke/stage17_no_handover_cues_smoke.summary.json",
+      "observation_variant": "NO_HANDOVER_CUES",
+      "policy_variant": "CONTEXT_INTERACTION",
+      "discount_mode": "VARIABLE_SMDP",
+      "action_width": 30,
+      "passed": true
+    },
+    {
+      "condition": "no_persistent_position",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage17/smoke/stage17_no_persistent_position_smoke.summary.json",
+      "observation_variant": "NO_PERSISTENT_POSITION",
+      "policy_variant": "CONTEXT_INTERACTION",
+      "discount_mode": "VARIABLE_SMDP",
+      "action_width": 30,
+      "passed": true
+    },
+    {
+      "condition": "fixed_gamma",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage17/smoke/stage17_fixed_gamma_smoke.summary.json",
+      "observation_variant": "FULL_CONTEXT_V2",
+      "policy_variant": "CONTEXT_INTERACTION",
+      "discount_mode": "FIXED_PER_DECISION",
+      "action_width": 30,
+      "passed": true
+    },
+    {
+      "condition": "flat_masked_ppo",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage17/smoke/stage17_flat_masked_ppo_smoke.summary.json",
+      "observation_variant": "FULL_CONTEXT_V2",
+      "policy_variant": "FLAT_MASKED_PPO",
+      "discount_mode": "VARIABLE_SMDP",
+      "action_width": 30,
+      "passed": true
+    }
+  ],
+  "assertions": {
+    "all_six_conditions_ran": true,
+    "all_condition_smokes_passed": true,
+    "all_use_explicit_30d_candidate_schema": true,
+    "all_use_shared_validation_seeds": true
+  },
+  "passed": true
+}

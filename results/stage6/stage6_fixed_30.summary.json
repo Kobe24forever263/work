@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-08-03T02:08:41.605684+00:00",
+  "seed": 20260803,
+  "trial_count": 30,
+  "success_count": 30,
+  "failure_count": 0,
+  "by_robot": {
+    "car_f1_4": {
+      "trials": 5,
+      "passes": 5
+    },
+    "car_f2_2": {
+      "trials": 5,
+      "passes": 5
+    },
+    "car_f1_2": {
+      "trials": 5,
+      "passes": 5
+    },
+    "car_f1_3": {
+      "trials": 5,
+      "passes": 5
+    },
+    "car_f1_1": {
+      "trials": 5,
+      "passes": 5
+    },
+    "car_f2_1": {
+      "trials": 5,
+      "passes": 5
+    }
+  },
+  "results_jsonl": "/Users/lab4099/Desktop/Mujoco/work/results/stage6/stage6_fixed_30.jsonl"
+}

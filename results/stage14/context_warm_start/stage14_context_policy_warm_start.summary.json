@@ -1,0 +1,119 @@
+{
+  "stage": 14,
+  "gate": "CONTEXT_CONDITIONED_POLICY_WARM_START",
+  "training_type": "contextual_rule_actor_distillation_warm_start",
+  "execution_mode": "CONCURRENT",
+  "training_seed_start": 20260845,
+  "training_seed_end": 20260864,
+  "evaluation_seeds": [
+    20260901,
+    20260902,
+    20260903,
+    20260904,
+    20260905
+  ],
+  "training_task_count": 400,
+  "maximum_candidates_in_training": 144,
+  "training_label_modes": {
+    "CAR_DOG_CAR": 141,
+    "SINGLE_CAR": 200,
+    "SINGLE_DOG": 59
+  },
+  "model": {
+    "architecture": "contextual_masked_candidate_actor_critic_v2",
+    "state_width": 284,
+    "action_width": 28,
+    "hidden_width": 96,
+    "index_specific_parameters": false
+  },
+  "hyperparameters": {
+    "epochs": 30,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "optimizer": "Adam",
+    "gradient_clip": 1.0,
+    "value_loss_weight": 0.0,
+    "critic_note": "Critic intentionally left for normalized SMDP-PPO."
+  },
+  "training_initial": {
+    "loss": 2.810622310638428,
+    "actor_loss": 2.810622310638428,
+    "value_loss": 0.05167959035839886,
+    "entropy": 2.8071092319488526,
+    "accuracy": 0.0425
+  },
+  "training_final": {
+    "loss": 0.14178509756922722,
+    "actor_loss": 0.14178509756922722,
+    "value_loss": 0.18946742296218871,
+    "entropy": 0.2498744398355484,
+    "accuracy": 0.965,
+    "epoch": 30
+  },
+  "evaluation_before": {
+    "episode_count": 5,
+    "task_count": 100,
+    "completed_task_count": 96,
+    "failure_count": 4,
+    "non_handover_failure_count": 0,
+    "illegal_action_count": 0,
+    "exact_action_agreement": 0.07,
+    "mode_agreement": 0.48,
+    "mean_episode_reward": -35.752498504885146,
+    "mean_simulated_time": 1378.6400239484633,
+    "transport_modes": {
+      "SINGLE_CAR": 15,
+      "SINGLE_DOG": 55,
+      "CAR_DOG_CAR": 30
+    }
+  },
+  "evaluation_after": {
+    "episode_count": 5,
+    "task_count": 100,
+    "completed_task_count": 96,
+    "failure_count": 4,
+    "non_handover_failure_count": 0,
+    "illegal_action_count": 0,
+    "exact_action_agreement": 0.94,
+    "mode_agreement": 1.0,
+    "mean_episode_reward": 17.777090474151354,
+    "mean_simulated_time": 1306.1286282348378,
+    "transport_modes": {
+      "SINGLE_CAR": 50,
+      "CAR_DOG_CAR": 35,
+      "SINGLE_DOG": 15
+    }
+  },
+  "rule_baseline": {
+    "episode_count": 5,
+    "task_count": 100,
+    "completed_task_count": 96,
+    "failure_count": 4,
+    "non_handover_failure_count": 0,
+    "illegal_action_count": 0,
+    "exact_action_agreement": 1.0,
+    "mode_agreement": 1.0,
+    "mean_episode_reward": 17.71819002876225,
+    "mean_simulated_time": 1306.1286282348378,
+    "transport_modes": {
+      "SINGLE_CAR": 50,
+      "CAR_DOG_CAR": 35,
+      "SINGLE_DOG": 15
+    }
+  },
+  "assertions": {
+    "training_dataset_has_four_hundred_tasks": true,
+    "training_labels_cover_three_modes": true,
+    "loss_decreased": true,
+    "classification_accuracy_improved": true,
+    "heldout_policy_resolved_one_hundred_tasks": true,
+    "heldout_failures_only_come_from_p95_handover_timeout": true,
+    "heldout_actions_all_legal": true,
+    "heldout_uses_all_three_modes": true,
+    "heldout_mode_agreement_at_least_90_percent": true,
+    "heldout_exact_action_agreement_at_least_70_percent": true,
+    "heldout_reward_improved_from_initial": true,
+    "heldout_reward_within_two_percent_of_rule": true
+  },
+  "passed": true
+}

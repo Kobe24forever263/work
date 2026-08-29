@@ -1,0 +1,105 @@
+{
+  "stage": 14,
+  "gate": "P95_HANDOVER_TIMEOUT_LOGIC_GATE",
+  "data_quality_status": "PROVISIONAL_LOGIC_SIMULATION_ONLY",
+  "eligible_for_pre_rl_logical_training": true,
+  "eligible_as_rviz_or_hardware_threshold": false,
+  "calibration": {
+    "source": "logic_simulation_provisional_v1",
+    "seed": 20260809,
+    "timing_start": "BOTH_AGENTS_STABLE_ALIGNMENT_START",
+    "timing_end": "UNIQUE_OWNER_TRANSFER_VERIFIED",
+    "percentile_method": "NEAREST_RANK_CEIL",
+    "percentile": 0.95,
+    "comparison": "STRICT_GREATER_THAN",
+    "timeout_s": 2.697870903389276,
+    "all": {
+      "count": 1000,
+      "minimum_s": 2.0798293259518164,
+      "mean_s": 2.366409796360302,
+      "median_s": 2.3313220305100684,
+      "p95_s": 2.697870903389276,
+      "p99_s": 2.9106851696465768,
+      "maximum_s": 3.093058178882705
+    },
+    "per_kind": {
+      "CAR_TO_DOG": {
+        "count": 500,
+        "minimum_s": 2.0798293259518164,
+        "mean_s": 2.3219654333857753,
+        "median_s": 2.2837397735301197,
+        "p95_s": 2.6668310675302638,
+        "p99_s": 2.810886844172003,
+        "maximum_s": 3.093058178882705,
+        "above_unified_p95_count": 18,
+        "above_unified_p95_rate": 0.036
+      },
+      "DOG_TO_CAR": {
+        "count": 500,
+        "minimum_s": 2.1603616366826515,
+        "mean_s": 2.4108541593348294,
+        "median_s": 2.368328641269796,
+        "p95_s": 2.7213467243038183,
+        "p99_s": 2.9743824685131734,
+        "maximum_s": 3.0700860887651227,
+        "above_unified_p95_count": 32,
+        "above_unified_p95_rate": 0.064
+      }
+    },
+    "above_p95_count": 50,
+    "above_p95_rate": 0.05
+  },
+  "logical_gate": {
+    "seed_start": 20261001,
+    "seed_end": 20261500,
+    "episode_count": 500,
+    "task_count": 10000,
+    "completed_task_count": 9643,
+    "failed_task_count": 357,
+    "transport_modes": {
+      "SINGLE_CAR": 5000,
+      "CAR_DOG_CAR": 3500,
+      "SINGLE_DOG": 1500
+    },
+    "cooperative_task_count": 3500,
+    "handover_attempt_count": 6866,
+    "handover_timeout_count": 357,
+    "handover_timeout_rate": 0.05199533935333527,
+    "cooperative_task_failure_rate": 0.102,
+    "expected_two_handover_task_failure_rate_if_independent": 0.09750000000000003
+  },
+  "known_limitations": [
+    "Stage 8 records have no start/end timestamps and cannot estimate P95.",
+    "Calibration samples are reproducible logical-simulation values, not RViz or hardware measurements.",
+    "A cooperative task has two handovers, so its failure probability is about 1-(0.95^2)=9.75%, not 5%.",
+    "Distribution drift can move the observed timeout rate away from 5%."
+  ],
+  "replacement_gate": {
+    "minimum_measured_samples_per_kind": 500,
+    "required_kinds": [
+      "CAR_TO_DOG",
+      "DOG_TO_CAR"
+    ],
+    "required_fields": [
+      "task_id",
+      "handover_kind",
+      "start_timestamp",
+      "end_timestamp",
+      "duration_s",
+      "result"
+    ],
+    "action": "Recompute the same nearest-rank P95 and rerun this gate."
+  },
+  "assertions": {
+    "calibration_has_1000_current_mode_samples": true,
+    "nearest_rank_p95_has_exactly_five_percent_above": true,
+    "strict_boundary_accepts_equal_and_rejects_above": true,
+    "five_hundred_episodes_resolve_ten_thousand_tasks": true,
+    "logical_attempt_timeout_rate_is_close_to_five_percent": true,
+    "cooperative_task_failure_rate_matches_two_attempt_exposure": true,
+    "every_failed_task_is_handover_timeout": true,
+    "no_resource_robot_or_stair_leaks": true,
+    "fixed_seed_replay_equal": true
+  },
+  "passed": true
+}

@@ -1,0 +1,512 @@
+{
+  "stage": 15,
+  "gate": "PRE_REGISTERED_PAIRED_STRESS_EVALUATION",
+  "claim_boundary": "Safety/reproducibility gate. Superiority is reported with paired confidence intervals and is not required for PASS.",
+  "weights": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/long/realistic_concurrent_medium_reward_v2_context_v2/stage14_realistic_concurrent_medium_reward_v2_context_v2.best.pt",
+  "checkpoint_update": 160,
+  "episode_count_per_scenario": 100,
+  "task_count_per_policy_per_scenario": {
+    "MIXED_CONTINUOUS": 6000
+  },
+  "seed_start": 20266201,
+  "seed_end": 20266300,
+  "scenario_order_pre_registered": [
+    "MIXED_CONTINUOUS"
+  ],
+  "handover_sampling": "TASK_KEYED_COMMON_RANDOM_NUMBERS",
+  "risk_aware_rule_definition": {
+    "causal": true,
+    "realised_handover_sample_visible": false,
+    "single_handover_timeout_probability": 0.05,
+    "two_handover_task_timeout_probability": 0.09750000000000003,
+    "expected_handover_attempts": 1.95,
+    "objective": "estimated ETA + Reward V2-equivalent expected timeout, handover and active-robot premiums"
+  },
+  "results": {
+    "MIXED_CONTINUOUS": {
+      "description": "One persistent 60-task NORMAL -> DENSE -> BURST episode",
+      "arrival_interval": [
+        55.0,
+        75.0
+      ],
+      "arrival_schedule": "MIXED_LOAD",
+      "task_count_per_episode": 60,
+      "episode_spec": null,
+      "policy": {
+        "policy_kind": "PPO",
+        "episode_count": 100,
+        "task_count": 6000,
+        "completed": 5937,
+        "failed": 63,
+        "success_rate": 0.9895,
+        "mean_episode_reward": -298.67155796231594,
+        "throughput_tasks_per_hour": 75.23968765756328,
+        "successful_throughput_tasks_per_hour": 74.44967093715887,
+        "mean_waiting_time": 151.64787716784562,
+        "p95_waiting_time": 573.5484257563382,
+        "mean_flow_time": 195.9250632101669,
+        "p95_flow_time": 626.9398501506865,
+        "distance_per_task": 51.50549355979081,
+        "maximum_active_tasks": 4,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "SINGLE_CAR": 2926,
+          "CAR_DOG_CAR": 641,
+          "SINGLE_DOG": 2433
+        },
+        "phase_results": {
+          "NORMAL": {
+            "task_count": 2000,
+            "completed": 1951,
+            "failed": 49,
+            "success_rate": 0.9755,
+            "mean_waiting_time": 0.04072515824466868,
+            "p95_waiting_time": 0.0,
+            "mean_flow_time": 40.14820644454581,
+            "p95_flow_time": 83.88269459983735,
+            "transport_modes": {
+              "CAR_DOG_CAR": 476,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 524
+            }
+          },
+          "DENSE": {
+            "task_count": 2000,
+            "completed": 1991,
+            "failed": 9,
+            "success_rate": 0.9955,
+            "mean_waiting_time": 127.73945049687914,
+            "p95_waiting_time": 628.2179404972394,
+            "mean_flow_time": 173.2661738208662,
+            "p95_flow_time": 686.2807709765864,
+            "transport_modes": {
+              "CAR_DOG_CAR": 108,
+              "SINGLE_CAR": 986,
+              "SINGLE_DOG": 906
+            }
+          },
+          "BURST": {
+            "task_count": 2000,
+            "completed": 1995,
+            "failed": 5,
+            "success_rate": 0.9975,
+            "mean_waiting_time": 327.16345584841304,
+            "p95_waiting_time": 620.5701906156274,
+            "mean_flow_time": 374.36080936508876,
+            "p95_flow_time": 684.7058676204206,
+            "transport_modes": {
+              "CAR_DOG_CAR": 57,
+              "SINGLE_CAR": 940,
+              "SINGLE_DOG": 1003
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 63
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 641,
+            "SINGLE_DOG": 1457
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 2926,
+            "SINGLE_DOG": 74
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 902
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 641,
+            "SINGLE_DOG": 2359
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 2926,
+            "SINGLE_DOG": 74
+          }
+        },
+        "task_fingerprint": "bd83854961117d4b87e6ea43a8eaeb9c381066b9f4f5ef7eceacabafd3b444ce"
+      },
+      "rule_baseline": {
+        "policy_kind": "TIME_GREEDY_RULE",
+        "episode_count": 100,
+        "task_count": 6000,
+        "completed": 5807,
+        "failed": 193,
+        "success_rate": 0.9678333333333333,
+        "mean_episode_reward": -356.73684144508167,
+        "throughput_tasks_per_hour": 76.78837076137403,
+        "successful_throughput_tasks_per_hour": 74.3183448352165,
+        "mean_waiting_time": 177.5140392237729,
+        "p95_waiting_time": 669.8549221399641,
+        "mean_flow_time": 219.7442028983053,
+        "p95_flow_time": 691.1491066181342,
+        "distance_per_task": 71.75510051357426,
+        "maximum_active_tasks": 4,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "SINGLE_CAR": 2998,
+          "CAR_DOG_CAR": 2076,
+          "SINGLE_DOG": 926
+        },
+        "phase_results": {
+          "NORMAL": {
+            "task_count": 2000,
+            "completed": 1928,
+            "failed": 72,
+            "success_rate": 0.964,
+            "mean_waiting_time": 0.004632815859784273,
+            "p95_waiting_time": 0.0,
+            "mean_flow_time": 39.523648008224,
+            "p95_flow_time": 80.48250611673332,
+            "transport_modes": {
+              "CAR_DOG_CAR": 700,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 300
+            }
+          },
+          "DENSE": {
+            "task_count": 2000,
+            "completed": 1941,
+            "failed": 59,
+            "success_rate": 0.9705,
+            "mean_waiting_time": 156.75354931071743,
+            "p95_waiting_time": 766.9569979498933,
+            "mean_flow_time": 200.234030481548,
+            "p95_flow_time": 782.4046266998075,
+            "transport_modes": {
+              "CAR_DOG_CAR": 696,
+              "SINGLE_CAR": 999,
+              "SINGLE_DOG": 305
+            }
+          },
+          "BURST": {
+            "task_count": 2000,
+            "completed": 1938,
+            "failed": 62,
+            "success_rate": 0.969,
+            "mean_waiting_time": 375.78393554474144,
+            "p95_waiting_time": 700.6188938446473,
+            "mean_flow_time": 419.47493020514395,
+            "p95_flow_time": 738.1371221344972,
+            "transport_modes": {
+              "CAR_DOG_CAR": 680,
+              "SINGLE_CAR": 999,
+              "SINGLE_DOG": 321
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 193
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 2076
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 2998
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 926
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 2076,
+            "SINGLE_DOG": 924
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 2998,
+            "SINGLE_DOG": 2
+          }
+        },
+        "task_fingerprint": "bd83854961117d4b87e6ea43a8eaeb9c381066b9f4f5ef7eceacabafd3b444ce"
+      },
+      "risk_aware_rule_baseline": {
+        "policy_kind": "RISK_AWARE_RULE",
+        "episode_count": 100,
+        "task_count": 6000,
+        "completed": 5894,
+        "failed": 106,
+        "success_rate": 0.9823333333333333,
+        "mean_episode_reward": -378.2304397557897,
+        "throughput_tasks_per_hour": 75.93061574888029,
+        "successful_throughput_tasks_per_hour": 74.58917487065007,
+        "mean_waiting_time": 188.5383076409626,
+        "p95_waiting_time": 707.239937120276,
+        "mean_flow_time": 231.6547518043462,
+        "p95_flow_time": 730.8054866104965,
+        "distance_per_task": 56.744181516459996,
+        "maximum_active_tasks": 4,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "SINGLE_CAR": 3000,
+          "CAR_DOG_CAR": 1051,
+          "SINGLE_DOG": 1949
+        },
+        "phase_results": {
+          "NORMAL": {
+            "task_count": 2000,
+            "completed": 1938,
+            "failed": 62,
+            "success_rate": 0.969,
+            "mean_waiting_time": 0.007311563457333364,
+            "p95_waiting_time": 0.0,
+            "mean_flow_time": 39.69065809088884,
+            "p95_flow_time": 80.874793999143,
+            "transport_modes": {
+              "CAR_DOG_CAR": 594,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 406
+            }
+          },
+          "DENSE": {
+            "task_count": 2000,
+            "completed": 1974,
+            "failed": 26,
+            "success_rate": 0.987,
+            "mean_waiting_time": 167.22603529546137,
+            "p95_waiting_time": 795.6380948310975,
+            "mean_flow_time": 211.6792696928841,
+            "p95_flow_time": 815.4428745068398,
+            "transport_modes": {
+              "CAR_DOG_CAR": 276,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 724
+            }
+          },
+          "BURST": {
+            "task_count": 2000,
+            "completed": 1982,
+            "failed": 18,
+            "success_rate": 0.991,
+            "mean_waiting_time": 398.3815760639691,
+            "p95_waiting_time": 735.2262337984677,
+            "mean_flow_time": 443.59432762926576,
+            "p95_flow_time": 772.1009794910547,
+            "transport_modes": {
+              "CAR_DOG_CAR": 181,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 819
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 106
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 1051,
+            "SINGLE_DOG": 1041
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 3000
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 908
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 1051,
+            "SINGLE_DOG": 1949
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 3000
+          }
+        },
+        "task_fingerprint": "bd83854961117d4b87e6ea43a8eaeb9c381066b9f4f5ef7eceacabafd3b444ce"
+      },
+      "paired_comparison": {
+        "success_rate": {
+          "policy_minus_rule": 0.02166666666666667,
+          "paired_bootstrap_95ci": [
+            0.018166666666666664,
+            0.025333333333333322
+          ]
+        },
+        "reward": {
+          "policy_minus_rule": 58.06528348276567,
+          "paired_bootstrap_95ci": [
+            46.30789521716359,
+            70.0870213005817
+          ]
+        },
+        "throughput_tasks_per_hour": {
+          "policy_minus_rule": -1.5563139178327734,
+          "paired_bootstrap_95ci": [
+            -1.866881414475277,
+            -1.2366794419475595
+          ]
+        },
+        "successful_throughput_tasks_per_hour": {
+          "policy_minus_rule": 0.12342425965198416,
+          "paired_bootstrap_95ci": [
+            -0.30979610325591156,
+            0.5768946330371023
+          ]
+        },
+        "mean_waiting_time": {
+          "policy_minus_rule": -25.86616205592726,
+          "paired_bootstrap_95ci": [
+            -31.473233737262113,
+            -20.432360907142456
+          ]
+        },
+        "p95_waiting_time": {
+          "policy_minus_rule": -84.70667407947376,
+          "paired_bootstrap_95ci": [
+            -101.63082666385948,
+            -67.74829558770811
+          ]
+        },
+        "mean_flow_time": {
+          "policy_minus_rule": -23.819139688138378,
+          "paired_bootstrap_95ci": [
+            -29.46941400176813,
+            -18.344130063940128
+          ]
+        },
+        "p95_flow_time": {
+          "policy_minus_rule": -50.24490584575628,
+          "paired_bootstrap_95ci": [
+            -65.10016142091142,
+            -35.40658857318093
+          ]
+        },
+        "distance_per_task": {
+          "policy_minus_rule": -20.249606953783452,
+          "paired_bootstrap_95ci": [
+            -20.70089720170891,
+            -19.78857868996867
+          ]
+        }
+      },
+      "paired_comparison_vs_risk_aware_rule": {
+        "success_rate": {
+          "policy_minus_rule": 0.007166666666666667,
+          "paired_bootstrap_95ci": [
+            0.004999999999999996,
+            0.009666666666666667
+          ]
+        },
+        "reward": {
+          "policy_minus_rule": 79.55888179347374,
+          "paired_bootstrap_95ci": [
+            68.11602178857359,
+            91.07502916741734
+          ]
+        },
+        "throughput_tasks_per_hour": {
+          "policy_minus_rule": -0.6939696319240396,
+          "paired_bootstrap_95ci": [
+            -0.932867686635544,
+            -0.4629193303756297
+          ]
+        },
+        "successful_throughput_tasks_per_hour": {
+          "policy_minus_rule": -0.1403190913990393,
+          "paired_bootstrap_95ci": [
+            -0.4673895119415661,
+            0.1727067363236145
+          ]
+        },
+        "mean_waiting_time": {
+          "policy_minus_rule": -36.89043047311696,
+          "paired_bootstrap_95ci": [
+            -42.259094162621565,
+            -31.556020463279612
+          ]
+        },
+        "p95_waiting_time": {
+          "policy_minus_rule": -119.15808616079299,
+          "paired_bootstrap_95ci": [
+            -134.6496998271031,
+            -102.46893610279918
+          ]
+        },
+        "mean_flow_time": {
+          "policy_minus_rule": -35.72968859417932,
+          "paired_bootstrap_95ci": [
+            -41.09185624166404,
+            -30.34885171838005
+          ]
+        },
+        "p95_flow_time": {
+          "policy_minus_rule": -84.52703630765176,
+          "paired_bootstrap_95ci": [
+            -98.08064912851681,
+            -70.53443377439777
+          ]
+        },
+        "distance_per_task": {
+          "policy_minus_rule": -5.238687956669196,
+          "paired_bootstrap_95ci": [
+            -5.6664002125362245,
+            -4.8079822087742485
+          ]
+        }
+      },
+      "adaptive_mode_summary": {
+        "policy": {
+          "car_dog_car_share_of_cross_floor_tasks": {
+            "NORMAL": 0.476,
+            "DENSE": 0.108,
+            "BURST": 0.057
+          },
+          "normal_to_burst_change": -0.419
+        },
+        "time_rule": {
+          "car_dog_car_share_of_cross_floor_tasks": {
+            "NORMAL": 0.7,
+            "DENSE": 0.696,
+            "BURST": 0.68
+          },
+          "normal_to_burst_change": -0.019999999999999907
+        },
+        "risk_rule": {
+          "car_dog_car_share_of_cross_floor_tasks": {
+            "NORMAL": 0.594,
+            "DENSE": 0.276,
+            "BURST": 0.181
+          },
+          "normal_to_burst_change": -0.413
+        }
+      },
+      "assertions": {
+        "paired_task_streams_identical": true,
+        "policy_resolved_all_tasks": true,
+        "rule_resolved_all_tasks": true,
+        "policy_actions_all_legal": true,
+        "policy_has_no_resource_leak": true,
+        "rule_has_no_resource_leak": true,
+        "risk_rule_resolved_all_tasks": true,
+        "risk_rule_actions_all_legal": true,
+        "risk_rule_has_no_resource_leak": true,
+        "risk_rule_task_streams_identical": true,
+        "policy_transport_distribution_changes_by_phase": true,
+        "policy_reduces_resource_intensive_chain_under_burst": true
+      }
+    }
+  },
+  "assertions": {
+    "mixed_continuous_paired_task_streams_identical": true,
+    "mixed_continuous_policy_resolved_all_tasks": true,
+    "mixed_continuous_rule_resolved_all_tasks": true,
+    "mixed_continuous_policy_actions_all_legal": true,
+    "mixed_continuous_policy_has_no_resource_leak": true,
+    "mixed_continuous_rule_has_no_resource_leak": true,
+    "mixed_continuous_risk_rule_resolved_all_tasks": true,
+    "mixed_continuous_risk_rule_actions_all_legal": true,
+    "mixed_continuous_risk_rule_has_no_resource_leak": true,
+    "mixed_continuous_risk_rule_task_streams_identical": true,
+    "mixed_continuous_policy_transport_distribution_changes_by_phase": true,
+    "mixed_continuous_policy_reduces_resource_intensive_chain_under_burst": true
+  },
+  "passed": true
+}

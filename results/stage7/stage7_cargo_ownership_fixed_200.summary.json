@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-08-04T04:15:58.960290+00:00",
+  "seed": 20260804,
+  "trial_count": 200,
+  "planned_trial_count": 200,
+  "success_count": 200,
+  "failure_count": 0,
+  "by_route": {
+    "ne": {
+      "trials": 50,
+      "passes": 50
+    },
+    "nw": {
+      "trials": 50,
+      "passes": 50
+    },
+    "sw": {
+      "trials": 50,
+      "passes": 50
+    },
+    "se": {
+      "trials": 50,
+      "passes": 50
+    }
+  },
+  "ownership_invariants": {
+    "unique_owner_during_transport": true,
+    "no_duplicate_cargo": true,
+    "no_lost_cargo": true,
+    "no_residual_owner_after_delivery": true
+  },
+  "results_jsonl": "/Users/lab4099/Desktop/Mujoco/work/results/stage7/stage7_cargo_ownership_fixed_200.jsonl"
+}

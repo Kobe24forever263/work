@@ -1,0 +1,988 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "Stage 18 强化学习实验正式质量审查",
+    "description": "面向 IEEE Transactions on Robotics 的冻结评估、基线比较与语义消融证据审查。",
+    "generatedAt": "2026-08-22T16:20:19.683057+00:00",
+    "cards": [],
+    "charts": [
+      {
+        "id": "baseline_reward",
+        "title": "三种调度方法的平均回报",
+        "subtitle": "每种负载并列显示完整PPO、规则基线和单狗对照；Medium采用v2同批测试，Dense/Burst采用v4",
+        "type": "bar",
+        "dataset": "baseline_absolute",
+        "sourceId": "baseline_review_sql",
+        "intent": "comparison",
+        "question": "三种方法在每种任务负载下的绝对回报分别是多少？",
+        "rationale": "每种负载三根并列柱可直接比较PPO、规则和单狗方法，避免把差值误解为某一方法的原始得分。",
+        "encodings": {
+          "x": {
+            "field": "profile",
+            "type": "nominal",
+            "label": "任务负载"
+          },
+          "y": {
+            "field": "reward",
+            "type": "quantitative",
+            "label": "平均回报"
+          },
+          "color": {
+            "field": "method",
+            "type": "nominal",
+            "label": "调度方法"
+          },
+          "tooltip": [
+            {
+              "field": "success_rate_pct",
+              "type": "quantitative",
+              "label": "成功率(%)"
+            },
+            {
+              "field": "protocol",
+              "type": "text",
+              "label": "评估协议"
+            }
+          ]
+        },
+        "palette": {
+          "kind": "categorical",
+          "roots": [
+            "blue",
+            "orange",
+            "olive"
+          ]
+        },
+        "legend": {
+          "show": true
+        }
+      },
+      {
+        "id": "baseline_throughput",
+        "title": "三种调度方法的成功交付吞吐",
+        "subtitle": "单位：成功任务/仿真小时；每种负载三根柱，失败任务不计入吞吐",
+        "type": "bar",
+        "dataset": "baseline_absolute",
+        "sourceId": "baseline_review_sql",
+        "intent": "comparison",
+        "question": "三种方法在每种任务负载下实际完成任务的速度分别是多少？",
+        "rationale": "每种负载三根并列柱可直接展示绝对成功吞吐，避免对差值颜色产生歧义。",
+        "encodings": {
+          "x": {
+            "field": "profile",
+            "type": "nominal",
+            "label": "任务负载"
+          },
+          "y": {
+            "field": "successful_throughput",
+            "type": "quantitative",
+            "label": "成功任务/小时"
+          },
+          "color": {
+            "field": "method",
+            "type": "nominal",
+            "label": "调度方法"
+          },
+          "tooltip": [
+            {
+              "field": "success_rate_pct",
+              "type": "quantitative",
+              "label": "成功率(%)"
+            },
+            {
+              "field": "protocol",
+              "type": "text",
+              "label": "评估协议"
+            }
+          ]
+        },
+        "palette": {
+          "kind": "categorical",
+          "roots": [
+            "blue",
+            "orange",
+            "olive"
+          ]
+        },
+        "legend": {
+          "show": true
+        }
+      },
+      {
+        "id": "ablation_reward",
+        "title": "完整策略相对各语义消融的回报差值",
+        "subtitle": "ETA/代价信息在三种负载下均产生最大且同方向的贡献",
+        "type": "bar",
+        "dataset": "ablation_effects",
+        "sourceId": "ablation_review_sql",
+        "intent": "comparison",
+        "question": "哪类状态信息对策略回报的独立贡献最明显？",
+        "rationale": "五类语义消融和三种负载形成离散比较，分组柱状图能显示贡献排序和跨负载一致性。",
+        "encodings": {
+          "x": {
+            "field": "comparator",
+            "type": "nominal",
+            "label": "移除的信息"
+          },
+          "y": {
+            "field": "reward_delta",
+            "type": "quantitative",
+            "label": "完整策略−消融回报"
+          },
+          "color": {
+            "field": "profile",
+            "type": "nominal",
+            "label": "任务负载"
+          },
+          "tooltip": [
+            {
+              "field": "reward_ci_low",
+              "type": "quantitative",
+              "label": "95% CI下界"
+            },
+            {
+              "field": "reward_ci_high",
+              "type": "quantitative",
+              "label": "95% CI上界"
+            },
+            {
+              "field": "reward_family_holm_p",
+              "type": "quantitative",
+              "label": "Holm校正p值"
+            }
+          ]
+        },
+        "palette": {
+          "kind": "categorical",
+          "roots": [
+            "blue",
+            "orange",
+            "olive"
+          ]
+        },
+        "legend": {
+          "show": true
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "integrity_table",
+        "title": "锁定评估完整性",
+        "subtitle": "每个模型均使用100个共享测试种子，非法动作与资源泄漏必须为0",
+        "dataset": "integrity",
+        "sourceId": "integrity_review_sql",
+        "defaultSort": {
+          "field": "campaign",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "campaign",
+            "label": "评估批次",
+            "type": "text"
+          },
+          {
+            "field": "model_jobs",
+            "label": "模型任务数",
+            "format": "number"
+          },
+          {
+            "field": "test_episodes_per_job",
+            "label": "每模型测试轮数",
+            "format": "number"
+          },
+          {
+            "field": "illegal_actions",
+            "label": "非法动作",
+            "format": "number"
+          },
+          {
+            "field": "resource_leaks",
+            "label": "资源泄漏",
+            "format": "number"
+          },
+          {
+            "field": "status",
+            "label": "质量门",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "ablation_table",
+        "title": "消融效应与不确定性",
+        "subtitle": "正差值表示完整策略优于该消融；成功率使用百分点",
+        "dataset": "ablation_effects",
+        "sourceId": "ablation_review_sql",
+        "defaultSort": {
+          "field": "reward_delta",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "profile",
+            "label": "负载",
+            "type": "text"
+          },
+          {
+            "field": "comparator",
+            "label": "消融",
+            "type": "text"
+          },
+          {
+            "field": "reward_delta",
+            "label": "回报差",
+            "format": "number"
+          },
+          {
+            "field": "success_delta_pp",
+            "label": "成功率差(pp)",
+            "format": "number"
+          },
+          {
+            "field": "throughput_delta",
+            "label": "成功吞吐差",
+            "format": "number"
+          },
+          {
+            "field": "reward_family_holm_p",
+            "label": "回报Holm p",
+            "format": "number"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "baseline_review_sql",
+        "label": "Three-method absolute performance query",
+        "path": "results/stage18_formal_quality_review_v4/stage18_quality_review.sqlite",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT * FROM baseline_absolute ORDER BY profile, method",
+          "tables_used": [
+            "baseline_absolute"
+          ],
+          "description": "Reviewed absolute performance of PPO, rule, and dog-only methods."
+        }
+      },
+      {
+        "id": "ablation_review_sql",
+        "label": "Combined clean-ablation comparison query",
+        "path": "results/stage18_formal_quality_review_v4/stage18_quality_review.sqlite",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT * FROM ablation_effects ORDER BY comparator, profile",
+          "tables_used": [
+            "ablation_effects"
+          ],
+          "description": "Reviewed full-policy deltas against five semantic ablations."
+        }
+      },
+      {
+        "id": "integrity_review_sql",
+        "label": "Locked-test integrity query",
+        "path": "results/stage18_formal_quality_review_v4/stage18_quality_review.sqlite",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT * FROM integrity ORDER BY campaign",
+          "tables_used": [
+            "integrity"
+          ],
+          "description": "Campaign-level completeness and hard-safety checks."
+        }
+      },
+      {
+        "id": "combined_review",
+        "label": "Stage18 combined quality-review transformation",
+        "path": "scripts/build_stage18_formal_quality_report.py"
+      },
+      {
+        "id": "medium_v3",
+        "label": "MEDIUM v3 frozen locked-test statistics",
+        "path": "results/stage18_clean_ablation_locked_test_v3/stage18_clean_ablation_locked_test_v3_statistics.json"
+      },
+      {
+        "id": "high_v4",
+        "label": "DENSE/BURST v4 frozen locked-test statistics",
+        "path": "results/stage18_clean_ablation_locked_test_v4/stage18_clean_ablation_locked_test_v4_statistics.json"
+      },
+      {
+        "id": "stage18_v2",
+        "label": "Stage18 v2 matched-load statistics for MEDIUM single-dog control",
+        "path": "results/stage18_locked_test_v2/stage18_locked_test_v2_statistics.json"
+      },
+      {
+        "id": "freeze_v4",
+        "label": "DENSE/BURST v4 frozen weight manifests",
+        "path": "results/stage18_clean_ablation/dense_freeze_manifest_v4.json; results/stage18_clean_ablation/burst_freeze_manifest_v4.json"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# Stage 18 强化学习实验正式质量审查"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "body": "## 技术结论：核心性能证据成立，状态贡献结论需要分层表述\n\n冻结评估支持三项主要结论：完整多智能体策略在三种负载下均显著优于单狗空白对照；相对规则基线的回报优势随负载增强；ETA/代价信息是目前唯一表现出大幅、跨负载一致退化的状态信息。全部180个模型评估文件完整，非法动作和资源泄漏均为0。\n\n但消融证据不能写成“所有状态变量均必要”。位置、历史、显式队列/资源和显式交接风险字段在当前环境中没有显示稳定独立贡献；Dense/Burst ETA消融虽然效应量大且95%置信区间不跨0，在预先采用的30项Holm家族校正后为 p=0.0586，应表述为强一致证据而非传统0.05阈值下显著。"
+      },
+      {
+        "id": "baseline_text",
+        "type": "markdown",
+        "body": "## 负载越高，学习调度相对规则的回报优势越明显\n\n完整策略相对规则基线的回报提升从Medium的+0.61扩大到Dense的+18.24和Burst的+38.45。Dense的成功交付吞吐提高1.73任务/小时；Burst吞吐点估计提高1.23任务/小时，但95%置信区间跨0，因此Burst的优势主要应由回报与成功率支撑，而不是宣称吞吐已确定提升。"
+      },
+      {
+        "id": "baseline_reward_block",
+        "type": "chart",
+        "chartId": "baseline_reward",
+        "layout": "full"
+      },
+      {
+        "id": "throughput_text",
+        "type": "markdown",
+        "body": "## 多智能体协作在密集与突发负载下明显优于单狗直送\n\n相对单狗方案，完整策略在Dense下提高10.65个百分点成功率和25.23任务/小时成功吞吐，在Burst下提高14.79个百分点和38.14任务/小时。Medium的单狗对照来自独立的v2新鲜种子批次，方向一致，但不应与v3/v4数值混为同一确认性家族。"
+      },
+      {
+        "id": "baseline_throughput_block",
+        "type": "chart",
+        "chartId": "baseline_throughput",
+        "layout": "full"
+      },
+      {
+        "id": "ablation_text",
+        "type": "markdown",
+        "body": "## ETA与代价估计是主要可辨识信息，其他字段可能存在冗余\n\n去除ETA/代价后，Medium、Dense、Burst回报分别下降9.21、24.83和40.84；成功吞吐分别下降1.59、15.95和26.24任务/小时。其余四类消融效应接近0或方向不稳定，说明策略可能通过任务槽、动作掩码和派生代价间接恢复这些信息，也可能是当前场景不足以激活它们。该结果支持精简状态或设计更有针对性的压力场景，而不是直接删除字段。"
+      },
+      {
+        "id": "ablation_reward_block",
+        "type": "chart",
+        "chartId": "ablation_reward",
+        "layout": "full"
+      },
+      {
+        "id": "ablation_table_block",
+        "type": "table",
+        "tableId": "ablation_table",
+        "layout": "full"
+      },
+      {
+        "id": "scope",
+        "type": "markdown",
+        "body": "## 评估范围与指标口径\n\n每个策略由10个独立训练种子产生，每个模型在100个共享测试种子上评估。回报为未归一化环境episode总回报；成功率为完成任务数/已发布任务数；成功交付吞吐仅计算完成任务数/总仿真时间×3600，不把失败任务计为吞吐。Medium v3、Dense v4和Burst v4使用互不重叠的测试命名空间。"
+      },
+      {
+        "id": "integrity_block",
+        "type": "table",
+        "tableId": "integrity_table",
+        "layout": "full"
+      },
+      {
+        "id": "method",
+        "type": "markdown",
+        "body": "## 统计设计保持任务级配对并同时覆盖两类随机性\n\n交接时长通过TASK_KEYED共同随机数绑定到(test seed, task id, handover kind)，避免不同策略因交接次数不同而错位消耗随机流。置信区间使用训练种子轴×共享测试种子轴的crossed bootstrap；训练种子层面的双侧精确符号翻转检验用于p值；预定义主要假设族使用Holm校正，BH-FDR仅作为探索性补充。"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "body": "## 结论边界：证据适合支持调度价值，尚不足以声称所有状态设计均必要\n\n1. Dense/Burst五项状态消融共30个主要检验，严格Holm校正降低了单项显著性；ETA/代价效应应同时报告效应量、置信区间、10/10同方向和校正p值。\n2. Medium单狗对照来自v2批次，使用不同但同样冻结的新鲜测试种子，只能作跨批次一致性证据。\n3. 当前位置、历史和显式风险字段的零结果可能来自信息冗余或场景激活不足，不等价于这些字段在未知仓库布局中无用。\n4. 结论来自仿真与既定路线，尚未覆盖Gazebo动力学误差、感知噪声、通信延迟和真实机器人执行。"
+      },
+      {
+        "id": "next_steps",
+        "type": "markdown",
+        "body": "## 推荐下一步：先补环境交互证据，再进入论文主图定稿\n\n1. 运行同一episode内Normal→Dense→Burst→Recovery的混合连续负载，不重置机器人位置，检验策略是否实时切换运输模式。\n2. 针对位置、历史、队列和交接风险分别构造可辨识压力场景，避免用更多训练种子重复验证一个不激活该信息的环境。\n3. 冻结论文统计口径，主表报告回报、成功率、成功吞吐、95% crossed-bootstrap区间和Holm校正p值。\n4. 最后补Gazebo/RViz端到端演示与执行误差统计，作为仿真调度结果到机器人系统的外部有效性证据。"
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## 仍需回答的问题\n\n- 策略在单个连续episode中能否随负载变化，而不是固化为训练负载偏好？\n- 显式队列与风险字段在引入通信延迟、楼梯占用冲突和非平稳交接失败率后是否出现独立贡献？\n- 规则基线加入有限时域前瞻或风险敏感代价后，学习策略的优势是否仍然保持？"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-22T16:20:19.683057+00:00",
+    "status": "ready",
+    "datasets": {
+      "baseline_comparisons": [
+        {
+          "profile": "BURST",
+          "comparator": "单狗空白对照",
+          "reward_delta": 128.14706102962646,
+          "reward_ci_low": 122.64900353116829,
+          "reward_ci_high": 133.7837993039459,
+          "success_delta_pp": 14.785000000000004,
+          "success_ci_low_pp": 13.149874999999994,
+          "success_ci_high_pp": 16.385000000000005,
+          "throughput_delta": 38.13606165356205,
+          "throughput_ci_low": 34.87847202935402,
+          "throughput_ci_high": 41.46291601935827,
+          "reward_family_holm_p": 0.01171875,
+          "success_family_holm_p": 0.01171875,
+          "throughput_family_holm_p": 0.01171875,
+          "positive_seed_count_reward": 10.0
+        },
+        {
+          "profile": "BURST",
+          "comparator": "规则基线",
+          "reward_delta": 38.44659030402062,
+          "reward_ci_low": 35.094690911645046,
+          "reward_ci_high": 41.721839279954644,
+          "success_delta_pp": 0.3350000000000075,
+          "success_ci_low_pp": 0.0400000000000067,
+          "success_ci_high_pp": 0.6950000000000012,
+          "throughput_delta": 1.2264468963782065,
+          "throughput_ci_low": -0.9488171984523666,
+          "throughput_ci_high": 3.469174076251964,
+          "reward_family_holm_p": 0.01171875,
+          "success_family_holm_p": 0.046875,
+          "throughput_family_holm_p": 0.0546875,
+          "positive_seed_count_reward": 10.0
+        },
+        {
+          "profile": "DENSE",
+          "comparator": "单狗空白对照",
+          "reward_delta": 97.12111281085686,
+          "reward_ci_low": 91.41694206576439,
+          "reward_ci_high": 102.68076498025381,
+          "success_delta_pp": 10.649999999999993,
+          "success_ci_low_pp": 8.850000000000001,
+          "success_ci_high_pp": 12.415,
+          "throughput_delta": 25.23131331445238,
+          "throughput_ci_low": 23.04798712580781,
+          "throughput_ci_high": 27.41065579851915,
+          "reward_family_holm_p": 0.01171875,
+          "success_family_holm_p": 0.01171875,
+          "throughput_family_holm_p": 0.01171875,
+          "positive_seed_count_reward": 10.0
+        },
+        {
+          "profile": "DENSE",
+          "comparator": "规则基线",
+          "reward_delta": 18.24267351643272,
+          "reward_ci_low": 15.521644239617023,
+          "reward_ci_high": 21.091701589893617,
+          "success_delta_pp": 0.14999999999999458,
+          "success_ci_low_pp": -0.08000000000000229,
+          "success_ci_high_pp": 0.4449999999999957,
+          "throughput_delta": 1.7343735638781226,
+          "throughput_ci_low": 0.28589493193438503,
+          "throughput_ci_high": 3.1850198070988465,
+          "reward_family_holm_p": 0.01171875,
+          "success_family_holm_p": 0.33984375,
+          "throughput_family_holm_p": 0.01171875,
+          "positive_seed_count_reward": 10.0
+        },
+        {
+          "profile": "MEDIUM",
+          "comparator": "单狗空白对照",
+          "reward_delta": 54.510042191252914,
+          "reward_ci_low": 48.33768530678678,
+          "reward_ci_high": 61.20326936567724,
+          "success_delta_pp": 2.980000000000005,
+          "success_ci_low_pp": 1.7299999999999982,
+          "success_ci_high_pp": 4.279999999999995,
+          "throughput_delta": 2.1826604667865013,
+          "throughput_ci_low": 1.486998111535123,
+          "throughput_ci_high": 2.9144467655967263,
+          "reward_family_holm_p": 0.017578125,
+          "success_family_holm_p": 0.017578125,
+          "throughput_family_holm_p": 0.017578125,
+          "positive_seed_count_reward": 10.0
+        },
+        {
+          "profile": "MEDIUM",
+          "comparator": "规则基线",
+          "reward_delta": 0.6128913013090518,
+          "reward_ci_low": 0.23151595729894484,
+          "reward_ci_high": 1.012230363850877,
+          "success_delta_pp": 1.2249999999999983,
+          "success_ci_low_pp": 0.8000000000000007,
+          "success_ci_high_pp": 1.7000000000000015,
+          "throughput_delta": 0.5508866577788325,
+          "throughput_ci_low": 0.3125910456549029,
+          "throughput_ci_high": 0.8085737343494068,
+          "reward_family_holm_p": 0.005859375,
+          "success_family_holm_p": 0.005859375,
+          "throughput_family_holm_p": 0.005859375,
+          "positive_seed_count_reward": 10.0
+        }
+      ],
+      "baseline_absolute": [
+        {
+          "profile": "BURST",
+          "method": "单狗空白对照",
+          "protocol": "v4 locked",
+          "reward": -206.66399590310425,
+          "success_rate_pct": 81.65,
+          "successful_throughput": 103.29791998657697
+        },
+        {
+          "profile": "BURST",
+          "method": "完整PPO策略",
+          "protocol": "v4 locked",
+          "reward": -78.51693487347781,
+          "success_rate_pct": 96.435,
+          "successful_throughput": 141.43398164013902
+        },
+        {
+          "profile": "BURST",
+          "method": "规则基线",
+          "protocol": "v4 locked",
+          "reward": -116.96352517749843,
+          "success_rate_pct": 96.1,
+          "successful_throughput": 140.20753474376082
+        },
+        {
+          "profile": "DENSE",
+          "method": "单狗空白对照",
+          "protocol": "v4 locked",
+          "reward": -111.70733187174007,
+          "success_rate_pct": 85.65,
+          "successful_throughput": 94.62359084350508
+        },
+        {
+          "profile": "DENSE",
+          "method": "完整PPO策略",
+          "protocol": "v4 locked",
+          "reward": -14.586219060883206,
+          "success_rate_pct": 96.3,
+          "successful_throughput": 119.85490415795746
+        },
+        {
+          "profile": "DENSE",
+          "method": "规则基线",
+          "protocol": "v4 locked",
+          "reward": -32.828892577315926,
+          "success_rate_pct": 96.15,
+          "successful_throughput": 118.12053059407934
+        },
+        {
+          "profile": "MEDIUM",
+          "method": "单狗空白对照",
+          "protocol": "v2 matched-load",
+          "reward": -35.93823979196316,
+          "success_rate_pct": 95.1,
+          "successful_throughput": 52.66386894840287
+        },
+        {
+          "profile": "MEDIUM",
+          "method": "完整PPO策略",
+          "protocol": "v2 matched-load",
+          "reward": 18.57180239928975,
+          "success_rate_pct": 98.08,
+          "successful_throughput": 54.84652941518937
+        },
+        {
+          "profile": "MEDIUM",
+          "method": "规则基线",
+          "protocol": "v2 matched-load",
+          "reward": 17.622954195661173,
+          "success_rate_pct": 96.39999999999999,
+          "successful_throughput": 54.061580318608094
+        }
+      ],
+      "ablation_effects": [
+        {
+          "profile": "BURST",
+          "comparator": "去除ETA/代价",
+          "reward_delta": 40.83972827688187,
+          "reward_ci_low": 36.892736473322934,
+          "reward_ci_high": 44.9233333368553,
+          "success_delta_pp": 1.6000000000000014,
+          "success_ci_low_pp": 1.0199999999999987,
+          "success_ci_high_pp": 2.2251250000000082,
+          "throughput_delta": 26.23845291187591,
+          "throughput_ci_low": 23.784664205565864,
+          "throughput_ci_high": 28.907945509593567,
+          "reward_family_holm_p": 0.05859375,
+          "success_family_holm_p": 0.05859375,
+          "throughput_family_holm_p": 0.05859375,
+          "positive_seed_count_reward": 10.0
+        },
+        {
+          "profile": "DENSE",
+          "comparator": "去除ETA/代价",
+          "reward_delta": 24.82927233969107,
+          "reward_ci_low": 22.780058055532148,
+          "reward_ci_high": 26.91591956902111,
+          "success_delta_pp": 1.969999999999994,
+          "success_ci_low_pp": 1.354999999999995,
+          "success_ci_high_pp": 2.6449999999999974,
+          "throughput_delta": 15.948842794019825,
+          "throughput_ci_low": 14.304678405038565,
+          "throughput_ci_high": 17.624411850915173,
+          "reward_family_holm_p": 0.05859375,
+          "success_family_holm_p": 0.05859375,
+          "throughput_family_holm_p": 0.05859375,
+          "positive_seed_count_reward": 10.0
+        },
+        {
+          "profile": "MEDIUM",
+          "comparator": "去除ETA/代价",
+          "reward_delta": 9.206963321162211,
+          "reward_ci_low": 8.556375425014817,
+          "reward_ci_high": 9.880574633959741,
+          "success_delta_pp": 2.5150000000000006,
+          "success_ci_low_pp": 1.9199999999999995,
+          "success_ci_high_pp": 3.115000000000001,
+          "throughput_delta": 1.59358139728959,
+          "throughput_ci_low": 1.2775251187470205,
+          "throughput_ci_high": 1.9324088346824788,
+          "reward_family_holm_p": 0.029296875,
+          "success_family_holm_p": 0.029296875,
+          "throughput_family_holm_p": 0.029296875,
+          "positive_seed_count_reward": 10.0
+        },
+        {
+          "profile": "BURST",
+          "comparator": "去除历史",
+          "reward_delta": 0.318157147467673,
+          "reward_ci_low": -0.5860159565673158,
+          "reward_ci_high": 1.229314527100586,
+          "success_delta_pp": 0.09000000000000119,
+          "success_ci_low_pp": -0.30000000000000027,
+          "success_ci_high_pp": 0.5149999999999988,
+          "throughput_delta": -0.2330200657098942,
+          "throughput_ci_low": -1.3133189245330492,
+          "throughput_ci_high": 0.8747132978904875,
+          "reward_family_holm_p": 1.0,
+          "success_family_holm_p": 1.0,
+          "throughput_family_holm_p": 1.0,
+          "positive_seed_count_reward": 6.0
+        },
+        {
+          "profile": "DENSE",
+          "comparator": "去除历史",
+          "reward_delta": -0.10112325533530253,
+          "reward_ci_low": -0.5750566855062456,
+          "reward_ci_high": 0.42712929579742265,
+          "success_delta_pp": 0.019999999999997797,
+          "success_ci_low_pp": -0.30999999999999917,
+          "success_ci_high_pp": 0.3651250000000021,
+          "throughput_delta": -0.022859685543409114,
+          "throughput_ci_low": -0.5623726007783642,
+          "throughput_ci_high": 0.5093392516830824,
+          "reward_family_holm_p": 1.0,
+          "success_family_holm_p": 1.0,
+          "throughput_family_holm_p": 1.0,
+          "positive_seed_count_reward": 3.0
+        },
+        {
+          "profile": "MEDIUM",
+          "comparator": "去除历史",
+          "reward_delta": 0.14130303710519954,
+          "reward_ci_low": -0.027040794148281755,
+          "reward_ci_high": 0.3190025424980462,
+          "success_delta_pp": -0.13499999999999623,
+          "success_ci_low_pp": -0.39000000000000146,
+          "success_ci_high_pp": 0.08000000000000229,
+          "throughput_delta": -0.011543472658395615,
+          "throughput_ci_low": -0.13254013032343934,
+          "throughput_ci_high": 0.09100011287156502,
+          "reward_family_holm_p": 0.328125,
+          "success_family_holm_p": 0.7734375,
+          "throughput_family_holm_p": 0.7734375,
+          "positive_seed_count_reward": 9.0
+        },
+        {
+          "profile": "BURST",
+          "comparator": "去除显式交接风险",
+          "reward_delta": 0.27789001612505615,
+          "reward_ci_low": -0.7177942097480603,
+          "reward_ci_high": 1.255412500633043,
+          "success_delta_pp": -0.10999999999999899,
+          "success_ci_low_pp": -0.5099999999999993,
+          "success_ci_high_pp": 0.2749999999999919,
+          "throughput_delta": -0.5424027121365782,
+          "throughput_ci_low": -1.8347068181467647,
+          "throughput_ci_high": 0.6349013925899292,
+          "reward_family_holm_p": 1.0,
+          "success_family_holm_p": 1.0,
+          "throughput_family_holm_p": 1.0,
+          "positive_seed_count_reward": 6.0
+        },
+        {
+          "profile": "DENSE",
+          "comparator": "去除显式交接风险",
+          "reward_delta": 0.0494995315979434,
+          "reward_ci_low": -0.4038378322249544,
+          "reward_ci_high": 0.5153729005301245,
+          "success_delta_pp": -0.3250000000000086,
+          "success_ci_low_pp": -0.714999999999999,
+          "success_ci_high_pp": 0.0400000000000067,
+          "throughput_delta": 0.24843971866295078,
+          "throughput_ci_low": -0.4105276245018068,
+          "throughput_ci_high": 0.8845448886735212,
+          "reward_family_holm_p": 1.0,
+          "success_family_holm_p": 1.0,
+          "throughput_family_holm_p": 1.0,
+          "positive_seed_count_reward": 7.0
+        },
+        {
+          "profile": "MEDIUM",
+          "comparator": "去除显式交接风险",
+          "reward_delta": 0.06193617083392766,
+          "reward_ci_low": -0.06716787602179054,
+          "reward_ci_high": 0.19828095459433476,
+          "success_delta_pp": 0.10000000000000009,
+          "success_ci_low_pp": -0.07000000000000339,
+          "success_ci_high_pp": 0.28000000000000247,
+          "throughput_delta": 0.05548090714238185,
+          "throughput_ci_low": -0.0316465082011291,
+          "throughput_ci_high": 0.15057263202078353,
+          "reward_family_holm_p": 0.7734375,
+          "success_family_holm_p": 0.7734375,
+          "throughput_family_holm_p": 0.7734375,
+          "positive_seed_count_reward": 6.0
+        },
+        {
+          "profile": "BURST",
+          "comparator": "去除显式队列/资源",
+          "reward_delta": 0.5244513317781809,
+          "reward_ci_low": -0.6792501486249016,
+          "reward_ci_high": 1.7203989033052465,
+          "success_delta_pp": 0.09000000000000119,
+          "success_ci_low_pp": -0.16499999999999293,
+          "success_ci_high_pp": 0.3950000000000009,
+          "throughput_delta": -0.4479062511108509,
+          "throughput_ci_low": -1.5697390321111726,
+          "throughput_ci_high": 0.6577898926327952,
+          "reward_family_holm_p": 1.0,
+          "success_family_holm_p": 1.0,
+          "throughput_family_holm_p": 1.0,
+          "positive_seed_count_reward": 6.0
+        },
+        {
+          "profile": "DENSE",
+          "comparator": "去除显式队列/资源",
+          "reward_delta": 0.20838429142017745,
+          "reward_ci_low": -0.3538813213346387,
+          "reward_ci_high": 0.8015781728868759,
+          "success_delta_pp": 0.019999999999997797,
+          "success_ci_low_pp": -0.19000000000000128,
+          "success_ci_high_pp": 0.22499999999999742,
+          "throughput_delta": -0.2003139805173504,
+          "throughput_ci_low": -0.8359992038455214,
+          "throughput_ci_high": 0.4493095639903181,
+          "reward_family_holm_p": 1.0,
+          "success_family_holm_p": 1.0,
+          "throughput_family_holm_p": 1.0,
+          "positive_seed_count_reward": 6.0
+        },
+        {
+          "profile": "MEDIUM",
+          "comparator": "去除显式队列/资源",
+          "reward_delta": 0.0785653367094099,
+          "reward_ci_low": -0.06670588264370148,
+          "reward_ci_high": 0.2317043494211816,
+          "success_delta_pp": 0.23499999999999632,
+          "success_ci_low_pp": 0.07500000000000284,
+          "success_ci_high_pp": 0.42999999999999705,
+          "throughput_delta": 0.10108933275060394,
+          "throughput_ci_low": 0.01832606590442705,
+          "throughput_ci_high": 0.20454790662548658,
+          "reward_family_holm_p": 0.7734375,
+          "success_family_holm_p": 0.09375,
+          "throughput_family_holm_p": 0.1171875,
+          "positive_seed_count_reward": 8.0
+        },
+        {
+          "profile": "BURST",
+          "comparator": "去除绝对位置",
+          "reward_delta": -0.23241054381172432,
+          "reward_ci_low": -1.1743846946698304,
+          "reward_ci_high": 0.7768243693654087,
+          "success_delta_pp": 0.12500000000000844,
+          "success_ci_low_pp": -0.18500000000000183,
+          "success_ci_high_pp": 0.5149999999999988,
+          "throughput_delta": 0.4926684343502359,
+          "throughput_ci_low": -0.8942951310987929,
+          "throughput_ci_high": 1.9363660396273459,
+          "reward_family_holm_p": 1.0,
+          "success_family_holm_p": 1.0,
+          "throughput_family_holm_p": 1.0,
+          "positive_seed_count_reward": 3.0
+        },
+        {
+          "profile": "DENSE",
+          "comparator": "去除绝对位置",
+          "reward_delta": 0.25473530045112724,
+          "reward_ci_low": -0.29180528087048146,
+          "reward_ci_high": 0.8343272062116104,
+          "success_delta_pp": -0.09000000000000119,
+          "success_ci_low_pp": -0.34999999999999476,
+          "success_ci_high_pp": 0.15999999999999348,
+          "throughput_delta": 1.011231256917739,
+          "throughput_ci_low": 0.25501885988443396,
+          "throughput_ci_high": 1.8080207726590247,
+          "reward_family_holm_p": 1.0,
+          "success_family_holm_p": 1.0,
+          "throughput_family_holm_p": 0.140625,
+          "positive_seed_count_reward": 6.0
+        },
+        {
+          "profile": "MEDIUM",
+          "comparator": "去除绝对位置",
+          "reward_delta": 0.0652135784245651,
+          "reward_ci_low": -0.05750684114662876,
+          "reward_ci_high": 0.1993940905825735,
+          "success_delta_pp": 0.16000000000000458,
+          "success_ci_low_pp": 0.014999999999998348,
+          "success_ci_high_pp": 0.34000000000000696,
+          "throughput_delta": 0.0627296085292457,
+          "throughput_ci_low": -0.013070982674996401,
+          "throughput_ci_high": 0.15696957023896885,
+          "reward_family_holm_p": 0.6015625,
+          "success_family_holm_p": 0.158203125,
+          "throughput_family_holm_p": 0.107421875,
+          "positive_seed_count_reward": 7.0
+        }
+      ],
+      "integrity": [
+        {
+          "campaign": "BURST v4",
+          "profiles": "BURST",
+          "model_jobs": 60.0,
+          "test_episodes_per_job": 100.0,
+          "result_files": 60.0,
+          "illegal_actions": 0.0,
+          "resource_leaks": 0.0,
+          "test_seed_start": 53000000.0,
+          "status": "PASS"
+        },
+        {
+          "campaign": "DENSE v4",
+          "profiles": "DENSE",
+          "model_jobs": 60.0,
+          "test_episodes_per_job": 100.0,
+          "result_files": 60.0,
+          "illegal_actions": 0.0,
+          "resource_leaks": 0.0,
+          "test_seed_start": 52000000.0,
+          "status": "PASS"
+        },
+        {
+          "campaign": "MEDIUM v3",
+          "profiles": "MEDIUM",
+          "model_jobs": 60.0,
+          "test_episodes_per_job": 100.0,
+          "result_files": 60.0,
+          "illegal_actions": 0.0,
+          "resource_leaks": 0.0,
+          "test_seed_start": 50000000.0,
+          "status": "PASS"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "baseline_review_sql",
+      "label": "Three-method absolute performance query",
+      "path": "results/stage18_formal_quality_review_v4/stage18_quality_review.sqlite",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT * FROM baseline_absolute ORDER BY profile, method",
+        "tables_used": [
+          "baseline_absolute"
+        ],
+        "description": "Reviewed absolute performance of PPO, rule, and dog-only methods."
+      }
+    },
+    {
+      "id": "ablation_review_sql",
+      "label": "Combined clean-ablation comparison query",
+      "path": "results/stage18_formal_quality_review_v4/stage18_quality_review.sqlite",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT * FROM ablation_effects ORDER BY comparator, profile",
+        "tables_used": [
+          "ablation_effects"
+        ],
+        "description": "Reviewed full-policy deltas against five semantic ablations."
+      }
+    },
+    {
+      "id": "integrity_review_sql",
+      "label": "Locked-test integrity query",
+      "path": "results/stage18_formal_quality_review_v4/stage18_quality_review.sqlite",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT * FROM integrity ORDER BY campaign",
+        "tables_used": [
+          "integrity"
+        ],
+        "description": "Campaign-level completeness and hard-safety checks."
+      }
+    },
+    {
+      "id": "combined_review",
+      "label": "Stage18 combined quality-review transformation",
+      "path": "scripts/build_stage18_formal_quality_report.py"
+    },
+    {
+      "id": "medium_v3",
+      "label": "MEDIUM v3 frozen locked-test statistics",
+      "path": "results/stage18_clean_ablation_locked_test_v3/stage18_clean_ablation_locked_test_v3_statistics.json"
+    },
+    {
+      "id": "high_v4",
+      "label": "DENSE/BURST v4 frozen locked-test statistics",
+      "path": "results/stage18_clean_ablation_locked_test_v4/stage18_clean_ablation_locked_test_v4_statistics.json"
+    },
+    {
+      "id": "stage18_v2",
+      "label": "Stage18 v2 matched-load statistics for MEDIUM single-dog control",
+      "path": "results/stage18_locked_test_v2/stage18_locked_test_v2_statistics.json"
+    },
+    {
+      "id": "freeze_v4",
+      "label": "DENSE/BURST v4 frozen weight manifests",
+      "path": "results/stage18_clean_ablation/dense_freeze_manifest_v4.json; results/stage18_clean_ablation/burst_freeze_manifest_v4.json"
+    }
+  ],
+  "package_info": {
+    "source_notes": {
+      "audience": "technical",
+      "quality_checks": {
+        "medium_statistics_schema": true,
+        "high_statistics_schema": true,
+        "medium_comparison_count": true,
+        "high_comparison_count": true,
+        "all_primary_values_finite": true,
+        "fresh_seed_namespaces_are_disjoint": true,
+        "all_integrity_gates_pass": true
+      },
+      "chart_map": [
+        {
+          "chart": "baseline_reward",
+          "family": "grouped bar",
+          "claim": "reward advantage grows with load"
+        },
+        {
+          "chart": "baseline_throughput",
+          "family": "grouped bar",
+          "claim": "multiagent throughput strongly exceeds dog-only"
+        },
+        {
+          "chart": "ablation_reward",
+          "family": "grouped bar",
+          "claim": "ETA/cost dominates feature contribution"
+        }
+      ],
+      "omission": "No time-series chart: profiles are discrete workload conditions, not temporal observations."
+    }
+  }
+}

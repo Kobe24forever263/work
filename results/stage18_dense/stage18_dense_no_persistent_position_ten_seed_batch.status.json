@@ -1,0 +1,91 @@
+{
+  "stage": 18,
+  "batch": "ONE_CONTEXT_ABLATION_TEN_SEEDS",
+  "condition": "no_persistent_position",
+  "arrival_profile": "DENSE",
+  "state": "COMPLETED",
+  "updated_at_utc": "2026-08-14T14:35:10.001738+00:00",
+  "planned_run_count": 10,
+  "runs": [
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 1,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T06:29:32.534010+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_01/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T07:18:26.394523+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 2,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T07:18:26.395102+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_02/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T08:07:17.719498+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 3,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T08:07:17.719751+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_03/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T08:54:25.499537+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 4,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T08:54:25.500898+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_04/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T09:43:12.315072+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 5,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T09:43:12.315326+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_05/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T10:31:37.502302+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 6,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T10:31:37.503281+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_06/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T11:20:29.411014+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 7,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T11:20:29.412278+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_07/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T12:09:16.453410+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 8,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T12:09:16.455218+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_08/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T12:56:46.489167+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 9,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T12:56:46.489813+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_09/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T13:45:56.835661+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 10,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T13:45:56.835956+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_10/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T14:35:10.001488+00:00"
+    }
+  ]
+}

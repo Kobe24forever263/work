@@ -1,0 +1,59 @@
+{
+  "stage": 14,
+  "gate": "SMDP_PPO_HELDOUT_EVALUATION",
+  "weights": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/smoke/stage14_smdp_ppo_mixed_medium.best.pt",
+  "execution_mode": "MIXED",
+  "arrival_profile": "MEDIUM",
+  "seed_start": 20262801,
+  "seed_end": 20262804,
+  "policy": {
+    "episode_count": 4,
+    "task_count": 80,
+    "completed": 78,
+    "failed": 2,
+    "success_rate": 0.975,
+    "mean_reward": 24.262638685925506,
+    "mean_simulated_time": 1298.9061562275087,
+    "throughput_tasks_per_hour": 55.431256257275685,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 2,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "SINGLE_DOG": 29,
+      "CAR_DOG_CAR": 40,
+      "SINGLE_CAR": 11
+    }
+  },
+  "rule_baseline": {
+    "episode_count": 4,
+    "task_count": 80,
+    "completed": 79,
+    "failed": 1,
+    "success_rate": 0.9875,
+    "mean_reward": 37.06673068886784,
+    "mean_simulated_time": 1281.2608169707473,
+    "throughput_tasks_per_hour": 56.19464752713486,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 2,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "SINGLE_CAR": 40,
+      "SINGLE_DOG": 12,
+      "CAR_DOG_CAR": 28
+    }
+  },
+  "comparison": {
+    "success_rate_delta": -0.012500000000000067,
+    "mean_reward_delta": -12.804092002942337,
+    "throughput_delta_tasks_per_hour": -0.7633912698591772,
+    "mean_simulated_time_delta": 17.645339256761417
+  },
+  "assertions": {
+    "policy_resolved_all_tasks": true,
+    "policy_actions_all_legal": true,
+    "policy_has_no_resource_leak": true,
+    "rule_has_no_resource_leak": true,
+    "mode_conditioned_checkpoint_shape_matches": true
+  },
+  "passed": true
+}

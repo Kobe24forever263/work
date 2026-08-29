@@ -1,0 +1,4373 @@
+{
+  "schema_version": "warehouse_stage18_clean_locked_test_v4",
+  "claim_boundary": "Fresh v4 test after frozen DENSE/BURST cohorts.",
+  "training_profile": "DENSE",
+  "evaluation_profile": "DENSE",
+  "condition": "no_eta_cost_only",
+  "training_seed_index": 9,
+  "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_eta_cost_only/seed_09/stage18_ppo.best.pt",
+  "weight_sha256": "40c9a523e207eb541b7a68551b3229ec6a67002d23f70fa2470e2670de54480d",
+  "checkpoint_update": 50,
+  "test_seed_start": 52000000,
+  "test_episode_count": 100,
+  "evaluation_protocol": {
+    "handover_sampling": "TASK_KEYED_COMMON_RANDOM_NUMBERS",
+    "pairing_key": "(test_seed, task_id, handover_kind)",
+    "randomness_pairing": "shared_across_policy_and_baselines"
+  },
+  "policy": {
+    "episode_count": 100,
+    "task_count": 2000,
+    "scheduled_task_count": 2000,
+    "completed": 1886,
+    "failed": 114,
+    "unresolved": 0,
+    "effective_failed": 114,
+    "resolution_rate": 1.0,
+    "success_rate": 0.943,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": -39.249040619204244,
+    "mean_terminal_adjusted_reward": -39.249040619204244,
+    "mean_simulated_time": 649.4923325910366,
+    "throughput_tasks_per_hour": 110.85581212755591,
+    "resolved_throughput_tasks_per_hour": 110.85581212755591,
+    "successful_throughput_tasks_per_hour": 104.53703083628521,
+    "handover_sampling": "TASK_KEYED",
+    "allowed_transport_modes": null,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 4,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "SINGLE_CAR": 1000,
+      "CAR_DOG_CAR": 1000
+    },
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 741
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 1000
+      },
+      "SINGLE_DOG": {
+        "CAR_DOG_CAR": 259
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "CAR_DOG_CAR": 1000
+      },
+      "SAME_FLOOR": {
+        "SINGLE_CAR": 1000
+      }
+    },
+    "cost_reference_mode_agreement": 0.8705,
+    "cost_reference_decision_count": 2000,
+    "episodes": [
+      {
+        "seed": 52000000,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -23.32666408796732,
+        "terminal_adjusted_reward": -23.32666408796732,
+        "simulated_time": 664.0173932563334,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000001,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -30.590353104423162,
+        "terminal_adjusted_reward": -30.590353104423162,
+        "simulated_time": 654.4528367862375,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000002,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -29.232317928175124,
+        "terminal_adjusted_reward": -29.232317928175124,
+        "simulated_time": 611.0272728436469,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 9
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 1
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.95,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000003,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -56.69120034539176,
+        "terminal_adjusted_reward": -56.69120034539176,
+        "simulated_time": 627.7632993444786,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000004,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 3,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -46.56191264896676,
+        "terminal_adjusted_reward": -46.56191264896676,
+        "simulated_time": 586.323973771774,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000005,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -19.70848933189586,
+        "terminal_adjusted_reward": -19.70848933189586,
+        "simulated_time": 595.1150867835998,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000006,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -30.406929715016847,
+        "terminal_adjusted_reward": -30.406929715016847,
+        "simulated_time": 648.1933178780268,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000007,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -11.821237601222778,
+        "terminal_adjusted_reward": -11.821237601222778,
+        "simulated_time": 563.6387911859188,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000008,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -64.0046312000683,
+        "terminal_adjusted_reward": -64.0046312000683,
+        "simulated_time": 705.0141791208646,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000009,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -36.76707850503816,
+        "terminal_adjusted_reward": -36.76707850503816,
+        "simulated_time": 683.062559107182,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000010,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -25.66889485263185,
+        "terminal_adjusted_reward": -25.66889485263185,
+        "simulated_time": 601.2905561704973,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000011,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -45.65404570081826,
+        "terminal_adjusted_reward": -45.65404570081826,
+        "simulated_time": 647.0405471087947,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000012,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -32.2042667737928,
+        "terminal_adjusted_reward": -32.2042667737928,
+        "simulated_time": 565.9374142545998,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000013,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -22.381174776744242,
+        "terminal_adjusted_reward": -22.381174776744242,
+        "simulated_time": 621.7187222941371,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000014,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -43.71390543909514,
+        "terminal_adjusted_reward": -43.71390543909514,
+        "simulated_time": 603.6393552545093,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000015,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -43.78051571210787,
+        "terminal_adjusted_reward": -43.78051571210787,
+        "simulated_time": 598.3765587233252,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000016,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -44.542533346243125,
+        "terminal_adjusted_reward": -44.542533346243125,
+        "simulated_time": 769.7484701535332,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000017,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -41.51691991341176,
+        "terminal_adjusted_reward": -41.51691991341176,
+        "simulated_time": 718.1024134789591,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000018,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -20.62111211420154,
+        "terminal_adjusted_reward": -20.62111211420154,
+        "simulated_time": 588.700913801448,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000019,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -72.40600614898528,
+        "terminal_adjusted_reward": -72.40600614898528,
+        "simulated_time": 737.7809623683768,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 9
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 1
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.95,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000020,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -34.66702900875865,
+        "terminal_adjusted_reward": -34.66702900875865,
+        "simulated_time": 667.1609519930232,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000021,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -50.030444152339726,
+        "terminal_adjusted_reward": -50.030444152339726,
+        "simulated_time": 693.9115444682385,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000022,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -30.39100524388032,
+        "terminal_adjusted_reward": -30.39100524388032,
+        "simulated_time": 565.230713381954,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000023,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -38.368652215173945,
+        "terminal_adjusted_reward": -38.368652215173945,
+        "simulated_time": 572.4794067068736,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000024,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -65.18970695670198,
+        "terminal_adjusted_reward": -65.18970695670198,
+        "simulated_time": 818.4272082587634,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000025,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -22.8116378736636,
+        "terminal_adjusted_reward": -22.8116378736636,
+        "simulated_time": 654.6084454538021,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000026,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -73.03754355412607,
+        "terminal_adjusted_reward": -73.03754355412607,
+        "simulated_time": 795.6690726559445,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000027,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -51.386602826179676,
+        "terminal_adjusted_reward": -51.386602826179676,
+        "simulated_time": 650.5927965767095,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 9
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 1
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.95,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000028,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -32.995045232553025,
+        "terminal_adjusted_reward": -32.995045232553025,
+        "simulated_time": 556.9779328453074,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000029,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 3,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -28.84470967399658,
+        "terminal_adjusted_reward": -28.84470967399658,
+        "simulated_time": 586.4678029834114,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000030,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -12.72110228524215,
+        "terminal_adjusted_reward": -12.72110228524215,
+        "simulated_time": 582.0326751767923,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000031,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -52.685842732356186,
+        "terminal_adjusted_reward": -52.685842732356186,
+        "simulated_time": 682.0325377652116,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000032,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -49.21095002772995,
+        "terminal_adjusted_reward": -49.21095002772995,
+        "simulated_time": 696.2552848450905,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000033,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -26.326730121893203,
+        "terminal_adjusted_reward": -26.326730121893203,
+        "simulated_time": 522.9298689378479,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000034,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -58.96064699699147,
+        "terminal_adjusted_reward": -58.96064699699147,
+        "simulated_time": 690.2461888348682,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000035,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -30.30742656859859,
+        "terminal_adjusted_reward": -30.30742656859859,
+        "simulated_time": 603.6712479110813,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000036,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -23.776517677818646,
+        "terminal_adjusted_reward": -23.776517677818646,
+        "simulated_time": 713.2500529551119,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000037,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -59.05247043030788,
+        "terminal_adjusted_reward": -59.05247043030788,
+        "simulated_time": 594.2867737097721,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000038,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -20.857911873124884,
+        "terminal_adjusted_reward": -20.857911873124884,
+        "simulated_time": 643.5137715123636,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 9
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 1
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.95,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000039,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -29.205188145030768,
+        "terminal_adjusted_reward": -29.205188145030768,
+        "simulated_time": 647.7607528987378,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000040,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -51.042609194814084,
+        "terminal_adjusted_reward": -51.042609194814084,
+        "simulated_time": 631.1550112210957,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000041,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -79.54124908995294,
+        "terminal_adjusted_reward": -79.54124908995294,
+        "simulated_time": 793.5537375252844,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000042,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -38.176849500555896,
+        "terminal_adjusted_reward": -38.176849500555896,
+        "simulated_time": 645.6863774772546,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000043,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -31.02323979778549,
+        "terminal_adjusted_reward": -31.02323979778549,
+        "simulated_time": 603.6378942612355,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 9
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 1
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.95,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000044,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -32.40740340179306,
+        "terminal_adjusted_reward": -32.40740340179306,
+        "simulated_time": 622.0545504171764,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000045,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -46.169336003129786,
+        "terminal_adjusted_reward": -46.169336003129786,
+        "simulated_time": 699.5778982449506,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000046,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -31.393312926950166,
+        "terminal_adjusted_reward": -31.393312926950166,
+        "simulated_time": 662.0215863357321,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000047,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -38.64256123882977,
+        "terminal_adjusted_reward": -38.64256123882977,
+        "simulated_time": 617.3266582721967,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000048,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -21.972259843303156,
+        "terminal_adjusted_reward": -21.972259843303156,
+        "simulated_time": 610.4782374723865,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000049,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 4,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -52.812764193403204,
+        "terminal_adjusted_reward": -52.812764193403204,
+        "simulated_time": 688.2651399606061,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000050,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -32.20006389649442,
+        "terminal_adjusted_reward": -32.20006389649442,
+        "simulated_time": 676.2052601614122,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000051,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -32.74363932543842,
+        "terminal_adjusted_reward": -32.74363932543842,
+        "simulated_time": 715.5704332471089,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000052,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -26.321352550256258,
+        "terminal_adjusted_reward": -26.321352550256258,
+        "simulated_time": 630.4611512776712,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000053,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -39.93104806001957,
+        "terminal_adjusted_reward": -39.93104806001957,
+        "simulated_time": 685.2746107112864,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000054,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -43.32256741444632,
+        "terminal_adjusted_reward": -43.32256741444632,
+        "simulated_time": 642.0686233023487,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000055,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -19.247258911774786,
+        "terminal_adjusted_reward": -19.247258911774786,
+        "simulated_time": 594.5804106676827,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000056,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -33.461594821970436,
+        "terminal_adjusted_reward": -33.461594821970436,
+        "simulated_time": 628.5621779349351,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000057,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -15.85924289485947,
+        "terminal_adjusted_reward": -15.85924289485947,
+        "simulated_time": 627.2581243380708,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000058,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 3,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -35.046995003322834,
+        "terminal_adjusted_reward": -35.046995003322834,
+        "simulated_time": 662.0564166257689,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000059,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -42.58755654333686,
+        "terminal_adjusted_reward": -42.58755654333686,
+        "simulated_time": 627.3747025577754,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000060,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -34.43728110859516,
+        "terminal_adjusted_reward": -34.43728110859516,
+        "simulated_time": 614.1058260947466,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000061,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -44.87205223376313,
+        "terminal_adjusted_reward": -44.87205223376313,
+        "simulated_time": 697.9403853708776,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000062,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -41.25977527333054,
+        "terminal_adjusted_reward": -41.25977527333054,
+        "simulated_time": 595.3354704439321,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000063,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -50.09003312840304,
+        "terminal_adjusted_reward": -50.09003312840304,
+        "simulated_time": 730.0831883816786,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 9
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 1
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.95,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000064,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -43.135457771309106,
+        "terminal_adjusted_reward": -43.135457771309106,
+        "simulated_time": 587.3914447032244,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000065,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -48.13090885965919,
+        "terminal_adjusted_reward": -48.13090885965919,
+        "simulated_time": 657.3323521920014,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000066,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -39.57787480593347,
+        "terminal_adjusted_reward": -39.57787480593347,
+        "simulated_time": 556.0958685317356,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 9
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 1
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.95,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000067,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -47.338112762906675,
+        "terminal_adjusted_reward": -47.338112762906675,
+        "simulated_time": 625.6667550399443,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000068,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -36.09921740360322,
+        "terminal_adjusted_reward": -36.09921740360322,
+        "simulated_time": 742.0112177920253,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000069,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -41.168160315153784,
+        "terminal_adjusted_reward": -41.168160315153784,
+        "simulated_time": 746.7688258711822,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000070,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -35.08306693501999,
+        "terminal_adjusted_reward": -35.08306693501999,
+        "simulated_time": 559.4790421189474,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000071,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -17.62992892586945,
+        "terminal_adjusted_reward": -17.62992892586945,
+        "simulated_time": 627.228669136335,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000072,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -51.288669171255584,
+        "terminal_adjusted_reward": -51.288669171255584,
+        "simulated_time": 626.7550202145995,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000073,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -54.27322497907872,
+        "terminal_adjusted_reward": -54.27322497907872,
+        "simulated_time": 709.8419245920858,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000074,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -53.8426418274886,
+        "terminal_adjusted_reward": -53.8426418274886,
+        "simulated_time": 820.286875060708,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000075,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -45.11435871558075,
+        "terminal_adjusted_reward": -45.11435871558075,
+        "simulated_time": 609.1407006776042,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 9
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 1
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.95,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000076,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -30.6332089655547,
+        "terminal_adjusted_reward": -30.6332089655547,
+        "simulated_time": 609.1865546514368,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000077,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -24.81620781300537,
+        "terminal_adjusted_reward": -24.81620781300537,
+        "simulated_time": 628.9987050162022,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000078,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -60.12337201994907,
+        "terminal_adjusted_reward": -60.12337201994907,
+        "simulated_time": 686.5017144858626,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000079,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -15.518913694885592,
+        "terminal_adjusted_reward": -15.518913694885592,
+        "simulated_time": 602.907374566338,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000080,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -32.250023598664995,
+        "terminal_adjusted_reward": -32.250023598664995,
+        "simulated_time": 604.3188699996205,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000081,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 3,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -53.77995332185469,
+        "terminal_adjusted_reward": -53.77995332185469,
+        "simulated_time": 684.2765348334009,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000082,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 4,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -47.35678501145482,
+        "terminal_adjusted_reward": -47.35678501145482,
+        "simulated_time": 661.2110883238013,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000083,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -31.475717897931048,
+        "terminal_adjusted_reward": -31.475717897931048,
+        "simulated_time": 630.6888499597011,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000084,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -25.1521641738947,
+        "terminal_adjusted_reward": -25.1521641738947,
+        "simulated_time": 637.8566254502747,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000085,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -33.69333222760221,
+        "terminal_adjusted_reward": -33.69333222760221,
+        "simulated_time": 641.3386983911785,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000086,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -39.68290772602131,
+        "terminal_adjusted_reward": -39.68290772602131,
+        "simulated_time": 680.5697042035422,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000087,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -68.2829556229018,
+        "terminal_adjusted_reward": -68.2829556229018,
+        "simulated_time": 664.3608208439051,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000088,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -33.571010077918785,
+        "terminal_adjusted_reward": -33.571010077918785,
+        "simulated_time": 617.4681672111204,
+        "illegal_actions": 0,
+        "peak_active_tasks": 2,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000089,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -43.684315356116954,
+        "terminal_adjusted_reward": -43.684315356116954,
+        "simulated_time": 630.2960265544798,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000090,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -29.753479205478364,
+        "terminal_adjusted_reward": -29.753479205478364,
+        "simulated_time": 590.9794567220581,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000091,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -62.40846731257403,
+        "terminal_adjusted_reward": -62.40846731257403,
+        "simulated_time": 782.5243119073021,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000092,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -47.85570056757614,
+        "terminal_adjusted_reward": -47.85570056757614,
+        "simulated_time": 660.9052725832105,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000093,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -48.2371454541607,
+        "terminal_adjusted_reward": -48.2371454541607,
+        "simulated_time": 631.6434270018667,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 9
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 1
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.95,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000094,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -25.047875084299143,
+        "terminal_adjusted_reward": -25.047875084299143,
+        "simulated_time": 681.6743165170185,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000095,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -53.063131875240664,
+        "terminal_adjusted_reward": -53.063131875240664,
+        "simulated_time": 747.5110317568672,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "CAR_DOG_CAR": 10,
+          "SINGLE_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000096,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -29.63528381776862,
+        "terminal_adjusted_reward": -29.63528381776862,
+        "simulated_time": 603.0178068635853,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 8
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 2
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.9,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000097,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -39.499706188745584,
+        "terminal_adjusted_reward": -39.499706188745584,
+        "simulated_time": 619.7891998689854,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000098,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -41.89926668866946,
+        "terminal_adjusted_reward": -41.89926668866946,
+        "simulated_time": 696.3402646564333,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.85,
+        "resource_leak": false
+      },
+      {
+        "seed": 52000099,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 2,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -47.81211654610287,
+        "terminal_adjusted_reward": -47.81211654610287,
+        "simulated_time": 657.7862149447111,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 10
+        },
+        "exposed_transport_modes": [
+          "CAR_DOG_CAR",
+          "SINGLE_CAR",
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 9
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "CAR_DOG_CAR": 1
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "cost_reference_mode_agreement": 0.95,
+        "resource_leak": false
+      }
+    ]
+  }
+}

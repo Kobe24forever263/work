@@ -1,0 +1,3464 @@
+{
+  "schema_version": "warehouse_stage18_single_dog_baseline_v1",
+  "claim_boundary": "Fixed dog-only blank control evaluated on the same fresh Stage18 v2 paired test seeds.  Four Go2 robots remain in the resource pool; Carter and handover modes are disabled.",
+  "baseline": "SINGLE_DOG_ONLY_FOUR_GO2_FLEET",
+  "evaluation_profile": "BURST",
+  "execution_mode": "CONCURRENT",
+  "allowed_transport_modes": [
+    "SINGLE_DOG"
+  ],
+  "selection_rule": "highest-ranked executable task, then minimum estimated SINGLE_DOG cost",
+  "test_seed_start": 45000000,
+  "test_episode_count": 100,
+  "handover_sampling": "TASK_KEYED_COMMON_RANDOM_NUMBERS",
+  "reference_weight_for_interface_only": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/full_context_v2/seed_01/stage18_ppo.best.pt",
+  "reference_weight_sha256": "a9a7312124ab1a5841fe135effac97767d0b8e61cd3b6ba5e7fa488c9fa4cc3d",
+  "single_dog_only": {
+    "episode_count": 100,
+    "task_count": 1743,
+    "scheduled_task_count": 2000,
+    "completed": 1646,
+    "failed": 97,
+    "unresolved": 257,
+    "effective_failed": 354,
+    "resolution_rate": 0.8715,
+    "success_rate": 0.823,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": -206.50524133211272,
+    "mean_terminal_adjusted_reward": -232.2052413321127,
+    "mean_simulated_time": 574.7388681904056,
+    "throughput_tasks_per_hour": 109.17653820345446,
+    "resolved_throughput_tasks_per_hour": 109.17653820345446,
+    "successful_throughput_tasks_per_hour": 103.10073544629148,
+    "handover_sampling": "TASK_KEYED",
+    "allowed_transport_modes": [
+      "SINGLE_DOG"
+    ],
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 4,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "SINGLE_DOG": 1646
+    },
+    "exposed_transport_modes": [
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 1646
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "SINGLE_DOG": 1000
+      },
+      "SAME_FLOOR": {
+        "SINGLE_DOG": 646
+      }
+    },
+    "cost_reference_mode_agreement": 1.0,
+    "cost_reference_decision_count": 1646,
+    "episodes": [
+      {
+        "seed": 45000000,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -220.18727209651922,
+        "terminal_adjusted_reward": -250.18727209651922,
+        "simulated_time": 593.7188014533228,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000001,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -237.44932833982526,
+        "terminal_adjusted_reward": -277.44932833982523,
+        "simulated_time": 542.6473171516009,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000002,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -209.3611640037129,
+        "terminal_adjusted_reward": -209.3611640037129,
+        "simulated_time": 546.6866388403114,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 19
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 19
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 9
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000003,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -205.58319710746184,
+        "terminal_adjusted_reward": -235.58319710746184,
+        "simulated_time": 567.7517772589417,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000004,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -196.57241627796208,
+        "terminal_adjusted_reward": -236.57241627796208,
+        "simulated_time": 546.9308564611732,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000005,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -221.9642701771346,
+        "terminal_adjusted_reward": -251.9642701771346,
+        "simulated_time": 614.955451235023,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000006,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -197.91598908223335,
+        "terminal_adjusted_reward": -217.91598908223335,
+        "simulated_time": 568.6325750546422,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000007,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -217.6825445053095,
+        "terminal_adjusted_reward": -247.6825445053095,
+        "simulated_time": 578.3442785486099,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000008,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -234.6113101992705,
+        "terminal_adjusted_reward": -274.6113101992705,
+        "simulated_time": 646.9447706099129,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000009,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -212.4379422288367,
+        "terminal_adjusted_reward": -252.4379422288367,
+        "simulated_time": 601.6769066223685,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000010,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -194.14324308216135,
+        "terminal_adjusted_reward": -204.14324308216135,
+        "simulated_time": 567.0950735915858,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000011,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -231.96165595726268,
+        "terminal_adjusted_reward": -261.9616559572627,
+        "simulated_time": 645.0803337263867,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000012,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -227.55957657859318,
+        "terminal_adjusted_reward": -237.55957657859318,
+        "simulated_time": 730.0309007879123,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000013,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -195.40072075919986,
+        "terminal_adjusted_reward": -235.40072075919986,
+        "simulated_time": 530.9977883298968,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000014,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -209.74393310795364,
+        "terminal_adjusted_reward": -219.74393310795364,
+        "simulated_time": 624.013006831686,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000015,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -199.85465584317836,
+        "terminal_adjusted_reward": -219.85465584317836,
+        "simulated_time": 519.3813171049137,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000016,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -209.86991682008582,
+        "terminal_adjusted_reward": -249.86991682008582,
+        "simulated_time": 551.5320492884792,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000017,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -222.24573398392633,
+        "terminal_adjusted_reward": -262.24573398392636,
+        "simulated_time": 529.3001847709617,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000018,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -174.47324792601023,
+        "terminal_adjusted_reward": -174.47324792601023,
+        "simulated_time": 707.3127915646448,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 20
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 20
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 10
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000019,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -215.97471724920226,
+        "terminal_adjusted_reward": -235.97471724920226,
+        "simulated_time": 583.6442955955325,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000020,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -231.0960390223919,
+        "terminal_adjusted_reward": -271.0960390223919,
+        "simulated_time": 611.4210936592851,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000021,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -251.5675151623969,
+        "terminal_adjusted_reward": -291.5675151623969,
+        "simulated_time": 611.2537560462742,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000022,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -216.5557445987497,
+        "terminal_adjusted_reward": -236.5557445987497,
+        "simulated_time": 573.751111264294,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000023,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -221.33631267771466,
+        "terminal_adjusted_reward": -241.33631267771466,
+        "simulated_time": 604.2161863004216,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000024,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -264.9666696311941,
+        "terminal_adjusted_reward": -304.9666696311941,
+        "simulated_time": 667.5058110866792,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000025,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -232.4229177063121,
+        "terminal_adjusted_reward": -272.4229177063121,
+        "simulated_time": 682.1922873006124,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000026,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -182.5228455101953,
+        "terminal_adjusted_reward": -222.5228455101953,
+        "simulated_time": 523.7310739277764,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000027,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -171.22171818436072,
+        "terminal_adjusted_reward": -191.22171818436072,
+        "simulated_time": 514.4803690559484,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000028,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -167.3516662588738,
+        "terminal_adjusted_reward": -167.3516662588738,
+        "simulated_time": 623.9062145543414,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 19
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 19
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 9
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000029,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -157.35591598364417,
+        "terminal_adjusted_reward": -157.35591598364417,
+        "simulated_time": 551.4635599527527,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 19
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 19
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 9
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000030,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -256.36079253244384,
+        "terminal_adjusted_reward": -286.36079253244384,
+        "simulated_time": 663.9654469111306,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000031,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -196.53662315433417,
+        "terminal_adjusted_reward": -206.53662315433417,
+        "simulated_time": 548.0644884113998,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000032,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -244.64063066068053,
+        "terminal_adjusted_reward": -284.64063066068053,
+        "simulated_time": 654.2283842360304,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000033,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -246.8141220735512,
+        "terminal_adjusted_reward": -266.8141220735512,
+        "simulated_time": 699.0966426143493,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000034,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -226.57948148697395,
+        "terminal_adjusted_reward": -256.5794814869739,
+        "simulated_time": 575.25044435022,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000035,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -200.6385550052962,
+        "terminal_adjusted_reward": -230.6385550052962,
+        "simulated_time": 517.1777357390807,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000036,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -180.38913379273237,
+        "terminal_adjusted_reward": -180.38913379273237,
+        "simulated_time": 702.4021819207157,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 20
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 20
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 10
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000037,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -189.83017558423296,
+        "terminal_adjusted_reward": -209.83017558423296,
+        "simulated_time": 532.8738338070945,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000038,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -200.56395239798562,
+        "terminal_adjusted_reward": -230.56395239798562,
+        "simulated_time": 527.8612052584109,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000039,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -192.82164510568396,
+        "terminal_adjusted_reward": -212.82164510568396,
+        "simulated_time": 568.021085504353,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000040,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -191.31885820006562,
+        "terminal_adjusted_reward": -211.31885820006562,
+        "simulated_time": 546.2358117474271,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000041,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -221.24202358524573,
+        "terminal_adjusted_reward": -251.24202358524573,
+        "simulated_time": 538.8520421749035,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000042,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -187.6561461401335,
+        "terminal_adjusted_reward": -227.6561461401335,
+        "simulated_time": 502.46274311469483,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000043,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 20,
+        "failed": 0,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -159.61801374042795,
+        "terminal_adjusted_reward": -159.61801374042795,
+        "simulated_time": 581.1061736598954,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 20
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 20
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 10
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000044,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -186.85340728576747,
+        "terminal_adjusted_reward": -206.85340728576747,
+        "simulated_time": 581.7872980007286,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000045,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -197.7363601555249,
+        "terminal_adjusted_reward": -217.7363601555249,
+        "simulated_time": 620.8491209390627,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000046,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -191.20365686690766,
+        "terminal_adjusted_reward": -201.20365686690766,
+        "simulated_time": 560.7935185652891,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000047,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -206.33892646543754,
+        "terminal_adjusted_reward": -246.33892646543754,
+        "simulated_time": 554.3645413506435,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000048,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -185.4834342909454,
+        "terminal_adjusted_reward": -195.4834342909454,
+        "simulated_time": 567.5420040016797,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000049,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -197.21051774533765,
+        "terminal_adjusted_reward": -237.21051774533765,
+        "simulated_time": 498.7099997571825,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000050,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -190.08399545676966,
+        "terminal_adjusted_reward": -220.08399545676966,
+        "simulated_time": 513.0786644686029,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000051,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -197.51292696533176,
+        "terminal_adjusted_reward": -207.51292696533176,
+        "simulated_time": 579.2361323783772,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000052,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -271.74069575748763,
+        "terminal_adjusted_reward": -311.74069575748763,
+        "simulated_time": 722.2036432978333,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000053,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -178.7222081195741,
+        "terminal_adjusted_reward": -188.7222081195741,
+        "simulated_time": 588.4503128835021,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000054,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -217.08797370251722,
+        "terminal_adjusted_reward": -227.08797370251722,
+        "simulated_time": 568.5147362435441,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000055,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -181.85274039998055,
+        "terminal_adjusted_reward": -201.85274039998055,
+        "simulated_time": 539.0486495193649,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000056,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -216.64112052712687,
+        "terminal_adjusted_reward": -256.6411205271269,
+        "simulated_time": 605.7455457891546,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000057,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -177.066515797808,
+        "terminal_adjusted_reward": -207.066515797808,
+        "simulated_time": 494.4854006029906,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000058,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -195.04802333786344,
+        "terminal_adjusted_reward": -215.04802333786344,
+        "simulated_time": 494.8020273851828,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000059,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -316.5164791773121,
+        "terminal_adjusted_reward": -356.5164791773121,
+        "simulated_time": 789.4689095382689,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000060,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -174.65488812598068,
+        "terminal_adjusted_reward": -204.65488812598068,
+        "simulated_time": 466.5894391694287,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000061,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -234.73221717896405,
+        "terminal_adjusted_reward": -274.73221717896405,
+        "simulated_time": 637.6383108614233,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000062,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -253.19168578151917,
+        "terminal_adjusted_reward": -293.19168578151914,
+        "simulated_time": 584.4350213363342,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000063,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -194.26778638166823,
+        "terminal_adjusted_reward": -234.26778638166823,
+        "simulated_time": 547.225389906091,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000064,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -178.01217410634698,
+        "terminal_adjusted_reward": -198.01217410634698,
+        "simulated_time": 493.90912978537483,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000065,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -163.9352725816905,
+        "terminal_adjusted_reward": -173.9352725816905,
+        "simulated_time": 459.4077595561006,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000066,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -174.0645753528195,
+        "terminal_adjusted_reward": -214.0645753528195,
+        "simulated_time": 486.82406043756856,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000067,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -274.8873527967357,
+        "terminal_adjusted_reward": -304.8873527967357,
+        "simulated_time": 674.9262946959263,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000068,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -151.48590464743108,
+        "terminal_adjusted_reward": -161.48590464743108,
+        "simulated_time": 524.757783101136,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000069,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -226.8259613350991,
+        "terminal_adjusted_reward": -256.8259613350991,
+        "simulated_time": 614.9772583486201,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000070,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -206.733899086027,
+        "terminal_adjusted_reward": -246.733899086027,
+        "simulated_time": 591.6358255635357,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000071,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -228.92030685798915,
+        "terminal_adjusted_reward": -268.92030685798915,
+        "simulated_time": 592.0275753904107,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000072,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -186.04255766826842,
+        "terminal_adjusted_reward": -206.04255766826842,
+        "simulated_time": 490.2637134031987,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000073,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -195.71445732012916,
+        "terminal_adjusted_reward": -235.71445732012916,
+        "simulated_time": 492.23672269998235,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000074,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -189.15349694391858,
+        "terminal_adjusted_reward": -229.15349694391858,
+        "simulated_time": 482.7477659101902,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000075,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -194.48752909808363,
+        "terminal_adjusted_reward": -204.48752909808363,
+        "simulated_time": 515.3158501251335,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000076,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -251.74702260469215,
+        "terminal_adjusted_reward": -261.7470226046921,
+        "simulated_time": 668.5458333607395,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000077,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -163.05393315997142,
+        "terminal_adjusted_reward": -193.05393315997142,
+        "simulated_time": 455.43810943709303,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000078,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -206.741723919273,
+        "terminal_adjusted_reward": -226.741723919273,
+        "simulated_time": 644.6616876634798,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000079,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -236.33035094404016,
+        "terminal_adjusted_reward": -256.33035094404016,
+        "simulated_time": 619.2075959289189,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000080,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -178.9534865025414,
+        "terminal_adjusted_reward": -198.9534865025414,
+        "simulated_time": 509.6413403302297,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000081,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -223.5983268902166,
+        "terminal_adjusted_reward": -253.5983268902166,
+        "simulated_time": 643.033400269894,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000082,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -216.4309689040083,
+        "terminal_adjusted_reward": -226.4309689040083,
+        "simulated_time": 618.7262666538601,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000083,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 19,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 0,
+        "reward": -187.07858855443948,
+        "terminal_adjusted_reward": -187.07858855443948,
+        "simulated_time": 522.5740878387313,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 19
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 19
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 9
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000084,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -219.76759279295257,
+        "terminal_adjusted_reward": -259.76759279295254,
+        "simulated_time": 556.3461805905506,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000085,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -164.40371299760199,
+        "terminal_adjusted_reward": -184.40371299760199,
+        "simulated_time": 503.9406256354167,
+        "illegal_actions": 0,
+        "peak_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000086,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -224.50678376754234,
+        "terminal_adjusted_reward": -254.50678376754234,
+        "simulated_time": 578.6107789643121,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000087,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -211.72738910773032,
+        "terminal_adjusted_reward": -241.72738910773032,
+        "simulated_time": 568.0102460212698,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000088,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 17,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 2,
+        "reward": -201.03401312128415,
+        "terminal_adjusted_reward": -221.03401312128415,
+        "simulated_time": 573.638282348174,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 17
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 17
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 7
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000089,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -215.7089431351905,
+        "terminal_adjusted_reward": -245.7089431351905,
+        "simulated_time": 642.012910189808,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000090,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -179.44161748051906,
+        "terminal_adjusted_reward": -189.44161748051906,
+        "simulated_time": 476.0538270330003,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000091,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 18,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 1,
+        "reward": -195.3663443784958,
+        "terminal_adjusted_reward": -205.3663443784958,
+        "simulated_time": 639.4592245381239,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 18
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 18
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 8
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000092,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -187.8042883080226,
+        "terminal_adjusted_reward": -217.8042883080226,
+        "simulated_time": 477.08691111787687,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000093,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -249.3067812163515,
+        "terminal_adjusted_reward": -289.3067812163515,
+        "simulated_time": 663.041555512661,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000094,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -166.37837841797824,
+        "terminal_adjusted_reward": -196.37837841797824,
+        "simulated_time": 517.9653153612119,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000095,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -221.1102528908343,
+        "terminal_adjusted_reward": -261.1102528908343,
+        "simulated_time": 562.4143479740586,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000096,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 15,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 4,
+        "reward": -235.88799536569368,
+        "terminal_adjusted_reward": -275.88799536569366,
+        "simulated_time": 605.2371643402734,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 15
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 15
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 5
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000097,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -236.3850209081534,
+        "terminal_adjusted_reward": -266.38502090815336,
+        "simulated_time": 635.2310348572616,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000098,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -158.5620998449582,
+        "terminal_adjusted_reward": -188.5620998449582,
+        "simulated_time": 457.5033621526659,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      },
+      {
+        "seed": 45000099,
+        "actual_execution_mode": "CONCURRENT",
+        "completed": 16,
+        "failed": 1,
+        "scheduled_tasks": 20,
+        "unresolved_tasks": 3,
+        "reward": -158.5891371629501,
+        "terminal_adjusted_reward": -188.5891371629501,
+        "simulated_time": 483.31152848308875,
+        "illegal_actions": 0,
+        "peak_active_tasks": 3,
+        "transport_modes": {
+          "SINGLE_DOG": 16
+        },
+        "exposed_transport_modes": [
+          "SINGLE_DOG"
+        ],
+        "selected_mode_by_cost_reference": {
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 16
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "SINGLE_DOG": 10
+          },
+          "SAME_FLOOR": {
+            "SINGLE_DOG": 6
+          }
+        },
+        "cost_reference_mode_agreement": 1.0,
+        "resource_leak": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "schema_version": "warehouse_stage18_paired_validation_v1",
+  "arrival_profile": "MEDIUM",
+  "claim_boundary": "Ten paired training seeds on the shared validation set; not the locked test-set result.",
+  "reference_condition": "full_context_v2",
+  "comparison_condition": "no_handover_cues",
+  "training_seed_count": 10,
+  "reference": {
+    "mean_reward": {
+      "mean": 18.12081261916159,
+      "sample_stdev": 0.4122019827233059,
+      "bootstrap_95_interval": [
+        17.850285146187048,
+        18.311523362394034
+      ]
+    },
+    "success_rate": {
+      "mean": 0.9704,
+      "sample_stdev": 0.00407430975749268,
+      "bootstrap_95_interval": [
+        0.96805,
+        0.97285
+      ]
+    },
+    "throughput_tasks_per_hour": {
+      "mean": 56.059340984759885,
+      "sample_stdev": 0.07084511745800927,
+      "bootstrap_95_interval": [
+        56.016753612132895,
+        56.098950027189815
+      ]
+    },
+    "mean_simulated_time": {
+      "mean": 1284.3551546838708,
+      "sample_stdev": 1.6242319549765045,
+      "bootstrap_95_interval": [
+        1283.441967987761,
+        1285.3497352090858
+      ]
+    },
+    "cost_reference_mode_agreement": {
+      "mean": 0.93475,
+      "sample_stdev": 0.04198164281365527,
+      "bootstrap_95_interval": [
+        0.9089,
+        0.95835
+      ]
+    },
+    "transport_mode_totals": {
+      "SINGLE_CAR": 9954,
+      "SINGLE_DOG": 4248,
+      "CAR_DOG_CAR": 5798
+    }
+  },
+  "comparison": {
+    "mean_reward": {
+      "mean": 18.31535309278824,
+      "sample_stdev": 0.27465630185244944,
+      "bootstrap_95_interval": [
+        18.146061190127483,
+        18.470137212357752
+      ]
+    },
+    "success_rate": {
+      "mean": 0.9702500000000001,
+      "sample_stdev": 0.004250816914952271,
+      "bootstrap_95_interval": [
+        0.9678,
+        0.97275
+      ]
+    },
+    "throughput_tasks_per_hour": {
+      "mean": 56.10377810263507,
+      "sample_stdev": 0.04939390921171125,
+      "bootstrap_95_interval": [
+        56.07139518004051,
+        56.12855888541581
+      ]
+    },
+    "mean_simulated_time": {
+      "mean": 1283.3369289386765,
+      "sample_stdev": 1.1313161774959273,
+      "bootstrap_95_interval": [
+        1282.7649376749914,
+        1284.0810083673716
+      ]
+    },
+    "cost_reference_mode_agreement": {
+      "mean": 0.9425,
+      "sample_stdev": 0.04602837289228365,
+      "bootstrap_95_interval": [
+        0.91485,
+        0.96855
+      ]
+    },
+    "transport_mode_totals": {
+      "SINGLE_CAR": 9981,
+      "SINGLE_DOG": 4131,
+      "CAR_DOG_CAR": 5888
+    }
+  },
+  "paired_reference_minus_comparison": {
+    "mean_reward": {
+      "direction": "reference_minus_comparison",
+      "per_seed": [
+        -0.29125489085264533,
+        0.09836881937726005,
+        -0.36988117432482426,
+        0.011521824683999426,
+        -0.04572353023622,
+        -0.8738366021423225,
+        0.17296263244453414,
+        0.010059165007696436,
+        -0.41344492757190565,
+        -0.24417605265206888
+      ],
+      "mean": -0.19454047362664967,
+      "sample_stdev": 0.31256069155601907,
+      "bootstrap_95_interval": [
+        -0.39012762633097287,
+        -0.024984382598327314
+      ],
+      "interval_excludes_zero": true
+    },
+    "success_rate": {
+      "direction": "reference_minus_comparison",
+      "per_seed": [
+        -0.0034999999999999476,
+        0.008499999999999952,
+        -0.0034999999999999476,
+        0.0044999999999999485,
+        0.0015000000000000568,
+        -0.000500000000000056,
+        0.0020000000000000018,
+        0.0044999999999999485,
+        -0.008000000000000007,
+        -0.0040000000000000036
+      ],
+      "mean": 0.0001499999999999946,
+      "sample_stdev": 0.00498358416314111,
+      "bootstrap_95_interval": [
+        -0.0027999999999999805,
+        0.0030999999999999695
+      ],
+      "interval_excludes_zero": false
+    },
+    "throughput_tasks_per_hour": {
+      "direction": "reference_minus_comparison",
+      "per_seed": [
+        -0.015547924839111715,
+        -0.18588590720602838,
+        0.0016518047889491072,
+        -0.06530653814768073,
+        -0.0852500089855397,
+        -0.016499121050607357,
+        -0.027184929092868515,
+        -0.10729421401467931,
+        0.0709215354131345,
+        -0.013975875617397548
+      ],
+      "mean": -0.044437117875182966,
+      "sample_stdev": 0.07018424122019909,
+      "bootstrap_95_interval": [
+        -0.08777532025071651,
+        -0.004291473520510181
+      ],
+      "interval_excludes_zero": true
+    },
+    "mean_simulated_time": {
+      "direction": "reference_minus_comparison",
+      "per_seed": [
+        0.35728573010146647,
+        4.264117598514076,
+        -0.037756376260176694,
+        1.4954577491207601,
+        1.9529124341599982,
+        0.3769514670677836,
+        0.6214732550997724,
+        2.454577863511986,
+        -1.6225150509171726,
+        0.31975278154232
+      ],
+      "mean": 1.0182257451940813,
+      "sample_stdev": 1.6083902421403367,
+      "bootstrap_95_interval": [
+        0.10994921240123859,
+        2.0013254918343817
+      ],
+      "interval_excludes_zero": true
+    },
+    "cost_reference_mode_agreement": {
+      "direction": "reference_minus_comparison",
+      "per_seed": [
+        0.046499999999999986,
+        -0.10299999999999998,
+        0.033499999999999974,
+        -0.05499999999999994,
+        -0.02949999999999997,
+        -0.02850000000000008,
+        -0.02950000000000008,
+        -0.028000000000000025,
+        0.08250000000000002,
+        0.033499999999999974
+      ],
+      "mean": -0.007750000000000012,
+      "sample_stdev": 0.05536056057037958,
+      "bootstrap_95_interval": [
+        -0.03990000000000001,
+        0.0246
+      ],
+      "interval_excludes_zero": false
+    }
+  },
+  "quality": {
+    "all_runs_passed": true,
+    "illegal_action_count": 0,
+    "resource_leak_count": 0
+  }
+}

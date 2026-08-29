@@ -1,0 +1,26 @@
+{
+  "stage": 18,
+  "baseline": "SINGLE_DOG_ONLY_FOUR_GO2_FLEET",
+  "state": "COMPLETED",
+  "updated_at_utc": "2026-08-17T23:16:04.512842+00:00",
+  "rows": [
+    {
+      "evaluation_profile": "MEDIUM",
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/baselines/single_dog_only/tested_medium.json",
+      "finished_at_utc": "2026-08-17T23:15:54.768414+00:00"
+    },
+    {
+      "evaluation_profile": "DENSE",
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/baselines/single_dog_only/tested_dense.json",
+      "finished_at_utc": "2026-08-17T23:15:58.914155+00:00"
+    },
+    {
+      "evaluation_profile": "BURST",
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/baselines/single_dog_only/tested_burst.json",
+      "finished_at_utc": "2026-08-17T23:16:04.512584+00:00"
+    }
+  ]
+}

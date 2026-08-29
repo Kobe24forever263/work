@@ -1,0 +1,162 @@
+{
+  "seed": 20260805,
+  "profile": "overload",
+  "arrival_interval_seconds": [
+    2.0,
+    6.0
+  ],
+  "trial_count": 20,
+  "success_count": 20,
+  "failure_count": 0,
+  "simulated_time": 814.3777,
+  "task_types": {
+    "f1_same": 5,
+    "cross_up": 5,
+    "cross_down": 5,
+    "f2_same": 5
+  },
+  "unique_assignment_count": 16,
+  "invalid_actions_masked": 40,
+  "mean_wait_time": 387.4544,
+  "p95_wait_time": 643.4634,
+  "max_wait_time": 645.9015,
+  "mean_task_duration": 37.7189,
+  "queue_peak": 17,
+  "moved_robots": [
+    "dog_1",
+    "dog_2",
+    "dog_3",
+    "dog_4",
+    "car_f1_1",
+    "car_f1_2",
+    "car_f1_3",
+    "car_f1_4",
+    "car_f2_1",
+    "car_f2_2"
+  ],
+  "assertions": {
+    "twenty_tasks_completed": true,
+    "four_task_types_covered": true,
+    "positions_persisted": true,
+    "dynamic_assignments": true,
+    "invalid_actions_masked": true,
+    "all_cargo_cleared": true,
+    "all_task_ids_cleared": true,
+    "queue_drained": true,
+    "all_smdp_records_complete": true,
+    "fixed_seed_replay_equal": true,
+    "waiting_time_recorded": true
+  },
+  "final_robots": {
+    "car_f1_1": {
+      "xyz": [
+        12,
+        8,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 72.3919,
+      "tasks_completed": 3,
+      "stairs_traversed": 0
+    },
+    "car_f1_2": {
+      "xyz": [
+        -12,
+        8,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 72.5426,
+      "tasks_completed": 4,
+      "stairs_traversed": 0
+    },
+    "car_f1_3": {
+      "xyz": [
+        8.399999999999999,
+        -5.6,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 97.5437,
+      "tasks_completed": 5,
+      "stairs_traversed": 0
+    },
+    "car_f1_4": {
+      "xyz": [
+        8.399999999999999,
+        -5.6,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 66.9652,
+      "tasks_completed": 3,
+      "stairs_traversed": 0
+    },
+    "car_f2_1": {
+      "xyz": [
+        4.8999999999999995,
+        4.55,
+        4.7
+      ],
+      "floor": 2,
+      "distance_total": 101.9047,
+      "tasks_completed": 8,
+      "stairs_traversed": 0
+    },
+    "car_f2_2": {
+      "xyz": [
+        -9.5,
+        6.5,
+        4.7
+      ],
+      "floor": 2,
+      "distance_total": 121.689,
+      "tasks_completed": 7,
+      "stairs_traversed": 0
+    },
+    "dog_1": {
+      "xyz": [
+        20.3,
+        18.3,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 33.8095,
+      "tasks_completed": 2,
+      "stairs_traversed": 2
+    },
+    "dog_2": {
+      "xyz": [
+        -20.3,
+        18.3,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 33.8095,
+      "tasks_completed": 2,
+      "stairs_traversed": 2
+    },
+    "dog_3": {
+      "xyz": [
+        -20.3,
+        18.3,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 46.8095,
+      "tasks_completed": 2,
+      "stairs_traversed": 2
+    },
+    "dog_4": {
+      "xyz": [
+        20.3,
+        -18.3,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 66.9119,
+      "tasks_completed": 4,
+      "stairs_traversed": 4
+    }
+  }
+}

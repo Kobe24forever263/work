@@ -1,0 +1,49 @@
+{
+  "stage": 18,
+  "batch": "FULL_CONTEXT_SEEDS_06_TO_10",
+  "state": "COMPLETED",
+  "updated_at_utc": "2026-08-11T18:18:10.820086+00:00",
+  "planned_run_count": 5,
+  "runs": [
+    {
+      "condition": "full_context_v2",
+      "seed_index": 6,
+      "state": "COMPLETED",
+      "started_at_utc": "2026-08-11T14:53:37.481735+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/full_context_v2/seed_06/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-11T15:34:30.532704+00:00"
+    },
+    {
+      "condition": "full_context_v2",
+      "seed_index": 7,
+      "state": "COMPLETED",
+      "started_at_utc": "2026-08-11T15:34:30.533019+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/full_context_v2/seed_07/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-11T16:15:11.025607+00:00"
+    },
+    {
+      "condition": "full_context_v2",
+      "seed_index": 8,
+      "state": "COMPLETED",
+      "started_at_utc": "2026-08-11T16:15:11.025901+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/full_context_v2/seed_08/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-11T16:56:05.372324+00:00"
+    },
+    {
+      "condition": "full_context_v2",
+      "seed_index": 9,
+      "state": "COMPLETED",
+      "started_at_utc": "2026-08-11T16:56:05.372596+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/full_context_v2/seed_09/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-11T17:36:58.626693+00:00"
+    },
+    {
+      "condition": "full_context_v2",
+      "seed_index": 10,
+      "state": "COMPLETED",
+      "started_at_utc": "2026-08-11T17:36:58.627214+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/full_context_v2/seed_10/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-11T18:18:10.794246+00:00"
+    }
+  ]
+}

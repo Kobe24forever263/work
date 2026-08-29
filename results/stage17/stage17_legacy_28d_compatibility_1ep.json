@@ -1,0 +1,394 @@
+{
+  "schema_version": "warehouse_stage16_evaluation_v1",
+  "stage": 15,
+  "gate": "PRE_REGISTERED_PAIRED_STRESS_EVALUATION",
+  "claim_boundary": "Safety/reproducibility gate. Superiority is reported with paired confidence intervals and is not required for PASS.",
+  "weights": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/long/realistic_concurrent_medium_reward_v2_context_v2/stage14_realistic_concurrent_medium_reward_v2_context_v2.best.pt",
+  "raw_results": "/Users/lab4099/Desktop/Mujoco/work/results/stage17/stage17_legacy_28d_compatibility_1ep.raw.json",
+  "checkpoint_update": 160,
+  "execution_mode": "CONCURRENT",
+  "episode_count_per_scenario": 1,
+  "task_count_per_policy_per_scenario": {
+    "MEDIUM": 20
+  },
+  "seed_start": 41000030,
+  "seed_end": 41000030,
+  "scenario_order_pre_registered": [
+    "MEDIUM"
+  ],
+  "handover_sampling": "TASK_KEYED_COMMON_RANDOM_NUMBERS",
+  "risk_aware_rule_definition": {
+    "causal": true,
+    "realised_handover_sample_visible": false,
+    "single_handover_timeout_probability": 0.05,
+    "two_handover_task_timeout_probability": 0.09750000000000003,
+    "expected_handover_attempts": 1.95,
+    "objective": "estimated ETA + Reward V2-equivalent expected timeout, handover and active-robot premiums"
+  },
+  "results": {
+    "MEDIUM": {
+      "description": "Stage 14 in-distribution anchor",
+      "arrival_interval": [
+        55.0,
+        75.0
+      ],
+      "arrival_schedule": "BALANCED",
+      "task_count_per_episode": 20,
+      "episode_spec": {
+        "f1_same": 3,
+        "f1_cross_region": 2,
+        "f2_same": 3,
+        "f2_cross_region": 2,
+        "cross_up": 5,
+        "cross_down": 5
+      },
+      "policy": {
+        "policy_kind": "PPO",
+        "episode_count": 1,
+        "task_count": 20,
+        "completed": 20,
+        "failed": 0,
+        "success_rate": 1.0,
+        "mean_episode_reward": 21.709657229335676,
+        "throughput_tasks_per_hour": 56.80657822712543,
+        "successful_throughput_tasks_per_hour": 56.80657822712543,
+        "mean_waiting_time": 1.466574284193254,
+        "p95_waiting_time": 12.227232738824515,
+        "mean_flow_time": 41.24916182718539,
+        "p95_flow_time": 83.88445350233519,
+        "distance_per_task": 58.97230147697403,
+        "maximum_active_tasks": 2,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 5,
+          "SINGLE_DOG": 5
+        },
+        "phase_results": {
+          "MEDIUM": {
+            "task_count": 20,
+            "completed": 20,
+            "failed": 0,
+            "success_rate": 1.0,
+            "mean_waiting_time": 1.466574284193254,
+            "p95_waiting_time": 12.227232738824515,
+            "mean_flow_time": 41.24916182718539,
+            "p95_flow_time": 83.88445350233519,
+            "transport_modes": {
+              "CAR_DOG_CAR": 5,
+              "SINGLE_CAR": 10,
+              "SINGLE_DOG": 5
+            }
+          }
+        },
+        "failure_reasons": {},
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 5,
+            "SINGLE_DOG": 2
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 5,
+            "SINGLE_DOG": 5
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "task_fingerprint": "7d3b7d384819b9a83e2a76c41a42e4390aa2dfcf54faa4bb13a98ffaecfbf17c"
+      },
+      "rule_baseline": {
+        "policy_kind": "TIME_GREEDY_RULE",
+        "episode_count": 1,
+        "task_count": 20,
+        "completed": 20,
+        "failed": 0,
+        "success_rate": 1.0,
+        "mean_episode_reward": 21.509741522220033,
+        "throughput_tasks_per_hour": 56.996080210264644,
+        "successful_throughput_tasks_per_hour": 56.996080210264644,
+        "mean_waiting_time": 1.466574284193254,
+        "p95_waiting_time": 12.227232738824515,
+        "mean_flow_time": 41.15993636630475,
+        "p95_flow_time": 79.61316607068972,
+        "distance_per_task": 68.48806113587455,
+        "maximum_active_tasks": 2,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 7,
+          "SINGLE_DOG": 3
+        },
+        "phase_results": {
+          "MEDIUM": {
+            "task_count": 20,
+            "completed": 20,
+            "failed": 0,
+            "success_rate": 1.0,
+            "mean_waiting_time": 1.466574284193254,
+            "p95_waiting_time": 12.227232738824515,
+            "mean_flow_time": 41.15993636630475,
+            "p95_flow_time": 79.61316607068972,
+            "transport_modes": {
+              "CAR_DOG_CAR": 7,
+              "SINGLE_CAR": 10,
+              "SINGLE_DOG": 3
+            }
+          }
+        },
+        "failure_reasons": {},
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 7
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 7,
+            "SINGLE_DOG": 3
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "task_fingerprint": "7d3b7d384819b9a83e2a76c41a42e4390aa2dfcf54faa4bb13a98ffaecfbf17c"
+      },
+      "risk_aware_rule_baseline": {
+        "policy_kind": "RISK_AWARE_RULE",
+        "episode_count": 1,
+        "task_count": 20,
+        "completed": 20,
+        "failed": 0,
+        "success_rate": 1.0,
+        "mean_episode_reward": 21.79696640772074,
+        "throughput_tasks_per_hour": 56.80657822712543,
+        "successful_throughput_tasks_per_hour": 56.80657822712543,
+        "mean_waiting_time": 1.466574284193254,
+        "p95_waiting_time": 12.227232738824515,
+        "mean_flow_time": 41.12051372543923,
+        "p95_flow_time": 83.88445350233519,
+        "distance_per_task": 58.79475251213239,
+        "maximum_active_tasks": 2,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 5,
+          "SINGLE_DOG": 5
+        },
+        "phase_results": {
+          "MEDIUM": {
+            "task_count": 20,
+            "completed": 20,
+            "failed": 0,
+            "success_rate": 1.0,
+            "mean_waiting_time": 1.466574284193254,
+            "p95_waiting_time": 12.227232738824515,
+            "mean_flow_time": 41.12051372543923,
+            "p95_flow_time": 83.88445350233519,
+            "transport_modes": {
+              "CAR_DOG_CAR": 5,
+              "SINGLE_CAR": 10,
+              "SINGLE_DOG": 5
+            }
+          }
+        },
+        "failure_reasons": {},
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 5,
+            "SINGLE_DOG": 2
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 10
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 3
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 5,
+            "SINGLE_DOG": 5
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 10
+          }
+        },
+        "task_fingerprint": "7d3b7d384819b9a83e2a76c41a42e4390aa2dfcf54faa4bb13a98ffaecfbf17c"
+      },
+      "paired_comparison": {
+        "success_rate": {
+          "policy_minus_rule": 0.0,
+          "paired_bootstrap_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "reward": {
+          "policy_minus_rule": 0.19991570711564322,
+          "paired_bootstrap_95ci": [
+            0.19991570711564322,
+            0.19991570711564322
+          ]
+        },
+        "throughput_tasks_per_hour": {
+          "policy_minus_rule": -0.18950198313921618,
+          "paired_bootstrap_95ci": [
+            -0.18950198313921618,
+            -0.18950198313921618
+          ]
+        },
+        "successful_throughput_tasks_per_hour": {
+          "policy_minus_rule": -0.18950198313921618,
+          "paired_bootstrap_95ci": [
+            -0.18950198313921618,
+            -0.18950198313921618
+          ]
+        },
+        "mean_waiting_time": {
+          "policy_minus_rule": 0.0,
+          "paired_bootstrap_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "p95_waiting_time": {
+          "policy_minus_rule": 0.0,
+          "paired_bootstrap_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "mean_flow_time": {
+          "policy_minus_rule": 0.0892254608806411,
+          "paired_bootstrap_95ci": [
+            0.0892254608806411,
+            0.0892254608806411
+          ]
+        },
+        "p95_flow_time": {
+          "policy_minus_rule": 4.271287431645476,
+          "paired_bootstrap_95ci": [
+            4.271287431645476,
+            4.271287431645476
+          ]
+        },
+        "distance_per_task": {
+          "policy_minus_rule": -9.515759658900514,
+          "paired_bootstrap_95ci": [
+            -9.515759658900514,
+            -9.515759658900514
+          ]
+        }
+      },
+      "paired_comparison_vs_risk_aware_rule": {
+        "success_rate": {
+          "policy_minus_rule": 0.0,
+          "paired_bootstrap_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "reward": {
+          "policy_minus_rule": -0.08730917838506258,
+          "paired_bootstrap_95ci": [
+            -0.08730917838506258,
+            -0.08730917838506258
+          ]
+        },
+        "throughput_tasks_per_hour": {
+          "policy_minus_rule": 0.0,
+          "paired_bootstrap_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "successful_throughput_tasks_per_hour": {
+          "policy_minus_rule": 0.0,
+          "paired_bootstrap_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "mean_waiting_time": {
+          "policy_minus_rule": 0.0,
+          "paired_bootstrap_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "p95_waiting_time": {
+          "policy_minus_rule": 0.0,
+          "paired_bootstrap_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "mean_flow_time": {
+          "policy_minus_rule": 0.12864810174615826,
+          "paired_bootstrap_95ci": [
+            0.12864810174615826,
+            0.12864810174615826
+          ]
+        },
+        "p95_flow_time": {
+          "policy_minus_rule": 0.0,
+          "paired_bootstrap_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "distance_per_task": {
+          "policy_minus_rule": 0.17754896484164107,
+          "paired_bootstrap_95ci": [
+            0.17754896484164107,
+            0.17754896484164107
+          ]
+        }
+      },
+      "adaptive_mode_summary": null,
+      "assertions": {
+        "paired_task_streams_identical": true,
+        "policy_resolved_all_tasks": true,
+        "rule_resolved_all_tasks": true,
+        "policy_actions_all_legal": true,
+        "policy_has_no_resource_leak": true,
+        "rule_has_no_resource_leak": true,
+        "risk_rule_resolved_all_tasks": true,
+        "risk_rule_actions_all_legal": true,
+        "risk_rule_has_no_resource_leak": true,
+        "risk_rule_task_streams_identical": true
+      }
+    }
+  },
+  "assertions": {
+    "medium_paired_task_streams_identical": true,
+    "medium_policy_resolved_all_tasks": true,
+    "medium_rule_resolved_all_tasks": true,
+    "medium_policy_actions_all_legal": true,
+    "medium_policy_has_no_resource_leak": true,
+    "medium_rule_has_no_resource_leak": true,
+    "medium_risk_rule_resolved_all_tasks": true,
+    "medium_risk_rule_actions_all_legal": true,
+    "medium_risk_rule_has_no_resource_leak": true,
+    "medium_risk_rule_task_streams_identical": true
+  },
+  "passed": true
+}

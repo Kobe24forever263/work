@@ -1,0 +1,27 @@
+{
+  "stage": 18,
+  "campaign": "CLEAN_SEMANTIC_ABLATIONS",
+  "profiles": [
+    "DENSE"
+  ],
+  "conditions": [
+    "no_position_only",
+    "no_eta_cost_only",
+    "no_history_only",
+    "no_explicit_queue_resource",
+    "no_explicit_handover_risk"
+  ],
+  "seed_range": [
+    1,
+    10
+  ],
+  "updates_per_run": 2000,
+  "episodes_per_run": 8000,
+  "job_count": 50,
+  "total_ppo_episodes": 400000,
+  "execution": "sequential_manual_launcher",
+  "claim_boundary": "Training only; fresh locked-test seeds required after model freeze.",
+  "state": "COMPLETE",
+  "job_index": 50,
+  "updated_at": 1787385382.7919471
+}

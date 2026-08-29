@@ -1,0 +1,186 @@
+{
+  "stage": 18,
+  "arrival_profile": "DENSE",
+  "gate": "DENSE_FULL_TEN_SEED_ABLATION_CONTINUATION",
+  "claim_boundary": "Validation continuation gate; not locked test.",
+  "runs": [
+    {
+      "seed_index": 1,
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_01/stage18_ppo.summary.json",
+      "passed": true,
+      "arrival_profile": "DENSE",
+      "reward_delta": 19.664182683253323,
+      "success_delta_pp": 0.30000000000000027,
+      "throughput_delta": 1.1646844135667749,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 653,
+        "SINGLE_CAR": 997,
+        "SINGLE_DOG": 350
+      }
+    },
+    {
+      "seed_index": 2,
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_02/stage18_ppo.summary.json",
+      "passed": true,
+      "arrival_profile": "DENSE",
+      "reward_delta": 19.72119878075396,
+      "success_delta_pp": 0.5000000000000004,
+      "throughput_delta": 0.2303866428535315,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 607,
+        "SINGLE_CAR": 1000,
+        "SINGLE_DOG": 393
+      }
+    },
+    {
+      "seed_index": 3,
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_03/stage18_ppo.summary.json",
+      "passed": true,
+      "arrival_profile": "DENSE",
+      "reward_delta": 19.38603955293605,
+      "success_delta_pp": 0.04999999999999449,
+      "throughput_delta": 1.5014696509917513,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 697,
+        "SINGLE_CAR": 1000,
+        "SINGLE_DOG": 303
+      }
+    },
+    {
+      "seed_index": 4,
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_04/stage18_ppo.summary.json",
+      "passed": true,
+      "arrival_profile": "DENSE",
+      "reward_delta": 19.979624629003194,
+      "success_delta_pp": 0.14999999999999458,
+      "throughput_delta": 1.8149754486539393,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 676,
+        "SINGLE_CAR": 1000,
+        "SINGLE_DOG": 324
+      }
+    },
+    {
+      "seed_index": 5,
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_05/stage18_ppo.summary.json",
+      "passed": true,
+      "arrival_profile": "DENSE",
+      "reward_delta": 19.54908772243435,
+      "success_delta_pp": 0.20000000000000018,
+      "throughput_delta": 0.40903137202839446,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 668,
+        "SINGLE_CAR": 1000,
+        "SINGLE_DOG": 332
+      }
+    },
+    {
+      "seed_index": 6,
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_06/stage18_ppo.summary.json",
+      "passed": true,
+      "arrival_profile": "DENSE",
+      "reward_delta": 19.686058343072688,
+      "success_delta_pp": 0.20000000000000018,
+      "throughput_delta": 1.1615376276015184,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 663,
+        "SINGLE_CAR": 1000,
+        "SINGLE_DOG": 337
+      }
+    },
+    {
+      "seed_index": 7,
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_07/stage18_ppo.summary.json",
+      "passed": true,
+      "arrival_profile": "DENSE",
+      "reward_delta": 19.540107549191198,
+      "success_delta_pp": 0.14999999999999458,
+      "throughput_delta": 1.2050142884461508,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 692,
+        "SINGLE_CAR": 1000,
+        "SINGLE_DOG": 308
+      }
+    },
+    {
+      "seed_index": 8,
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_08/stage18_ppo.summary.json",
+      "passed": true,
+      "arrival_profile": "DENSE",
+      "reward_delta": 20.338498763529287,
+      "success_delta_pp": -0.050000000000005596,
+      "throughput_delta": 2.908163864314659,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 712,
+        "SINGLE_CAR": 1000,
+        "SINGLE_DOG": 288
+      }
+    },
+    {
+      "seed_index": 9,
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_09/stage18_ppo.summary.json",
+      "passed": true,
+      "arrival_profile": "DENSE",
+      "reward_delta": 19.386256291047673,
+      "success_delta_pp": 0.7499999999999951,
+      "throughput_delta": 1.429823922250364,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 544,
+        "SINGLE_CAR": 1000,
+        "SINGLE_DOG": 456
+      }
+    },
+    {
+      "seed_index": 10,
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_10/stage18_ppo.summary.json",
+      "passed": true,
+      "arrival_profile": "DENSE",
+      "reward_delta": 19.675290279721246,
+      "success_delta_pp": 0.20000000000000018,
+      "throughput_delta": 1.508910591076699,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0,
+      "transport_modes": {
+        "CAR_DOG_CAR": 660,
+        "SINGLE_CAR": 1000,
+        "SINGLE_DOG": 340
+      }
+    }
+  ],
+  "aggregate": {
+    "reward_delta_mean": 19.692634459494297,
+    "reward_delta_stdev": 0.2854259369659793,
+    "success_delta_pp_mean": 0.24499999999999744,
+    "success_delta_pp_stdev": 0.22906816064704963,
+    "throughput_delta_mean": 1.3333997821783783
+  },
+  "assertions": {
+    "all_runs_are_dense": true,
+    "all_ten_training_runs_passed": true,
+    "all_ten_have_zero_illegal_actions": true,
+    "all_ten_have_zero_resource_leaks": true,
+    "all_ten_expose_all_transport_modes": true,
+    "at_least_eight_of_ten_reward_deltas_positive": true,
+    "mean_reward_delta_positive": true,
+    "mean_success_delta_not_negative": true
+  },
+  "passed": true
+}

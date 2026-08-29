@@ -1,0 +1,144 @@
+{
+  "stage": 14,
+  "gate": "SMDP_PPO_HELDOUT_EVALUATION",
+  "weights": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_01/stage18_ppo.best.pt",
+  "execution_mode": "CONCURRENT",
+  "arrival_profile": "MEDIUM",
+  "observation_variant": "NO_PERSISTENT_POSITION",
+  "seed_start": 42000000,
+  "seed_end": 42000099,
+  "policy": {
+    "episode_count": 100,
+    "task_count": 2000,
+    "completed": 1903,
+    "failed": 97,
+    "success_rate": 0.9515,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": 9.256673059058969,
+    "mean_simulated_time": 1292.467023264074,
+    "throughput_tasks_per_hour": 55.70741744587561,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 2,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "CAR_DOG_CAR": 1000,
+      "SINGLE_CAR": 1000
+    },
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 710
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 1000
+      },
+      "SINGLE_DOG": {
+        "CAR_DOG_CAR": 290
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "CAR_DOG_CAR": 1000
+      },
+      "SAME_FLOOR": {
+        "SINGLE_CAR": 1000
+      }
+    },
+    "cost_reference_mode_agreement": 0.855,
+    "cost_reference_decision_count": 2000
+  },
+  "rule_baseline": {
+    "episode_count": 100,
+    "task_count": 2000,
+    "completed": 1929,
+    "failed": 71,
+    "success_rate": 0.9645,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": 17.9739742489628,
+    "mean_simulated_time": 1281.912747281915,
+    "throughput_tasks_per_hour": 56.166069143679366,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 2,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "CAR_DOG_CAR": 701,
+      "SINGLE_DOG": 299,
+      "SINGLE_CAR": 1000
+    },
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 701
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 1000
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 299
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "CAR_DOG_CAR": 701,
+        "SINGLE_DOG": 299
+      },
+      "SAME_FLOOR": {
+        "SINGLE_CAR": 1000
+      }
+    },
+    "cost_reference_mode_agreement": 1.0,
+    "cost_reference_decision_count": 2000
+  },
+  "comparison": {
+    "success_rate_delta": -0.013000000000000012,
+    "mean_reward_delta": -8.717301189903832,
+    "throughput_delta_tasks_per_hour": -0.45865169780375226,
+    "mean_simulated_time_delta": 10.55427598215897
+  },
+  "positive_relative_score": {
+    "policy_score": 61.56998111348345,
+    "rule_baseline_score": 100.0,
+    "raw_reward_delta": -8.717301189903832,
+    "normalization_scale": 17.9739742489628,
+    "formula": "100*exp((policy_reward-rule_reward)/max(abs(rule_reward),10))"
+  },
+  "contextual_mode_acceptance": {
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 710
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 1000
+      },
+      "SINGLE_DOG": {
+        "CAR_DOG_CAR": 290
+      }
+    },
+    "diagonal_match_rates": {
+      "CAR_DOG_CAR": 1.0,
+      "SINGLE_CAR": 1.0,
+      "SINGLE_DOG": 0.0
+    },
+    "minimum_diagonal_rate": 0.2,
+    "note": "This is conditional behavior, not a target frequency for any transport mode."
+  },
+  "assertions": {
+    "policy_resolved_all_tasks": true,
+    "policy_actions_all_legal": true,
+    "policy_has_no_resource_leak": true,
+    "rule_has_no_resource_leak": true,
+    "mode_conditioned_checkpoint_shape_matches": true,
+    "policy_selects_all_three_modes": false,
+    "cost_reference_covers_all_three_modes": true,
+    "policy_switches_by_context": false
+  },
+  "passed": false
+}

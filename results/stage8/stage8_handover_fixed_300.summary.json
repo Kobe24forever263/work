@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-08-04T12:16:24.810382+00:00",
+  "seed": 20260804,
+  "trial_count": 300,
+  "planned_trial_count": 300,
+  "test_pass_count": 300,
+  "test_failure_count": 0,
+  "by_type": {
+    "car_to_dog": {
+      "tests": 100,
+      "test_passes": 100,
+      "commits": 96,
+      "operational_success_rate": 0.96,
+      "safe_rejections": 2,
+      "safe_rollbacks": 2,
+      "meets_95_percent": true
+    },
+    "dog_to_car": {
+      "tests": 100,
+      "test_passes": 100,
+      "commits": 96,
+      "operational_success_rate": 0.96,
+      "safe_rejections": 2,
+      "safe_rollbacks": 2,
+      "meets_95_percent": true
+    },
+    "same_floor": {
+      "tests": 100,
+      "test_passes": 100,
+      "commits": 96,
+      "operational_success_rate": 0.96,
+      "safe_rejections": 2,
+      "safe_rollbacks": 2,
+      "meets_95_percent": true
+    }
+  },
+  "all_ownership_checks_passed": true,
+  "results_jsonl": "/Users/lab4099/Desktop/Mujoco/work/results/stage8/stage8_handover_fixed_300.jsonl"
+}

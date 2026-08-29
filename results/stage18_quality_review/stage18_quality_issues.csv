@@ -1,0 +1,10 @@
+severity_rank,severity,finding,evidence,impact,remediation
+1,HIGH,配对测试使用顺序交接随机流，而非 TASK_KEYED,"stage14_training.py:278-285,313-319; stage14_ppo.py:366-371; handover_timing.py:157-162",不同策略按不同顺序消耗随机交接时长，逐任务配对不成立。,保留权重，使用 TASK_KEYED 和新鲜最终测试种子重跑 locked evaluation。
+1,HIGH,Bootstrap 将交叉设计误作嵌套设计,summarize_stage18_locked_test.py:56-66,10 个训练种子共享同一 100 个测试种子，当前置信区间可能偏窄。,同时重采训练种子轴和共享测试种子轴，使用 crossed/two-way bootstrap。
+1,HIGH,36 项显著性检验没有多重比较校正,raw p<.05: 17; global Holm: 0; BH-FDR: 16,不能把未校正 p 值直接写成全局确认性证据。,预先定义主要假设族并报告 Holm/BH；若坚持全局 FWER，增加训练种子。
+1,HIGH,三项消融不是语义干净的单因素消融,"stage12_encoding.py:63-98,206-219,247-289",交接与资源信息可被其他字段推断；位置消融同时删除 ETA/cost 等复合信息。,重定义互不重叠且不可旁路推断的消融；否则收窄论文表述。
+2,MEDIUM,throughput 将失败任务计入吞吐,stage14_ppo.py:459-472; summarize_stage18_locked_test.py:40-44,快速失败也会提高该指标；当前名称容易被误解为成功交付吞吐。,分别报告 resolved-task rate 与 completed-only successful throughput。
+2,MEDIUM,冻结协议场景和算法基线未完全覆盖,"experiment_seeds.yaml:16-17,29-34; run_stage18_locked_test_campaign.py:27-35",尚不能支持混合连续负载、恢复能力或对多种学习基线的普遍性结论。,补 CROSS_HEAVY、MIXED_CONTINUOUS_RECOVERY 与 FLAT/FIXED_GAMMA/RTAW。
+2,MEDIUM,60 个跨负载结果未进入正式统计,locked jobs=180，但 statistics 仅含 36 个域内比较。,已有数据不能直接支撑 3×3 跨负载泛化结论。,增加 3×3 transfer/interactions 的 crossed bootstrap 与校正后检验。
+2,MEDIUM,实验 manifest 与结果内部阶段元数据已陈旧,"120/120 summary 标为 stage=14/schema=stage16；旧 manifest runs=30, missing_paths=0",当前文件不能作为投稿级、不可变的实验索引。,生成覆盖代码、环境、配置、权重和结果 SHA256 的只读最终 manifest。
+3,LOW,锁定结果没有记录权重哈希或源码提交,"run_stage18_locked_test_campaign.py:70-90,132-139",权重或代码变更后，缓存结果可能仍被误认为同一实验谱系。,缓存有效性校验加入 weight SHA256、config hash 和 commit/source snapshot。

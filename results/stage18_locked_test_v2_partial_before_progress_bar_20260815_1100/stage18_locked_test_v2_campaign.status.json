@@ -1,0 +1,901 @@
+{
+  "stage": 18,
+  "campaign": "CORRECTED_CONFIRMATORY_V2_AND_CROSS_LOAD",
+  "state": "RUNNING",
+  "updated_at_utc": "2026-08-15T03:00:44.584560+00:00",
+  "test_seed_start": 45000000,
+  "test_episode_count": 100,
+  "checkpoint_policy": "validation_selected_best_locked_before_test",
+  "handover_sampling": "TASK_KEYED_COMMON_RANDOM_NUMBERS",
+  "jobs": [
+    {
+      "training_profile": "MEDIUM",
+      "condition": "full_context_v2",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 1,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/full_context_v2/tested_medium/seed_01.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "full_context_v2",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 2,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/full_context_v2/tested_medium/seed_02.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "full_context_v2",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 3,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/full_context_v2/tested_medium/seed_03.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "full_context_v2",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 4,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/full_context_v2/tested_medium/seed_04.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "full_context_v2",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 5,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/full_context_v2/tested_medium/seed_05.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "full_context_v2",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 6,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/full_context_v2/tested_medium/seed_06.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "full_context_v2",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 7,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/full_context_v2/tested_medium/seed_07.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "full_context_v2",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 8,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/full_context_v2/tested_medium/seed_08.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "full_context_v2",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 9,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/full_context_v2/tested_medium/seed_09.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "full_context_v2",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 10,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/full_context_v2/tested_medium/seed_10.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 1,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_queue_resource/tested_medium/seed_01.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 2,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_queue_resource/tested_medium/seed_02.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 3,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_queue_resource/tested_medium/seed_03.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 4,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_queue_resource/tested_medium/seed_04.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 5,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_queue_resource/tested_medium/seed_05.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 6,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_queue_resource/tested_medium/seed_06.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 7,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_queue_resource/tested_medium/seed_07.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 8,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_queue_resource/tested_medium/seed_08.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 9,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_queue_resource/tested_medium/seed_09.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 10,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_queue_resource/tested_medium/seed_10.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 1,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_handover_cues/tested_medium/seed_01.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 2,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_handover_cues/tested_medium/seed_02.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 3,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_handover_cues/tested_medium/seed_03.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 4,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_handover_cues/tested_medium/seed_04.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 5,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_handover_cues/tested_medium/seed_05.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 6,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_handover_cues/tested_medium/seed_06.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 7,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_handover_cues/tested_medium/seed_07.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 8,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_handover_cues/tested_medium/seed_08.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 9,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_handover_cues/tested_medium/seed_09.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 10,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_handover_cues/tested_medium/seed_10.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 1,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_persistent_position/tested_medium/seed_01.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 2,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_persistent_position/tested_medium/seed_02.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 3,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_persistent_position/tested_medium/seed_03.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 4,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_persistent_position/tested_medium/seed_04.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 5,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_persistent_position/tested_medium/seed_05.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 6,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_persistent_position/tested_medium/seed_06.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 7,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_persistent_position/tested_medium/seed_07.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 8,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_persistent_position/tested_medium/seed_08.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 9,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_persistent_position/tested_medium/seed_09.json"
+    },
+    {
+      "training_profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "MEDIUM",
+      "training_seed_index": 10,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_medium/no_persistent_position/tested_medium/seed_10.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "full_context_v2",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 1,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/full_context_v2/tested_dense/seed_01.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "full_context_v2",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 2,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/full_context_v2/tested_dense/seed_02.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "full_context_v2",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 3,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/full_context_v2/tested_dense/seed_03.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "full_context_v2",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 4,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/full_context_v2/tested_dense/seed_04.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "full_context_v2",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 5,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/full_context_v2/tested_dense/seed_05.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "full_context_v2",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 6,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/full_context_v2/tested_dense/seed_06.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "full_context_v2",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 7,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/full_context_v2/tested_dense/seed_07.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "full_context_v2",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 8,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/full_context_v2/tested_dense/seed_08.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "full_context_v2",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 9,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/full_context_v2/tested_dense/seed_09.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "full_context_v2",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 10,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/full_context_v2/tested_dense/seed_10.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 1,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_queue_resource/tested_dense/seed_01.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 2,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_queue_resource/tested_dense/seed_02.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 3,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_queue_resource/tested_dense/seed_03.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 4,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_queue_resource/tested_dense/seed_04.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 5,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_queue_resource/tested_dense/seed_05.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 6,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_queue_resource/tested_dense/seed_06.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 7,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_queue_resource/tested_dense/seed_07.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 8,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_queue_resource/tested_dense/seed_08.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 9,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_queue_resource/tested_dense/seed_09.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 10,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_queue_resource/tested_dense/seed_10.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 1,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_handover_cues/tested_dense/seed_01.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 2,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_handover_cues/tested_dense/seed_02.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 3,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_handover_cues/tested_dense/seed_03.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 4,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_handover_cues/tested_dense/seed_04.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 5,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_handover_cues/tested_dense/seed_05.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 6,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_handover_cues/tested_dense/seed_06.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 7,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_handover_cues/tested_dense/seed_07.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 8,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_handover_cues/tested_dense/seed_08.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 9,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_handover_cues/tested_dense/seed_09.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 10,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_handover_cues/tested_dense/seed_10.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 1,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_persistent_position/tested_dense/seed_01.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 2,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_persistent_position/tested_dense/seed_02.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 3,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_persistent_position/tested_dense/seed_03.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 4,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_persistent_position/tested_dense/seed_04.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 5,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_persistent_position/tested_dense/seed_05.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 6,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_persistent_position/tested_dense/seed_06.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 7,
+      "state": "SKIPPED_ALREADY_COMPLETE",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_persistent_position/tested_dense/seed_07.json"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 8,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_08/stage18_ppo.best.pt",
+      "weight_sha256": "678a428366a190f4ac45e2d8b4596e74f6f06d7969e8c949c0b0808c712f4ffd",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_persistent_position/tested_dense/seed_08.json",
+      "finished_at_utc": "2026-08-15T02:55:34.755699+00:00"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 9,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_09/stage18_ppo.best.pt",
+      "weight_sha256": "b1a8300416f931adf209af7e8f2a709e65094bb5aad2c9759b9a07f80952aec1",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_persistent_position/tested_dense/seed_09.json",
+      "finished_at_utc": "2026-08-15T02:55:46.250066+00:00"
+    },
+    {
+      "training_profile": "DENSE",
+      "condition": "no_persistent_position",
+      "evaluation_profile": "DENSE",
+      "training_seed_index": 10,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_persistent_position/seed_10/stage18_ppo.best.pt",
+      "weight_sha256": "559ef27a379c51c5addf44cb9c8554d4b51e1d0c58cbabc9f4939b04d3cfd961",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_dense/no_persistent_position/tested_dense/seed_10.json",
+      "finished_at_utc": "2026-08-15T02:55:57.240181+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "full_context_v2",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 1,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/full_context_v2/seed_01/stage18_ppo.best.pt",
+      "weight_sha256": "8665be041d89f52cbfb8f78ba623dec4d26cdc0ffb13775c253b69a2f35102a2",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/full_context_v2/tested_burst/seed_01.json",
+      "finished_at_utc": "2026-08-15T02:56:10.869194+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "full_context_v2",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 2,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/full_context_v2/seed_02/stage18_ppo.best.pt",
+      "weight_sha256": "52437a42472a557efc06cd1a5c9a4e32676ed848fea370e50c68eb70717df1df",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/full_context_v2/tested_burst/seed_02.json",
+      "finished_at_utc": "2026-08-15T02:56:24.394044+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "full_context_v2",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 3,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/full_context_v2/seed_03/stage18_ppo.best.pt",
+      "weight_sha256": "4eed01118c110b84521adeb932778611aaeee036f467192a32728bc70b943c8a",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/full_context_v2/tested_burst/seed_03.json",
+      "finished_at_utc": "2026-08-15T02:56:38.433189+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "full_context_v2",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 4,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/full_context_v2/seed_04/stage18_ppo.best.pt",
+      "weight_sha256": "241437784668422bd1aa40a2a9c0abba61f3aa059229f5b118a6c5f072ff2cf5",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/full_context_v2/tested_burst/seed_04.json",
+      "finished_at_utc": "2026-08-15T02:56:52.203428+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "full_context_v2",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 5,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/full_context_v2/seed_05/stage18_ppo.best.pt",
+      "weight_sha256": "ac51c40da9b1b055da535147ad86a17d696fd55608057115d4940dcaf86a17d0",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/full_context_v2/tested_burst/seed_05.json",
+      "finished_at_utc": "2026-08-15T02:57:05.773672+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "full_context_v2",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 6,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/full_context_v2/seed_06/stage18_ppo.best.pt",
+      "weight_sha256": "0a9ef221c0e8985cda502eb6795e59c22d5d2e91c8b6b915b4543d01d207215e",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/full_context_v2/tested_burst/seed_06.json",
+      "finished_at_utc": "2026-08-15T02:57:19.362665+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "full_context_v2",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 7,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/full_context_v2/seed_07/stage18_ppo.best.pt",
+      "weight_sha256": "51a01ec57ba058438609022a5da9aa75f61c36a487dee3b35bf3ee21fb16dd00",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/full_context_v2/tested_burst/seed_07.json",
+      "finished_at_utc": "2026-08-15T02:57:32.999326+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "full_context_v2",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 8,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/full_context_v2/seed_08/stage18_ppo.best.pt",
+      "weight_sha256": "a3324b2fe86ee556de178cd4827b6c6d73e0dfee827c770561eaa63b1fd36187",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/full_context_v2/tested_burst/seed_08.json",
+      "finished_at_utc": "2026-08-15T02:57:46.572033+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "full_context_v2",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 9,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/full_context_v2/seed_09/stage18_ppo.best.pt",
+      "weight_sha256": "129234f57e9a64f1f1deda78945a0d5548b8763d7c4886d8149b447c61192564",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/full_context_v2/tested_burst/seed_09.json",
+      "finished_at_utc": "2026-08-15T02:58:00.346694+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "full_context_v2",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 10,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/full_context_v2/seed_10/stage18_ppo.best.pt",
+      "weight_sha256": "4395479e210235524c70e72785b9e3131b0f79e4ae8e1e96f6801dfc6fc167e4",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/full_context_v2/tested_burst/seed_10.json",
+      "finished_at_utc": "2026-08-15T02:58:13.772500+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 1,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_queue_resource/seed_01/stage18_ppo.best.pt",
+      "weight_sha256": "93577227d90f316983fb42837c537452fbf097c5da5e358baa574e86f8a4447d",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/no_queue_resource/tested_burst/seed_01.json",
+      "finished_at_utc": "2026-08-15T02:58:27.730018+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 2,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_queue_resource/seed_02/stage18_ppo.best.pt",
+      "weight_sha256": "1d6d48f6e126b54609844d2f1f080ea62693a59364a82b67f4c943e489f17181",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/no_queue_resource/tested_burst/seed_02.json",
+      "finished_at_utc": "2026-08-15T02:58:41.321839+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 3,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_queue_resource/seed_03/stage18_ppo.best.pt",
+      "weight_sha256": "d8dfac1a84aeb116d4a4858945f956cdd92e81d759f789430de6715663bd9c43",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/no_queue_resource/tested_burst/seed_03.json",
+      "finished_at_utc": "2026-08-15T02:58:55.285795+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 4,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_queue_resource/seed_04/stage18_ppo.best.pt",
+      "weight_sha256": "a68ac041b8f9cfcace3649bba0a43f260cd2e1b27a905e11d4824034d21997fc",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/no_queue_resource/tested_burst/seed_04.json",
+      "finished_at_utc": "2026-08-15T02:59:08.653706+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 5,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_queue_resource/seed_05/stage18_ppo.best.pt",
+      "weight_sha256": "24ff35a783acb0fef91e01e7daebe5edb8ba10c35cd6ef1f8df0d5bb07d30a47",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/no_queue_resource/tested_burst/seed_05.json",
+      "finished_at_utc": "2026-08-15T02:59:22.389627+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 6,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_queue_resource/seed_06/stage18_ppo.best.pt",
+      "weight_sha256": "bc99acaebdd8622752cff9661e38f526d4f78bf93aff2f55ac492ae0f8d07211",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/no_queue_resource/tested_burst/seed_06.json",
+      "finished_at_utc": "2026-08-15T02:59:35.826280+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 7,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_queue_resource/seed_07/stage18_ppo.best.pt",
+      "weight_sha256": "394f7eada878f19a6ac33e5d3adb666dd937a46d5a34a4103e4d50f176328c4f",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/no_queue_resource/tested_burst/seed_07.json",
+      "finished_at_utc": "2026-08-15T02:59:49.513437+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 8,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_queue_resource/seed_08/stage18_ppo.best.pt",
+      "weight_sha256": "22f22a5cbc2e9dbdb08da79873eeec4b82c436088fe22b8cf07ab8147a39bfd6",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/no_queue_resource/tested_burst/seed_08.json",
+      "finished_at_utc": "2026-08-15T03:00:03.214086+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 9,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_queue_resource/seed_09/stage18_ppo.best.pt",
+      "weight_sha256": "2a7d9a3b5f21483381d0ea36dcc0ef16c79144719d86e8a196ea39ed1c2572e9",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/no_queue_resource/tested_burst/seed_09.json",
+      "finished_at_utc": "2026-08-15T03:00:16.878568+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_queue_resource",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 10,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_queue_resource/seed_10/stage18_ppo.best.pt",
+      "weight_sha256": "d7c8b12670531a88cf4a0606c147bc11a1a982a5fef8216e2c0a2ce144896dca",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/no_queue_resource/tested_burst/seed_10.json",
+      "finished_at_utc": "2026-08-15T03:00:30.622546+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 1,
+      "state": "COMPLETED",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_handover_cues/seed_01/stage18_ppo.best.pt",
+      "weight_sha256": "3dbae2e8d468481202a091b4faa49e3360c4784bea8b176205fd683f438ea446",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_locked_test_v2/trained_burst/no_handover_cues/tested_burst/seed_01.json",
+      "finished_at_utc": "2026-08-15T03:00:44.580706+00:00"
+    },
+    {
+      "training_profile": "BURST",
+      "condition": "no_handover_cues",
+      "evaluation_profile": "BURST",
+      "training_seed_index": 2,
+      "state": "RUNNING",
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_handover_cues/seed_02/stage18_ppo.best.pt",
+      "weight_sha256": "bd3c38e148bbd371ae14b90bf2ad8d97fd1d4214202705b68485d6acf0ec71f3"
+    }
+  ]
+}

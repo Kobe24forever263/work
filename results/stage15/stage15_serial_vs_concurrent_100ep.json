@@ -1,0 +1,684 @@
+{
+  "stage": 15,
+  "gate": "PAIRED_SERIAL_VS_CONCURRENT_PPO_ABLATION",
+  "claim_boundary": "Both policies use independently trained weights and identical task streams/common random numbers. Differences quantify the complete execution-mode systems, not only a scheduler flag.",
+  "serial_weights": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/long/realistic_serial_medium_reward_v2_context_v2/stage14_realistic_serial_medium_reward_v2_context_v2.best.pt",
+  "serial_checkpoint_update": 940,
+  "concurrent_weights": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/long/realistic_concurrent_medium_reward_v2_context_v2/stage14_realistic_concurrent_medium_reward_v2_context_v2.best.pt",
+  "concurrent_checkpoint_update": 160,
+  "episode_count_per_scenario": 100,
+  "seed_start": 20266501,
+  "seed_end": 20266600,
+  "handover_sampling": "TASK_KEYED_COMMON_RANDOM_NUMBERS",
+  "difference_direction": "CONCURRENT_MINUS_SERIAL",
+  "results": {
+    "MEDIUM": {
+      "description": "Stage 14 in-distribution anchor",
+      "task_count_per_policy": 2000,
+      "serial": {
+        "policy_kind": "PPO",
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed": 1944,
+        "failed": 56,
+        "success_rate": 0.972,
+        "mean_episode_reward": 16.214975773773215,
+        "throughput_tasks_per_hour": 55.65039785796822,
+        "successful_throughput_tasks_per_hour": 54.09218671794511,
+        "mean_waiting_time": 6.03232374687795,
+        "p95_waiting_time": 28.7716443139814,
+        "mean_flow_time": 45.60257420715864,
+        "p95_flow_time": 89.8167552880946,
+        "distance_per_task": 60.235872672240355,
+        "maximum_active_tasks": 1,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "CAR_DOG_CAR": 563,
+          "SINGLE_DOG": 437,
+          "SINGLE_CAR": 1000
+        },
+        "phase_results": {
+          "MEDIUM": {
+            "task_count": 2000,
+            "completed": 1944,
+            "failed": 56,
+            "success_rate": 0.972,
+            "mean_waiting_time": 6.03232374687795,
+            "p95_waiting_time": 28.7716443139814,
+            "mean_flow_time": 45.60257420715864,
+            "p95_flow_time": 89.8167552880946,
+            "transport_modes": {
+              "CAR_DOG_CAR": 563,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 437
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 56
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 563,
+            "SINGLE_DOG": 137
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 1000
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 300
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 563,
+            "SINGLE_DOG": 437
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 1000
+          }
+        },
+        "task_fingerprint": "be049a58405b9f8d631dbb6db190b723c15e734bf49ef24f8a5661b221a8f814"
+      },
+      "concurrent": {
+        "policy_kind": "PPO",
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed": 1953,
+        "failed": 47,
+        "success_rate": 0.9765,
+        "mean_episode_reward": 18.74146625734622,
+        "throughput_tasks_per_hour": 55.99292327348739,
+        "successful_throughput_tasks_per_hour": 54.677089576560434,
+        "mean_waiting_time": 2.549884435036099,
+        "p95_waiting_time": 18.75703961876412,
+        "mean_flow_time": 42.578101822055295,
+        "p95_flow_time": 86.88767383491522,
+        "distance_per_task": 57.538437132063784,
+        "maximum_active_tasks": 2,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "CAR_DOG_CAR": 479,
+          "SINGLE_DOG": 521,
+          "SINGLE_CAR": 1000
+        },
+        "phase_results": {
+          "MEDIUM": {
+            "task_count": 2000,
+            "completed": 1953,
+            "failed": 47,
+            "success_rate": 0.9765,
+            "mean_waiting_time": 2.549884435036099,
+            "p95_waiting_time": 18.75703961876412,
+            "mean_flow_time": 42.578101822055295,
+            "p95_flow_time": 86.88767383491522,
+            "transport_modes": {
+              "CAR_DOG_CAR": 479,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 521
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 47
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 479,
+            "SINGLE_DOG": 221
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 1000
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 300
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 479,
+            "SINGLE_DOG": 521
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 1000
+          }
+        },
+        "task_fingerprint": "be049a58405b9f8d631dbb6db190b723c15e734bf49ef24f8a5661b221a8f814"
+      },
+      "paired_comparison": {
+        "success_rate": {
+          "concurrent_minus_serial": 0.004500000000000001,
+          "paired_bootstrap_95ci": [
+            0.0019999999999999996,
+            0.007500000000000004
+          ]
+        },
+        "reward": {
+          "concurrent_minus_serial": 2.526490483573009,
+          "paired_bootstrap_95ci": [
+            2.169814077124398,
+            2.9310991425281023
+          ]
+        },
+        "throughput_tasks_per_hour": {
+          "concurrent_minus_serial": 0.34675094787740773,
+          "paired_bootstrap_95ci": [
+            0.2587413097849604,
+            0.44304237930560386
+          ]
+        },
+        "successful_throughput_tasks_per_hour": {
+          "concurrent_minus_serial": 0.5886652014280636,
+          "paired_bootstrap_95ci": [
+            0.41840038023743553,
+            0.7765084722595426
+          ]
+        },
+        "mean_waiting_time": {
+          "concurrent_minus_serial": -3.482439311841851,
+          "paired_bootstrap_95ci": [
+            -3.9427765045672114,
+            -3.0627750560702363
+          ]
+        },
+        "p95_waiting_time": {
+          "concurrent_minus_serial": -12.034451935204038,
+          "paired_bootstrap_95ci": [
+            -13.882308999354525,
+            -10.30078579590358
+          ]
+        },
+        "mean_flow_time": {
+          "concurrent_minus_serial": -3.0244723851033437,
+          "paired_bootstrap_95ci": [
+            -3.4824403603124354,
+            -2.5850165011997004
+          ]
+        },
+        "p95_flow_time": {
+          "concurrent_minus_serial": -2.1586852551672076,
+          "paired_bootstrap_95ci": [
+            -3.479544259066233,
+            -0.9343797246127199
+          ]
+        },
+        "distance_per_task": {
+          "concurrent_minus_serial": -2.697435540176565,
+          "paired_bootstrap_95ci": [
+            -3.407515405763642,
+            -2.0045718006944475
+          ]
+        }
+      },
+      "assertions": {
+        "task_streams_identical": true,
+        "serial_resolved_all_tasks": true,
+        "concurrent_resolved_all_tasks": true,
+        "serial_actions_all_legal": true,
+        "concurrent_actions_all_legal": true,
+        "serial_has_no_resource_leak": true,
+        "concurrent_has_no_resource_leak": true,
+        "serial_maximum_active_tasks_is_one": true,
+        "both_policies_expose_all_transport_modes": true
+      }
+    },
+    "DENSE": {
+      "description": "15-25 s arrivals with the original 50/50 task mix",
+      "task_count_per_policy": 2000,
+      "serial": {
+        "policy_kind": "PPO",
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed": 1949,
+        "failed": 51,
+        "success_rate": 0.9745,
+        "mean_episode_reward": -83.46218316789555,
+        "throughput_tasks_per_hour": 84.19954069191743,
+        "successful_throughput_tasks_per_hour": 82.05245240427354,
+        "mean_waiting_time": 134.02979813361964,
+        "p95_waiting_time": 437.38170271803654,
+        "mean_flow_time": 173.5706735626096,
+        "p95_flow_time": 514.9878282100677,
+        "distance_per_task": 60.95933652833714,
+        "maximum_active_tasks": 1,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "CAR_DOG_CAR": 573,
+          "SINGLE_DOG": 427,
+          "SINGLE_CAR": 1000
+        },
+        "phase_results": {
+          "DENSE": {
+            "task_count": 2000,
+            "completed": 1949,
+            "failed": 51,
+            "success_rate": 0.9745,
+            "mean_waiting_time": 134.02979813361964,
+            "p95_waiting_time": 437.38170271803654,
+            "mean_flow_time": 173.5706735626096,
+            "p95_flow_time": 514.9878282100677,
+            "transport_modes": {
+              "CAR_DOG_CAR": 573,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 427
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 51
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 573,
+            "SINGLE_DOG": 133
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 1000
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 294
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 573,
+            "SINGLE_DOG": 427
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 1000
+          }
+        },
+        "task_fingerprint": "7d60c21d99918aaea7e7cc45a5bbd8ca816a7c9ae673ccb570353a8047e61a90"
+      },
+      "concurrent": {
+        "policy_kind": "PPO",
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed": 1957,
+        "failed": 43,
+        "success_rate": 0.9785,
+        "mean_episode_reward": -17.829925842193404,
+        "throughput_tasks_per_hour": 121.9370580283546,
+        "successful_throughput_tasks_per_hour": 119.31541128074497,
+        "mean_waiting_time": 49.91574942494291,
+        "p95_waiting_time": 206.99542267970335,
+        "mean_flow_time": 90.17795465192941,
+        "p95_flow_time": 269.23013687966403,
+        "distance_per_task": 56.83589166667107,
+        "maximum_active_tasks": 3,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "CAR_DOG_CAR": 453,
+          "SINGLE_DOG": 547,
+          "SINGLE_CAR": 1000
+        },
+        "phase_results": {
+          "DENSE": {
+            "task_count": 2000,
+            "completed": 1957,
+            "failed": 43,
+            "success_rate": 0.9785,
+            "mean_waiting_time": 49.91574942494291,
+            "p95_waiting_time": 206.99542267970335,
+            "mean_flow_time": 90.17795465192941,
+            "p95_flow_time": 269.23013687966403,
+            "transport_modes": {
+              "CAR_DOG_CAR": 453,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 547
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 43
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 453,
+            "SINGLE_DOG": 252
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 1000
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 295
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 453,
+            "SINGLE_DOG": 547
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 1000
+          }
+        },
+        "task_fingerprint": "7d60c21d99918aaea7e7cc45a5bbd8ca816a7c9ae673ccb570353a8047e61a90"
+      },
+      "paired_comparison": {
+        "success_rate": {
+          "concurrent_minus_serial": 0.004000000000000003,
+          "paired_bootstrap_95ci": [
+            0.0005000000000000004,
+            0.007500000000000007
+          ]
+        },
+        "reward": {
+          "concurrent_minus_serial": 65.63225732570214,
+          "paired_bootstrap_95ci": [
+            63.307938876977275,
+            67.96062150037288
+          ]
+        },
+        "throughput_tasks_per_hour": {
+          "concurrent_minus_serial": 38.595668677217446,
+          "paired_bootstrap_95ci": [
+            36.58129019969162,
+            40.64131120177033
+          ]
+        },
+        "successful_throughput_tasks_per_hour": {
+          "concurrent_minus_serial": 38.135459199426485,
+          "paired_bootstrap_95ci": [
+            36.12939114575512,
+            40.15197908658352
+          ]
+        },
+        "mean_waiting_time": {
+          "concurrent_minus_serial": -84.1140487086767,
+          "paired_bootstrap_95ci": [
+            -86.95356034187469,
+            -81.33640726703321
+          ]
+        },
+        "p95_waiting_time": {
+          "concurrent_minus_serial": -241.70084482600592,
+          "paired_bootstrap_95ci": [
+            -253.40855593042986,
+            -229.9234783415501
+          ]
+        },
+        "mean_flow_time": {
+          "concurrent_minus_serial": -83.3927189106802,
+          "paired_bootstrap_95ci": [
+            -86.29023778396375,
+            -80.56977433503485
+          ]
+        },
+        "p95_flow_time": {
+          "concurrent_minus_serial": -253.42306102237143,
+          "paired_bootstrap_95ci": [
+            -265.83930569303936,
+            -241.1879016186354
+          ]
+        },
+        "distance_per_task": {
+          "concurrent_minus_serial": -4.123444861666075,
+          "paired_bootstrap_95ci": [
+            -5.008307332371396,
+            -3.2277388638315583
+          ]
+        }
+      },
+      "assertions": {
+        "task_streams_identical": true,
+        "serial_resolved_all_tasks": true,
+        "concurrent_resolved_all_tasks": true,
+        "serial_actions_all_legal": true,
+        "concurrent_actions_all_legal": true,
+        "serial_has_no_resource_leak": true,
+        "concurrent_has_no_resource_leak": true,
+        "serial_maximum_active_tasks_is_one": true,
+        "both_policies_expose_all_transport_modes": true
+      }
+    },
+    "BURST": {
+      "description": "1-3 s burst arrivals with the original 50/50 task mix",
+      "task_count_per_policy": 2000,
+      "serial": {
+        "policy_kind": "PPO",
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed": 1948,
+        "failed": 52,
+        "success_rate": 0.974,
+        "mean_episode_reward": -218.93533756768548,
+        "throughput_tasks_per_hour": 84.67406349146484,
+        "successful_throughput_tasks_per_hour": 82.47253784068675,
+        "mean_waiting_time": 306.7611421125491,
+        "p95_waiting_time": 699.7879626507091,
+        "mean_flow_time": 346.2771127835785,
+        "p95_flow_time": 778.2834997669038,
+        "distance_per_task": 60.85971534854898,
+        "maximum_active_tasks": 1,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "CAR_DOG_CAR": 564,
+          "SINGLE_DOG": 436,
+          "SINGLE_CAR": 1000
+        },
+        "phase_results": {
+          "BURST": {
+            "task_count": 2000,
+            "completed": 1948,
+            "failed": 52,
+            "success_rate": 0.974,
+            "mean_waiting_time": 306.7611421125491,
+            "p95_waiting_time": 699.7879626507091,
+            "mean_flow_time": 346.2771127835785,
+            "p95_flow_time": 778.2834997669038,
+            "transport_modes": {
+              "CAR_DOG_CAR": 564,
+              "SINGLE_CAR": 1000,
+              "SINGLE_DOG": 436
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 52
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 564,
+            "SINGLE_DOG": 143
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 1000
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 293
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 564,
+            "SINGLE_DOG": 436
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 1000
+          }
+        },
+        "task_fingerprint": "95e1905d7bbd4163447e840a95ab32563b503aa00e66a82f3ec2d33b8c3e8932"
+      },
+      "concurrent": {
+        "policy_kind": "PPO",
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed": 1956,
+        "failed": 44,
+        "success_rate": 0.978,
+        "mean_episode_reward": -86.6676217865002,
+        "throughput_tasks_per_hour": 145.5305728141865,
+        "successful_throughput_tasks_per_hour": 142.32890021227442,
+        "mean_waiting_time": 135.72689951820865,
+        "p95_waiting_time": 363.5367966297812,
+        "mean_flow_time": 176.2692013991822,
+        "p95_flow_time": 430.5733836028724,
+        "distance_per_task": 56.56878160878678,
+        "maximum_active_tasks": 4,
+        "illegal_action_count": 0,
+        "resource_leak_count": 0,
+        "transport_modes": {
+          "CAR_DOG_CAR": 431,
+          "SINGLE_DOG": 570,
+          "SINGLE_CAR": 999
+        },
+        "phase_results": {
+          "BURST": {
+            "task_count": 2000,
+            "completed": 1956,
+            "failed": 44,
+            "success_rate": 0.978,
+            "mean_waiting_time": 135.72689951820865,
+            "p95_waiting_time": 363.5367966297812,
+            "mean_flow_time": 176.2692013991822,
+            "p95_flow_time": 430.5733836028724,
+            "transport_modes": {
+              "CAR_DOG_CAR": 431,
+              "SINGLE_CAR": 999,
+              "SINGLE_DOG": 570
+            }
+          }
+        },
+        "failure_reasons": {
+          "HANDOVER_TIMEOUT": 44
+        },
+        "selected_mode_by_cost_reference": {
+          "CAR_DOG_CAR": {
+            "CAR_DOG_CAR": 431,
+            "SINGLE_DOG": 292
+          },
+          "SINGLE_CAR": {
+            "SINGLE_CAR": 999,
+            "SINGLE_DOG": 1
+          },
+          "SINGLE_DOG": {
+            "SINGLE_DOG": 277
+          }
+        },
+        "selected_mode_by_floor_relation": {
+          "CROSS_FLOOR": {
+            "CAR_DOG_CAR": 431,
+            "SINGLE_DOG": 569
+          },
+          "SAME_FLOOR": {
+            "SINGLE_CAR": 999,
+            "SINGLE_DOG": 1
+          }
+        },
+        "task_fingerprint": "95e1905d7bbd4163447e840a95ab32563b503aa00e66a82f3ec2d33b8c3e8932"
+      },
+      "paired_comparison": {
+        "success_rate": {
+          "concurrent_minus_serial": 0.004,
+          "paired_bootstrap_95ci": [
+            -1.1102230246251566e-18,
+            0.008000000000000002
+          ]
+        },
+        "reward": {
+          "concurrent_minus_serial": 132.26771578118533,
+          "paired_bootstrap_95ci": [
+            126.75030530388366,
+            137.4980796605618
+          ]
+        },
+        "throughput_tasks_per_hour": {
+          "concurrent_minus_serial": 62.92516539735385,
+          "paired_bootstrap_95ci": [
+            59.526176823465086,
+            66.2351559855671
+          ]
+        },
+        "successful_throughput_tasks_per_hour": {
+          "concurrent_minus_serial": 61.858825755461666,
+          "paired_bootstrap_95ci": [
+            58.49687900050887,
+            65.13283587953407
+          ]
+        },
+        "mean_waiting_time": {
+          "concurrent_minus_serial": -171.03424259434047,
+          "paired_bootstrap_95ci": [
+            -177.13274136818671,
+            -164.57344405200632
+          ]
+        },
+        "p95_waiting_time": {
+          "concurrent_minus_serial": -332.5106445957977,
+          "paired_bootstrap_95ci": [
+            -342.1158860929975,
+            -323.0118838841493
+          ]
+        },
+        "mean_flow_time": {
+          "concurrent_minus_serial": -170.00791138439624,
+          "paired_bootstrap_95ci": [
+            -176.2435110526647,
+            -163.50099723044264
+          ]
+        },
+        "p95_flow_time": {
+          "concurrent_minus_serial": -340.2270088107845,
+          "paired_bootstrap_95ci": [
+            -350.09943555619543,
+            -329.90605249374386
+          ]
+        },
+        "distance_per_task": {
+          "concurrent_minus_serial": -4.290933739762205,
+          "paired_bootstrap_95ci": [
+            -5.199923838298318,
+            -3.4310297245785075
+          ]
+        }
+      },
+      "assertions": {
+        "task_streams_identical": true,
+        "serial_resolved_all_tasks": true,
+        "concurrent_resolved_all_tasks": true,
+        "serial_actions_all_legal": true,
+        "concurrent_actions_all_legal": true,
+        "serial_has_no_resource_leak": true,
+        "concurrent_has_no_resource_leak": true,
+        "serial_maximum_active_tasks_is_one": true,
+        "both_policies_expose_all_transport_modes": true
+      }
+    }
+  },
+  "assertions": {
+    "medium_task_streams_identical": true,
+    "medium_serial_resolved_all_tasks": true,
+    "medium_concurrent_resolved_all_tasks": true,
+    "medium_serial_actions_all_legal": true,
+    "medium_concurrent_actions_all_legal": true,
+    "medium_serial_has_no_resource_leak": true,
+    "medium_concurrent_has_no_resource_leak": true,
+    "medium_serial_maximum_active_tasks_is_one": true,
+    "medium_both_policies_expose_all_transport_modes": true,
+    "dense_task_streams_identical": true,
+    "dense_serial_resolved_all_tasks": true,
+    "dense_concurrent_resolved_all_tasks": true,
+    "dense_serial_actions_all_legal": true,
+    "dense_concurrent_actions_all_legal": true,
+    "dense_serial_has_no_resource_leak": true,
+    "dense_concurrent_has_no_resource_leak": true,
+    "dense_serial_maximum_active_tasks_is_one": true,
+    "dense_both_policies_expose_all_transport_modes": true,
+    "burst_task_streams_identical": true,
+    "burst_serial_resolved_all_tasks": true,
+    "burst_concurrent_resolved_all_tasks": true,
+    "burst_serial_actions_all_legal": true,
+    "burst_concurrent_actions_all_legal": true,
+    "burst_serial_has_no_resource_leak": true,
+    "burst_concurrent_has_no_resource_leak": true,
+    "burst_serial_maximum_active_tasks_is_one": true,
+    "burst_both_policies_expose_all_transport_modes": true
+  },
+  "passed": true
+}

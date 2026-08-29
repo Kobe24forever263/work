@@ -1,0 +1,154 @@
+{
+  "schema_version": "warehouse_stage18_warm_start_v1",
+  "stage": 14,
+  "gate": "CONTEXT_CONDITIONED_POLICY_WARM_START",
+  "training_type": "contextual_rule_actor_distillation_warm_start",
+  "execution_mode": "CONCURRENT",
+  "arrival_profile": "MEDIUM",
+  "run_seed": 31030000,
+  "observation_variant": "NO_PERSISTENT_POSITION",
+  "policy_variant": "CONTEXT_INTERACTION",
+  "training_seed_start": 31030000,
+  "training_seed_end": 31030019,
+  "evaluation_seeds": [
+    42000000,
+    42000001,
+    42000002,
+    42000003,
+    42000004
+  ],
+  "training_task_count": 400,
+  "maximum_candidates_in_training": 144,
+  "training_label_modes": {
+    "SINGLE_CAR": 200,
+    "SINGLE_DOG": 60,
+    "CAR_DOG_CAR": 140
+  },
+  "model": {
+    "architecture": "contextual_masked_candidate_actor_critic_v2",
+    "policy_variant": "CONTEXT_INTERACTION",
+    "state_width": 284,
+    "action_width": 30,
+    "hidden_width": 96,
+    "index_specific_parameters": false
+  },
+  "hyperparameters": {
+    "epochs": 30,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "optimizer": "Adam",
+    "gradient_clip": 1.0,
+    "value_loss_weight": 0.0,
+    "critic_note": "Critic intentionally left for normalized SMDP-PPO."
+  },
+  "training_initial": {
+    "loss": 2.78640323638916,
+    "actor_loss": 2.78640323638916,
+    "value_loss": 0.06286558175459504,
+    "entropy": 2.7857186126708986,
+    "accuracy": 0.125
+  },
+  "training_final": {
+    "loss": 2.30653244972229,
+    "actor_loss": 2.30653244972229,
+    "value_loss": 0.08717687457799911,
+    "entropy": 2.3183194065093993,
+    "accuracy": 0.3775,
+    "epoch": 30
+  },
+  "evaluation_before": {
+    "episode_count": 5,
+    "task_count": 100,
+    "completed_task_count": 100,
+    "failure_count": 0,
+    "non_handover_failure_count": 0,
+    "illegal_action_count": 0,
+    "exact_action_agreement": 0.03,
+    "mode_agreement": 0.24,
+    "mean_episode_reward": -29.133342876733803,
+    "mean_simulated_time": 1411.8612392763591,
+    "transport_modes": {
+      "SINGLE_DOG": 90,
+      "SINGLE_CAR": 10
+    }
+  },
+  "evaluation_after": {
+    "episode_count": 5,
+    "task_count": 100,
+    "completed_task_count": 99,
+    "failure_count": 1,
+    "non_handover_failure_count": 0,
+    "illegal_action_count": 0,
+    "exact_action_agreement": 0.34,
+    "mode_agreement": 0.7,
+    "mean_episode_reward": 0.4657688541610662,
+    "mean_simulated_time": 1332.5212762049784,
+    "transport_modes": {
+      "SINGLE_DOG": 40,
+      "SINGLE_CAR": 50,
+      "CAR_DOG_CAR": 10
+    }
+  },
+  "rule_baseline": {
+    "episode_count": 5,
+    "task_count": 100,
+    "completed_task_count": 98,
+    "failure_count": 2,
+    "non_handover_failure_count": 0,
+    "illegal_action_count": 0,
+    "exact_action_agreement": 1.0,
+    "mode_agreement": 1.0,
+    "mean_episode_reward": 19.938649794704453,
+    "mean_simulated_time": 1303.659053063353,
+    "transport_modes": {
+      "CAR_DOG_CAR": 35,
+      "SINGLE_DOG": 15,
+      "SINGLE_CAR": 50
+    }
+  },
+  "assertions": {
+    "training_dataset_has_expected_task_count": true,
+    "training_labels_cover_three_modes": true,
+    "loss_decreased": true,
+    "classification_accuracy_improved": true,
+    "heldout_policy_resolved_one_hundred_tasks": true,
+    "heldout_failures_only_come_from_p95_handover_timeout": true,
+    "heldout_actions_all_legal": true,
+    "heldout_uses_all_three_modes": true,
+    "heldout_mode_agreement_at_least_90_percent": false,
+    "heldout_exact_action_agreement_at_least_70_percent": false,
+    "heldout_reward_improved_from_initial": true,
+    "heldout_reward_within_two_percent_of_rule": false
+  },
+  "gate_assertions": {
+    "training_dataset_has_expected_task_count": true,
+    "training_labels_cover_three_modes": true,
+    "loss_decreased": true,
+    "classification_accuracy_improved": true,
+    "heldout_policy_resolved_one_hundred_tasks": true,
+    "heldout_failures_only_come_from_p95_handover_timeout": true,
+    "heldout_actions_all_legal": true,
+    "heldout_uses_all_three_modes": true,
+    "heldout_mode_agreement_at_least_90_percent": false,
+    "heldout_exact_action_agreement_at_least_70_percent": false,
+    "heldout_reward_within_two_percent_of_rule": false
+  },
+  "diagnostics": {
+    "heldout_reward_improved_from_initial": true,
+    "note": "Random-initial return is diagnostic only; formal warm-start acceptance uses teacher imitation, safety, and proximity to the rule baseline."
+  },
+  "passed": false,
+  "continuation_policy": "INTERFACE_ONLY_FOR_INFORMATION_REMOVAL_ABLATION",
+  "continuation_assertions": {
+    "training_dataset_has_expected_task_count": true,
+    "training_labels_cover_three_modes": true,
+    "loss_decreased": true,
+    "heldout_policy_resolved_one_hundred_tasks": true,
+    "heldout_failures_only_come_from_p95_handover_timeout": true,
+    "heldout_actions_all_legal": true
+  },
+  "ppo_continuation_allowed": true,
+  "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_04/warm_start.pt",
+  "history": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_04/warm_start.history.json",
+  "evaluation_rows": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_04/warm_start.eval.jsonl"
+}

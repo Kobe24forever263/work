@@ -1,0 +1,531 @@
+{
+  "verdict": "CONDITIONAL_PASS",
+  "publication_readiness": {
+    "primary_full_vs_rule": "PASS_WITH_SCOPE",
+    "multiagent_vs_single_dog": "PASS_WITH_BASELINE_LIMITATION",
+    "context_ablations": "EXPLORATORY_ONLY",
+    "online_adaptation": "NOT_ESTABLISHED"
+  },
+  "integrity": {
+    "raw_jobs": 180,
+    "policy_episodes": 18000,
+    "unique_test_seeds": 100,
+    "test_seed_min": 45000000,
+    "test_seed_max": 45000099,
+    "task_keyed_jobs": 180,
+    "unique_weight_hashes": 120,
+    "illegal_actions": 0,
+    "resource_leaks": 0,
+    "finite_errors": []
+  },
+  "single_dog": {
+    "files": 3,
+    "episodes": 300,
+    "scheduled": 6000,
+    "completed": 5237,
+    "explicit_failed": 249,
+    "unresolved": 514
+  },
+  "primary": [
+    {
+      "profile": "MEDIUM",
+      "metric": "reward",
+      "left": 18.57180239928975,
+      "right": 17.622954195661173,
+      "delta": 0.9488482036285788,
+      "ci_low": 0.5084757728396989,
+      "ci_high": 1.4302854783736136,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "MEDIUM",
+      "metric": "success_rate",
+      "left": 0.9808,
+      "right": 0.964,
+      "delta": 0.016800000000000037,
+      "ci_low": 0.011599999999999944,
+      "ci_high": 0.022649999999999948,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "MEDIUM",
+      "metric": "successful_throughput_tasks_per_hour",
+      "left": 54.84652941518937,
+      "right": 54.061580318608094,
+      "delta": 0.7849490965812791,
+      "ci_low": 0.5019080817558315,
+      "ci_high": 1.107662995250682,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "DENSE",
+      "metric": "reward",
+      "left": -14.080768306960726,
+      "right": -34.3746316747513,
+      "delta": 20.29386336779057,
+      "ci_low": 17.39642754219432,
+      "ci_high": 23.2258291487975,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "DENSE",
+      "metric": "success_rate",
+      "left": 0.9691,
+      "right": 0.964,
+      "delta": 0.005099999999999993,
+      "ci_low": 0.0018500000000000183,
+      "ci_high": 0.009199999999999986,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "DENSE",
+      "metric": "successful_throughput_tasks_per_hour",
+      "left": 118.73118289276613,
+      "right": 117.07790983860853,
+      "delta": 1.6532730541575944,
+      "ci_low": 0.2321280222487193,
+      "ci_high": 3.1268126000402146,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "BURST",
+      "metric": "reward",
+      "left": -78.63417549279262,
+      "right": -119.80258522655899,
+      "delta": 41.16840973376637,
+      "ci_low": 37.25274490793508,
+      "ci_high": 45.334384220319556,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "BURST",
+      "metric": "success_rate",
+      "left": 0.9679,
+      "right": 0.9615,
+      "delta": 0.006399999999999961,
+      "ci_low": 0.0023499999999999632,
+      "ci_high": 0.011351250000000061,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "BURST",
+      "metric": "successful_throughput_tasks_per_hour",
+      "left": 138.9614786905186,
+      "right": 138.18847982326486,
+      "delta": 0.7729988672537331,
+      "ci_low": -0.8526391066689392,
+      "ci_high": 2.4680593270110003,
+      "family_holm_p": 0.03515625
+    }
+  ],
+  "single_dog_comparison": [
+    {
+      "profile": "MEDIUM",
+      "metric": "terminal_adjusted_reward",
+      "left": 18.57180239928975,
+      "right": -35.93823979196316,
+      "delta": 54.510042191252914,
+      "ci_low": 48.33768530678678,
+      "ci_high": 61.20326936567724,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "MEDIUM",
+      "metric": "success_rate",
+      "left": 0.9808,
+      "right": 0.951,
+      "delta": 0.02980000000000005,
+      "ci_low": 0.017299999999999982,
+      "ci_high": 0.04279999999999995,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "MEDIUM",
+      "metric": "successful_throughput_tasks_per_hour",
+      "left": 54.84652941518937,
+      "right": 52.66386894840287,
+      "delta": 2.1826604667865013,
+      "ci_low": 1.486998111535123,
+      "ci_high": 2.9144467655967263,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "DENSE",
+      "metric": "terminal_adjusted_reward",
+      "left": -14.080768306960726,
+      "right": -129.5919544529921,
+      "delta": 115.51118614603138,
+      "ci_low": 108.27715829080147,
+      "ci_high": 122.89827958285088,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "DENSE",
+      "metric": "success_rate",
+      "left": 0.9691,
+      "right": 0.8445,
+      "delta": 0.12459999999999993,
+      "ci_low": 0.10765000000000002,
+      "ci_high": 0.14185000000000003,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "DENSE",
+      "metric": "successful_throughput_tasks_per_hour",
+      "left": 118.73118289276613,
+      "right": 93.64891793124063,
+      "delta": 25.082264961525496,
+      "ci_low": 22.727971637493116,
+      "ci_high": 27.434086814070085,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "BURST",
+      "metric": "terminal_adjusted_reward",
+      "left": -78.63417549279262,
+      "right": -232.20524133211265,
+      "delta": 153.57106583932003,
+      "ci_low": 147.17097931610616,
+      "ci_high": 160.13325400119984,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "BURST",
+      "metric": "success_rate",
+      "left": 0.9679,
+      "right": 0.823,
+      "delta": 0.14490000000000003,
+      "ci_low": 0.12930000000000008,
+      "ci_high": 0.15980125000000003,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "BURST",
+      "metric": "successful_throughput_tasks_per_hour",
+      "left": 138.9614786905186,
+      "right": 103.10073544629148,
+      "delta": 35.86074324422711,
+      "ci_low": 32.93482419631642,
+      "ci_high": 38.90799124074077,
+      "family_holm_p": 0.017578125
+    }
+  ],
+  "ablations": [
+    {
+      "profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "metric": "reward",
+      "delta": 0.11595443732778321,
+      "ci_low": -0.07455602709647788,
+      "ci_high": 0.3348721442883206,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "metric": "success_rate",
+      "delta": 0.0026000000000000467,
+      "ci_low": -4.999999999999449e-05,
+      "ci_high": 0.005700000000000038,
+      "family_holm_p": 0.59765625
+    },
+    {
+      "profile": "MEDIUM",
+      "condition": "no_queue_resource",
+      "metric": "successful_throughput_tasks_per_hour",
+      "delta": 0.11230450019265703,
+      "ci_low": -0.020880427785468923,
+      "ci_high": 0.27258670056647905,
+      "family_holm_p": 0.703125
+    },
+    {
+      "profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "metric": "reward",
+      "delta": 0.015372299948019474,
+      "ci_low": -0.1242204401226255,
+      "ci_high": 0.16901658056267954,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "metric": "success_rate",
+      "delta": 0.0007000000000000339,
+      "ci_low": -0.0013499999999999623,
+      "ci_high": 0.002850000000000019,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "MEDIUM",
+      "condition": "no_handover_cues",
+      "metric": "successful_throughput_tasks_per_hour",
+      "delta": 0.029319968485005177,
+      "ci_low": -0.07531146077139521,
+      "ci_high": 0.1436747333752674,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "metric": "reward",
+      "delta": 10.144611017535599,
+      "ci_low": 9.465428590043269,
+      "ci_high": 10.827924166940962,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "metric": "success_rate",
+      "delta": 0.03334999999999999,
+      "ci_low": 0.026349999999999985,
+      "ci_high": 0.040449999999999986,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "MEDIUM",
+      "condition": "no_persistent_position",
+      "metric": "successful_throughput_tasks_per_hour",
+      "delta": 2.1625301742553873,
+      "ci_low": 1.7626416287756845,
+      "ci_high": 2.5991278761405563,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_queue_resource",
+      "metric": "reward",
+      "delta": 0.1334464521250034,
+      "ci_low": -0.3692248479668776,
+      "ci_high": 0.6768159536386017,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_queue_resource",
+      "metric": "success_rate",
+      "delta": 0.0018499999999999073,
+      "ci_low": -0.0011499999999999844,
+      "ci_high": 0.0051499999999999905,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_queue_resource",
+      "metric": "successful_throughput_tasks_per_hour",
+      "delta": -0.047044766334053634,
+      "ci_low": -0.6078227955972444,
+      "ci_high": 0.517812891661121,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_handover_cues",
+      "metric": "reward",
+      "delta": 0.02090079008254797,
+      "ci_low": -0.4564403356373431,
+      "ci_high": 0.47398375199024323,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_handover_cues",
+      "metric": "success_rate",
+      "delta": -0.0030000000000000027,
+      "ci_low": -0.007950000000000013,
+      "ci_high": 0.0022999999999999687,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_handover_cues",
+      "metric": "successful_throughput_tasks_per_hour",
+      "delta": 0.004071449289853035,
+      "ci_low": -0.5309640378950327,
+      "ci_high": 0.5197657024454939,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_persistent_position",
+      "metric": "reward",
+      "delta": 25.256377062771442,
+      "ci_low": 23.30326400138146,
+      "ci_high": 27.18112209570458,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_persistent_position",
+      "metric": "success_rate",
+      "delta": 0.022599999999999953,
+      "ci_low": 0.016549999999999954,
+      "ci_high": 0.02935125000000008,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_persistent_position",
+      "metric": "successful_throughput_tasks_per_hour",
+      "delta": 16.0540165326055,
+      "ci_low": 14.583308250230264,
+      "ci_high": 17.534028186370424,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_queue_resource",
+      "metric": "reward",
+      "delta": 0.5613909146183289,
+      "ci_low": -0.9061337135984431,
+      "ci_high": 2.1759803303432106,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_queue_resource",
+      "metric": "success_rate",
+      "delta": 0.0015499999999999403,
+      "ci_low": -0.0016000000000000458,
+      "ci_high": 0.005449999999999955,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_queue_resource",
+      "metric": "successful_throughput_tasks_per_hour",
+      "delta": -0.3156032963177893,
+      "ci_low": -1.1888013348929873,
+      "ci_high": 0.5151858355648964,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_handover_cues",
+      "metric": "reward",
+      "delta": -0.00804640941574064,
+      "ci_low": -1.1335225422288073,
+      "ci_high": 1.0760301296084367,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_handover_cues",
+      "metric": "success_rate",
+      "delta": -0.00024999999999997247,
+      "ci_low": -0.0045999999999999375,
+      "ci_high": 0.004249999999999976,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_handover_cues",
+      "metric": "successful_throughput_tasks_per_hour",
+      "delta": -0.31414630625610585,
+      "ci_low": -1.1817803778429372,
+      "ci_high": 0.5114163153317107,
+      "family_holm_p": 1.0
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_persistent_position",
+      "metric": "reward",
+      "delta": 39.17381572853836,
+      "ci_low": 35.05347117439718,
+      "ci_high": 44.29380993981004,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_persistent_position",
+      "metric": "success_rate",
+      "delta": 0.021399999999999975,
+      "ci_low": 0.015249999999999986,
+      "ci_high": 0.028200000000000003,
+      "family_holm_p": 0.017578125
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_persistent_position",
+      "metric": "successful_throughput_tasks_per_hour",
+      "delta": 23.722866579044805,
+      "ci_low": 21.583575141392988,
+      "ci_high": 26.157574415856455,
+      "family_holm_p": 0.017578125
+    }
+  ],
+  "v1_v2_protocol_sensitivity": [
+    {
+      "profile": "MEDIUM",
+      "metric": "reward",
+      "v1_delta": 0.3520364408151257,
+      "v2_delta": 0.9488482036285788,
+      "change": 0.596811762813453
+    },
+    {
+      "profile": "MEDIUM",
+      "metric": "success_rate",
+      "v1_delta": 0.009600000000000004,
+      "v2_delta": 0.016800000000000037,
+      "change": 0.007200000000000033
+    },
+    {
+      "profile": "DENSE",
+      "metric": "reward",
+      "v1_delta": 19.223568318263638,
+      "v2_delta": 20.29386336779057,
+      "change": 1.0702950495269334
+    },
+    {
+      "profile": "DENSE",
+      "metric": "success_rate",
+      "v1_delta": 0.0019500000000000016,
+      "v2_delta": 0.005099999999999993,
+      "change": 0.0031499999999999918
+    },
+    {
+      "profile": "BURST",
+      "metric": "reward",
+      "v1_delta": 39.73963384876077,
+      "v2_delta": 41.16840973376637,
+      "change": 1.4287758850055994
+    },
+    {
+      "profile": "BURST",
+      "metric": "success_rate",
+      "v1_delta": 0.0037000000000000006,
+      "v2_delta": 0.006399999999999961,
+      "change": 0.0026999999999999607
+    },
+    {
+      "profile": "MEDIUM",
+      "metric": "successful_throughput_tasks_per_hour",
+      "v1_delta": 0.3919,
+      "v2_delta": 0.7849490965812791,
+      "change": 0.39304909658127907
+    },
+    {
+      "profile": "DENSE",
+      "metric": "successful_throughput_tasks_per_hour",
+      "v1_delta": 2.1423,
+      "v2_delta": 1.6532730541575944,
+      "change": -0.4890269458424057
+    },
+    {
+      "profile": "BURST",
+      "metric": "successful_throughput_tasks_per_hour",
+      "v1_delta": 1.1875,
+      "v2_delta": 0.7729988672537331,
+      "change": -0.4145011327462669
+    }
+  ],
+  "limitations": [
+    "v1与v2使用同一批训练权重；差异来自新鲜测试种子、TASK_KEYED配对和修正统计，不是策略升级。",
+    "NO_HANDOVER_CUES与NO_QUEUE_RESOURCE仍可被动作掩码、候选集合或其他字段旁路推断，零效应不能证明信息无用。",
+    "NO_PERSISTENT_POSITION同时移除位置、楼层、ETA、成本等复合信息，不能把大幅退化单独归因于XYZ位置。",
+    "单狗空白对照保持四狗但禁止空载跨层重定位；其高负载未结任务反映当前单狗动作空间，而非理论最优单狗系统。",
+    "Burst下Full相对规则基线的成功交付吞吐95% CI跨0。",
+    "全局60项Holm较保守；报告采用预定义9项主假设族Holm，同时保留全局校正结果。"
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "stage": 14,
+  "gate": "SMDP_PPO_HELDOUT_EVALUATION",
+  "weights": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/long/realistic_concurrent_medium_reward_v2_context_v2/stage14_realistic_concurrent_medium_reward_v2_context_v2.best.pt",
+  "execution_mode": "CONCURRENT",
+  "arrival_profile": "MEDIUM",
+  "seed_start": 20265001,
+  "seed_end": 20265030,
+  "policy": {
+    "episode_count": 30,
+    "task_count": 600,
+    "completed": 581,
+    "failed": 19,
+    "success_rate": 0.9683333333333334,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": 17.336415823153335,
+    "mean_simulated_time": 1271.9596826436584,
+    "throughput_tasks_per_hour": 56.60556775695454,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 2,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "SINGLE_CAR": 300,
+      "CAR_DOG_CAR": 140,
+      "SINGLE_DOG": 160
+    },
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 140,
+        "SINGLE_DOG": 70
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 300
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 90
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "CAR_DOG_CAR": 140,
+        "SINGLE_DOG": 160
+      },
+      "SAME_FLOOR": {
+        "SINGLE_CAR": 300
+      }
+    },
+    "cost_reference_mode_agreement": 0.8833333333333333,
+    "cost_reference_decision_count": 600
+  },
+  "rule_baseline": {
+    "episode_count": 30,
+    "task_count": 600,
+    "completed": 576,
+    "failed": 24,
+    "success_rate": 0.96,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": 16.979242323631457,
+    "mean_simulated_time": 1269.744341973392,
+    "throughput_tasks_per_hour": 56.70432828084129,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 2,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "SINGLE_CAR": 300,
+      "CAR_DOG_CAR": 210,
+      "SINGLE_DOG": 90
+    },
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 210
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 300
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 90
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "CAR_DOG_CAR": 210,
+        "SINGLE_DOG": 90
+      },
+      "SAME_FLOOR": {
+        "SINGLE_CAR": 300
+      }
+    },
+    "cost_reference_mode_agreement": 1.0,
+    "cost_reference_decision_count": 600
+  },
+  "comparison": {
+    "success_rate_delta": 0.008333333333333415,
+    "mean_reward_delta": 0.3571734995218776,
+    "throughput_delta_tasks_per_hour": -0.09876052388674594,
+    "mean_simulated_time_delta": 2.2153406702664142
+  },
+  "contextual_mode_acceptance": {
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 140,
+        "SINGLE_DOG": 70
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 300
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 90
+      }
+    },
+    "diagonal_match_rates": {
+      "CAR_DOG_CAR": 0.6666666666666666,
+      "SINGLE_CAR": 1.0,
+      "SINGLE_DOG": 1.0
+    },
+    "minimum_diagonal_rate": 0.2,
+    "note": "This is conditional behavior, not a target frequency for any transport mode."
+  },
+  "assertions": {
+    "policy_resolved_all_tasks": true,
+    "policy_actions_all_legal": true,
+    "policy_has_no_resource_leak": true,
+    "rule_has_no_resource_leak": true,
+    "mode_conditioned_checkpoint_shape_matches": true,
+    "policy_selects_all_three_modes": true,
+    "cost_reference_covers_all_three_modes": true,
+    "policy_switches_by_context": true
+  },
+  "passed": true
+}

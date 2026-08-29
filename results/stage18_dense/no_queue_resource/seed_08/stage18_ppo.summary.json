@@ -1,0 +1,298 @@
+{
+  "schema_version": "warehouse_stage16_training_v1",
+  "algorithm": "centralized_masked_smdp_ppo",
+  "reward_version": "reward_v2",
+  "stage": 14,
+  "gate": "SMDP_PPO_REWARD_V2_TRAINING_RUN",
+  "claim_boundary": "Training completed; held-out acceptance is still required.",
+  "execution_mode": "CONCURRENT",
+  "arrival_profile": "DENSE",
+  "observation_variant": "NO_QUEUE_RESOURCE",
+  "policy_variant": "CONTEXT_INTERACTION",
+  "discount_mode": "VARIABLE_SMDP",
+  "encoder": {
+    "observation_variant": "NO_QUEUE_RESOURCE",
+    "state_width": 284,
+    "action_width": 30,
+    "queue_resource_state_indices": [
+      1,
+      2,
+      3,
+      253,
+      261,
+      269,
+      277
+    ],
+    "persistent_position_state_indices": [
+      115,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      129,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      143,
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      157,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      171,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      185,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      199,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      213,
+      218,
+      219,
+      220,
+      221,
+      222,
+      223,
+      227,
+      232,
+      233,
+      234,
+      235,
+      236,
+      237,
+      241,
+      246,
+      247,
+      248,
+      249,
+      250,
+      251
+    ],
+    "persistent_position_action_indices": [
+      10,
+      11,
+      12,
+      14,
+      15,
+      25,
+      26
+    ],
+    "handover_cue_action_indices": [
+      28,
+      29
+    ]
+  },
+  "updates": 2000,
+  "episodes_trained_this_run": 8000,
+  "episodes_trained_total": 8000,
+  "resumed_from_update": null,
+  "training_seed_start": 31070100,
+  "training_seed_end": 31078099,
+  "validation_seed_start": 42000000,
+  "validation_seed_end": 42000099,
+  "experiment_run_seed": 31070000,
+  "warm_start_source": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_queue_resource/seed_08/warm_start.pt",
+  "model": {
+    "architecture": "contextual_masked_candidate_actor_critic_v2",
+    "policy_variant": "CONTEXT_INTERACTION",
+    "state_width": 284,
+    "action_width": 30,
+    "hidden_width": 96,
+    "index_specific_parameters": false
+  },
+  "ppo": {
+    "clip_ratio": 0.2,
+    "gae_lambda": 0.95,
+    "value_coefficient": 0.5,
+    "entropy_coefficient": 0.01,
+    "max_gradient_norm": 1.0,
+    "learning_rate": 0.0003,
+    "ppo_epochs": 4,
+    "minibatch_size": 32
+  },
+  "reward_normalization": {
+    "count": 451942.0001,
+    "mean": -3.336771874751831,
+    "variance": 69.1435770820304,
+    "epsilon": 1e-08,
+    "clip": 10.0,
+    "subtract_mean": false,
+    "source": "variable_discounted_return_std_v1"
+  },
+  "reward_reporting": {
+    "evaluation_mean_reward": "raw_environment_episode_sum",
+    "rollout_mean_reward": "raw_environment_episode_sum",
+    "normalized_reward_mean": "ppo_training_step_reward",
+    "positive_relative_score": "reporting_only_rule_baseline_equals_100"
+  },
+  "positive_relative_score": {
+    "policy_score": 182.48195764027008,
+    "rule_baseline_score": 100.0,
+    "raw_reward_delta": 20.002741284578526,
+    "normalization_scale": 33.255809073162744,
+    "formula": "100*exp((policy_reward-rule_reward)/max(abs(rule_reward),10))"
+  },
+  "contextual_mode_acceptance": {
+    "principle": "No target mode frequency. Each assignment is evaluated against the cheapest legal mode in its current task/fleet context.",
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 631,
+        "SINGLE_DOG": 85
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 994,
+        "SINGLE_DOG": 6
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 284
+      }
+    },
+    "diagonal_match_rates": {
+      "CAR_DOG_CAR": 0.8812849162011173,
+      "SINGLE_CAR": 0.994,
+      "SINGLE_DOG": 1.0
+    },
+    "minimum_formal_diagonal_rate": 0.2,
+    "formal_gate_passed": true
+  },
+  "parameter_delta_l2": 38.952144622802734,
+  "final_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_queue_resource/seed_08/stage18_ppo.pt",
+  "best_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_queue_resource/seed_08/stage18_ppo.best.pt",
+  "history": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/no_queue_resource/seed_08/stage18_ppo.history.json",
+  "evaluation": {
+    "episode_count": 100,
+    "task_count": 2000,
+    "completed": 1934,
+    "failed": 66,
+    "success_rate": 0.967,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": -13.25306778858422,
+    "mean_simulated_time": 575.468609363942,
+    "throughput_tasks_per_hour": 125.11542563473732,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 4,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "CAR_DOG_CAR": 631,
+      "SINGLE_CAR": 994,
+      "SINGLE_DOG": 375
+    },
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 631,
+        "SINGLE_DOG": 85
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 994,
+        "SINGLE_DOG": 6
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 284
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "CAR_DOG_CAR": 631,
+        "SINGLE_DOG": 369
+      },
+      "SAME_FLOOR": {
+        "SINGLE_CAR": 994,
+        "SINGLE_DOG": 6
+      }
+    },
+    "cost_reference_mode_agreement": 0.9545,
+    "cost_reference_decision_count": 2000
+  },
+  "rule_baseline": {
+    "episode_count": 100,
+    "task_count": 2000,
+    "completed": 1929,
+    "failed": 71,
+    "success_rate": 0.9645,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": -33.255809073162744,
+    "mean_simulated_time": 582.7401331056717,
+    "throughput_tasks_per_hour": 123.55421552361798,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 3,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "CAR_DOG_CAR": 705,
+      "SINGLE_CAR": 1000,
+      "SINGLE_DOG": 295
+    },
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 705
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 1000
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 295
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "CAR_DOG_CAR": 705,
+        "SINGLE_DOG": 295
+      },
+      "SAME_FLOOR": {
+        "SINGLE_CAR": 1000
+      }
+    },
+    "cost_reference_mode_agreement": 1.0,
+    "cost_reference_decision_count": 2000
+  },
+  "assertions": {
+    "ppo_parameters_updated": true,
+    "training_metrics_are_finite": true,
+    "discount_contract_is_valid": true,
+    "evaluation_resolved_all_tasks": true,
+    "evaluation_actions_all_legal": true,
+    "evaluation_has_no_resource_leak": true,
+    "one_policy_exposes_all_three_transport_modes": true,
+    "context_conditioned_metrics_cover_every_assignment": true,
+    "formal_policy_switches_modes_by_context": true,
+    "rule_baseline_has_no_resource_leak": true,
+    "concurrent_mode_overlaps_when_requested": true
+  },
+  "passed": true
+}

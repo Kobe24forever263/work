@@ -1,0 +1,140 @@
+{
+  "stage": 18,
+  "gate": "CLEAN_ABLATION_HIGH_LOAD_SHORT_TRAINING",
+  "claim_boundary": "Five-update safety/stability smoke; no performance claim.",
+  "profiles": [
+    "DENSE",
+    "BURST"
+  ],
+  "conditions": [
+    {
+      "profile": "DENSE",
+      "condition": "no_position_only",
+      "variant": "NO_POSITION_ONLY",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/dense/no_position_only.summary.json",
+      "process_exit_code": 0,
+      "hard_passed": true,
+      "context_mode_reference_gate": true,
+      "parameter_delta_l2": 1.4951363801956177,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_eta_cost_only",
+      "variant": "NO_ETA_COST_ONLY",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/dense/no_eta_cost_only.summary.json",
+      "process_exit_code": 0,
+      "hard_passed": true,
+      "context_mode_reference_gate": true,
+      "parameter_delta_l2": 1.8087971210479736,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_history_only",
+      "variant": "NO_HISTORY_ONLY",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/dense/no_history_only.summary.json",
+      "process_exit_code": 0,
+      "hard_passed": true,
+      "context_mode_reference_gate": true,
+      "parameter_delta_l2": 1.689440369606018,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_explicit_queue_resource",
+      "variant": "NO_EXPLICIT_QUEUE_RESOURCE",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/dense/no_explicit_queue_resource.summary.json",
+      "process_exit_code": 0,
+      "hard_passed": true,
+      "context_mode_reference_gate": true,
+      "parameter_delta_l2": 1.6843552589416504,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "profile": "DENSE",
+      "condition": "no_explicit_handover_risk",
+      "variant": "NO_EXPLICIT_HANDOVER_RISK",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/dense/no_explicit_handover_risk.summary.json",
+      "process_exit_code": 0,
+      "hard_passed": true,
+      "context_mode_reference_gate": true,
+      "parameter_delta_l2": 1.7812988758087158,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_position_only",
+      "variant": "NO_POSITION_ONLY",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/burst/no_position_only.summary.json",
+      "process_exit_code": 0,
+      "hard_passed": true,
+      "context_mode_reference_gate": true,
+      "parameter_delta_l2": 1.9408000707626343,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_eta_cost_only",
+      "variant": "NO_ETA_COST_ONLY",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/burst/no_eta_cost_only.summary.json",
+      "process_exit_code": 0,
+      "hard_passed": true,
+      "context_mode_reference_gate": true,
+      "parameter_delta_l2": 1.898667335510254,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_history_only",
+      "variant": "NO_HISTORY_ONLY",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/burst/no_history_only.summary.json",
+      "process_exit_code": 0,
+      "hard_passed": true,
+      "context_mode_reference_gate": true,
+      "parameter_delta_l2": 1.8147608041763306,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_explicit_queue_resource",
+      "variant": "NO_EXPLICIT_QUEUE_RESOURCE",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/burst/no_explicit_queue_resource.summary.json",
+      "process_exit_code": 0,
+      "hard_passed": true,
+      "context_mode_reference_gate": true,
+      "parameter_delta_l2": 2.0904486179351807,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "profile": "BURST",
+      "condition": "no_explicit_handover_risk",
+      "variant": "NO_EXPLICIT_HANDOVER_RISK",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/burst/no_explicit_handover_risk.summary.json",
+      "process_exit_code": 0,
+      "hard_passed": true,
+      "context_mode_reference_gate": true,
+      "parameter_delta_l2": 1.946613073348999,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    }
+  ],
+  "assertions": {
+    "all_requested_conditions_completed": true,
+    "all_hard_safety_and_stability_gates_passed": true,
+    "all_parameters_updated": true,
+    "no_illegal_actions": true,
+    "no_resource_leaks": true
+  },
+  "semantic_note": "Cost-reference agreement is recorded but not a safety/stability gate; it can fail by design for NO_ETA_COST_ONLY.",
+  "passed": true
+}

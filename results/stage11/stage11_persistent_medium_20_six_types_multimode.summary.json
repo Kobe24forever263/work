@@ -1,0 +1,180 @@
+{
+  "seed": 20260805,
+  "profile": "medium",
+  "arrival_interval_seconds": [
+    55.0,
+    75.0
+  ],
+  "trial_count": 20,
+  "success_count": 20,
+  "failure_count": 0,
+  "simulated_time": 1278.5575,
+  "task_types": {
+    "f1_same": 4,
+    "f1_cross_region": 3,
+    "cross_up": 3,
+    "f2_same": 4,
+    "f2_cross_region": 3,
+    "cross_down": 3
+  },
+  "transport_modes": {
+    "SINGLE_CAR": 14,
+    "CAR_DOG_CAR": 6
+  },
+  "unique_assignment_count": 11,
+  "invalid_actions_masked": 40,
+  "mean_wait_time": 2.1954,
+  "p95_wait_time": 13.1338,
+  "max_wait_time": 17.4209,
+  "mean_task_duration": 32.0779,
+  "queue_peak": 1,
+  "moved_robots": [
+    "dog_1",
+    "dog_3",
+    "dog_4",
+    "car_f1_1",
+    "car_f1_2",
+    "car_f1_3",
+    "car_f1_4"
+  ],
+  "resource_event_count": 98,
+  "assertions": {
+    "twenty_tasks_completed": true,
+    "six_task_types_covered": true,
+    "positions_persisted": true,
+    "dynamic_assignments": true,
+    "invalid_actions_masked": true,
+    "all_cargo_cleared": true,
+    "all_task_ids_cleared": true,
+    "queue_drained": true,
+    "all_smdp_records_complete": true,
+    "fixed_seed_replay_equal": true,
+    "waiting_time_recorded": true,
+    "unique_final_robot_positions": true,
+    "completed_robots_in_standby_slots": true,
+    "all_resources_released": true,
+    "resource_claim_release_balanced": true
+  },
+  "final_robots": {
+    "car_f1_1": {
+      "xyz": [
+        4.5,
+        3.0,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 129.2981,
+      "tasks_completed": 3,
+      "stairs_traversed": 0,
+      "standby_slot_id": "F1_CAR_2"
+    },
+    "car_f1_2": {
+      "xyz": [
+        4.5,
+        -3.0,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 177.1873,
+      "tasks_completed": 5,
+      "stairs_traversed": 0,
+      "standby_slot_id": "F1_CAR_4"
+    },
+    "car_f1_3": {
+      "xyz": [
+        -4.5,
+        3.0,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 116.4756,
+      "tasks_completed": 2,
+      "stairs_traversed": 0,
+      "standby_slot_id": "F1_CAR_1"
+    },
+    "car_f1_4": {
+      "xyz": [
+        -4.5,
+        -3.0,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 121.6277,
+      "tasks_completed": 3,
+      "stairs_traversed": 0,
+      "standby_slot_id": "F1_CAR_3"
+    },
+    "car_f2_1": {
+      "xyz": [
+        -5.5,
+        0.0,
+        4.7
+      ],
+      "floor": 2,
+      "distance_total": 182.5834,
+      "tasks_completed": 8,
+      "stairs_traversed": 0,
+      "standby_slot_id": "F2_CAR_1"
+    },
+    "car_f2_2": {
+      "xyz": [
+        5.5,
+        0.0,
+        4.7
+      ],
+      "floor": 2,
+      "distance_total": 92.0762,
+      "tasks_completed": 5,
+      "stairs_traversed": 0,
+      "standby_slot_id": "F2_CAR_2"
+    },
+    "dog_1": {
+      "xyz": [
+        2.0,
+        1.5,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 80.7509,
+      "tasks_completed": 2,
+      "stairs_traversed": 2,
+      "standby_slot_id": "F1_DOG_2"
+    },
+    "dog_2": {
+      "xyz": [
+        -20.8,
+        17.8,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 0.0,
+      "tasks_completed": 0,
+      "stairs_traversed": 0,
+      "standby_slot_id": ""
+    },
+    "dog_3": {
+      "xyz": [
+        -2.0,
+        1.5,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 78.6314,
+      "tasks_completed": 2,
+      "stairs_traversed": 2,
+      "standby_slot_id": "F1_DOG_1"
+    },
+    "dog_4": {
+      "xyz": [
+        2.0,
+        -1.5,
+        0.45
+      ],
+      "floor": 1,
+      "distance_total": 76.6794,
+      "tasks_completed": 2,
+      "stairs_traversed": 2,
+      "standby_slot_id": "F1_DOG_4"
+    }
+  }
+}

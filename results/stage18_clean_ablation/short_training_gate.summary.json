@@ -1,0 +1,60 @@
+{
+  "stage": 18,
+  "gate": "CLEAN_ABLATION_SHORT_TRAINING",
+  "claim_boundary": "Five-update interface/training smoke only; no performance claim.",
+  "conditions": [
+    {
+      "condition": "no_position_only",
+      "variant": "NO_POSITION_ONLY",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/no_position_only.summary.json",
+      "passed": true,
+      "parameter_delta_l2": 1.1097607612609863,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "condition": "no_eta_cost_only",
+      "variant": "NO_ETA_COST_ONLY",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/no_eta_cost_only.summary.json",
+      "passed": true,
+      "parameter_delta_l2": 1.0072953701019287,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "condition": "no_history_only",
+      "variant": "NO_HISTORY_ONLY",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/no_history_only.summary.json",
+      "passed": true,
+      "parameter_delta_l2": 1.344699740409851,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "condition": "no_explicit_queue_resource",
+      "variant": "NO_EXPLICIT_QUEUE_RESOURCE",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/no_explicit_queue_resource.summary.json",
+      "passed": true,
+      "parameter_delta_l2": 1.0436121225357056,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    },
+    {
+      "condition": "no_explicit_handover_risk",
+      "variant": "NO_EXPLICIT_HANDOVER_RISK",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation/smoke/no_explicit_handover_risk.summary.json",
+      "passed": true,
+      "parameter_delta_l2": 1.16645085811615,
+      "illegal_action_count": 0,
+      "resource_leak_count": 0
+    }
+  ],
+  "assertions": {
+    "five_conditions_completed": true,
+    "all_training_smokes_passed": true,
+    "all_parameters_updated": true,
+    "no_illegal_actions": true,
+    "no_resource_leaks": true
+  },
+  "passed": true
+}

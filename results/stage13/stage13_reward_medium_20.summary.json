@@ -1,0 +1,98 @@
+{
+  "stage": 13,
+  "seed": 20260805,
+  "profile": "medium",
+  "trial_count": 20,
+  "success_count": 20,
+  "failure_count": 0,
+  "task_types": {
+    "f1_same": 4,
+    "f1_cross_region": 3,
+    "cross_up": 3,
+    "f2_same": 4,
+    "f2_cross_region": 3,
+    "cross_down": 3
+  },
+  "transport_modes": {
+    "SINGLE_CAR": 14,
+    "CAR_DOG_CAR": 6
+  },
+  "reward_total": 41.827257,
+  "reward_mean": 2.091363,
+  "discount_min": 0.918075276,
+  "discount_max": 0.989937334,
+  "mode_fairness": {
+    "cooperation_favored_geometry": {
+      "SINGLE_DOG": {
+        "mode": "SINGLE_DOG",
+        "estimated_cost": 42.8125,
+        "delta_time": 42.8125,
+        "reward": 2.029063,
+        "components": {
+          "outstanding_time": -0.428125,
+          "completion": 2.0,
+          "deadline": 0.5,
+          "handover": 0.0,
+          "active_robot_time": -0.042813,
+          "distance": -0.0
+        }
+      },
+      "CAR_DOG_CAR": {
+        "mode": "CAR_DOG_CAR",
+        "estimated_cost": 19.3125,
+        "delta_time": 19.3125,
+        "reward": 2.148938,
+        "components": {
+          "outstanding_time": -0.193125,
+          "completion": 2.0,
+          "deadline": 0.5,
+          "handover": -0.1,
+          "active_robot_time": -0.057938,
+          "distance": -0.0
+        }
+      }
+    },
+    "single_dog_favored_geometry": {
+      "SINGLE_DOG": {
+        "mode": "SINGLE_DOG",
+        "estimated_cost": 5.3125,
+        "delta_time": 5.3125,
+        "reward": 2.441562,
+        "components": {
+          "outstanding_time": -0.053125,
+          "completion": 2.0,
+          "deadline": 0.5,
+          "handover": 0.0,
+          "active_robot_time": -0.005313,
+          "distance": -0.0
+        }
+      },
+      "CAR_DOG_CAR": {
+        "mode": "CAR_DOG_CAR",
+        "estimated_cost": 19.3125,
+        "delta_time": 19.3125,
+        "reward": 2.148938,
+        "components": {
+          "outstanding_time": -0.193125,
+          "completion": 2.0,
+          "deadline": 0.5,
+          "handover": -0.1,
+          "active_robot_time": -0.057938,
+          "distance": -0.0
+        }
+      }
+    },
+    "cooperation_wins_when_faster": true,
+    "single_dog_wins_when_faster": true
+  },
+  "assertions": {
+    "twenty_tasks_completed": true,
+    "six_task_types_covered": true,
+    "reward_components_sum_exactly": true,
+    "rewards_and_discounts_finite": true,
+    "time_aware_discount_varies": true,
+    "only_final_transition_terminates": true,
+    "no_unexpected_truncation": true,
+    "reward_not_fixed_to_one_mode": true
+  }
+}

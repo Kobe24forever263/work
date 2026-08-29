@@ -1,0 +1,77 @@
+{
+  "stage": 14,
+  "gate": "REWARD_V2_ANTI_MODE_COLLAPSE",
+  "seed_start": 20265001,
+  "seed_end": 20265050,
+  "reward_v2": {
+    "outstanding_time_scale": 30.0,
+    "timeout_penalty": 2.0,
+    "active_robot_time_penalty": 0.0002,
+    "transport_mode_bonus": null
+  },
+  "results": {
+    "LEGACY": {
+      "efficient_rule": {
+        "episode_count": 50,
+        "task_count": 1000,
+        "success_rate": 0.959,
+        "mean_reward": 32.92954757897119,
+        "throughput_tasks_per_hour": 56.643805853045386,
+        "transport_modes": {
+          "SINGLE_CAR": 500,
+          "CAR_DOG_CAR": 350,
+          "SINGLE_DOG": 150
+        },
+        "resource_leak_count": 0
+      },
+      "risk_free_all_dog": {
+        "episode_count": 50,
+        "task_count": 1000,
+        "success_rate": 1.0,
+        "mean_reward": 38.84459152436118,
+        "throughput_tasks_per_hour": 56.335790551055226,
+        "transport_modes": {
+          "SINGLE_CAR": 500,
+          "SINGLE_DOG": 500
+        },
+        "resource_leak_count": 0
+      }
+    },
+    "REWARD_V2": {
+      "efficient_rule": {
+        "episode_count": 50,
+        "task_count": 1000,
+        "success_rate": 0.959,
+        "mean_reward": 17.069487491627527,
+        "throughput_tasks_per_hour": 56.643805853045386,
+        "transport_modes": {
+          "SINGLE_CAR": 500,
+          "CAR_DOG_CAR": 350,
+          "SINGLE_DOG": 150
+        },
+        "resource_leak_count": 0
+      },
+      "risk_free_all_dog": {
+        "episode_count": 50,
+        "task_count": 1000,
+        "success_rate": 1.0,
+        "mean_reward": 15.615803865730259,
+        "throughput_tasks_per_hour": 56.335790551055226,
+        "transport_modes": {
+          "SINGLE_CAR": 500,
+          "SINGLE_DOG": 500
+        },
+        "resource_leak_count": 0
+      }
+    }
+  },
+  "assertions": {
+    "four_thousand_tasks_resolved": true,
+    "legacy_reward_prefers_all_dog_shortcut": true,
+    "reward_v2_prefers_efficient_mixed_transport": true,
+    "efficient_policy_has_higher_throughput": true,
+    "reward_has_no_transport_mode_specific_bonus": true,
+    "all_runs_have_no_resource_leak": true
+  },
+  "passed": true
+}

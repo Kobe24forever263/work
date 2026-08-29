@@ -1,0 +1,148 @@
+{
+  "stage": 14,
+  "gate": "SMDP_PPO_HELDOUT_EVALUATION",
+  "weights": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_dense/full_context_v2/seed_01/stage18_ppo.best.pt",
+  "execution_mode": "CONCURRENT",
+  "arrival_profile": "DENSE",
+  "observation_variant": "FULL_CONTEXT_V2",
+  "seed_start": 42000000,
+  "seed_end": 42000099,
+  "policy": {
+    "episode_count": 100,
+    "task_count": 2000,
+    "completed": 1936,
+    "failed": 64,
+    "success_rate": 0.968,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": -13.552739819741168,
+    "mean_simulated_time": 578.6496386316528,
+    "throughput_tasks_per_hour": 124.42762458170748,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 3,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "CAR_DOG_CAR": 641,
+      "SINGLE_CAR": 1000,
+      "SINGLE_DOG": 359
+    },
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 641,
+        "SINGLE_DOG": 69
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 1000
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 290
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "CAR_DOG_CAR": 641,
+        "SINGLE_DOG": 359
+      },
+      "SAME_FLOOR": {
+        "SINGLE_CAR": 1000
+      }
+    },
+    "cost_reference_mode_agreement": 0.9655,
+    "cost_reference_decision_count": 2000
+  },
+  "rule_baseline": {
+    "episode_count": 100,
+    "task_count": 2000,
+    "completed": 1929,
+    "failed": 71,
+    "success_rate": 0.9645,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": -33.255809073162744,
+    "mean_simulated_time": 582.7401331056717,
+    "throughput_tasks_per_hour": 123.55421552361798,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 3,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "CAR_DOG_CAR": 705,
+      "SINGLE_CAR": 1000,
+      "SINGLE_DOG": 295
+    },
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 705
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 1000
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 295
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "CAR_DOG_CAR": 705,
+        "SINGLE_DOG": 295
+      },
+      "SAME_FLOOR": {
+        "SINGLE_CAR": 1000
+      }
+    },
+    "cost_reference_mode_agreement": 1.0,
+    "cost_reference_decision_count": 2000
+  },
+  "comparison": {
+    "success_rate_delta": 0.0034999999999999476,
+    "mean_reward_delta": 19.703069253421575,
+    "throughput_delta_tasks_per_hour": 0.8734090580894929,
+    "mean_simulated_time_delta": -4.090494474018897
+  },
+  "positive_relative_score": {
+    "policy_score": 180.84497771132553,
+    "rule_baseline_score": 100.0,
+    "raw_reward_delta": 19.703069253421575,
+    "normalization_scale": 33.255809073162744,
+    "formula": "100*exp((policy_reward-rule_reward)/max(abs(rule_reward),10))"
+  },
+  "contextual_mode_acceptance": {
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 641,
+        "SINGLE_DOG": 69
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 1000
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 290
+      }
+    },
+    "diagonal_match_rates": {
+      "CAR_DOG_CAR": 0.9028169014084507,
+      "SINGLE_CAR": 1.0,
+      "SINGLE_DOG": 1.0
+    },
+    "minimum_diagonal_rate": 0.2,
+    "note": "This is conditional behavior, not a target frequency for any transport mode."
+  },
+  "assertions": {
+    "policy_resolved_all_tasks": true,
+    "policy_actions_all_legal": true,
+    "policy_has_no_resource_leak": true,
+    "rule_has_no_resource_leak": true,
+    "mode_conditioned_checkpoint_shape_matches": true,
+    "policy_selects_all_three_modes": true,
+    "cost_reference_covers_all_three_modes": true,
+    "policy_switches_by_context": true
+  },
+  "passed": true
+}

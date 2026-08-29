@@ -1,0 +1,89 @@
+{
+  "stage": 14,
+  "gate": "SHORT_SMDP_PPO_SMOKE",
+  "claim_boundary": "Interface smoke only; not a long-run convergence or superiority claim.",
+  "execution_mode": "CONCURRENT",
+  "arrival_profile": "MEDIUM",
+  "updates": 250,
+  "episodes_trained_this_run": 1000,
+  "episodes_trained_total": 1000,
+  "model": {
+    "architecture": "shared_masked_candidate_actor_critic_v1",
+    "state_width": 284,
+    "action_width": 16,
+    "hidden_width": 96,
+    "index_specific_parameters": false
+  },
+  "ppo": {
+    "clip_ratio": 0.2,
+    "gae_lambda": 0.95,
+    "value_coefficient": 0.5,
+    "entropy_coefficient": 0.01,
+    "max_gradient_norm": 1.0,
+    "learning_rate": 0.0003,
+    "ppo_epochs": 4,
+    "minibatch_size": 32
+  },
+  "parameter_delta_l2": 13.880351066589355,
+  "final_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/long/realistic_concurrent_medium/stage14_realistic_concurrent_medium.pt",
+  "best_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/long/realistic_concurrent_medium/stage14_realistic_concurrent_medium.best.pt",
+  "history": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/long/realistic_concurrent_medium/stage14_realistic_concurrent_medium.history.json",
+  "evaluation": {
+    "episode_count": 10,
+    "task_count": 200,
+    "completed": 200,
+    "failed": 0,
+    "success_rate": 1.0,
+    "mean_reward": 38.91816919438671,
+    "mean_simulated_time": 1268.6097800553475,
+    "throughput_tasks_per_hour": 56.75504093690555,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 2,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "SINGLE_CAR": 100,
+      "SINGLE_DOG": 99,
+      "CAR_DOG_CAR": 1
+    },
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ]
+  },
+  "rule_baseline": {
+    "episode_count": 10,
+    "task_count": 200,
+    "completed": 195,
+    "failed": 5,
+    "success_rate": 0.975,
+    "mean_reward": 35.27813281458613,
+    "mean_simulated_time": 1262.7811681136457,
+    "throughput_tasks_per_hour": 57.017004860433794,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 2,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "SINGLE_CAR": 100,
+      "CAR_DOG_CAR": 70,
+      "SINGLE_DOG": 30
+    },
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ]
+  },
+  "assertions": {
+    "ppo_parameters_updated": true,
+    "training_metrics_are_finite": true,
+    "smdp_discounts_are_valid_and_variable": true,
+    "evaluation_resolved_all_tasks": true,
+    "evaluation_actions_all_legal": true,
+    "evaluation_has_no_resource_leak": true,
+    "one_policy_exposes_all_three_transport_modes": true,
+    "rule_baseline_has_no_resource_leak": true,
+    "concurrent_mode_overlaps_when_requested": true
+  },
+  "passed": true
+}

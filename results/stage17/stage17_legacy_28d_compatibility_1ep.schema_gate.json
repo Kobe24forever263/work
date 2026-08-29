@@ -1,0 +1,142 @@
+{
+  "stage": 16,
+  "gate": "RAW_RESULT_SCHEMA_RECOMPUTATION",
+  "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage17/stage17_legacy_28d_compatibility_1ep.json",
+  "raw_results": "/Users/lab4099/Desktop/Mujoco/work/results/stage17/stage17_legacy_28d_compatibility_1ep.raw.json",
+  "schema_version": "warehouse_stage16_evaluation_v1",
+  "comparisons": {
+    "MEDIUM.policy": {
+      "recomputed": {
+        "episode_count": 1,
+        "task_count": 20,
+        "completed": 20,
+        "failed": 0,
+        "success_rate": 1.0,
+        "mean_episode_reward": 21.709657229335676,
+        "throughput_tasks_per_hour": 56.80657822712543,
+        "successful_throughput_tasks_per_hour": 56.80657822712543,
+        "mean_waiting_time": 1.466574284193254,
+        "p95_waiting_time": 12.227232738824515,
+        "mean_flow_time": 41.24916182718539,
+        "p95_flow_time": 83.88445350233519,
+        "distance_per_task": 58.97230147697403,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 5,
+          "SINGLE_DOG": 5
+        }
+      },
+      "checks": {
+        "episode_count": true,
+        "task_count": true,
+        "completed": true,
+        "failed": true,
+        "success_rate": true,
+        "mean_episode_reward": true,
+        "throughput_tasks_per_hour": true,
+        "successful_throughput_tasks_per_hour": true,
+        "mean_waiting_time": true,
+        "p95_waiting_time": true,
+        "mean_flow_time": true,
+        "p95_flow_time": true,
+        "distance_per_task": true,
+        "transport_modes": true,
+        "flat_and_nested_task_rows_match": true,
+        "episode_task_counts_match": true,
+        "episode_metrics_recompute": true
+      }
+    },
+    "MEDIUM.rule_baseline": {
+      "recomputed": {
+        "episode_count": 1,
+        "task_count": 20,
+        "completed": 20,
+        "failed": 0,
+        "success_rate": 1.0,
+        "mean_episode_reward": 21.509741522220033,
+        "throughput_tasks_per_hour": 56.996080210264644,
+        "successful_throughput_tasks_per_hour": 56.996080210264644,
+        "mean_waiting_time": 1.466574284193254,
+        "p95_waiting_time": 12.227232738824515,
+        "mean_flow_time": 41.15993636630475,
+        "p95_flow_time": 79.61316607068972,
+        "distance_per_task": 68.48806113587455,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 7,
+          "SINGLE_DOG": 3
+        }
+      },
+      "checks": {
+        "episode_count": true,
+        "task_count": true,
+        "completed": true,
+        "failed": true,
+        "success_rate": true,
+        "mean_episode_reward": true,
+        "throughput_tasks_per_hour": true,
+        "successful_throughput_tasks_per_hour": true,
+        "mean_waiting_time": true,
+        "p95_waiting_time": true,
+        "mean_flow_time": true,
+        "p95_flow_time": true,
+        "distance_per_task": true,
+        "transport_modes": true,
+        "flat_and_nested_task_rows_match": true,
+        "episode_task_counts_match": true,
+        "episode_metrics_recompute": true
+      }
+    },
+    "MEDIUM.risk_aware_rule_baseline": {
+      "recomputed": {
+        "episode_count": 1,
+        "task_count": 20,
+        "completed": 20,
+        "failed": 0,
+        "success_rate": 1.0,
+        "mean_episode_reward": 21.79696640772074,
+        "throughput_tasks_per_hour": 56.80657822712543,
+        "successful_throughput_tasks_per_hour": 56.80657822712543,
+        "mean_waiting_time": 1.466574284193254,
+        "p95_waiting_time": 12.227232738824515,
+        "mean_flow_time": 41.12051372543923,
+        "p95_flow_time": 83.88445350233519,
+        "distance_per_task": 58.79475251213239,
+        "transport_modes": {
+          "SINGLE_CAR": 10,
+          "CAR_DOG_CAR": 5,
+          "SINGLE_DOG": 5
+        }
+      },
+      "checks": {
+        "episode_count": true,
+        "task_count": true,
+        "completed": true,
+        "failed": true,
+        "success_rate": true,
+        "mean_episode_reward": true,
+        "throughput_tasks_per_hour": true,
+        "successful_throughput_tasks_per_hour": true,
+        "mean_waiting_time": true,
+        "p95_waiting_time": true,
+        "mean_flow_time": true,
+        "p95_flow_time": true,
+        "distance_per_task": true,
+        "transport_modes": true,
+        "flat_and_nested_task_rows_match": true,
+        "episode_task_counts_match": true,
+        "episode_metrics_recompute": true
+      }
+    }
+  },
+  "assertions": {
+    "summary_schema_matches": true,
+    "raw_schema_matches": true,
+    "execution_mode_matches": true,
+    "MEDIUM.policy.all_aggregates_recomputed": true,
+    "MEDIUM.rule_baseline.all_aggregates_recomputed": true,
+    "MEDIUM.risk_aware_rule_baseline.all_aggregates_recomputed": true,
+    "MEDIUM.paired_task_streams_identical": true
+  },
+  "passed": true
+}

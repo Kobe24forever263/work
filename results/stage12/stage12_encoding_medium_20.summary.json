@@ -1,0 +1,122 @@
+{
+  "stage": 12,
+  "seed": 20260805,
+  "profile": "medium",
+  "trial_count": 20,
+  "success_count": 20,
+  "failure_count": 0,
+  "observation_size": 282,
+  "action_tensor_shape": [
+    1536,
+    16
+  ],
+  "task_types": {
+    "f1_same": 4,
+    "f1_cross_region": 3,
+    "cross_up": 3,
+    "f2_same": 4,
+    "f2_cross_region": 3,
+    "cross_down": 3
+  },
+  "transport_modes": {
+    "SINGLE_CAR": 14,
+    "CAR_DOG_CAR": 6
+  },
+  "robot_speeds_mps": {
+    "car": 2.0,
+    "dog": 0.8
+  },
+  "min_legal_actions": 2,
+  "max_legal_actions": 144,
+  "min_cross_floor_stair_candidates": 4,
+  "abnormal_mask_probes": [
+    {
+      "probe": "pickup_unavailable",
+      "rejected": true
+    },
+    {
+      "probe": "pickup_faulted",
+      "rejected": true
+    },
+    {
+      "probe": "pickup_busy",
+      "rejected": true
+    },
+    {
+      "probe": "pickup_loaded",
+      "rejected": true
+    },
+    {
+      "probe": "receiver_unavailable",
+      "rejected": true
+    },
+    {
+      "probe": "receiver_faulted",
+      "rejected": true
+    },
+    {
+      "probe": "receiver_busy",
+      "rejected": true
+    },
+    {
+      "probe": "receiver_loaded",
+      "rejected": true
+    },
+    {
+      "probe": "dog_unavailable",
+      "rejected": true
+    },
+    {
+      "probe": "dog_faulted",
+      "rejected": true
+    },
+    {
+      "probe": "dog_busy",
+      "rejected": true
+    },
+    {
+      "probe": "dog_loaded",
+      "rejected": true
+    },
+    {
+      "probe": "stair_occupied",
+      "rejected": true
+    },
+    {
+      "probe": "pickup_wrong_floor",
+      "rejected": true
+    },
+    {
+      "probe": "same_floor_calls_dog",
+      "rejected": true
+    },
+    {
+      "probe": "cross_floor_single_car",
+      "rejected": true
+    },
+    {
+      "probe": "same_floor_car_dog_car",
+      "rejected": true
+    },
+    {
+      "probe": "car_car_mode_removed",
+      "rejected": true
+    },
+    {
+      "probe": "single_dog_with_car_fields",
+      "rejected": true
+    }
+  ],
+  "assertions": {
+    "twenty_tasks_completed": true,
+    "fixed_observation_shape": true,
+    "fixed_action_shape": true,
+    "deterministic_encoding": true,
+    "six_task_types_covered": true,
+    "cross_floor_has_multiple_stairs": true,
+    "mode_choice_matches_task_floor_relation": true,
+    "actions_reversibly_decoded": true,
+    "stage11_cleanup_preserved": true,
+    "abnormal_action_mask_100_percent": true
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-08-04T12:28:09.143692+00:00",
+  "seed": 20260804,
+  "trial_count": 350,
+  "planned_trial_count": 350,
+  "test_pass_count": 350,
+  "test_failure_count": 0,
+  "per_fault": {
+    "PLANNING_FAILURE": {
+      "trials": 50,
+      "passes": 50
+    },
+    "HANDOVER_TIMEOUT": {
+      "trials": 50,
+      "passes": 50
+    },
+    "ROBOT_FAILURE": {
+      "trials": 50,
+      "passes": 50
+    },
+    "STAIR_TIMEOUT": {
+      "trials": 50,
+      "passes": 50
+    },
+    "REGION_LOCK_TIMEOUT": {
+      "trials": 50,
+      "passes": 50
+    },
+    "SENSOR_FAILURE": {
+      "trials": 50,
+      "passes": 50
+    },
+    "TASK_CANCELLED": {
+      "trials": 50,
+      "passes": 50
+    }
+  },
+  "all_locks_released": true,
+  "all_ownership_recovered": true,
+  "all_within_time_limit": true,
+  "results_jsonl": "/Users/lab4099/Desktop/Mujoco/work/results/stage9/stage9_failure_recovery_fixed_350.jsonl"
+}

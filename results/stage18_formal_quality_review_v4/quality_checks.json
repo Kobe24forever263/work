@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-08-22T16:20:19.683057+00:00",
+  "checks": {
+    "medium_statistics_schema": true,
+    "high_statistics_schema": true,
+    "medium_comparison_count": true,
+    "high_comparison_count": true,
+    "all_primary_values_finite": true,
+    "fresh_seed_namespaces_are_disjoint": true,
+    "all_integrity_gates_pass": true
+  },
+  "passed": true
+}

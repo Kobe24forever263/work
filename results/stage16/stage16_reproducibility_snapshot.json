@@ -1,0 +1,545 @@
+{
+  "stage": 16,
+  "gate": "FROZEN_SEEDS_AND_REPRODUCIBILITY_SNAPSHOT",
+  "created_at_utc": "2026-08-11T09:10:42.526293+00:00",
+  "seed_protocol": "/Users/lab4099/Desktop/Mujoco/work/src/warehouse_bringup/config/experiment_seeds.yaml",
+  "seed_protocol_version": "tro_seed_protocol_v1",
+  "seed_namespaces": {
+    "training_run_1": {
+      "first": 31000000,
+      "last": 31008099,
+      "count": 8020
+    },
+    "training_run_2": {
+      "first": 31010000,
+      "last": 31018099,
+      "count": 8020
+    },
+    "training_run_3": {
+      "first": 31020000,
+      "last": 31028099,
+      "count": 8020
+    },
+    "training_run_4": {
+      "first": 31030000,
+      "last": 31038099,
+      "count": 8020
+    },
+    "training_run_5": {
+      "first": 31040000,
+      "last": 31048099,
+      "count": 8020
+    },
+    "validation": {
+      "first": 42000000,
+      "last": 42000099,
+      "count": 100
+    },
+    "test": {
+      "first": 43000000,
+      "last": 43000099,
+      "count": 100
+    },
+    "smoke": {
+      "first": 41000000,
+      "last": 41000099,
+      "count": 100
+    },
+    "bootstrap": {
+      "first": 44000000,
+      "last": 44000099,
+      "count": 100
+    }
+  },
+  "seed_assertions": {
+    "protocol_version_present": true,
+    "five_independent_training_seeds": true,
+    "training_seed_bases_unique": true,
+    "warm_start_and_ppo_seeds_disjoint_within_run": true,
+    "all_seed_namespaces_disjoint": true,
+    "test_is_paired_across_methods": true,
+    "test_is_locked_until_checkpoint_selection": true
+  },
+  "seed_overlaps": {},
+  "snapshot_sha256": "43fd8255aeda219ebf9076c6cc9ffad0169844f1f60ec8ffabb6e7382514d947",
+  "file_count": 94,
+  "files": [
+    {
+      "path": "0809交接文档.md",
+      "bytes": 37539,
+      "sha256": "caba89c2fddd96a60102f03ada08195710623ddc9e98ca41c93aa0f9f14ed88a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8775,
+      "sha256": "83740d7a1510d787b19e0537a15461a086d8910db50d1f85912d21707433cf80"
+    },
+    {
+      "path": "docs/architecture/acceptance_matrix.md",
+      "bytes": 3771,
+      "sha256": "e9d6d5081e8644dd2d75f32690ce42c55266e9c8db94770c0146ca3661027d6b"
+    },
+    {
+      "path": "docs/architecture/asset_sources.md",
+      "bytes": 717,
+      "sha256": "a560235c9ab6c3805207401d9ab009ce359168dadbbc65d743af611de378336e"
+    },
+    {
+      "path": "docs/architecture/cross_floor_scan_demo.md",
+      "bytes": 3660,
+      "sha256": "f54389b4d665bc591571799c7791a7ef2eec6580b8f872fd2f9e249e3fa5374b"
+    },
+    {
+      "path": "docs/architecture/decision_20260802_unified_scan_rviz.md",
+      "bytes": 1289,
+      "sha256": "32eefc20fb60c1ed73eaa9c7311f54f13285f56509dce87fd7d8fd5b9ae3b908"
+    },
+    {
+      "path": "docs/architecture/decision_20260804_async_persistent_dispatch.md",
+      "bytes": 3595,
+      "sha256": "cae203a124d067914dc43271ecc72a87926846211db0e67624fdd0a696485c34"
+    },
+    {
+      "path": "docs/architecture/phase1_design.md",
+      "bytes": 4192,
+      "sha256": "06c185221d3a1bfd5807163f9ac08f363e8fbc05fb5e3a751766dd48dc22d9a2"
+    },
+    {
+      "path": "docs/architecture/stage2_environment.md",
+      "bytes": 2827,
+      "sha256": "e813871be10f98a841ed0ed95f6c170bd936820a6efc0ae6d0519f48b81f162c"
+    },
+    {
+      "path": "docs/architecture/stage3_carter_isolation.md",
+      "bytes": 2360,
+      "sha256": "55bdafa3ba06a6ed6ccf75fe90f0fe3fcbb67bc76aabcfa58bac3311c129fbf0"
+    },
+    {
+      "path": "docs/architecture/stage3_go2_isolation.md",
+      "bytes": 1374,
+      "sha256": "fc5f5fcdbf38ee6fbf1c3f22be5c9035c65ba741cee0997e8ea5aa1b89625923"
+    },
+    {
+      "path": "docs/architecture/stage4_spatial_management.md",
+      "bytes": 2124,
+      "sha256": "f45bbb44e791690786be5bfdeaa4238c335660649e3d4a1c7fe40b6fd85d1176"
+    },
+    {
+      "path": "docs/architecture/stage5_single_go2.md",
+      "bytes": 1515,
+      "sha256": "7ec98ded770b25804829e1df15f4536471de212b10e98b13369292c7fcc608f8"
+    },
+    {
+      "path": "docs/architecture/stage6_single_carter.md",
+      "bytes": 4881,
+      "sha256": "a827ff22c3ccee1161cf13061edd8a4b9e0a4b6f2d2595c0858c9f3c106614a3"
+    },
+    {
+      "path": "scripts/control_carter.py",
+      "bytes": 3434,
+      "sha256": "e490fae0aed95187fad7c1c8459f90e258864cb7f2c134026935957063feea3f"
+    },
+    {
+      "path": "scripts/evaluate_stage14_smdp_ppo.py",
+      "bytes": 6138,
+      "sha256": "d3a0a57d3aabb173d9f2b5c4bb7a5c6af725ab8526e34f20d1715a7b4da18d19"
+    },
+    {
+      "path": "scripts/generate_0806_ppt.py",
+      "bytes": 39489,
+      "sha256": "692a6cba4b4a522eaa36d2bf5f2ce54e51418605f4c92917076e5ebfa1fb5445"
+    },
+    {
+      "path": "scripts/generate_carter_nav2_config.py",
+      "bytes": 5728,
+      "sha256": "d1deac7c4a8a1d77d51190db47d32603d8e9e4c3bb7dd94e25046b725e1d0a7a"
+    },
+    {
+      "path": "scripts/generate_scan_assets.py",
+      "bytes": 8160,
+      "sha256": "e2017517c5c53c5f78d8c8cc98a3450491a9efa0066b034ccb751f446aa7bd86"
+    },
+    {
+      "path": "scripts/generate_world.py",
+      "bytes": 16112,
+      "sha256": "f6cf95df3122872f415912350dac4398108fc531ece161485a08cb30320f098d"
+    },
+    {
+      "path": "scripts/navigate_carter_floor2_receive.py",
+      "bytes": 5139,
+      "sha256": "03b0514f6e06d5e9eac6d59f42154baf0ab3453fa27ad5cffcc983bd9052bc4e"
+    },
+    {
+      "path": "scripts/navigate_carter_outer_handover.py",
+      "bytes": 6069,
+      "sha256": "525c68c0b01f8b84d3b029e746b9ef5cd6a7861707aaa19e375d9af7b495b61f"
+    },
+    {
+      "path": "scripts/navigate_carter_to_stair.py",
+      "bytes": 2913,
+      "sha256": "b97de4e354d27c90325b1a7b979ffa6b12787ff1ecc9408448543eb9430ea4be"
+    },
+    {
+      "path": "scripts/prepare_stage18_training_manifest.py",
+      "bytes": 2733,
+      "sha256": "b13228fb2d54bb6c9e8f03fa24798f90dd9d81f56aa62e82ccea548707239d01"
+    },
+    {
+      "path": "scripts/run_logic_tests.py",
+      "bytes": 512,
+      "sha256": "1a57b1f1a34781270f1647235f9e1b9dc3240482fd647462dfa5383bdd2147b7"
+    },
+    {
+      "path": "scripts/run_stage10_rule_baseline.py",
+      "bytes": 8840,
+      "sha256": "3cb5858d0c10e24e6edba842fa85e76d4037b13b4ccbcf6d3805c1eb5b1c53b4"
+    },
+    {
+      "path": "scripts/run_stage11_persistent_20.py",
+      "bytes": 13625,
+      "sha256": "0865536a139c8530fbca260d19da3dd1af7d12eb82a56d425f0615e7bb013f41"
+    },
+    {
+      "path": "scripts/run_stage11_persistent_smoke.py",
+      "bytes": 6469,
+      "sha256": "c8cd7bdac83a9c111f1ca6c676e57521a2e0ed29f3ab8f0f25cce4991da1755d"
+    },
+    {
+      "path": "scripts/run_stage12_encoding_gate.py",
+      "bytes": 11245,
+      "sha256": "b3a700379e6715f1c9e622e3ab23d9e90d8b6268df04c0e74db2655e568bc5b6"
+    },
+    {
+      "path": "scripts/run_stage13_final_gate.py",
+      "bytes": 9261,
+      "sha256": "7e1e4da33d36d20445173fe657685adce1d68b9f9030f7accdfc7e7602115776"
+    },
+    {
+      "path": "scripts/run_stage13_reward_gate.py",
+      "bytes": 7409,
+      "sha256": "8902989ff48f4f62656f6a8b7f8013f85dff1df22c179601ed1d08036698b428"
+    },
+    {
+      "path": "scripts/run_stage14_execution_mode_gate.py",
+      "bytes": 10647,
+      "sha256": "8231679b960031db503c6ca3c0ebef060ab801706f6b3bffd81035b72840cf21"
+    },
+    {
+      "path": "scripts/run_stage14_handover_timeout_gate.py",
+      "bytes": 12000,
+      "sha256": "d85feec3ee2b8f0359ee62b9def696fbb3816736526a8d155b96479bf9e7b846"
+    },
+    {
+      "path": "scripts/run_stage14_interface_gate.py",
+      "bytes": 8995,
+      "sha256": "f3cb1fc91da516ae2aa76a04fd7fd5e1e9aea630494c26b23c3f9365a6ee9e38"
+    },
+    {
+      "path": "scripts/run_stage14_policy_smoke.py",
+      "bytes": 16800,
+      "sha256": "98a5da2dcad7c3959902f5bb5ac94391b17541649b2b5b04a9a18a16a19cffa2"
+    },
+    {
+      "path": "scripts/run_stage14_reward_v2_gate.py",
+      "bytes": 6708,
+      "sha256": "5312c7125080e6cd6ee03086b12b27cbc69c5f6be5d6af26715034a55af0f161"
+    },
+    {
+      "path": "scripts/run_stage14_smdp_ppo.py",
+      "bytes": 21065,
+      "sha256": "1c1a4bfa4c4b658a6a604b3175b189c65790cb89c8e73e597fffd8145b9e5337"
+    },
+    {
+      "path": "scripts/run_stage15_serial_concurrent_comparison.py",
+      "bytes": 9178,
+      "sha256": "7a672c9b7ec09ca153d5a2067bb72636006e680a9263da01477eb146d7e7b951"
+    },
+    {
+      "path": "scripts/run_stage15_stress_evaluation.py",
+      "bytes": 33907,
+      "sha256": "9cb4196e25f051a8e876d7c59cf830cb74e7d2f7b76b5fdb475b584948d30d89"
+    },
+    {
+      "path": "scripts/run_stage16_result_schema_gate.py",
+      "bytes": 5972,
+      "sha256": "3afc54cecca4da97455a768cf04a7907f2a0bdf0aa8a9baf092c363c92530fa9"
+    },
+    {
+      "path": "scripts/run_stage16_seed_snapshot_gate.py",
+      "bytes": 5856,
+      "sha256": "5018b4006ef14b1915caa79d71613816071b68223a2a48a20c6ed58efe5844f7"
+    },
+    {
+      "path": "scripts/run_stage17_ablation_interface_gate.py",
+      "bytes": 7137,
+      "sha256": "5754673290bfabfa07a84df1617f56959434d479d7269316fdabe8c959157872"
+    },
+    {
+      "path": "scripts/run_stage17_ablation_smokes.py",
+      "bytes": 3332,
+      "sha256": "479c74c09e173568a9d88b2e22aa26f5ea7ec03e7517fcd7962389dcbce19f42"
+    },
+    {
+      "path": "scripts/run_stage18_train_one.py",
+      "bytes": 6018,
+      "sha256": "71f5235aecfd65453da98a0bc3c3e5514f5e987033ef8bdb75e724aa10db1457"
+    },
+    {
+      "path": "scripts/run_stage18_warm_start_independence_gate.py",
+      "bytes": 3391,
+      "sha256": "6afb85fb017c9f083df1df8fd13072a14644e9d2b5694ac54dc21ae93266ad89"
+    },
+    {
+      "path": "scripts/run_stage5_batch.py",
+      "bytes": 7342,
+      "sha256": "6dbf7e1c56e6a574efa2e1b2e93dad361f33a063ba3e92a7806152524e894225"
+    },
+    {
+      "path": "scripts/run_stage6_batch.py",
+      "bytes": 7746,
+      "sha256": "ea0cf695cc3b2731914bffe05a501eecad3933886dc2be6b0f45dd1602a61a86"
+    },
+    {
+      "path": "scripts/run_stage7_cargo_ownership.py",
+      "bytes": 4824,
+      "sha256": "c18fcc1ecc121da39fca8179bba0f9fad6c46f9a2177d1eef8fe70abb656eb64"
+    },
+    {
+      "path": "scripts/run_stage8_handover_300.py",
+      "bytes": 7866,
+      "sha256": "23cd58eaa6c05c54bf55ecbf5c750abf1fd870eb6d712344fe5efbd69e9802e7"
+    },
+    {
+      "path": "scripts/run_stage9_failure_recovery.py",
+      "bytes": 6510,
+      "sha256": "038adf09fd143ff2ac290c94fc745b206a807a26834a9254a5d572910c00645a"
+    },
+    {
+      "path": "scripts/validate_config.py",
+      "bytes": 3003,
+      "sha256": "75723250d901e1bb1f6814d6eccd7fbdd56234e20e4b57b2f51f3e9eaf561441"
+    },
+    {
+      "path": "scripts/validate_go2_interfaces.py",
+      "bytes": 2651,
+      "sha256": "c9b46289961d837f757019fd79cb225cc87c31b1226b4c759ddbbdea08812f00"
+    },
+    {
+      "path": "scripts/validate_scan_assets.py",
+      "bytes": 4347,
+      "sha256": "7f8758f2ec73c9849ec64f1b42b3f0d6d80cac029fd5a80d4d244d77d2ead37f"
+    },
+    {
+      "path": "scripts/validate_stage4_runtime.py",
+      "bytes": 4104,
+      "sha256": "a87ee81875d05a9b22860913fc16d368a2931386e83edb1773845fb10ed05e17"
+    },
+    {
+      "path": "scripts/validate_stage6_routes.py",
+      "bytes": 2777,
+      "sha256": "43fca5ed91cd0f490df8484f69c6eb00c56092aa53e22d998c6df903204eee46"
+    },
+    {
+      "path": "scripts/validate_world.py",
+      "bytes": 9079,
+      "sha256": "7fbb05d92cd569f194e3eae6ecacd009dded79b070fcf82f4afb48915be4d434"
+    },
+    {
+      "path": "scripts/wait_for_scan_pose.py",
+      "bytes": 2554,
+      "sha256": "85e58409f8b99caa01fe6d91fd309adcb308f51420808c30e3dd97bdd0f4b685"
+    },
+    {
+      "path": "src/warehouse_bringup/config/experiment_seeds.yaml",
+      "bytes": 1278,
+      "sha256": "996f11458e8d6fe6317b02483a19a9991d03732c1710165986390876212c7ead"
+    },
+    {
+      "path": "src/warehouse_bringup/config/learning.yaml",
+      "bytes": 2254,
+      "sha256": "6e3e7bd7c271042fcab41db7cba409254e836292df8f867170423e6ab7c5980b"
+    },
+    {
+      "path": "src/warehouse_bringup/config/nav2_car_f1_1.yaml",
+      "bytes": 12302,
+      "sha256": "07dc51d7953826732e460e1b4535de78c748f082dfc56a044a1798d7cbecbecb"
+    },
+    {
+      "path": "src/warehouse_bringup/config/nav2_car_f1_2.yaml",
+      "bytes": 12302,
+      "sha256": "ca11345782f6fb0671e881d5825a462c5dbec3fd2848bce8e88ad063fb10424e"
+    },
+    {
+      "path": "src/warehouse_bringup/config/nav2_car_f1_3.yaml",
+      "bytes": 12302,
+      "sha256": "c725e9f4de26c3b60dac89adb67b097abb494926737256f4e0a12c4a6e41d8cb"
+    },
+    {
+      "path": "src/warehouse_bringup/config/nav2_car_f1_4.yaml",
+      "bytes": 12302,
+      "sha256": "a278b89fc6f5abe2855ffab9c012cd7770956abd86312c5988ef3acb68bc9e95"
+    },
+    {
+      "path": "src/warehouse_bringup/config/nav2_car_f2_1.yaml",
+      "bytes": 12302,
+      "sha256": "6826856a3563d0c179fdce25e34d40c696c5eb787237ad0652805edeefe56aec"
+    },
+    {
+      "path": "src/warehouse_bringup/config/nav2_car_f2_2.yaml",
+      "bytes": 12302,
+      "sha256": "ba87a128312d19c732bdb6b28f6e7a6b0bbc1d8a1f63475b44cf3c73da32ec97"
+    },
+    {
+      "path": "src/warehouse_bringup/config/nav2_carter.yaml",
+      "bytes": 12409,
+      "sha256": "1f64081838fecf579996bf45d76d02f9e5f4a8c4238e1ee7111f6db00604f4e4"
+    },
+    {
+      "path": "src/warehouse_bringup/config/robot_models.yaml",
+      "bytes": 468,
+      "sha256": "0513652b3916682013c6a118ede975acf0d675f9df96bec06f10cae8505ec36e"
+    },
+    {
+      "path": "src/warehouse_bringup/config/robots.yaml",
+      "bytes": 1316,
+      "sha256": "0785bf7495a914fb528571e0a824a26c054e43dbf7bb9ec30b0ba85ff2812d72"
+    },
+    {
+      "path": "src/warehouse_bringup/config/scene.yaml",
+      "bytes": 5944,
+      "sha256": "073793641cb85c205fe5bc7086c5ed0bab27878dbaf32bceadea56c9e23c4b1c"
+    },
+    {
+      "path": "src/warehouse_bringup/config/scheduler.yaml",
+      "bytes": 854,
+      "sha256": "389e4444e466157791e3ced5052a0e8b2b70717e751dec57c47128b233ee92ca"
+    },
+    {
+      "path": "src/warehouse_bringup/config/stairs.yaml",
+      "bytes": 1407,
+      "sha256": "fd9f580c6a518af2f89517c91902c120511c5f5afda11558de6d9e09bf802cab"
+    },
+    {
+      "path": "src/warehouse_bringup/config/system.yaml",
+      "bytes": 1111,
+      "sha256": "a21ac6a7536f8c12c798fa2d76ae0326490751465a9bd71542118ea830f5fcd7"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/__init__.py",
+      "bytes": 81,
+      "sha256": "59ac5d68d300972fe1a235e143187cda71512033ebf6cbbbaf6594e36cfe43e3"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/cargo_task.py",
+      "bytes": 3710,
+      "sha256": "11c3c30ba1be09e916256946cd8f1fa3d2fd30db27e2c6477bf6cb236d7b02cb"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/carter_state_bridge.py",
+      "bytes": 10958,
+      "sha256": "aa2197aec5e04ab009287ba7e7553b5cdf4a4baf4d82b921e29040a2f2e80d03"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/concurrent_dispatch.py",
+      "bytes": 13686,
+      "sha256": "5376ca5987ddebb8c631472fdb075fc6991d3ba183a9a622ee8a4dc80614115a"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/domain.py",
+      "bytes": 1805,
+      "sha256": "790e778c404353259221104281073b65df510c233f4e3645d7fe2b7a06384b2d"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/go2_gazebo_pose_bridge.py",
+      "bytes": 13089,
+      "sha256": "e58aaedf258d4b7a96b926a57af49162c5bb935c19dd241e640fd6d0813c17d7"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/handover.py",
+      "bytes": 4242,
+      "sha256": "937ad0464637c2b307a885c254e4a8f02a2e881e2ecda784ff645ce094e33fd8"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/handover_timing.py",
+      "bytes": 7984,
+      "sha256": "74b6077cf7c043bd61b655af4748059ed0763b2fa334409d48fc618fca614b97"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/multifloor_rviz_state_bridge.py",
+      "bytes": 7819,
+      "sha256": "bd3179ae3b47901dd16def443c3d6e5e46a2e98fe7cb92752a52240badf5b434"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/node.py",
+      "bytes": 416,
+      "sha256": "9dea94aede0b9a570470195d82e2d4ff346f1b6b8520a2b23e52cbbdd1d4e62c"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/persistent_dispatch.py",
+      "bytes": 42617,
+      "sha256": "0a606641760572efd71c0ebd6c68f5eef22ab963e234f726708253ead276d011"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/recovery.py",
+      "bytes": 3139,
+      "sha256": "7197db8c11c766b28df587d89bf5daff4f9c7c2230b62b998b2c8db185cc6fed"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/reservations.py",
+      "bytes": 1903,
+      "sha256": "6550314f8e9cd7473633348a4413c1f32dac18bb0b56b127fa1e09b460f5508f"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/rviz_robot_markers.py",
+      "bytes": 6161,
+      "sha256": "9f6536c891eaf3c6171e6c2daf93c8a3e55d02494ef1e83043fc3f76468ac3ee"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/scheduler.py",
+      "bytes": 5297,
+      "sha256": "72e18edc25fd7254139207b9027c08e7e3f0770e3107a9c2f613cb40ca53a2eb"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/spatial.py",
+      "bytes": 5929,
+      "sha256": "1138a8f4aba6d47555db5b14f8c751e5933601cdbbb932f59b93bfb58298475f"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/spatial_manager_node.py",
+      "bytes": 8394,
+      "sha256": "43c6efe53f7be83f61dc8aeafc641a07aaea89c8e2d89ee41576c8686fdee85a"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/stage12_encoding.py",
+      "bytes": 14252,
+      "sha256": "fa164beb0c6a5e2aff6e08f055d53efca613c6f7b0e8f641888da4803b83c60c"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/stage14_policy.py",
+      "bytes": 5129,
+      "sha256": "6599adf375e35a11a1ea2b7d0483832e9b0d828c89962036e8f4a7a0e429f544"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/stage14_ppo.py",
+      "bytes": 20769,
+      "sha256": "9f699aede1b335ec7f10b947b441e85fbfb35ff8f3e8cb654fdcdd5ed92ddc02"
+    },
+    {
+      "path": "src/warehouse_core/warehouse_core/stage14_training.py",
+      "bytes": 19492,
+      "sha256": "6f574215c61f93646dd025f6c41ec0ccfefe2c82d92bca83f459a0fee0a6a679"
+    },
+    {
+      "path": "文件检索的指引.md",
+      "bytes": 17753,
+      "sha256": "c5481cbcd3a80cd1c33244d160ccf90c8ad9452e7bc8c0991a3cef3fdcb36fd4"
+    }
+  ],
+  "environment": {
+    "python": "3.12.13",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "numpy": "2.5.1",
+    "torch": "2.10.0"
+  },
+  "passed": true
+}

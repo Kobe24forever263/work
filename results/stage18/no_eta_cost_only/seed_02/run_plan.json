@@ -1,0 +1,33 @@
+{
+  "stage": 18,
+  "condition": "no_eta_cost_only",
+  "arrival_profile": "MEDIUM",
+  "seed_index": 2,
+  "experiment_run_seed": 31010000,
+  "warm_start_seed_range": [
+    31010000,
+    31010019
+  ],
+  "ppo_seed_range": [
+    31010100,
+    31018099
+  ],
+  "validation_seed_range": [
+    42000000,
+    42000099
+  ],
+  "condition_config": {
+    "observation_variant": "NO_ETA_COST_ONLY",
+    "policy_variant": "CONTEXT_INTERACTION",
+    "discount_mode": "VARIABLE_SMDP"
+  },
+  "warm_start_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_eta_cost_only/seed_02/warm_start.pt",
+  "final_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_eta_cost_only/seed_02/stage18_ppo.pt",
+  "best_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_eta_cost_only/seed_02/stage18_ppo.best.pt",
+  "history": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_eta_cost_only/seed_02/stage18_ppo.history.json",
+  "warm_start_command": "\"/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python\" \"/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage14_policy_smoke.py\" \"--epochs\" \"30\" \"--batch-size\" \"32\" \"--learning-rate\" \"0.001\" \"--execution-mode\" \"CONCURRENT\" \"--arrival-profile\" \"MEDIUM\" \"--run-seed\" \"31010000\" \"--training-seed-count\" \"20\" \"--validation-seed-start\" \"42000000\" \"--validation-episodes\" \"5\" \"--observation-variant\" \"NO_ETA_COST_ONLY\" \"--policy-variant\" \"CONTEXT_INTERACTION\" \"--output\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_eta_cost_only/seed_02/warm_start.pt\" \"--allow-interface-only-continuation\"",
+  "ppo_command": "\"/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python\" \"/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage14_smdp_ppo.py\" \"--execution-mode\" \"CONCURRENT\" \"--arrival-profile\" \"MEDIUM\" \"--observation-variant\" \"NO_ETA_COST_ONLY\" \"--policy-variant\" \"CONTEXT_INTERACTION\" \"--discount-mode\" \"VARIABLE_SMDP\" \"--updates\" \"2000\" \"--episodes-per-update\" \"4\" \"--ppo-epochs\" \"4\" \"--minibatch-size\" \"32\" \"--learning-rate\" \"0.0003\" \"--clip-ratio\" \"0.2\" \"--gae-lambda\" \"0.95\" \"--entropy-coefficient\" \"0.01\" \"--value-coefficient\" \"0.5\" \"--seed\" \"31010100\" \"--experiment-run-seed\" \"31010000\" \"--validation-seed-start\" \"42000000\" \"--eval-episodes\" \"100\" \"--eval-every\" \"50\" \"--checkpoint-every\" \"50\" \"--log-every\" \"20\" \"--output\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_eta_cost_only/seed_02/stage18_ppo.pt\" \"--warm-start\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_eta_cost_only/seed_02/warm_start.pt\"",
+  "planned_updates": 2000,
+  "planned_ppo_episodes": 8000,
+  "resume_audit": null
+}

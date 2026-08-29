@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "html": "stage18_quality_review.html",
+  "stages": {
+    "validation": "passed",
+    "package": "passed",
+    "verification": "structural_only"
+  },
+  "counts": {
+    "blocks": 26,
+    "charts": 4,
+    "html": 0,
+    "metrics": 4,
+    "tables": 5
+  },
+  "sourceDialog": "not_verified",
+  "sourceInteraction": "not_verified",
+  "browser_note": "Bundled browser automation timed out on local Chrome. Structural verification passed, and a direct headless Chrome screenshot was generated and visually inspected without obvious layout defects.",
+  "preview": "report_preview.png"
+}

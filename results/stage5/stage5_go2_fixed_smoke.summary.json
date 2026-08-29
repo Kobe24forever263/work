@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-08-04T01:19:02.512193+00:00",
+  "seed": 20260730,
+  "initial_jitter": 0.0,
+  "trial_count": 8,
+  "success_count": 8,
+  "failure_count": 0,
+  "by_route": {
+    "dog_2:down": {
+      "trials": 1,
+      "passes": 1
+    },
+    "dog_3:down": {
+      "trials": 1,
+      "passes": 1
+    },
+    "dog_4:up": {
+      "trials": 1,
+      "passes": 1
+    },
+    "dog_1:up": {
+      "trials": 1,
+      "passes": 1
+    },
+    "dog_1:down": {
+      "trials": 1,
+      "passes": 1
+    },
+    "dog_3:up": {
+      "trials": 1,
+      "passes": 1
+    },
+    "dog_4:down": {
+      "trials": 1,
+      "passes": 1
+    },
+    "dog_2:up": {
+      "trials": 1,
+      "passes": 1
+    }
+  },
+  "results_jsonl": "/Users/lab4099/Desktop/Mujoco/work/results/stage5/stage5_go2_fixed_smoke.jsonl"
+}

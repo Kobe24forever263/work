@@ -1,0 +1,5 @@
+{
+  "accepted": true,
+  "reason": "Training, numerical, safety and completion gates passed; contextual cost-reference agreement is retained as an ablation result.",
+  "original_exit_code": 1
+}

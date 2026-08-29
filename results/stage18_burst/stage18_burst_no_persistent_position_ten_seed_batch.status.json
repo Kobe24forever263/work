@@ -1,0 +1,91 @@
+{
+  "stage": 18,
+  "batch": "ONE_CONTEXT_ABLATION_TEN_SEEDS",
+  "condition": "no_persistent_position",
+  "arrival_profile": "BURST",
+  "state": "COMPLETED",
+  "updated_at_utc": "2026-08-14T21:03:05.209150+00:00",
+  "planned_run_count": 10,
+  "runs": [
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 1,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T13:48:04.183642+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_persistent_position/seed_01/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T14:36:55.774075+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 2,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T14:36:55.774347+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_persistent_position/seed_02/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T15:19:21.575825+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 3,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T15:19:21.576060+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_persistent_position/seed_03/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T16:02:52.776097+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 4,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T16:02:52.776381+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_persistent_position/seed_04/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T16:45:17.897673+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 5,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T16:45:17.897895+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_persistent_position/seed_05/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T17:28:10.142609+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 6,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T17:28:10.143091+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_persistent_position/seed_06/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T18:11:25.541373+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 7,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T18:11:25.541751+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_persistent_position/seed_07/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T18:54:06.079455+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 8,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T18:54:06.079773+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_persistent_position/seed_08/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T19:36:57.320412+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 9,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T19:36:57.320867+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_persistent_position/seed_09/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T20:20:58.594992+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 10,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-14T20:20:58.595407+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_burst/no_persistent_position/seed_10/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-14T21:03:05.207834+00:00"
+    }
+  ]
+}

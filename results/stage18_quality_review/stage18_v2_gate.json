@@ -1,0 +1,31 @@
+{
+  "stage": 18,
+  "gate": "CORRECTED_CONFIRMATORY_EVALUATION_V2_SMOKE",
+  "date_local": "2026-08-15",
+  "passed": true,
+  "checks": {
+    "python_syntax": true,
+    "campaign_job_count": 180,
+    "matched_load_job_count": 120,
+    "cross_load_job_count": 60,
+    "fresh_test_seed_start": 45000000,
+    "fresh_test_seed_count": 100,
+    "bootstrap_seed_start": 46000000,
+    "task_keyed_repeat_is_deterministic": true,
+    "successful_throughput_not_above_resolved_rate": true,
+    "legacy_default_remains_sequential": true,
+    "legacy_throughput_alias_preserved": true
+  },
+  "two_episode_probe": {
+    "weight": "results/stage18/full_context_v2/seed_01/stage18_ppo.best.pt",
+    "profile": "MEDIUM",
+    "seeds": [45000000, 45000001],
+    "policy_completed": 38,
+    "policy_failed": 2,
+    "policy_resolved_throughput_tasks_per_hour": 55.38847684564523,
+    "policy_successful_throughput_tasks_per_hour": 52.619053003362964,
+    "rule_completed": 38,
+    "rule_failed": 2
+  },
+  "claim_boundary": "Interface and determinism smoke only; not a confirmatory performance result."
+}

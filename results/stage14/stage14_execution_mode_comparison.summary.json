@@ -1,0 +1,168 @@
+{
+  "stage": 14,
+  "gate": "SERIAL_CONCURRENT_EXECUTION_MODE_COMPARISON",
+  "seed_start": 20261601,
+  "seed_end": 20261700,
+  "observation_size": 284,
+  "mode_conditioning": {
+    "state_index_3": "active_task_ratio",
+    "state_index_4": "is_concurrent",
+    "mixed_curriculum": "even_seed=SERIAL, odd_seed=CONCURRENT"
+  },
+  "profiles": {
+    "MEDIUM": {
+      "SERIAL": {
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed_task_count": 1938,
+        "failed_task_count": 62,
+        "success_rate": 0.969,
+        "mean_episode_time": 1291.9240090465312,
+        "throughput_tasks_per_hour": 55.73083207358118,
+        "mean_waiting_time": 5.261375438284039,
+        "p95_waiting_time": 25.717042808641907,
+        "mean_flow_time": 44.795031186004216,
+        "p95_flow_time": 86.3289562660959,
+        "mean_distance_per_task": 67.061280059759,
+        "mean_episode_reward": 33.93563954104241,
+        "blocked_wait_count": 0,
+        "maximum_active_tasks": 0,
+        "transport_modes": {
+          "SINGLE_DOG": 300,
+          "SINGLE_CAR": 1000,
+          "CAR_DOG_CAR": 700
+        },
+        "handover_attempt_count": 1376,
+        "handover_timeout_count": 62,
+        "handover_timeout_rate": 0.04505813953488372
+      },
+      "CONCURRENT": {
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed_task_count": 1938,
+        "failed_task_count": 62,
+        "success_rate": 0.969,
+        "mean_episode_time": 1285.6516950125101,
+        "throughput_tasks_per_hour": 56.00272630550952,
+        "mean_waiting_time": 1.950676153137098,
+        "p95_waiting_time": 14.758109265803114,
+        "mean_flow_time": 41.61827034859586,
+        "p95_flow_time": 82.43068334980637,
+        "mean_distance_per_task": 67.25173368887732,
+        "mean_episode_reward": 34.56673475653784,
+        "blocked_wait_count": 362,
+        "maximum_active_tasks": 2,
+        "transport_modes": {
+          "SINGLE_DOG": 300,
+          "SINGLE_CAR": 1000,
+          "CAR_DOG_CAR": 700
+        },
+        "handover_attempt_count": 1376,
+        "handover_timeout_count": 62,
+        "handover_timeout_rate": 0.04505813953488372
+      }
+    },
+    "DENSE": {
+      "SERIAL": {
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed_task_count": 1938,
+        "failed_task_count": 62,
+        "success_rate": 0.969,
+        "mean_episode_time": 852.8405718519617,
+        "throughput_tasks_per_hour": 84.42375090534266,
+        "mean_waiting_time": 308.6975858374117,
+        "p95_waiting_time": 669.8181270038025,
+        "mean_flow_time": 348.1375606045792,
+        "p95_flow_time": 683.6291676231299,
+        "mean_distance_per_task": 66.57523994827534,
+        "mean_episode_reward": -98.22836619998209,
+        "blocked_wait_count": 0,
+        "maximum_active_tasks": 0,
+        "transport_modes": {
+          "SINGLE_DOG": 300,
+          "SINGLE_CAR": 1000,
+          "CAR_DOG_CAR": 700
+        },
+        "handover_attempt_count": 1376,
+        "handover_timeout_count": 62,
+        "handover_timeout_rate": 0.04505813953488372
+      },
+      "CONCURRENT": {
+        "episode_count": 100,
+        "task_count": 2000,
+        "completed_task_count": 1938,
+        "failed_task_count": 62,
+        "success_rate": 0.969,
+        "mean_episode_time": 589.5234589805464,
+        "throughput_tasks_per_hour": 122.13254435117557,
+        "mean_waiting_time": 76.14507658588914,
+        "p95_waiting_time": 321.0596602135321,
+        "mean_flow_time": 116.16413816675075,
+        "p95_flow_time": 341.48190813152974,
+        "mean_distance_per_task": 68.27505567743471,
+        "mean_episode_reward": 2.0781467325224487,
+        "blocked_wait_count": 3055,
+        "maximum_active_tasks": 4,
+        "transport_modes": {
+          "SINGLE_DOG": 290,
+          "SINGLE_CAR": 1000,
+          "CAR_DOG_CAR": 710
+        },
+        "handover_attempt_count": 1396,
+        "handover_timeout_count": 62,
+        "handover_timeout_rate": 0.044412607449856735
+      }
+    }
+  },
+  "comparisons": {
+    "MEDIUM": {
+      "episode_time_reduction": 0.004855017779761035,
+      "throughput_gain": 0.0048787039742983485,
+      "mean_waiting_reduction": 0.6292459688500585,
+      "p95_waiting_reduction": 0.4261350585439852,
+      "mean_flow_time_reduction": 0.07091770567626947,
+      "success_rate_delta": 0.0,
+      "distance_per_task_delta": 0.19045362911832342
+    },
+    "DENSE": {
+      "episode_time_reduction": 0.3087530325856995,
+      "throughput_gain": 0.4466609578637728,
+      "mean_waiting_reduction": 0.7533343956049139,
+      "p95_waiting_reduction": 0.5206763638218028,
+      "mean_flow_time_reduction": 0.666326902604192,
+      "success_rate_delta": 0.0,
+      "distance_per_task_delta": 1.6998157291593685
+    }
+  },
+  "training_plan": {
+    "experiments": [
+      "SERIAL_ONLY",
+      "CONCURRENT_ONLY",
+      "MIXED"
+    ],
+    "fairness": "Identical seeds, arrivals, initial state, P95 samples and rewards.",
+    "metrics": [
+      "success_rate",
+      "throughput",
+      "mean_and_p95_waiting",
+      "mean_and_p95_flow_time",
+      "distance",
+      "handover_timeout",
+      "illegal_action",
+      "resource_conflict"
+    ]
+  },
+  "assertions": {
+    "400_episodes_resolve_8000_tasks": true,
+    "paired_task_streams_equal": true,
+    "fixed_seed_replay_equal": true,
+    "only_controlled_handover_failures": true,
+    "concurrent_reaches_overlap": true,
+    "concurrent_throughput_not_worse": true,
+    "concurrent_waiting_not_worse": true,
+    "success_delta_within_2pct": true,
+    "no_state_or_resource_leaks": true
+  },
+  "passed": true
+}

@@ -1,0 +1,77 @@
+{
+  "stage": 18,
+  "batch": "ONE_CONTEXT_ABLATION_TEN_SEEDS",
+  "condition": "no_persistent_position",
+  "arrival_profile": "MEDIUM",
+  "state": "COMPLETED",
+  "updated_at_utc": "2026-08-13T11:58:10.770515+00:00",
+  "planned_run_count": 10,
+  "runs": [
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 1,
+      "state": "SKIPPED_COMPLETE_WITH_EXPECTED_DEGRADATION",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_01/stage18_ppo.summary.json"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 2,
+      "state": "SKIPPED_COMPLETE_WITH_EXPECTED_DEGRADATION",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_02/stage18_ppo.summary.json"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 3,
+      "state": "SKIPPED_COMPLETE_WITH_EXPECTED_DEGRADATION",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_03/stage18_ppo.summary.json"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 4,
+      "state": "SKIPPED_COMPLETE_WITH_EXPECTED_DEGRADATION",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_04/stage18_ppo.summary.json"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 5,
+      "state": "SKIPPED_COMPLETE_WITH_EXPECTED_DEGRADATION",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_05/stage18_ppo.summary.json"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 6,
+      "state": "SKIPPED_COMPLETE_WITH_EXPECTED_DEGRADATION",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_06/stage18_ppo.summary.json"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 7,
+      "state": "SKIPPED_COMPLETE_WITH_EXPECTED_DEGRADATION",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_07/stage18_ppo.summary.json"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 8,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-13T09:36:30.488809+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_08/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-13T10:24:03.410225+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 9,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-13T10:24:03.410627+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_09/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-13T11:11:43.764263+00:00"
+    },
+    {
+      "condition": "no_persistent_position",
+      "seed_index": 10,
+      "state": "COMPLETED_WITH_EXPECTED_DEGRADATION",
+      "started_at_utc": "2026-08-13T11:11:43.764579+00:00",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/no_persistent_position/seed_10/stage18_ppo.summary.json",
+      "finished_at_utc": "2026-08-13T11:58:10.769556+00:00"
+    }
+  ]
+}

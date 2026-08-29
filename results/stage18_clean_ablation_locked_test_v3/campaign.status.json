@@ -1,0 +1,370 @@
+{
+  "campaign": "CLEAN_ABLATION_MEDIUM_LOCKED_TEST_V3",
+  "state": "COMPLETED",
+  "updated_at_utc": "2026-08-20T15:45:52.213072+00:00",
+  "test_seed_start": 50000000,
+  "test_episode_count": 100,
+  "handover_sampling": "TASK_KEYED_COMMON_RANDOM_NUMBERS",
+  "jobs": [
+    {
+      "condition": "full_context_v2",
+      "training_seed_index": 1,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/full_context_v2/seed_01.json"
+    },
+    {
+      "condition": "full_context_v2",
+      "training_seed_index": 2,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/full_context_v2/seed_02.json"
+    },
+    {
+      "condition": "full_context_v2",
+      "training_seed_index": 3,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/full_context_v2/seed_03.json"
+    },
+    {
+      "condition": "full_context_v2",
+      "training_seed_index": 4,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/full_context_v2/seed_04.json"
+    },
+    {
+      "condition": "full_context_v2",
+      "training_seed_index": 5,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/full_context_v2/seed_05.json"
+    },
+    {
+      "condition": "full_context_v2",
+      "training_seed_index": 6,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/full_context_v2/seed_06.json"
+    },
+    {
+      "condition": "full_context_v2",
+      "training_seed_index": 7,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/full_context_v2/seed_07.json"
+    },
+    {
+      "condition": "full_context_v2",
+      "training_seed_index": 8,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/full_context_v2/seed_08.json"
+    },
+    {
+      "condition": "full_context_v2",
+      "training_seed_index": 9,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/full_context_v2/seed_09.json"
+    },
+    {
+      "condition": "full_context_v2",
+      "training_seed_index": 10,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/full_context_v2/seed_10.json"
+    },
+    {
+      "condition": "no_position_only",
+      "training_seed_index": 1,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_position_only/seed_01.json"
+    },
+    {
+      "condition": "no_position_only",
+      "training_seed_index": 2,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_position_only/seed_02.json"
+    },
+    {
+      "condition": "no_position_only",
+      "training_seed_index": 3,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_position_only/seed_03.json"
+    },
+    {
+      "condition": "no_position_only",
+      "training_seed_index": 4,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_position_only/seed_04.json"
+    },
+    {
+      "condition": "no_position_only",
+      "training_seed_index": 5,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_position_only/seed_05.json"
+    },
+    {
+      "condition": "no_position_only",
+      "training_seed_index": 6,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_position_only/seed_06.json"
+    },
+    {
+      "condition": "no_position_only",
+      "training_seed_index": 7,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_position_only/seed_07.json"
+    },
+    {
+      "condition": "no_position_only",
+      "training_seed_index": 8,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_position_only/seed_08.json"
+    },
+    {
+      "condition": "no_position_only",
+      "training_seed_index": 9,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_position_only/seed_09.json"
+    },
+    {
+      "condition": "no_position_only",
+      "training_seed_index": 10,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_position_only/seed_10.json"
+    },
+    {
+      "condition": "no_eta_cost_only",
+      "training_seed_index": 1,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_eta_cost_only/seed_01.json"
+    },
+    {
+      "condition": "no_eta_cost_only",
+      "training_seed_index": 2,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_eta_cost_only/seed_02.json"
+    },
+    {
+      "condition": "no_eta_cost_only",
+      "training_seed_index": 3,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_eta_cost_only/seed_03.json"
+    },
+    {
+      "condition": "no_eta_cost_only",
+      "training_seed_index": 4,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_eta_cost_only/seed_04.json"
+    },
+    {
+      "condition": "no_eta_cost_only",
+      "training_seed_index": 5,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_eta_cost_only/seed_05.json"
+    },
+    {
+      "condition": "no_eta_cost_only",
+      "training_seed_index": 6,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_eta_cost_only/seed_06.json"
+    },
+    {
+      "condition": "no_eta_cost_only",
+      "training_seed_index": 7,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_eta_cost_only/seed_07.json"
+    },
+    {
+      "condition": "no_eta_cost_only",
+      "training_seed_index": 8,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_eta_cost_only/seed_08.json"
+    },
+    {
+      "condition": "no_eta_cost_only",
+      "training_seed_index": 9,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_eta_cost_only/seed_09.json"
+    },
+    {
+      "condition": "no_eta_cost_only",
+      "training_seed_index": 10,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_eta_cost_only/seed_10.json"
+    },
+    {
+      "condition": "no_history_only",
+      "training_seed_index": 1,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_history_only/seed_01.json"
+    },
+    {
+      "condition": "no_history_only",
+      "training_seed_index": 2,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_history_only/seed_02.json"
+    },
+    {
+      "condition": "no_history_only",
+      "training_seed_index": 3,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_history_only/seed_03.json"
+    },
+    {
+      "condition": "no_history_only",
+      "training_seed_index": 4,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_history_only/seed_04.json"
+    },
+    {
+      "condition": "no_history_only",
+      "training_seed_index": 5,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_history_only/seed_05.json"
+    },
+    {
+      "condition": "no_history_only",
+      "training_seed_index": 6,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_history_only/seed_06.json"
+    },
+    {
+      "condition": "no_history_only",
+      "training_seed_index": 7,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_history_only/seed_07.json"
+    },
+    {
+      "condition": "no_history_only",
+      "training_seed_index": 8,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_history_only/seed_08.json"
+    },
+    {
+      "condition": "no_history_only",
+      "training_seed_index": 9,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_history_only/seed_09.json"
+    },
+    {
+      "condition": "no_history_only",
+      "training_seed_index": 10,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_history_only/seed_10.json"
+    },
+    {
+      "condition": "no_explicit_queue_resource",
+      "training_seed_index": 1,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_queue_resource/seed_01.json"
+    },
+    {
+      "condition": "no_explicit_queue_resource",
+      "training_seed_index": 2,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_queue_resource/seed_02.json"
+    },
+    {
+      "condition": "no_explicit_queue_resource",
+      "training_seed_index": 3,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_queue_resource/seed_03.json"
+    },
+    {
+      "condition": "no_explicit_queue_resource",
+      "training_seed_index": 4,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_queue_resource/seed_04.json"
+    },
+    {
+      "condition": "no_explicit_queue_resource",
+      "training_seed_index": 5,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_queue_resource/seed_05.json"
+    },
+    {
+      "condition": "no_explicit_queue_resource",
+      "training_seed_index": 6,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_queue_resource/seed_06.json"
+    },
+    {
+      "condition": "no_explicit_queue_resource",
+      "training_seed_index": 7,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_queue_resource/seed_07.json"
+    },
+    {
+      "condition": "no_explicit_queue_resource",
+      "training_seed_index": 8,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_queue_resource/seed_08.json"
+    },
+    {
+      "condition": "no_explicit_queue_resource",
+      "training_seed_index": 9,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_queue_resource/seed_09.json"
+    },
+    {
+      "condition": "no_explicit_queue_resource",
+      "training_seed_index": 10,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_queue_resource/seed_10.json"
+    },
+    {
+      "condition": "no_explicit_handover_risk",
+      "training_seed_index": 1,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_handover_risk/seed_01.json"
+    },
+    {
+      "condition": "no_explicit_handover_risk",
+      "training_seed_index": 2,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_handover_risk/seed_02.json"
+    },
+    {
+      "condition": "no_explicit_handover_risk",
+      "training_seed_index": 3,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_handover_risk/seed_03.json"
+    },
+    {
+      "condition": "no_explicit_handover_risk",
+      "training_seed_index": 4,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_handover_risk/seed_04.json"
+    },
+    {
+      "condition": "no_explicit_handover_risk",
+      "training_seed_index": 5,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_handover_risk/seed_05.json"
+    },
+    {
+      "condition": "no_explicit_handover_risk",
+      "training_seed_index": 6,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_handover_risk/seed_06.json"
+    },
+    {
+      "condition": "no_explicit_handover_risk",
+      "training_seed_index": 7,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_handover_risk/seed_07.json"
+    },
+    {
+      "condition": "no_explicit_handover_risk",
+      "training_seed_index": 8,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_handover_risk/seed_08.json"
+    },
+    {
+      "condition": "no_explicit_handover_risk",
+      "training_seed_index": 9,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_handover_risk/seed_09.json"
+    },
+    {
+      "condition": "no_explicit_handover_risk",
+      "training_seed_index": 10,
+      "state": "COMPLETED",
+      "output": "/Users/lab4099/Desktop/Mujoco/work/results/stage18_clean_ablation_locked_test_v3/no_explicit_handover_risk/seed_10.json"
+    }
+  ]
+}

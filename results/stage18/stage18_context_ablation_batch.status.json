@@ -1,0 +1,15 @@
+{
+  "stage": 18,
+  "batch": "FULL_SEED_05_PLUS_THREE_CONTEXT_ABLATIONS",
+    "state": "PAUSED_BY_USER_AFTER_FULL_SEED_05",
+  "updated_at_utc": "2026-08-11T14:10:45.078130+00:00",
+  "planned_run_count": 16,
+  "runs": [
+    {
+      "condition": "full_context_v2",
+      "seed_index": 5,
+            "state": "RUNNING_STANDALONE_AFTER_BATCH_PAUSE",
+      "started_at_utc": "2026-08-11T14:10:45.078112+00:00"
+    }
+  ]
+}

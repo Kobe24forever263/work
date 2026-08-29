@@ -1,0 +1,77 @@
+{
+  "stage": 14,
+  "gate": "SHORT_SMDP_PPO_SMOKE",
+  "claim_boundary": "Interface smoke only; not a long-run convergence or superiority claim.",
+  "execution_mode": "CONCURRENT",
+  "arrival_profile": "MEDIUM",
+  "updates": 2,
+  "episodes_trained_this_run": 4,
+  "episodes_trained_total": 4,
+  "model": {
+    "architecture": "shared_masked_candidate_actor_critic_v1",
+    "state_width": 284,
+    "action_width": 16,
+    "hidden_width": 96,
+    "index_specific_parameters": false
+  },
+  "ppo": {
+    "clip_ratio": 0.2,
+    "gae_lambda": 0.95,
+    "value_coefficient": 0.5,
+    "entropy_coefficient": 0.01,
+    "max_gradient_norm": 1.0,
+    "learning_rate": 0.0003,
+    "ppo_epochs": 2,
+    "minibatch_size": 32
+  },
+  "parameter_delta_l2": 0.7865592837333679,
+  "final_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/smoke/stage14_smdp_ppo_concurrent_medium.pt",
+  "best_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/smoke/stage14_smdp_ppo_concurrent_medium.best.pt",
+  "history": "/Users/lab4099/Desktop/Mujoco/work/results/stage14/ppo/smoke/stage14_smdp_ppo_concurrent_medium.history.json",
+  "evaluation": {
+    "episode_count": 4,
+    "task_count": 80,
+    "completed": 79,
+    "failed": 1,
+    "success_rate": 0.9875,
+    "mean_reward": 34.19460196378559,
+    "mean_simulated_time": 1311.621218420521,
+    "throughput_tasks_per_hour": 54.89389694892536,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 2,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "SINGLE_CAR": 40,
+      "CAR_DOG_CAR": 40
+    }
+  },
+  "rule_baseline": {
+    "episode_count": 4,
+    "task_count": 80,
+    "completed": 79,
+    "failed": 1,
+    "success_rate": 0.9875,
+    "mean_reward": 37.12014276914209,
+    "mean_simulated_time": 1297.027392021465,
+    "throughput_tasks_per_hour": 55.51154928793397,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 2,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "SINGLE_CAR": 40,
+      "CAR_DOG_CAR": 28,
+      "SINGLE_DOG": 12
+    }
+  },
+  "assertions": {
+    "ppo_parameters_updated": true,
+    "training_metrics_are_finite": true,
+    "smdp_discounts_are_valid_and_variable": true,
+    "evaluation_resolved_all_tasks": true,
+    "evaluation_actions_all_legal": true,
+    "evaluation_has_no_resource_leak": true,
+    "rule_baseline_has_no_resource_leak": true,
+    "concurrent_mode_overlaps_when_requested": true
+  },
+  "passed": true
+}

@@ -1,0 +1,49 @@
+{
+  "stage": 18,
+  "gate": "INDEPENDENT_END_TO_END_WARM_START_SEEDS",
+  "claim_boundary": "Two-seed independence gate; not a PPO result.",
+  "runs": [
+    {
+      "run_seed": 31000000,
+      "training_seed_start": 31000000,
+      "training_seed_end": 31000019,
+      "validation_seeds": [
+        42000000,
+        42000001,
+        42000002,
+        42000003,
+        42000004
+      ],
+      "initial_loss": 2.7983572101593017,
+      "final_loss": 0.13441327638924122,
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/warm_start_independence_gate/warm_start_seed_31000000.pt",
+      "weight_sha256": "e51e25b1fb8a03a4b26f54d18adf81d8e96f272190bdeb14cdc81dd84063d368",
+      "passed": true
+    },
+    {
+      "run_seed": 31010000,
+      "training_seed_start": 31010000,
+      "training_seed_end": 31010019,
+      "validation_seeds": [
+        42000000,
+        42000001,
+        42000002,
+        42000003,
+        42000004
+      ],
+      "initial_loss": 2.8034272480010984,
+      "final_loss": 0.1447827398777008,
+      "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage18/warm_start_independence_gate/warm_start_seed_31010000.pt",
+      "weight_sha256": "a2616ea38991e671913fb46f863a7120e3783ffeb214abfde4b9db895d3d14d6",
+      "passed": true
+    }
+  ],
+  "assertions": {
+    "both_warm_starts_passed": true,
+    "training_data_seed_ranges_disjoint": true,
+    "validation_seeds_shared": true,
+    "initial_metrics_differ": true,
+    "trained_weight_hashes_differ": true
+  },
+  "passed": true
+}

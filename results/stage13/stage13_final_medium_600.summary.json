@@ -1,0 +1,521 @@
+{
+  "stage": 13,
+  "gate": "FINAL",
+  "profile": "medium",
+  "seed_start": 20260805,
+  "seed_end": 20260834,
+  "episode_count": 30,
+  "task_count": 600,
+  "task_types": {
+    "f1_same": 120,
+    "f1_cross_region": 90,
+    "cross_up": 90,
+    "f2_same": 120,
+    "f2_cross_region": 90,
+    "cross_down": 90
+  },
+  "transport_modes": {
+    "SINGLE_CAR": 420,
+    "CAR_DOG_CAR": 172,
+    "SINGLE_DOG": 8
+  },
+  "reward": {
+    "task_mean": 2.078105,
+    "task_min": 0.999458,
+    "task_max": 2.422307,
+    "episode_mean_min": 2.039222,
+    "episode_mean_max": 2.123345
+  },
+  "discount": {
+    "min": 0.914572189,
+    "max": 0.989937334
+  },
+  "controlled_failures": {
+    "DEADLINE_MISS": {
+      "deadline_component": -5.0,
+      "terminated": false,
+      "truncated": false,
+      "passed": true
+    },
+    "TIME_LIMIT": {
+      "termination_reason": "TIME_LIMIT",
+      "terminated": false,
+      "truncated": true,
+      "passed": true
+    },
+    "CARGO_UNRECOVERABLE": {
+      "reward": -10.025,
+      "reward_components": {
+        "outstanding_time": -0.025,
+        "completion": 0.0,
+        "deadline": 0.0,
+        "handover": 0.0,
+        "active_robot_time": 0.0,
+        "distance": 0.0,
+        "failure": -10.0
+      },
+      "discount": 0.99749057,
+      "terminated": true,
+      "truncated": false,
+      "termination_reason": "CARGO_UNRECOVERABLE",
+      "resource_claims_after": 0,
+      "claim_release_balanced": true,
+      "residual_robot_tasks": 0,
+      "residual_cargo_holders": 0,
+      "passed": true
+    },
+    "GLOBAL_DEADLOCK": {
+      "reward": -10.025,
+      "reward_components": {
+        "outstanding_time": -0.025,
+        "completion": 0.0,
+        "deadline": 0.0,
+        "handover": 0.0,
+        "active_robot_time": 0.0,
+        "distance": 0.0,
+        "failure": -10.0
+      },
+      "discount": 0.99749057,
+      "terminated": true,
+      "truncated": false,
+      "termination_reason": "GLOBAL_DEADLOCK",
+      "resource_claims_after": 0,
+      "claim_release_balanced": true,
+      "residual_robot_tasks": 0,
+      "residual_cargo_holders": 0,
+      "passed": true
+    },
+    "NO_FEASIBLE_CHAIN": {
+      "reward": -10.025,
+      "reward_components": {
+        "outstanding_time": -0.025,
+        "completion": 0.0,
+        "deadline": 0.0,
+        "handover": 0.0,
+        "active_robot_time": 0.0,
+        "distance": 0.0,
+        "failure": -10.0
+      },
+      "discount": 0.99749057,
+      "terminated": true,
+      "truncated": false,
+      "termination_reason": "NO_FEASIBLE_CHAIN",
+      "resource_claims_after": 0,
+      "claim_release_balanced": true,
+      "residual_robot_tasks": 0,
+      "residual_cargo_holders": 0,
+      "passed": true
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 20260805,
+      "task_count": 20,
+      "reward_total": 41.827257,
+      "reward_mean": 2.091363,
+      "discount_min": 0.918075276,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260806,
+      "task_count": 20,
+      "reward_total": 41.429359,
+      "reward_mean": 2.071468,
+      "discount_min": 0.916261572,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260807,
+      "task_count": 20,
+      "reward_total": 41.233305,
+      "reward_mean": 2.061665,
+      "discount_min": 0.91701072,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260808,
+      "task_count": 20,
+      "reward_total": 42.099237,
+      "reward_mean": 2.104962,
+      "discount_min": 0.91701072,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 5,
+        "SINGLE_DOG": 1
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260809,
+      "task_count": 20,
+      "reward_total": 41.39252,
+      "reward_mean": 2.069626,
+      "discount_min": 0.91701072,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260810,
+      "task_count": 20,
+      "reward_total": 41.113365,
+      "reward_mean": 2.055668,
+      "discount_min": 0.916261572,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260811,
+      "task_count": 20,
+      "reward_total": 41.488892,
+      "reward_mean": 2.074445,
+      "discount_min": 0.918704607,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260812,
+      "task_count": 20,
+      "reward_total": 41.665471,
+      "reward_mean": 2.083274,
+      "discount_min": 0.918704607,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260813,
+      "task_count": 20,
+      "reward_total": 41.301179,
+      "reward_mean": 2.065059,
+      "discount_min": 0.914572189,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260814,
+      "task_count": 20,
+      "reward_total": 42.155849,
+      "reward_mean": 2.107792,
+      "discount_min": 0.918704607,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 5,
+        "SINGLE_DOG": 1
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260815,
+      "task_count": 20,
+      "reward_total": 41.920872,
+      "reward_mean": 2.096044,
+      "discount_min": 0.918704607,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 5,
+        "SINGLE_DOG": 1
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260816,
+      "task_count": 20,
+      "reward_total": 41.240313,
+      "reward_mean": 2.062016,
+      "discount_min": 0.91701072,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 5,
+        "SINGLE_DOG": 1
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260817,
+      "task_count": 20,
+      "reward_total": 41.1881,
+      "reward_mean": 2.059405,
+      "discount_min": 0.914572189,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260818,
+      "task_count": 20,
+      "reward_total": 41.353715,
+      "reward_mean": 2.067686,
+      "discount_min": 0.915159001,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260819,
+      "task_count": 20,
+      "reward_total": 41.937844,
+      "reward_mean": 2.096892,
+      "discount_min": 0.920523147,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260820,
+      "task_count": 20,
+      "reward_total": 41.886364,
+      "reward_mean": 2.094318,
+      "discount_min": 0.91701072,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260821,
+      "task_count": 20,
+      "reward_total": 41.395464,
+      "reward_mean": 2.069773,
+      "discount_min": 0.91701072,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 5,
+        "SINGLE_DOG": 1
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260822,
+      "task_count": 20,
+      "reward_total": 41.241401,
+      "reward_mean": 2.06207,
+      "discount_min": 0.916261572,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260823,
+      "task_count": 20,
+      "reward_total": 41.466457,
+      "reward_mean": 2.073323,
+      "discount_min": 0.91701072,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260824,
+      "task_count": 20,
+      "reward_total": 41.70405,
+      "reward_mean": 2.085202,
+      "discount_min": 0.918704607,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 5,
+        "SINGLE_DOG": 1
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260825,
+      "task_count": 20,
+      "reward_total": 41.676681,
+      "reward_mean": 2.083834,
+      "discount_min": 0.918075276,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260826,
+      "task_count": 20,
+      "reward_total": 40.784439,
+      "reward_mean": 2.039222,
+      "discount_min": 0.916261572,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260827,
+      "task_count": 20,
+      "reward_total": 42.345913,
+      "reward_mean": 2.117296,
+      "discount_min": 0.920523147,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 5,
+        "SINGLE_DOG": 1
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260828,
+      "task_count": 20,
+      "reward_total": 42.466904,
+      "reward_mean": 2.123345,
+      "discount_min": 0.91701072,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 5,
+        "SINGLE_DOG": 1
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260829,
+      "task_count": 20,
+      "reward_total": 41.372471,
+      "reward_mean": 2.068624,
+      "discount_min": 0.91701072,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260830,
+      "task_count": 20,
+      "reward_total": 41.516499,
+      "reward_mean": 2.075825,
+      "discount_min": 0.914572189,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260831,
+      "task_count": 20,
+      "reward_total": 41.260164,
+      "reward_mean": 2.063008,
+      "discount_min": 0.91701072,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260832,
+      "task_count": 20,
+      "reward_total": 41.854535,
+      "reward_mean": 2.092727,
+      "discount_min": 0.916261572,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260833,
+      "task_count": 20,
+      "reward_total": 41.393677,
+      "reward_mean": 2.069684,
+      "discount_min": 0.918704607,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    },
+    {
+      "seed": 20260834,
+      "task_count": 20,
+      "reward_total": 41.150445,
+      "reward_mean": 2.057522,
+      "discount_min": 0.918704607,
+      "discount_max": 0.989937334,
+      "transport_modes": {
+        "SINGLE_CAR": 14,
+        "CAR_DOG_CAR": 6
+      },
+      "assertions_passed": true
+    }
+  ],
+  "assertions": {
+    "thirty_episodes_completed": true,
+    "six_hundred_tasks_completed": true,
+    "every_seed_passed_first_gate": true,
+    "six_task_types_in_aggregate": true,
+    "all_rewards_finite": true,
+    "all_discounts_valid": true,
+    "reward_components_sum_exactly": true,
+    "controlled_failures_passed": true
+  },
+  "passed": true
+}

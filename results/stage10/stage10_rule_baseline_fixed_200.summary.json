@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-08-04T12:33:45.053322+00:00",
+  "seed": 20260804,
+  "trial_count": 200,
+  "planned_trial_count": 200,
+  "success_count": 200,
+  "failure_count": 0,
+  "by_task_type": {
+    "same_region": {
+      "trials": 50,
+      "passes": 50,
+      "mean_estimated_cost": 1.0
+    },
+    "same_floor_handover": {
+      "trials": 50,
+      "passes": 50,
+      "mean_estimated_cost": 10.0
+    },
+    "cross_up": {
+      "trials": 50,
+      "passes": 50,
+      "mean_estimated_cost": 46.2192
+    },
+    "cross_down": {
+      "trials": 50,
+      "passes": 50,
+      "mean_estimated_cost": 46.3237
+    }
+  },
+  "all_tasks_completed": true,
+  "results_jsonl": "/Users/lab4099/Desktop/Mujoco/work/results/stage10/stage10_rule_baseline_fixed_200.jsonl"
+}
