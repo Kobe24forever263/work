@@ -1,0 +1,160 @@
+{
+  "schema_version": "warehouse_stage26_recurrent_locked_statistics_v1",
+  "stage": 26,
+  "claim_boundary": "Frozen ten-seed cohort on 100 shared unseen locked-test seeds; no post-test checkpoint selection.",
+  "quality": {
+    "checks": {
+      "ten_unique_training_seeds": true,
+      "one_hundred_shared_unique_test_seeds": true,
+      "policy_episode_row_count_is_1000": true,
+      "baseline_replicas_are_identical": true,
+      "all_source_gates_passed": true,
+      "no_policy_illegal_actions": true,
+      "no_policy_resource_leaks": true,
+      "all_policy_tasks_resolved": true,
+      "valid_episode_counts_and_times": true
+    },
+    "passed": true,
+    "grain": {
+      "independent_training_seeds": 10,
+      "shared_locked_test_seeds": 100,
+      "policy_episode_rows": 1000,
+      "independent_rule_baseline_episode_rows": 100,
+      "warning": "The baseline's 100 shared episodes are replicated across training seeds for paired computation and are not 1000 independent baseline observations."
+    }
+  },
+  "method": {
+    "bootstrap": "two-way crossed paired bootstrap",
+    "bootstrap_seed": 73460000,
+    "bootstrap_samples": 10000,
+    "significance": "exact two-sided training-seed sign-flip test",
+    "multiplicity": "Holm correction across four reported metrics",
+    "effect_size": "paired standardized mean difference (Cohen dz)"
+  },
+  "comparisons": [
+    {
+      "metric": "mean_reward",
+      "direction": "higher_is_better",
+      "training_seed_count": 10,
+      "shared_locked_test_seed_count": 100,
+      "policy_estimate": -292.24472659230094,
+      "rule_baseline_estimate": -391.92083963262235,
+      "mean_delta_policy_minus_rule": 99.67611304032141,
+      "sample_stdev_of_training_seed_deltas": 16.792592903499784,
+      "crossed_bootstrap_95ci": [
+        83.5652570024582,
+        116.90986301416079
+      ],
+      "exact_two_sided_sign_flip_p": 0.001953125,
+      "cohen_dz": 5.935719016897484,
+      "positive_training_seed_count": 10,
+      "negative_training_seed_count": 0,
+      "training_seed_deltas": [
+        116.80965240572715,
+        88.42963837919672,
+        73.9134375432804,
+        106.03622225120012,
+        95.21235155193517,
+        91.26282805563363,
+        110.67538612768521,
+        117.39202418357957,
+        119.55605703473242,
+        77.47353287024305
+      ],
+      "holm_adjusted_p": 0.0078125
+    },
+    {
+      "metric": "success_rate",
+      "direction": "higher_is_better",
+      "training_seed_count": 10,
+      "shared_locked_test_seed_count": 100,
+      "policy_estimate": 0.96835,
+      "rule_baseline_estimate": 0.9645,
+      "mean_delta_policy_minus_rule": 0.00385000000000002,
+      "sample_stdev_of_training_seed_deltas": 0.00616379437612183,
+      "crossed_bootstrap_95ci": [
+        -3.749999999991538e-05,
+        0.0076625000000000165
+      ],
+      "exact_two_sided_sign_flip_p": 0.087890625,
+      "cohen_dz": 0.6246152556475097,
+      "positive_training_seed_count": 7,
+      "negative_training_seed_count": 3,
+      "training_seed_deltas": [
+        0.0030000000000000027,
+        0.009874999999999967,
+        0.007874999999999965,
+        0.008874999999999966,
+        0.0011249999999999316,
+        0.01012499999999994,
+        0.00924999999999998,
+        -0.0015000000000000568,
+        -0.0050000000000000044,
+        -0.005125000000000046
+      ],
+      "holm_adjusted_p": 0.263671875
+    },
+    {
+      "metric": "successful_throughput_tasks_per_hour",
+      "direction": "higher_is_better",
+      "training_seed_count": 10,
+      "shared_locked_test_seed_count": 100,
+      "policy_estimate": 68.14197470490888,
+      "rule_baseline_estimate": 67.89918763207524,
+      "mean_delta_policy_minus_rule": 0.24278707283363588,
+      "sample_stdev_of_training_seed_deltas": 0.40791509210030136,
+      "crossed_bootstrap_95ci": [
+        -0.022026125599898447,
+        0.5041619798583592
+      ],
+      "exact_two_sided_sign_flip_p": 0.095703125,
+      "cohen_dz": 0.5951902185907294,
+      "positive_training_seed_count": 7,
+      "negative_training_seed_count": 3,
+      "training_seed_deltas": [
+        0.2339296711892871,
+        0.5838411193610824,
+        0.5136936322513321,
+        0.5475760141715966,
+        0.045340108759830855,
+        0.7082871261888357,
+        0.5872832449751684,
+        -0.06309048125486072,
+        -0.302408600609823,
+        -0.42782239629293883
+      ],
+      "holm_adjusted_p": 0.263671875
+    },
+    {
+      "metric": "mean_simulated_time",
+      "direction": "lower_is_better",
+      "training_seed_count": 10,
+      "shared_locked_test_seed_count": 100,
+      "policy_estimate": 4092.7020563715696,
+      "rule_baseline_estimate": 4091.006235673724,
+      "mean_delta_policy_minus_rule": 1.6958206978456474,
+      "sample_stdev_of_training_seed_deltas": 3.25671224596384,
+      "crossed_bootstrap_95ci": [
+        -2.183496631136438,
+        5.559194632185744
+      ],
+      "exact_two_sided_sign_flip_p": 0.138671875,
+      "cohen_dz": 0.5207155467749227,
+      "positive_training_seed_count": 7,
+      "negative_training_seed_count": 3,
+      "training_seed_deltas": [
+        -1.365088626879242,
+        6.6513170979096685,
+        2.4334035368374316,
+        4.614726755396077,
+        2.038623814793482,
+        0.26808959488471373,
+        3.8171127720861477,
+        -2.563479549658041,
+        -3.000801696327926,
+        4.064303279427804
+      ],
+      "holm_adjusted_p": 0.263671875
+    }
+  ]
+}

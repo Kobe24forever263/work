@@ -1,0 +1,126 @@
+protocol:
+  version: warehouse_stage25_causal_online_v1
+  date: '2026-08-31'
+  status: FROZEN_FOR_MANUAL_SENTINEL_TRAINING
+  purpose: >-
+    Retrain the centralized masked SMDP-PPO dispatcher under a strict online
+    released-only visibility contract before any new performance claim.
+
+claim_boundary:
+  decision_process: CAUSAL_PARTIALLY_OBSERVED_SMDP
+  policy_observation: CAUSAL_RELEASED_V4
+  visibility: RELEASED_ONLY
+  unreleased_task_details_visible: false
+  unreleased_task_count_visible: false
+  future_phase_metadata_visible: false
+  realised_active_completion_visible: false
+  frozen_stage23_sources_modified: false
+  stage23_result_reinterpretation: >-
+    Existing Stage 23 results remain evidence for a fully announced order-book
+    setting only and are not evidence for the strict online setting.
+
+environment:
+  execution_mode: CONCURRENT
+  arrival_profile: MIXED_CURRICULUM
+  tasks_per_episode: 80
+  state_reset_between_phases: false
+  transport_modes:
+    - SINGLE_CAR
+    - SINGLE_DOG
+    - CAR_DOG_CAR
+  handover_sampling: TASK_KEYED
+  reward_contract: CONTINUOUS_TIME_V3
+  discount_mode: VARIABLE_SMDP
+  trace_mode: DURATION_SCALED
+  trace_tau_s: 10.0
+
+model:
+  architecture: contextual_masked_candidate_actor_critic_v2
+  policy_variant: CONTEXT_INTERACTION
+  state_width: 1720
+  action_width: 30
+  hidden_width: 96
+  recurrent: false
+  interpretation: >-
+    Feed-forward causal observation policy. If the sentinel fails the quality
+    gate, test a recurrent policy rather than scaling this cohort blindly.
+
+ppo:
+  updates: 2000
+  episodes_per_update: 4
+  episodes_per_seed: 8000
+  ppo_epochs: 4
+  minibatch_size: 32
+  learning_rate: 0.0003
+  clip_ratio: 0.2
+  gae_lambda: 0.95
+  entropy_coefficient: 0.01
+  value_coefficient: 0.5
+  reward_normalization: reverse_variable_discounted_return_to_go_std_v2
+  evaluation_every_updates: 100
+  checkpoint_every_updates: 100
+  progress_log_every_updates: 20
+
+cohort:
+  sentinel_seed_index: 1
+  independent_training_base_seeds:
+    - 72540000
+    - 72550000
+    - 72560000
+    - 72570000
+    - 72580000
+    - 72590000
+    - 72600000
+    - 72610000
+    - 72620000
+    - 72630000
+  training_seed_spacing: 10000
+  seed_count: 10
+  expansion_rule: >-
+    Run seed 01 first. Start seeds 02-10 only after the sentinel fresh-seed
+    quality gate passes.
+
+validation:
+  online_validation_seed_start: 72750000
+  online_validation_episode_count: 40
+  handover_sampling: TASK_KEYED
+  formal_locked_seed_start: 72850000
+  formal_locked_seed_count: 100
+  formal_locked_test_status: BLOCKED_UNTIL_COHORT_FREEZE
+  sentinel_quality_gate:
+    required:
+      - zero_illegal_actions
+      - zero_resource_leaks
+      - all_tasks_resolved
+      - finite_training_metrics
+      - all_three_transport_modes_exposed
+      - contextual_switching_gate_passed
+      - fresh_seed_mean_reward_not_below_rule_baseline
+    note: >-
+      Success rate and throughput remain reported, but reward is the primary
+      frozen optimization objective. No target transport-mode frequency is
+      imposed.
+
+manual_execution:
+  required: true
+  automatic_long_training_forbidden: true
+  sentinel_command: >-
+    /Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python
+    scripts/run_stage25_causal_long.py 1 --execute --confirm-long
+  resume_command: >-
+    /Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python
+    scripts/run_stage25_causal_long.py 1 --resume-latest --execute
+    --confirm-long
+  sentinel_quality_gate_command: >-
+    /Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python
+    scripts/run_stage25_sentinel_gate.py
+  sentinel_weight: >-
+    results/stage25_causal_online/long/seed_01/stage25_causal_ppo.pt
+  sentinel_best_weight: >-
+    results/stage25_causal_online/long/seed_01/stage25_causal_ppo.best.pt
+  sentinel_history: >-
+    results/stage25_causal_online/long/seed_01/stage25_causal_ppo.history.json
+  sentinel_summary: >-
+    results/stage25_causal_online/long/seed_01/stage25_causal_ppo.summary.json
+  sentinel_quality_gate: >-
+    results/stage25_causal_online/long/seed_01/sentinel_quality_gate.json

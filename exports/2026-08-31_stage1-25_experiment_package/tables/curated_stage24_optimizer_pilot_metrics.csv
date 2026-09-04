@@ -1,0 +1,8 @@
+﻿stage,metric,optimizer,time_greedy,optimizer_minus_time_greedy,ci_low,ci_high,direction,stream_count,evidence_level,source_path
+24,episode_p95_waiting_time,505.1351900003148,624.0257612239977,-118.89057122368283,-173.1307759536433,-72.04878544466561,lower,20,PILOT_ONLY,results/stage24_rolling_optimizer/pilot/stage24_optimizer_paired_pilot_summary.json
+24,success_rate,0.994375,0.9718750000000002,0.022499999999999992,0.016249999999999987,0.028750000000000008,higher,20,PILOT_ONLY,results/stage24_rolling_optimizer/pilot/stage24_optimizer_paired_pilot_summary.json
+24,successful_throughput_tasks_per_hour,68.74259774163954,67.3703393566228,1.3722583850167396,0.9629045193138832,1.803267569847632,higher,20,PILOT_ONLY,results/stage24_rolling_optimizer/pilot/stage24_optimizer_paired_pilot_summary.json
+24,mean_waiting_time,113.29134410515549,141.47098066866744,-28.179636563511927,-40.31360050634082,-18.073797606262477,lower,20,PILOT_ONLY,results/stage24_rolling_optimizer/pilot/stage24_optimizer_paired_pilot_summary.json
+24,p95_flow_time,551.51748453711,655.9419975365358,-104.424512999426,-154.337955524316,-62.99090916138913,lower,20,PILOT_ONLY,results/stage24_rolling_optimizer/pilot/stage24_optimizer_paired_pilot_summary.json
+24,distance_per_task,53.54443834295665,72.44623098629798,-18.901792643341317,-20.09697602469016,-17.71341242324895,lower,20,PILOT_ONLY,results/stage24_rolling_optimizer/pilot/stage24_optimizer_paired_pilot_summary.json
+24,episode_reward,-270.1297299966569,-356.8403749013751,86.71064490471815,57.947462813507094,121.29005986140564,higher,20,PILOT_ONLY,results/stage24_rolling_optimizer/pilot/stage24_optimizer_paired_pilot_summary.json

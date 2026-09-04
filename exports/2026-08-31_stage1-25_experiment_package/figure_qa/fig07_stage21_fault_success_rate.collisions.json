@@ -1,0 +1,203 @@
+{
+  "pdf": "/Users/lab4099/Desktop/Mujoco/work/exports/2026-08-31_stage1-25_experiment_package/figures/fig07_stage21_fault_success_rate.pdf",
+  "auditable": true,
+  "verdict": "REVIEW REQUIRED",
+  "page_count": 1,
+  "visible_text_box_count": 29,
+  "text_trace_count": 29,
+  "stroke_path_count": 13,
+  "filled_region_count": 28,
+  "image_region_count": 0,
+  "summary": {
+    "fail": 0,
+    "warn": 7,
+    "contained_fill_overlays": 0,
+    "contained_image_overlays": 0
+  },
+  "thresholds": {
+    "text_inset_pt": 0.6,
+    "min_overlap_ratio": 0.05,
+    "clipping_tolerance_pt": 0.5
+  },
+  "findings": [
+    {
+      "severity": "WARN",
+      "kind": "text-fill-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 3 filled region(s)",
+      "text": "Control",
+      "text_bbox": [
+        86.8868179321289,
+        227.30039978027344,
+        115.88214874267578,
+        236.30039978027344
+      ],
+      "other_text": null,
+      "other_bbox": [
+        63.93974304199219,
+        67.14335632324219,
+        138.83389282226562,
+        623.9163818359375
+      ],
+      "object_count": 3,
+      "object_indexes": [
+        13000,
+        17000,
+        21000
+      ]
+    },
+    {
+      "severity": "WARN",
+      "kind": "text-fill-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 3 filled region(s)",
+      "text": "Nav failure",
+      "text_bbox": [
+        186.8784637451172,
+        227.30039978027344,
+        229.87814331054688,
+        236.30039978027344
+      ],
+      "other_text": null,
+      "other_bbox": [
+        170.931396484375,
+        111.04232788085938,
+        245.82554626464844,
+        623.9163818359375
+      ],
+      "object_count": 3,
+      "object_indexes": [
+        14000,
+        18000,
+        22000
+      ]
+    },
+    {
+      "severity": "WARN",
+      "kind": "text-fill-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 3 filled region(s)",
+      "text": "SMDP-PPO",
+      "text_bbox": [
+        189.28366088867188,
+        257.9173889160156,
+        232.00509643554688,
+        265.9173889160156
+      ],
+      "other_text": null,
+      "other_bbox": [
+        170.931396484375,
+        111.04232788085938,
+        245.82554626464844,
+        623.9163818359375
+      ],
+      "object_count": 3,
+      "object_indexes": [
+        14000,
+        18000,
+        22000
+      ]
+    },
+    {
+      "severity": "WARN",
+      "kind": "text-fill-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 1 filled region(s)",
+      "text": "Rule",
+      "text_bbox": [
+        270.40240478515625,
+        257.9173889160156,
+        286.86334228515625,
+        265.9173889160156
+      ],
+      "other_text": null,
+      "other_bbox": [
+        277.92303466796875,
+        67.24406433105469,
+        302.88775634765625,
+        623.9163818359375
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        15000
+      ]
+    },
+    {
+      "severity": "WARN",
+      "kind": "text-fill-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 3 filled region(s)",
+      "text": "Stair outage",
+      "text_bbox": [
+        291.1201171875,
+        227.30039978027344,
+        339.6216735839844,
+        236.30039978027344
+      ],
+      "other_text": null,
+      "other_bbox": [
+        277.92303466796875,
+        67.24406433105469,
+        352.81719970703125,
+        623.9163818359375
+      ],
+      "object_count": 3,
+      "object_indexes": [
+        15000,
+        19000,
+        23000
+      ]
+    },
+    {
+      "severity": "WARN",
+      "kind": "text-fill-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 2 filled region(s)",
+      "text": "Dog only",
+      "text_bbox": [
+        325.27117919921875,
+        257.9173889160156,
+        356.85870361328125,
+        265.9173889160156
+      ],
+      "other_text": null,
+      "other_bbox": [
+        302.88775634765625,
+        67.5174560546875,
+        352.81719970703125,
+        623.9163818359375
+      ],
+      "object_count": 2,
+      "object_indexes": [
+        19000,
+        23000
+      ]
+    },
+    {
+      "severity": "WARN",
+      "kind": "text-fill-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 3 filled region(s)",
+      "text": "Robot outage",
+      "text_bbox": [
+        395.36175537109375,
+        227.30039978027344,
+        449.3605651855469,
+        236.30039978027344
+      ],
+      "other_text": null,
+      "other_bbox": [
+        384.9146728515625,
+        66.87716674804688,
+        459.808837890625,
+        623.9163818359375
+      ],
+      "object_count": 3,
+      "object_indexes": [
+        16000,
+        20000,
+        24000
+      ]
+    }
+  ]
+}

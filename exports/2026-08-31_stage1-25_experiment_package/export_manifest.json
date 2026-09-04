@@ -1,0 +1,62 @@
+{
+  "schema_version": "warehouse_stage1_25_export_v1",
+  "generated_at": "2026-09-01T00:21:11+08:00",
+  "workspace": "/Users/lab4099/Desktop/Mujoco/work",
+  "source_results": "/Users/lab4099/Desktop/Mujoco/work/results",
+  "scope": "All currently available Stage 1-25 artifacts; incompleteness is retained explicitly.",
+  "result_file_count": 18834,
+  "result_size_bytes": 19393576623,
+  "result_size_gb": 18.062,
+  "checkpoint_file_count": 14687,
+  "checkpoint_size_gb": 15.1,
+  "copied_source_file_count": 959,
+  "copied_source_size_mb": 29.946,
+  "table_row_counts": {
+    "file_manifest.csv": 18834,
+    "stage_coverage.csv": 25,
+    "formal_gate_summary.csv": 881,
+    "normalized_metric_blocks.csv": 137253,
+    "json_scalar_metrics.csv": 241266,
+    "transport_mode_counts.csv": 396974,
+    "training_history_every20.csv": 34823,
+    "training_run_endpoints.csv": 1438,
+    "existing_csv_catalog.csv": 16,
+    "existing_csv_long.csv": 16364,
+    "parse_errors.csv": 0
+  },
+  "stages_with_result_files": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+  ],
+  "stages_without_result_files": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "interpretation_boundary": [
+    "Counts describe the present workspace, not the intended experiment plan.",
+    "Missing files are not treated as failed experiments.",
+    "Smoke/interface gates are not promoted to formal long-run evidence.",
+    "Model checkpoints are inventoried but not duplicated in the teacher-facing bundle."
+  ]
+}

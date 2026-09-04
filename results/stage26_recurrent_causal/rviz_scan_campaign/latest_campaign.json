@@ -1,0 +1,4063 @@
+{
+  "schema_version": "warehouse_stage26_scan_campaign_v1",
+  "scope": "TEN_SEQUENTIAL_TASKS",
+  "task_count": 10,
+  "continuous_task_publication": true,
+  "maximum_active_tasks": 1,
+  "robot_position_reset_between_tasks": false,
+  "recurrent_memory_reset_between_tasks": false,
+  "campaign_seed": 76791501,
+  "checkpoint_selection": {
+    "criterion": "maximum final evaluation mean_reward among passed completed Stage 26 seeds",
+    "selected_seed_index": 1,
+    "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_01/stage26_recurrent_ppo.pt",
+    "selected_seed_mean_reward": -304.43591460866475,
+    "candidate_seeds": [
+      {
+        "seed_index": 1,
+        "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_01/stage26_recurrent_ppo.summary.json",
+        "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_01/stage26_recurrent_ppo.pt",
+        "fresh_validation": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_01/sentinel_fresh_validation.json",
+        "mean_reward": -304.43591460866475,
+        "success_rate": 0.969375,
+        "passed": true
+      },
+      {
+        "seed_index": 2,
+        "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_02/stage26_recurrent_ppo.summary.json",
+        "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_02/stage26_recurrent_ppo.pt",
+        "fresh_validation": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_02/fresh_validation.json",
+        "mean_reward": -331.7221116040788,
+        "success_rate": 0.9775,
+        "passed": true
+      }
+    ],
+    "architecture": "recurrent_contextual_masked_candidate_actor_critic_v1"
+  },
+  "robot_ids": [
+    "car_f1_1",
+    "car_f1_2",
+    "car_f1_3",
+    "car_f1_4",
+    "dog_1",
+    "dog_2",
+    "dog_3",
+    "dog_4",
+    "car_f2_1",
+    "car_f2_2"
+  ],
+  "total_policy_wait_decisions": 0,
+  "tasks": [
+    {
+      "sequence": 1,
+      "task_type": "f2_same",
+      "task": {
+        "task_id": "S14_T19",
+        "cargo_id": "S14_C19",
+        "priority": 1,
+        "deadline": 1333.2866630229728,
+        "source": {
+          "point_id": "F2_NE",
+          "floor": 2,
+          "region": "F2_EAST",
+          "xyz": [
+            7,
+            6.5,
+            4.7
+          ]
+        },
+        "target": {
+          "point_id": "F2_NE_LOCAL_19",
+          "floor": 2,
+          "region": "F2_EAST",
+          "xyz": [
+            4.8999999999999995,
+            4.55,
+            4.7
+          ]
+        }
+      },
+      "policy_decision": {
+        "action_index": 0,
+        "probability": 0.972636342048645,
+        "value_estimate": -1.1762903928756714,
+        "memory_update_l2": 6.192118167877197,
+        "wait_decisions_before_assignment": 0,
+        "assignment": {
+          "task_id": "S14_T19",
+          "pickup_carter": "car_f2_2",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f2_2",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 4.768289004122294,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "rule_reference": {
+          "task_id": "S14_T19",
+          "pickup_carter": "car_f2_2",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f2_2",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 4.768289004122294,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "agrees_with_rule_mode": true
+      },
+      "participants": [
+        "car_f2_2"
+      ],
+      "outcome": "COMPLETED",
+      "simulated_reward": 2.2463097438344652,
+      "simulated_delta_time": 10.06298397295802,
+      "initial_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -2.5,
+          -2.5,
+          0.45
+        ],
+        "car_f1_4": [
+          2.5,
+          -2.5,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -20.8,
+          -17.8,
+          0.45
+        ],
+        "dog_4": [
+          20.8,
+          -17.8,
+          0.45
+        ],
+        "car_f2_1": [
+          -5.5,
+          0,
+          4.7
+        ],
+        "car_f2_2": [
+          5.5,
+          0,
+          4.7
+        ]
+      },
+      "final_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -2.5,
+          -2.5,
+          0.45
+        ],
+        "car_f1_4": [
+          2.5,
+          -2.5,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -20.8,
+          -17.8,
+          0.45
+        ],
+        "dog_4": [
+          20.8,
+          -17.8,
+          0.45
+        ],
+        "car_f2_1": [
+          -5.5,
+          0,
+          4.7
+        ],
+        "car_f2_2": [
+          5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "segments": [
+        {
+          "label": "车辆前往装货平台",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              5.5,
+              0.0,
+              4.7
+            ],
+            [
+              7.0,
+              0.0,
+              4.7
+            ],
+            [
+              7.0,
+              6.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_01_segment_01_car_f2_2.yaml",
+          "initial_xyz": [
+            5.5,
+            0.0,
+            4.7
+          ],
+          "goal_xyz": [
+            7.0,
+            6.5,
+            4.7
+          ],
+          "route_length_m": 8.0,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物吸附，车辆送往目标平台",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              7.0,
+              6.5,
+              4.7
+            ],
+            [
+              4.8999999999999995,
+              6.5,
+              4.7
+            ],
+            [
+              4.8999999999999995,
+              4.55,
+              4.7
+            ]
+          ],
+          "cargo_state": "car_f2_2",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_01_segment_02_car_f2_2.yaml",
+          "initial_xyz": [
+            7.0,
+            6.5,
+            4.7
+          ],
+          "goal_xyz": [
+            4.8999999999999995,
+            4.55,
+            4.7
+          ],
+          "route_length_m": 4.050000000000001,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物卸下，车辆清场",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              4.8999999999999995,
+              4.55,
+              4.7
+            ],
+            [
+              4.8999999999999995,
+              6.5,
+              4.7
+            ],
+            [
+              7.0,
+              6.5,
+              4.7
+            ],
+            [
+              7.0,
+              0.0,
+              4.7
+            ],
+            [
+              5.5,
+              0.0,
+              4.7
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_01_segment_03_car_f2_2.yaml",
+          "initial_xyz": [
+            4.8999999999999995,
+            4.55,
+            4.7
+          ],
+          "goal_xyz": [
+            5.5,
+            0.0,
+            4.7
+          ],
+          "route_length_m": 12.05,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "task_type": "cross_up",
+      "task": {
+        "task_id": "S14_T09",
+        "cargo_id": "S14_C09",
+        "priority": 3,
+        "deadline": 739.8750316037219,
+        "source": {
+          "point_id": "F1_SE",
+          "floor": 1,
+          "region": "F1_SE",
+          "xyz": [
+            12,
+            -8,
+            0.45
+          ]
+        },
+        "target": {
+          "point_id": "F2_SW",
+          "floor": 2,
+          "region": "F2_WEST",
+          "xyz": [
+            -7,
+            -6.5,
+            4.7
+          ]
+        }
+      },
+      "policy_decision": {
+        "action_index": 1,
+        "probability": 0.1530800759792328,
+        "value_estimate": -1.045554757118225,
+        "memory_update_l2": 2.262575387954712,
+        "wait_decisions_before_assignment": 0,
+        "assignment": {
+          "task_id": "S14_T09",
+          "pickup_carter": "car_f1_4",
+          "dog_id": "dog_4",
+          "stair_id": "STAIR_SE",
+          "receiving_carter": "car_f2_2",
+          "pickup_handover_point": "STAIR_SE_F1_SEND",
+          "receive_handover_point": "STAIR_SE_F2_RECEIVE",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 46.27445501400659,
+          "transport_mode": "CAR_DOG_CAR"
+        },
+        "rule_reference": {
+          "task_id": "S14_T09",
+          "pickup_carter": "car_f1_4",
+          "dog_id": "dog_4",
+          "stair_id": "STAIR_SE",
+          "receiving_carter": "car_f2_1",
+          "pickup_handover_point": "STAIR_SE_F1_SEND",
+          "receive_handover_point": "STAIR_SE_F2_RECEIVE",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 45.77445501400659,
+          "transport_mode": "CAR_DOG_CAR"
+        },
+        "agrees_with_rule_mode": true
+      },
+      "participants": [
+        "car_f1_4",
+        "dog_4",
+        "car_f2_2"
+      ],
+      "outcome": "COMPLETED",
+      "simulated_reward": 0.38440754983357833,
+      "simulated_delta_time": 60.06197657661474,
+      "initial_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -2.5,
+          -2.5,
+          0.45
+        ],
+        "car_f1_4": [
+          2.5,
+          -2.5,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -20.8,
+          -17.8,
+          0.45
+        ],
+        "dog_4": [
+          20.8,
+          -17.8,
+          0.45
+        ],
+        "car_f2_1": [
+          -5.5,
+          0,
+          4.7
+        ],
+        "car_f2_2": [
+          5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "final_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -2.5,
+          -2.5,
+          0.45
+        ],
+        "car_f1_4": [
+          4.5,
+          -3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -20.8,
+          -17.8,
+          0.45
+        ],
+        "dog_4": [
+          2.0,
+          -1.5,
+          4.7
+        ],
+        "car_f2_1": [
+          -5.5,
+          0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "segments": [
+        {
+          "label": "Go2 预定位至源层楼梯口",
+          "robot": "dog_4",
+          "path": [
+            [
+              20.8,
+              -17.8,
+              0.45
+            ],
+            [
+              20.3,
+              -17.8,
+              0.45
+            ],
+            [
+              20.3,
+              -18.3,
+              0.45
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_02_segment_01_dog_4.yaml",
+          "initial_xyz": [
+            20.8,
+            -17.8,
+            0.45
+          ],
+          "goal_xyz": [
+            20.3,
+            -18.3,
+            0.45
+          ],
+          "route_length_m": 1.0,
+          "execution_backend": "POSE_SYNC",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "目标层车辆预定位至接收点",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              5.5,
+              0.0,
+              4.7
+            ],
+            [
+              14.2929,
+              0.0,
+              4.7
+            ],
+            [
+              14.2929,
+              0.0,
+              4.56
+            ],
+            [
+              14.2929,
+              -11.2929,
+              4.56
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_02_segment_02_car_f2_2.yaml",
+          "initial_xyz": [
+            5.5,
+            0.0,
+            4.7
+          ],
+          "goal_xyz": [
+            14.2929,
+            -11.2929,
+            4.56
+          ],
+          "route_length_m": 20.2258,
+          "execution_backend": "SCAN",
+          "timeout_s": 85.4516
+        },
+        {
+          "label": "源层车辆前往装货平台",
+          "robot": "car_f1_4",
+          "path": [
+            [
+              2.5,
+              -2.5,
+              0.45
+            ],
+            [
+              12.0,
+              -2.5,
+              0.45
+            ],
+            [
+              12.0,
+              -8.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_02_segment_03_car_f1_4.yaml",
+          "initial_xyz": [
+            2.5,
+            -2.5,
+            0.45
+          ],
+          "goal_xyz": [
+            12.0,
+            -8.0,
+            0.45
+          ],
+          "route_length_m": 15.0,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物吸附，源层车辆前往交接点",
+          "robot": "car_f1_4",
+          "path": [
+            [
+              12.0,
+              -8.0,
+              0.45
+            ],
+            [
+              20.3,
+              -8.0,
+              0.45
+            ],
+            [
+              20.3,
+              -18.3,
+              0.45
+            ]
+          ],
+          "cargo_state": "car_f1_4",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_02_segment_04_car_f1_4.yaml",
+          "initial_xyz": [
+            12.0,
+            -8.0,
+            0.45
+          ],
+          "goal_xyz": [
+            20.3,
+            -18.3,
+            0.45
+          ],
+          "route_length_m": 18.6,
+          "execution_backend": "SCAN",
+          "timeout_s": 82.2
+        },
+        {
+          "label": "车—狗交接完成，Go2 通过楼梯",
+          "robot": "dog_4",
+          "path": [
+            [
+              20.3,
+              -18.3,
+              0.45
+            ],
+            [
+              19.7728,
+              -16.7728,
+              0.8933
+            ],
+            [
+              19.3486,
+              -16.3486,
+              1.2267
+            ],
+            [
+              18.9243,
+              -15.9243,
+              1.56
+            ],
+            [
+              18.5001,
+              -15.5001,
+              1.8933
+            ],
+            [
+              18.0758,
+              -15.0758,
+              2.2267
+            ],
+            [
+              17.6516,
+              -14.6516,
+              2.56
+            ],
+            [
+              17.2273,
+              -14.2273,
+              2.8933
+            ],
+            [
+              16.8031,
+              -13.8031,
+              3.2267
+            ],
+            [
+              16.3788,
+              -13.3788,
+              3.56
+            ],
+            [
+              15.9546,
+              -12.9546,
+              3.8933
+            ],
+            [
+              15.5303,
+              -12.5303,
+              4.2267
+            ],
+            [
+              15.1061,
+              -12.1061,
+              4.56
+            ],
+            [
+              14.2929,
+              -11.2929,
+              4.56
+            ]
+          ],
+          "cargo_state": "dog_4",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_02_segment_05_dog_4.yaml",
+          "initial_xyz": [
+            20.3,
+            -18.3,
+            0.45
+          ],
+          "goal_xyz": [
+            14.2929,
+            -11.2929,
+            4.56
+          ],
+          "route_length_m": 10.375279411544383,
+          "execution_backend": "SCAN",
+          "timeout_s": 96.87639705772192
+        },
+        {
+          "label": "狗—车交接完成，目标层车辆送货",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              14.2929,
+              -11.2929,
+              4.56
+            ],
+            [
+              -7.0,
+              -11.2929,
+              4.56
+            ],
+            [
+              -7.0,
+              -11.2929,
+              4.7
+            ],
+            [
+              -7.0,
+              -6.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "car_f2_2",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_02_segment_06_car_f2_2.yaml",
+          "initial_xyz": [
+            14.2929,
+            -11.2929,
+            4.56
+          ],
+          "goal_xyz": [
+            -7.0,
+            -6.5,
+            4.7
+          ],
+          "route_length_m": 26.2258,
+          "execution_backend": "SCAN",
+          "timeout_s": 97.4516
+        },
+        {
+          "label": "car_f1_4 前往待命位",
+          "robot": "car_f1_4",
+          "path": [
+            [
+              20.3,
+              -18.3,
+              0.45
+            ],
+            [
+              20.3,
+              -8.0,
+              0.45
+            ],
+            [
+              12.0,
+              -8.0,
+              0.45
+            ],
+            [
+              12.0,
+              -2.5,
+              0.45
+            ],
+            [
+              2.5,
+              -2.5,
+              0.45
+            ],
+            [
+              4.5,
+              -2.5,
+              0.45
+            ],
+            [
+              4.5,
+              -3.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_02_segment_07_car_f1_4.yaml",
+          "initial_xyz": [
+            20.3,
+            -18.3,
+            0.45
+          ],
+          "goal_xyz": [
+            4.5,
+            -3.0,
+            0.45
+          ],
+          "route_length_m": 36.1,
+          "execution_backend": "SCAN",
+          "timeout_s": 117.2
+        },
+        {
+          "label": "dog_4 前往待命位",
+          "robot": "dog_4",
+          "path": [
+            [
+              14.2929,
+              -11.2929,
+              4.56
+            ],
+            [
+              2.0,
+              -11.2929,
+              4.56
+            ],
+            [
+              2.0,
+              -11.2929,
+              4.7
+            ],
+            [
+              2.0,
+              -1.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_02_segment_08_dog_4.yaml",
+          "initial_xyz": [
+            14.2929,
+            -11.2929,
+            4.56
+          ],
+          "goal_xyz": [
+            2.0,
+            -1.5,
+            4.7
+          ],
+          "route_length_m": 22.2258,
+          "execution_backend": "SCAN",
+          "timeout_s": 156.129
+        },
+        {
+          "label": "car_f2_2 前往待命位",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              -7.0,
+              -6.5,
+              4.7
+            ],
+            [
+              -7.0,
+              -11.2929,
+              4.7
+            ],
+            [
+              -7.0,
+              -11.2929,
+              4.56
+            ],
+            [
+              14.2929,
+              -11.2929,
+              4.56
+            ],
+            [
+              14.2929,
+              0.0,
+              4.56
+            ],
+            [
+              14.2929,
+              0.0,
+              4.7
+            ],
+            [
+              5.5,
+              0.0,
+              4.7
+            ],
+            [
+              -5.5,
+              0.0,
+              4.7
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_02_segment_09_car_f2_2.yaml",
+          "initial_xyz": [
+            -7.0,
+            -6.5,
+            4.7
+          ],
+          "goal_xyz": [
+            -5.5,
+            0.0,
+            4.7
+          ],
+          "route_length_m": 57.4516,
+          "execution_backend": "SCAN",
+          "timeout_s": 159.9032
+        }
+      ]
+    },
+    {
+      "sequence": 3,
+      "task_type": "cross_down",
+      "task": {
+        "task_id": "S14_T11",
+        "cargo_id": "S14_C11",
+        "priority": 3,
+        "deadline": 881.0838793613707,
+        "source": {
+          "point_id": "F2_NE",
+          "floor": 2,
+          "region": "F2_EAST",
+          "xyz": [
+            7,
+            6.5,
+            4.7
+          ]
+        },
+        "target": {
+          "point_id": "F1_NW",
+          "floor": 1,
+          "region": "F1_NW",
+          "xyz": [
+            -12,
+            8,
+            0.45
+          ]
+        }
+      },
+      "policy_decision": {
+        "action_index": 2,
+        "probability": 0.09657742828130722,
+        "value_estimate": -0.9751032590866089,
+        "memory_update_l2": 1.743983268737793,
+        "wait_decisions_before_assignment": 0,
+        "assignment": {
+          "task_id": "S14_T11",
+          "pickup_carter": "car_f2_1",
+          "dog_id": "dog_4",
+          "stair_id": "STAIR_NW",
+          "receiving_carter": "car_f1_3",
+          "pickup_handover_point": "STAIR_NW_F2_SEND",
+          "receive_handover_point": "STAIR_NW_F1_RECEIVE",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 50.04698757163393,
+          "transport_mode": "CAR_DOG_CAR"
+        },
+        "rule_reference": {
+          "task_id": "S14_T11",
+          "pickup_carter": "car_f2_1",
+          "dog_id": "dog_4",
+          "stair_id": "STAIR_NW",
+          "receiving_carter": "car_f1_1",
+          "pickup_handover_point": "STAIR_NW_F2_SEND",
+          "receive_handover_point": "STAIR_NW_F1_RECEIVE",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 50.04698757163393,
+          "transport_mode": "CAR_DOG_CAR"
+        },
+        "agrees_with_rule_mode": true
+      },
+      "participants": [
+        "car_f2_1",
+        "dog_4",
+        "car_f1_3"
+      ],
+      "outcome": "COMPLETED",
+      "simulated_reward": -0.4172954629149867,
+      "simulated_delta_time": 83.70042607908496,
+      "initial_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -2.5,
+          -2.5,
+          0.45
+        ],
+        "car_f1_4": [
+          4.5,
+          -3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -20.8,
+          -17.8,
+          0.45
+        ],
+        "dog_4": [
+          2.0,
+          -1.5,
+          4.7
+        ],
+        "car_f2_1": [
+          -5.5,
+          0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "final_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          4.5,
+          -3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -20.8,
+          -17.8,
+          0.45
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "segments": [
+        {
+          "label": "Go2 预定位至源层楼梯口",
+          "robot": "dog_4",
+          "path": [
+            [
+              2.0,
+              -1.5,
+              4.7
+            ],
+            [
+              -9.5,
+              -1.5,
+              4.7
+            ],
+            [
+              -9.5,
+              6.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_03_segment_01_dog_4.yaml",
+          "initial_xyz": [
+            2.0,
+            -1.5,
+            4.7
+          ],
+          "goal_xyz": [
+            -9.5,
+            6.5,
+            4.7
+          ],
+          "route_length_m": 19.5,
+          "execution_backend": "SCAN",
+          "timeout_s": 142.5
+        },
+        {
+          "label": "目标层车辆预定位至接收点",
+          "robot": "car_f1_3",
+          "path": [
+            [
+              -2.5,
+              -2.5,
+              0.45
+            ],
+            [
+              -20.8,
+              -2.5,
+              0.45
+            ],
+            [
+              -20.8,
+              17.8,
+              0.45
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_03_segment_02_car_f1_3.yaml",
+          "initial_xyz": [
+            -2.5,
+            -2.5,
+            0.45
+          ],
+          "goal_xyz": [
+            -20.8,
+            17.8,
+            0.45
+          ],
+          "route_length_m": 38.6,
+          "execution_backend": "SCAN",
+          "timeout_s": 122.2
+        },
+        {
+          "label": "源层车辆前往装货平台",
+          "robot": "car_f2_1",
+          "path": [
+            [
+              -5.5,
+              0.0,
+              4.7
+            ],
+            [
+              7.0,
+              0.0,
+              4.7
+            ],
+            [
+              7.0,
+              6.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_03_segment_03_car_f2_1.yaml",
+          "initial_xyz": [
+            -5.5,
+            0.0,
+            4.7
+          ],
+          "goal_xyz": [
+            7.0,
+            6.5,
+            4.7
+          ],
+          "route_length_m": 19.0,
+          "execution_backend": "SCAN",
+          "timeout_s": 83.0
+        },
+        {
+          "label": "货物吸附，源层车辆前往交接点",
+          "robot": "car_f2_1",
+          "path": [
+            [
+              7.0,
+              6.5,
+              4.7
+            ],
+            [
+              -9.5,
+              6.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "car_f2_1",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_03_segment_04_car_f2_1.yaml",
+          "initial_xyz": [
+            7.0,
+            6.5,
+            4.7
+          ],
+          "goal_xyz": [
+            -9.5,
+            6.5,
+            4.7
+          ],
+          "route_length_m": 16.5,
+          "execution_backend": "SCAN",
+          "timeout_s": 78.0
+        },
+        {
+          "label": "车—狗交接完成，Go2 通过楼梯",
+          "robot": "dog_4",
+          "path": [
+            [
+              -9.5,
+              6.5,
+              4.7
+            ],
+            [
+              -15.1061,
+              12.1061,
+              4.56
+            ],
+            [
+              -15.5303,
+              12.5303,
+              4.2267
+            ],
+            [
+              -15.9546,
+              12.9546,
+              3.8933
+            ],
+            [
+              -16.3788,
+              13.3788,
+              3.56
+            ],
+            [
+              -16.8031,
+              13.8031,
+              3.2267
+            ],
+            [
+              -17.2273,
+              14.2273,
+              2.8933
+            ],
+            [
+              -17.6516,
+              14.6516,
+              2.56
+            ],
+            [
+              -18.0758,
+              15.0758,
+              2.2267
+            ],
+            [
+              -18.5001,
+              15.5001,
+              1.8933
+            ],
+            [
+              -18.9243,
+              15.9243,
+              1.56
+            ],
+            [
+              -19.3486,
+              16.3486,
+              1.2267
+            ],
+            [
+              -19.7728,
+              16.7728,
+              0.8933
+            ],
+            [
+              -20.8,
+              17.8,
+              0.45
+            ]
+          ],
+          "cargo_state": "dog_4",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_03_segment_05_dog_4.yaml",
+          "initial_xyz": [
+            -9.5,
+            6.5,
+            4.7
+          ],
+          "goal_xyz": [
+            -20.8,
+            17.8,
+            0.45
+          ],
+          "route_length_m": 16.99816403994787,
+          "execution_backend": "SCAN",
+          "timeout_s": 129.99082019973935
+        },
+        {
+          "label": "狗—车交接完成，目标层车辆送货",
+          "robot": "car_f1_3",
+          "path": [
+            [
+              -20.8,
+              17.8,
+              0.45
+            ],
+            [
+              -12.0,
+              17.8,
+              0.45
+            ],
+            [
+              -12.0,
+              8.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "car_f1_3",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_03_segment_06_car_f1_3.yaml",
+          "initial_xyz": [
+            -20.8,
+            17.8,
+            0.45
+          ],
+          "goal_xyz": [
+            -12.0,
+            8.0,
+            0.45
+          ],
+          "route_length_m": 18.6,
+          "execution_backend": "SCAN",
+          "timeout_s": 82.2
+        },
+        {
+          "label": "car_f2_1 前往待命位",
+          "robot": "car_f2_1",
+          "path": [
+            [
+              -9.5,
+              6.5,
+              4.7
+            ],
+            [
+              7.0,
+              6.5,
+              4.7
+            ],
+            [
+              7.0,
+              0.0,
+              4.7
+            ],
+            [
+              -5.5,
+              0.0,
+              4.7
+            ],
+            [
+              5.5,
+              0.0,
+              4.7
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_03_segment_07_car_f2_1.yaml",
+          "initial_xyz": [
+            -9.5,
+            6.5,
+            4.7
+          ],
+          "goal_xyz": [
+            5.5,
+            0.0,
+            4.7
+          ],
+          "route_length_m": 46.5,
+          "execution_backend": "SCAN",
+          "timeout_s": 138.0
+        },
+        {
+          "label": "dog_4 前往待命位",
+          "robot": "dog_4",
+          "path": [
+            [
+              -20.8,
+              17.8,
+              0.45
+            ],
+            [
+              -2.0,
+              17.8,
+              0.45
+            ],
+            [
+              -2.0,
+              1.5,
+              0.45
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_03_segment_08_dog_4.yaml",
+          "initial_xyz": [
+            -20.8,
+            17.8,
+            0.45
+          ],
+          "goal_xyz": [
+            -2.0,
+            1.5,
+            0.45
+          ],
+          "route_length_m": 35.1,
+          "execution_backend": "SCAN",
+          "timeout_s": 220.5
+        },
+        {
+          "label": "car_f1_3 前往待命位",
+          "robot": "car_f1_3",
+          "path": [
+            [
+              -12.0,
+              8.0,
+              0.45
+            ],
+            [
+              -12.0,
+              17.8,
+              0.45
+            ],
+            [
+              -20.8,
+              17.8,
+              0.45
+            ],
+            [
+              -20.8,
+              -2.5,
+              0.45
+            ],
+            [
+              -2.5,
+              -2.5,
+              0.45
+            ],
+            [
+              -4.5,
+              -2.5,
+              0.45
+            ],
+            [
+              -4.5,
+              3.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_03_segment_09_car_f1_3.yaml",
+          "initial_xyz": [
+            -12.0,
+            8.0,
+            0.45
+          ],
+          "goal_xyz": [
+            -4.5,
+            3.0,
+            0.45
+          ],
+          "route_length_m": 64.7,
+          "execution_backend": "SCAN",
+          "timeout_s": 174.4
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "task_type": "cross_up",
+      "task": {
+        "task_id": "S14_T16",
+        "cargo_id": "S14_C16",
+        "priority": 3,
+        "deadline": 1172.0113680721443,
+        "source": {
+          "point_id": "F1_SW_STAIR_PLATFORM",
+          "floor": 1,
+          "region": "F1_SW",
+          "xyz": [
+            -20.0,
+            -18.0,
+            0.45
+          ]
+        },
+        "target": {
+          "point_id": "F2_SW_STAIR_PLATFORM",
+          "floor": 2,
+          "region": "F2_WEST",
+          "xyz": [
+            -9.2,
+            -6.3,
+            4.7
+          ]
+        }
+      },
+      "policy_decision": {
+        "action_index": 0,
+        "probability": 0.9996576309204102,
+        "value_estimate": -1.0671732425689697,
+        "memory_update_l2": 0.7849782705307007,
+        "wait_decisions_before_assignment": 0,
+        "assignment": {
+          "task_id": "S14_T16",
+          "pickup_carter": "",
+          "dog_id": "dog_3",
+          "stair_id": "STAIR_SW",
+          "receiving_carter": "",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 22.700810920599416,
+          "transport_mode": "SINGLE_DOG"
+        },
+        "rule_reference": {
+          "task_id": "S14_T16",
+          "pickup_carter": "",
+          "dog_id": "dog_3",
+          "stair_id": "STAIR_SW",
+          "receiving_carter": "",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 22.700810920599416,
+          "transport_mode": "SINGLE_DOG"
+        },
+        "agrees_with_rule_mode": true
+      },
+      "participants": [
+        "dog_3"
+      ],
+      "outcome": "COMPLETED",
+      "simulated_reward": 1.3119549296871755,
+      "simulated_delta_time": 36.51746474699138,
+      "initial_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          4.5,
+          -3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -20.8,
+          -17.8,
+          0.45
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "final_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          4.5,
+          -3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          4.7
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "segments": [
+        {
+          "label": "Go2 前往装货平台",
+          "robot": "dog_3",
+          "path": [
+            [
+              -20.8,
+              -17.8,
+              0.45
+            ],
+            [
+              -20.0,
+              -17.8,
+              0.45
+            ],
+            [
+              -20.0,
+              -18.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_04_segment_01_dog_3.yaml",
+          "initial_xyz": [
+            -20.8,
+            -17.8,
+            0.45
+          ],
+          "goal_xyz": [
+            -20.0,
+            -18.0,
+            0.45
+          ],
+          "route_length_m": 1.0,
+          "execution_backend": "POSE_SYNC",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "Go2 携货前往楼梯入口",
+          "robot": "dog_3",
+          "path": [
+            [
+              -20.0,
+              -18.0,
+              0.45
+            ],
+            [
+              -20.3,
+              -18.0,
+              0.45
+            ],
+            [
+              -20.3,
+              -18.3,
+              0.45
+            ]
+          ],
+          "cargo_state": "dog_3",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_04_segment_02_dog_3.yaml",
+          "initial_xyz": [
+            -20.0,
+            -18.0,
+            0.45
+          ],
+          "goal_xyz": [
+            -20.3,
+            -18.3,
+            0.45
+          ],
+          "route_length_m": 0.6000000000000014,
+          "execution_backend": "POSE_SYNC",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "Go2 携货通过楼梯",
+          "robot": "dog_3",
+          "path": [
+            [
+              -20.3,
+              -18.3,
+              0.45
+            ],
+            [
+              -19.7728,
+              -16.7728,
+              0.8933
+            ],
+            [
+              -19.3486,
+              -16.3486,
+              1.2267
+            ],
+            [
+              -18.9243,
+              -15.9243,
+              1.56
+            ],
+            [
+              -18.5001,
+              -15.5001,
+              1.8933
+            ],
+            [
+              -18.0758,
+              -15.0758,
+              2.2267
+            ],
+            [
+              -17.6516,
+              -14.6516,
+              2.56
+            ],
+            [
+              -17.2273,
+              -14.2273,
+              2.8933
+            ],
+            [
+              -16.8031,
+              -13.8031,
+              3.2267
+            ],
+            [
+              -16.3788,
+              -13.3788,
+              3.56
+            ],
+            [
+              -15.9546,
+              -12.9546,
+              3.8933
+            ],
+            [
+              -15.5303,
+              -12.5303,
+              4.2267
+            ],
+            [
+              -15.1061,
+              -12.1061,
+              4.56
+            ],
+            [
+              -14.2929,
+              -11.2929,
+              4.56
+            ]
+          ],
+          "cargo_state": "dog_3",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_04_segment_03_dog_3.yaml",
+          "initial_xyz": [
+            -20.3,
+            -18.3,
+            0.45
+          ],
+          "goal_xyz": [
+            -14.2929,
+            -11.2929,
+            4.56
+          ],
+          "route_length_m": 10.375279411544383,
+          "execution_backend": "SCAN",
+          "timeout_s": 96.87639705772192
+        },
+        {
+          "label": "Go2 离开楼梯并送达平台",
+          "robot": "dog_3",
+          "path": [
+            [
+              -14.2929,
+              -11.2929,
+              4.56
+            ],
+            [
+              -9.2,
+              -11.2929,
+              4.56
+            ],
+            [
+              -9.2,
+              -11.2929,
+              4.7
+            ],
+            [
+              -9.2,
+              -6.3,
+              4.7
+            ]
+          ],
+          "cargo_state": "dog_3",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_04_segment_04_dog_3.yaml",
+          "initial_xyz": [
+            -14.2929,
+            -11.2929,
+            4.56
+          ],
+          "goal_xyz": [
+            -9.2,
+            -6.3,
+            4.7
+          ],
+          "route_length_m": 10.2258,
+          "execution_backend": "SCAN",
+          "timeout_s": 96.12899999999999
+        },
+        {
+          "label": "货物卸下，Go2 前往待命位",
+          "robot": "dog_3",
+          "path": [
+            [
+              -9.2,
+              -6.3,
+              4.7
+            ],
+            [
+              -9.2,
+              -11.2929,
+              4.7
+            ],
+            [
+              -9.2,
+              -11.2929,
+              4.56
+            ],
+            [
+              -14.2929,
+              -11.2929,
+              4.56
+            ],
+            [
+              -2.0,
+              -11.2929,
+              4.56
+            ],
+            [
+              -2.0,
+              -11.2929,
+              4.7
+            ],
+            [
+              -2.0,
+              -1.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_04_segment_05_dog_3.yaml",
+          "initial_xyz": [
+            -9.2,
+            -6.3,
+            4.7
+          ],
+          "goal_xyz": [
+            -2.0,
+            -1.5,
+            4.7
+          ],
+          "route_length_m": 32.4516,
+          "execution_backend": "SCAN",
+          "timeout_s": 207.25799999999998
+        }
+      ]
+    },
+    {
+      "sequence": 5,
+      "task_type": "f2_cross_region",
+      "task": {
+        "task_id": "S14_T13",
+        "cargo_id": "S14_C13",
+        "priority": 2,
+        "deadline": 965.9807105617515,
+        "source": {
+          "point_id": "F2_NW",
+          "floor": 2,
+          "region": "F2_WEST",
+          "xyz": [
+            -7,
+            6.5,
+            4.7
+          ]
+        },
+        "target": {
+          "point_id": "F2_NE",
+          "floor": 2,
+          "region": "F2_EAST",
+          "xyz": [
+            7,
+            6.5,
+            4.7
+          ]
+        }
+      },
+      "policy_decision": {
+        "action_index": 0,
+        "probability": 0.7955982089042664,
+        "value_estimate": -0.9436920285224915,
+        "memory_update_l2": 1.9022247791290283,
+        "wait_decisions_before_assignment": 0,
+        "assignment": {
+          "task_id": "S14_T13",
+          "pickup_carter": "car_f2_2",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f2_2",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 11.335416016031584,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "rule_reference": {
+          "task_id": "S14_T13",
+          "pickup_carter": "car_f2_2",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f2_2",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 11.335416016031584,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "agrees_with_rule_mode": true
+      },
+      "participants": [
+        "car_f2_2"
+      ],
+      "outcome": "COMPLETED",
+      "simulated_reward": 1.87896466096114,
+      "simulated_delta_time": 20.379917417834264,
+      "initial_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          4.5,
+          -3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          4.7
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "final_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          4.5,
+          -3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          4.7
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "segments": [
+        {
+          "label": "车辆前往装货平台",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              -5.5,
+              0.0,
+              4.7
+            ],
+            [
+              -7.0,
+              0.0,
+              4.7
+            ],
+            [
+              -7.0,
+              6.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_05_segment_01_car_f2_2.yaml",
+          "initial_xyz": [
+            -5.5,
+            0.0,
+            4.7
+          ],
+          "goal_xyz": [
+            -7.0,
+            6.5,
+            4.7
+          ],
+          "route_length_m": 8.0,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物吸附，车辆送往目标平台",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              -7.0,
+              6.5,
+              4.7
+            ],
+            [
+              7.0,
+              6.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "car_f2_2",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_05_segment_02_car_f2_2.yaml",
+          "initial_xyz": [
+            -7.0,
+            6.5,
+            4.7
+          ],
+          "goal_xyz": [
+            7.0,
+            6.5,
+            4.7
+          ],
+          "route_length_m": 14.0,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物卸下，车辆清场",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              7.0,
+              6.5,
+              4.7
+            ],
+            [
+              -7.0,
+              6.5,
+              4.7
+            ],
+            [
+              -7.0,
+              0.0,
+              4.7
+            ],
+            [
+              -5.5,
+              0.0,
+              4.7
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_05_segment_03_car_f2_2.yaml",
+          "initial_xyz": [
+            7.0,
+            6.5,
+            4.7
+          ],
+          "goal_xyz": [
+            -5.5,
+            0.0,
+            4.7
+          ],
+          "route_length_m": 22.0,
+          "execution_backend": "SCAN",
+          "timeout_s": 89.0
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "task_type": "f1_same",
+      "task": {
+        "task_id": "S14_T06",
+        "cargo_id": "S14_C06",
+        "priority": 2,
+        "deadline": 536.9003158330812,
+        "source": {
+          "point_id": "F1_SW",
+          "floor": 1,
+          "region": "F1_SW",
+          "xyz": [
+            -12,
+            -8,
+            0.45
+          ]
+        },
+        "target": {
+          "point_id": "F1_SW_LOCAL_6",
+          "floor": 1,
+          "region": "F1_SW",
+          "xyz": [
+            -8.399999999999999,
+            -5.6,
+            0.45
+          ]
+        }
+      },
+      "policy_decision": {
+        "action_index": 1,
+        "probability": 0.36940717697143555,
+        "value_estimate": -0.8314594030380249,
+        "memory_update_l2": 2.5596299171447754,
+        "wait_decisions_before_assignment": 0,
+        "assignment": {
+          "task_id": "S14_T06",
+          "pickup_carter": "car_f1_3",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f1_3",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 9.320094243125569,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "rule_reference": {
+          "task_id": "S14_T06",
+          "pickup_carter": "car_f1_2",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f1_2",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 9.243231894531542,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "agrees_with_rule_mode": true
+      },
+      "participants": [
+        "car_f1_3"
+      ],
+      "outcome": "COMPLETED",
+      "simulated_reward": 2.099843157280903,
+      "simulated_delta_time": 14.163702572177158,
+      "initial_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          4.5,
+          -3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          4.7
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "final_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          -3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          4.5,
+          -3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          4.7
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "segments": [
+        {
+          "label": "车辆前往装货平台",
+          "robot": "car_f1_3",
+          "path": [
+            [
+              -4.5,
+              3.0,
+              0.45
+            ],
+            [
+              -12.0,
+              3.0,
+              0.45
+            ],
+            [
+              -12.0,
+              -8.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_06_segment_01_car_f1_3.yaml",
+          "initial_xyz": [
+            -4.5,
+            3.0,
+            0.45
+          ],
+          "goal_xyz": [
+            -12.0,
+            -8.0,
+            0.45
+          ],
+          "route_length_m": 18.5,
+          "execution_backend": "SCAN",
+          "timeout_s": 82.0
+        },
+        {
+          "label": "货物吸附，车辆送往目标平台",
+          "robot": "car_f1_3",
+          "path": [
+            [
+              -12.0,
+              -8.0,
+              0.45
+            ],
+            [
+              -8.399999999999999,
+              -8.0,
+              0.45
+            ],
+            [
+              -8.399999999999999,
+              -5.6,
+              0.45
+            ]
+          ],
+          "cargo_state": "car_f1_3",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_06_segment_02_car_f1_3.yaml",
+          "initial_xyz": [
+            -12.0,
+            -8.0,
+            0.45
+          ],
+          "goal_xyz": [
+            -8.399999999999999,
+            -5.6,
+            0.45
+          ],
+          "route_length_m": 6.000000000000002,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物卸下，车辆清场",
+          "robot": "car_f1_3",
+          "path": [
+            [
+              -8.399999999999999,
+              -5.6,
+              0.45
+            ],
+            [
+              -8.399999999999999,
+              -8.0,
+              0.45
+            ],
+            [
+              -12.0,
+              -8.0,
+              0.45
+            ],
+            [
+              -12.0,
+              3.0,
+              0.45
+            ],
+            [
+              -4.5,
+              3.0,
+              0.45
+            ],
+            [
+              -4.5,
+              -3.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_06_segment_03_car_f1_3.yaml",
+          "initial_xyz": [
+            -8.399999999999999,
+            -5.6,
+            0.45
+          ],
+          "goal_xyz": [
+            -4.5,
+            -3.0,
+            0.45
+          ],
+          "route_length_m": 30.5,
+          "execution_backend": "SCAN",
+          "timeout_s": 106.0
+        }
+      ]
+    },
+    {
+      "sequence": 7,
+      "task_type": "cross_down",
+      "task": {
+        "task_id": "S14_T20",
+        "cargo_id": "S14_C20",
+        "priority": 3,
+        "deadline": 1419.9434521117064,
+        "source": {
+          "point_id": "F2_NE",
+          "floor": 2,
+          "region": "F2_EAST",
+          "xyz": [
+            7,
+            6.5,
+            4.7
+          ]
+        },
+        "target": {
+          "point_id": "F1_NW",
+          "floor": 1,
+          "region": "F1_NW",
+          "xyz": [
+            -12,
+            8,
+            0.45
+          ]
+        }
+      },
+      "policy_decision": {
+        "action_index": 2,
+        "probability": 0.13059870898723602,
+        "value_estimate": -1.2217382192611694,
+        "memory_update_l2": 3.0054028034210205,
+        "wait_decisions_before_assignment": 0,
+        "assignment": {
+          "task_id": "S14_T20",
+          "pickup_carter": "car_f2_1",
+          "dog_id": "dog_3",
+          "stair_id": "STAIR_NW",
+          "receiving_carter": "car_f1_4",
+          "pickup_handover_point": "STAIR_NW_F2_SEND",
+          "receive_handover_point": "STAIR_NW_F1_RECEIVE",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 47.243150538644876,
+          "transport_mode": "CAR_DOG_CAR"
+        },
+        "rule_reference": {
+          "task_id": "S14_T20",
+          "pickup_carter": "car_f2_1",
+          "dog_id": "dog_3",
+          "stair_id": "STAIR_NW",
+          "receiving_carter": "car_f1_1",
+          "pickup_handover_point": "STAIR_NW_F2_SEND",
+          "receive_handover_point": "STAIR_NW_F1_RECEIVE",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 46.743150538644876,
+          "transport_mode": "CAR_DOG_CAR"
+        },
+        "agrees_with_rule_mode": true
+      },
+      "participants": [
+        "car_f2_1",
+        "dog_3",
+        "car_f1_4"
+      ],
+      "outcome": "COMPLETED",
+      "simulated_reward": -0.3721314354170874,
+      "simulated_delta_time": 82.35371860515912,
+      "initial_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          -3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          4.5,
+          -3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          4.7
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "final_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          -3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          0.45
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "segments": [
+        {
+          "label": "Go2 预定位至源层楼梯口",
+          "robot": "dog_3",
+          "path": [
+            [
+              -2.0,
+              -1.5,
+              4.7
+            ],
+            [
+              -9.5,
+              -1.5,
+              4.7
+            ],
+            [
+              -9.5,
+              6.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_07_segment_01_dog_3.yaml",
+          "initial_xyz": [
+            -2.0,
+            -1.5,
+            4.7
+          ],
+          "goal_xyz": [
+            -9.5,
+            6.5,
+            4.7
+          ],
+          "route_length_m": 15.5,
+          "execution_backend": "SCAN",
+          "timeout_s": 122.5
+        },
+        {
+          "label": "目标层车辆预定位至接收点",
+          "robot": "car_f1_4",
+          "path": [
+            [
+              4.5,
+              -3.0,
+              0.45
+            ],
+            [
+              -20.8,
+              -3.0,
+              0.45
+            ],
+            [
+              -20.8,
+              17.8,
+              0.45
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_07_segment_02_car_f1_4.yaml",
+          "initial_xyz": [
+            4.5,
+            -3.0,
+            0.45
+          ],
+          "goal_xyz": [
+            -20.8,
+            17.8,
+            0.45
+          ],
+          "route_length_m": 46.1,
+          "execution_backend": "SCAN",
+          "timeout_s": 137.2
+        },
+        {
+          "label": "源层车辆前往装货平台",
+          "robot": "car_f2_1",
+          "path": [
+            [
+              5.5,
+              0.0,
+              4.7
+            ],
+            [
+              7.0,
+              0.0,
+              4.7
+            ],
+            [
+              7.0,
+              6.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_07_segment_03_car_f2_1.yaml",
+          "initial_xyz": [
+            5.5,
+            0.0,
+            4.7
+          ],
+          "goal_xyz": [
+            7.0,
+            6.5,
+            4.7
+          ],
+          "route_length_m": 8.0,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物吸附，源层车辆前往交接点",
+          "robot": "car_f2_1",
+          "path": [
+            [
+              7.0,
+              6.5,
+              4.7
+            ],
+            [
+              -9.5,
+              6.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "car_f2_1",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_07_segment_04_car_f2_1.yaml",
+          "initial_xyz": [
+            7.0,
+            6.5,
+            4.7
+          ],
+          "goal_xyz": [
+            -9.5,
+            6.5,
+            4.7
+          ],
+          "route_length_m": 16.5,
+          "execution_backend": "SCAN",
+          "timeout_s": 78.0
+        },
+        {
+          "label": "车—狗交接完成，Go2 通过楼梯",
+          "robot": "dog_3",
+          "path": [
+            [
+              -9.5,
+              6.5,
+              4.7
+            ],
+            [
+              -15.1061,
+              12.1061,
+              4.56
+            ],
+            [
+              -15.5303,
+              12.5303,
+              4.2267
+            ],
+            [
+              -15.9546,
+              12.9546,
+              3.8933
+            ],
+            [
+              -16.3788,
+              13.3788,
+              3.56
+            ],
+            [
+              -16.8031,
+              13.8031,
+              3.2267
+            ],
+            [
+              -17.2273,
+              14.2273,
+              2.8933
+            ],
+            [
+              -17.6516,
+              14.6516,
+              2.56
+            ],
+            [
+              -18.0758,
+              15.0758,
+              2.2267
+            ],
+            [
+              -18.5001,
+              15.5001,
+              1.8933
+            ],
+            [
+              -18.9243,
+              15.9243,
+              1.56
+            ],
+            [
+              -19.3486,
+              16.3486,
+              1.2267
+            ],
+            [
+              -19.7728,
+              16.7728,
+              0.8933
+            ],
+            [
+              -20.8,
+              17.8,
+              0.45
+            ]
+          ],
+          "cargo_state": "dog_3",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_07_segment_05_dog_3.yaml",
+          "initial_xyz": [
+            -9.5,
+            6.5,
+            4.7
+          ],
+          "goal_xyz": [
+            -20.8,
+            17.8,
+            0.45
+          ],
+          "route_length_m": 16.99816403994787,
+          "execution_backend": "SCAN",
+          "timeout_s": 129.99082019973935
+        },
+        {
+          "label": "狗—车交接完成，目标层车辆送货",
+          "robot": "car_f1_4",
+          "path": [
+            [
+              -20.8,
+              17.8,
+              0.45
+            ],
+            [
+              -12.0,
+              17.8,
+              0.45
+            ],
+            [
+              -12.0,
+              8.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "car_f1_4",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_07_segment_06_car_f1_4.yaml",
+          "initial_xyz": [
+            -20.8,
+            17.8,
+            0.45
+          ],
+          "goal_xyz": [
+            -12.0,
+            8.0,
+            0.45
+          ],
+          "route_length_m": 18.6,
+          "execution_backend": "SCAN",
+          "timeout_s": 82.2
+        },
+        {
+          "label": "car_f2_1 前往待命位",
+          "robot": "car_f2_1",
+          "path": [
+            [
+              -9.5,
+              6.5,
+              4.7
+            ],
+            [
+              7.0,
+              6.5,
+              4.7
+            ],
+            [
+              7.0,
+              0.0,
+              4.7
+            ],
+            [
+              5.5,
+              0.0,
+              4.7
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_07_segment_07_car_f2_1.yaml",
+          "initial_xyz": [
+            -9.5,
+            6.5,
+            4.7
+          ],
+          "goal_xyz": [
+            5.5,
+            0.0,
+            4.7
+          ],
+          "route_length_m": 24.5,
+          "execution_backend": "SCAN",
+          "timeout_s": 94.0
+        },
+        {
+          "label": "dog_3 前往待命位",
+          "robot": "dog_3",
+          "path": [
+            [
+              -20.8,
+              17.8,
+              0.45
+            ],
+            [
+              -2.0,
+              17.8,
+              0.45
+            ],
+            [
+              -2.0,
+              -1.5,
+              0.45
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 0.8,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_07_segment_08_dog_3.yaml",
+          "initial_xyz": [
+            -20.8,
+            17.8,
+            0.45
+          ],
+          "goal_xyz": [
+            -2.0,
+            -1.5,
+            0.45
+          ],
+          "route_length_m": 38.1,
+          "execution_backend": "SCAN",
+          "timeout_s": 235.5
+        },
+        {
+          "label": "car_f1_4 前往待命位",
+          "robot": "car_f1_4",
+          "path": [
+            [
+              -12.0,
+              8.0,
+              0.45
+            ],
+            [
+              -12.0,
+              17.8,
+              0.45
+            ],
+            [
+              -20.8,
+              17.8,
+              0.45
+            ],
+            [
+              -20.8,
+              -3.0,
+              0.45
+            ],
+            [
+              4.5,
+              -3.0,
+              0.45
+            ],
+            [
+              -4.5,
+              -3.0,
+              0.45
+            ],
+            [
+              -4.5,
+              3.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_07_segment_09_car_f1_4.yaml",
+          "initial_xyz": [
+            -12.0,
+            8.0,
+            0.45
+          ],
+          "goal_xyz": [
+            -4.5,
+            3.0,
+            0.45
+          ],
+          "route_length_m": 79.7,
+          "execution_backend": "SCAN",
+          "timeout_s": 204.4
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "task_type": "f1_same",
+      "task": {
+        "task_id": "S14_T12",
+        "cargo_id": "S14_C12",
+        "priority": 2,
+        "deadline": 919.3376757970548,
+        "source": {
+          "point_id": "F1_NE",
+          "floor": 1,
+          "region": "F1_NE",
+          "xyz": [
+            12,
+            8,
+            0.45
+          ]
+        },
+        "target": {
+          "point_id": "F1_NE_LOCAL_12",
+          "floor": 1,
+          "region": "F1_NE",
+          "xyz": [
+            8.399999999999999,
+            5.6,
+            0.45
+          ]
+        }
+      },
+      "policy_decision": {
+        "action_index": 0,
+        "probability": 0.6624560952186584,
+        "value_estimate": -1.0108710527420044,
+        "memory_update_l2": 2.4056456089019775,
+        "wait_decisions_before_assignment": 0,
+        "assignment": {
+          "task_id": "S14_T12",
+          "pickup_carter": "car_f1_1",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f1_1",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 7.651955365303431,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "rule_reference": {
+          "task_id": "S14_T12",
+          "pickup_carter": "car_f1_1",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f1_1",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 7.651955365303431,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "agrees_with_rule_mode": true
+      },
+      "participants": [
+        "car_f1_1"
+      ],
+      "outcome": "COMPLETED",
+      "simulated_reward": 2.141504453791368,
+      "simulated_delta_time": 12.995563694355042,
+      "initial_robot_poses": {
+        "car_f1_1": [
+          2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          -3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          0.45
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "final_robot_poses": {
+        "car_f1_1": [
+          4.5,
+          3.0,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          -3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          0.45
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "segments": [
+        {
+          "label": "车辆前往装货平台",
+          "robot": "car_f1_1",
+          "path": [
+            [
+              2.5,
+              2.5,
+              0.45
+            ],
+            [
+              12.0,
+              2.5,
+              0.45
+            ],
+            [
+              12.0,
+              8.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_08_segment_01_car_f1_1.yaml",
+          "initial_xyz": [
+            2.5,
+            2.5,
+            0.45
+          ],
+          "goal_xyz": [
+            12.0,
+            8.0,
+            0.45
+          ],
+          "route_length_m": 15.0,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物吸附，车辆送往目标平台",
+          "robot": "car_f1_1",
+          "path": [
+            [
+              12.0,
+              8.0,
+              0.45
+            ],
+            [
+              8.399999999999999,
+              8.0,
+              0.45
+            ],
+            [
+              8.399999999999999,
+              5.6,
+              0.45
+            ]
+          ],
+          "cargo_state": "car_f1_1",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_08_segment_02_car_f1_1.yaml",
+          "initial_xyz": [
+            12.0,
+            8.0,
+            0.45
+          ],
+          "goal_xyz": [
+            8.399999999999999,
+            5.6,
+            0.45
+          ],
+          "route_length_m": 6.000000000000002,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物卸下，车辆清场",
+          "robot": "car_f1_1",
+          "path": [
+            [
+              8.399999999999999,
+              5.6,
+              0.45
+            ],
+            [
+              8.399999999999999,
+              8.0,
+              0.45
+            ],
+            [
+              12.0,
+              8.0,
+              0.45
+            ],
+            [
+              12.0,
+              2.5,
+              0.45
+            ],
+            [
+              2.5,
+              2.5,
+              0.45
+            ],
+            [
+              4.5,
+              2.5,
+              0.45
+            ],
+            [
+              4.5,
+              3.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_08_segment_03_car_f1_1.yaml",
+          "initial_xyz": [
+            8.399999999999999,
+            5.6,
+            0.45
+          ],
+          "goal_xyz": [
+            4.5,
+            3.0,
+            0.45
+          ],
+          "route_length_m": 23.5,
+          "execution_backend": "SCAN",
+          "timeout_s": 92.0
+        }
+      ]
+    },
+    {
+      "sequence": 9,
+      "task_type": "f2_same",
+      "task": {
+        "task_id": "S14_T18",
+        "cargo_id": "S14_C18",
+        "priority": 2,
+        "deadline": 1303.2754653939492,
+        "source": {
+          "point_id": "F2_NW",
+          "floor": 2,
+          "region": "F2_WEST",
+          "xyz": [
+            -7,
+            6.5,
+            4.7
+          ]
+        },
+        "target": {
+          "point_id": "F2_NW_LOCAL_18",
+          "floor": 2,
+          "region": "F2_WEST",
+          "xyz": [
+            -4.8999999999999995,
+            4.55,
+            4.7
+          ]
+        }
+      },
+      "policy_decision": {
+        "action_index": 0,
+        "probability": 0.737412691116333,
+        "value_estimate": -1.2233295440673828,
+        "memory_update_l2": 1.5479750633239746,
+        "wait_decisions_before_assignment": 0,
+        "assignment": {
+          "task_id": "S14_T18",
+          "pickup_carter": "car_f2_2",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f2_2",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 6.268289004122294,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "rule_reference": {
+          "task_id": "S14_T18",
+          "pickup_carter": "car_f2_2",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f2_2",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 6.268289004122294,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "agrees_with_rule_mode": true
+      },
+      "participants": [
+        "car_f2_2"
+      ],
+      "outcome": "COMPLETED",
+      "simulated_reward": 2.2463097438344652,
+      "simulated_delta_time": 10.062983972958023,
+      "initial_robot_poses": {
+        "car_f1_1": [
+          4.5,
+          3.0,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          -3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          0.45
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "final_robot_poses": {
+        "car_f1_1": [
+          4.5,
+          3.0,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          -3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          0.45
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "segments": [
+        {
+          "label": "车辆前往装货平台",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              -5.5,
+              0.0,
+              4.7
+            ],
+            [
+              -7.0,
+              0.0,
+              4.7
+            ],
+            [
+              -7.0,
+              6.5,
+              4.7
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_09_segment_01_car_f2_2.yaml",
+          "initial_xyz": [
+            -5.5,
+            0.0,
+            4.7
+          ],
+          "goal_xyz": [
+            -7.0,
+            6.5,
+            4.7
+          ],
+          "route_length_m": 8.0,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物吸附，车辆送往目标平台",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              -7.0,
+              6.5,
+              4.7
+            ],
+            [
+              -4.8999999999999995,
+              6.5,
+              4.7
+            ],
+            [
+              -4.8999999999999995,
+              4.55,
+              4.7
+            ]
+          ],
+          "cargo_state": "car_f2_2",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_09_segment_02_car_f2_2.yaml",
+          "initial_xyz": [
+            -7.0,
+            6.5,
+            4.7
+          ],
+          "goal_xyz": [
+            -4.8999999999999995,
+            4.55,
+            4.7
+          ],
+          "route_length_m": 4.050000000000001,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物卸下，车辆清场",
+          "robot": "car_f2_2",
+          "path": [
+            [
+              -4.8999999999999995,
+              4.55,
+              4.7
+            ],
+            [
+              -4.8999999999999995,
+              6.5,
+              4.7
+            ],
+            [
+              -7.0,
+              6.5,
+              4.7
+            ],
+            [
+              -7.0,
+              0.0,
+              4.7
+            ],
+            [
+              -5.5,
+              0.0,
+              4.7
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_09_segment_03_car_f2_2.yaml",
+          "initial_xyz": [
+            -4.8999999999999995,
+            4.55,
+            4.7
+          ],
+          "goal_xyz": [
+            -5.5,
+            0.0,
+            4.7
+          ],
+          "route_length_m": 12.05,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        }
+      ]
+    },
+    {
+      "sequence": 10,
+      "task_type": "f1_cross_region",
+      "task": {
+        "task_id": "S14_T17",
+        "cargo_id": "S14_C17",
+        "priority": 2,
+        "deadline": 1238.0744901147511,
+        "source": {
+          "point_id": "F1_NW",
+          "floor": 1,
+          "region": "F1_NW",
+          "xyz": [
+            -12,
+            8,
+            0.45
+          ]
+        },
+        "target": {
+          "point_id": "F1_NE",
+          "floor": 1,
+          "region": "F1_NE",
+          "xyz": [
+            12,
+            8,
+            0.45
+          ]
+        }
+      },
+      "policy_decision": {
+        "action_index": 1,
+        "probability": 0.39706936478614807,
+        "value_estimate": -1.2337324619293213,
+        "memory_update_l2": 0.4282648265361786,
+        "wait_decisions_before_assignment": 0,
+        "assignment": {
+          "task_id": "S14_T17",
+          "pickup_carter": "car_f1_4",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f1_4",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 17.506939094329987,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "rule_reference": {
+          "task_id": "S14_T17",
+          "pickup_carter": "car_f1_2",
+          "dog_id": "",
+          "stair_id": "",
+          "receiving_carter": "car_f1_2",
+          "pickup_handover_point": "",
+          "receive_handover_point": "",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 17.488624600025037,
+          "transport_mode": "SINGLE_CAR"
+        },
+        "agrees_with_rule_mode": true
+      },
+      "participants": [
+        "car_f1_4"
+      ],
+      "outcome": "COMPLETED",
+      "simulated_reward": 1.6746871323712629,
+      "simulated_delta_time": 26.163702572177158,
+      "initial_robot_poses": {
+        "car_f1_1": [
+          4.5,
+          3.0,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          -3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          -4.5,
+          3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          0.45
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "final_robot_poses": {
+        "car_f1_1": [
+          4.5,
+          3.0,
+          0.45
+        ],
+        "car_f1_2": [
+          -2.5,
+          2.5,
+          0.45
+        ],
+        "car_f1_3": [
+          -4.5,
+          -3.0,
+          0.45
+        ],
+        "car_f1_4": [
+          4.5,
+          -3.0,
+          0.45
+        ],
+        "dog_1": [
+          20.8,
+          17.8,
+          0.45
+        ],
+        "dog_2": [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        "dog_3": [
+          -2.0,
+          -1.5,
+          0.45
+        ],
+        "dog_4": [
+          -2.0,
+          1.5,
+          0.45
+        ],
+        "car_f2_1": [
+          5.5,
+          0.0,
+          4.7
+        ],
+        "car_f2_2": [
+          -5.5,
+          0.0,
+          4.7
+        ]
+      },
+      "segments": [
+        {
+          "label": "车辆前往装货平台",
+          "robot": "car_f1_4",
+          "path": [
+            [
+              -4.5,
+              3.0,
+              0.45
+            ],
+            [
+              -12.0,
+              3.0,
+              0.45
+            ],
+            [
+              -12.0,
+              8.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "PICKUP",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_10_segment_01_car_f1_4.yaml",
+          "initial_xyz": [
+            -4.5,
+            3.0,
+            0.45
+          ],
+          "goal_xyz": [
+            -12.0,
+            8.0,
+            0.45
+          ],
+          "route_length_m": 12.5,
+          "execution_backend": "SCAN",
+          "timeout_s": 75.0
+        },
+        {
+          "label": "货物吸附，车辆送往目标平台",
+          "robot": "car_f1_4",
+          "path": [
+            [
+              -12.0,
+              8.0,
+              0.45
+            ],
+            [
+              12.0,
+              8.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "car_f1_4",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_10_segment_02_car_f1_4.yaml",
+          "initial_xyz": [
+            -12.0,
+            8.0,
+            0.45
+          ],
+          "goal_xyz": [
+            12.0,
+            8.0,
+            0.45
+          ],
+          "route_length_m": 24.0,
+          "execution_backend": "SCAN",
+          "timeout_s": 93.0
+        },
+        {
+          "label": "货物卸下，车辆清场",
+          "robot": "car_f1_4",
+          "path": [
+            [
+              12.0,
+              8.0,
+              0.45
+            ],
+            [
+              -12.0,
+              8.0,
+              0.45
+            ],
+            [
+              -12.0,
+              3.0,
+              0.45
+            ],
+            [
+              -4.5,
+              3.0,
+              0.45
+            ],
+            [
+              4.5,
+              3.0,
+              0.45
+            ],
+            [
+              4.5,
+              -3.0,
+              0.45
+            ]
+          ],
+          "cargo_state": "DELIVERED",
+          "speed_mps": 2.0,
+          "scan_route_file": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/rviz_scan_campaign/routes/task_10_segment_03_car_f1_4.yaml",
+          "initial_xyz": [
+            12.0,
+            8.0,
+            0.45
+          ],
+          "goal_xyz": [
+            4.5,
+            -3.0,
+            0.45
+          ],
+          "route_length_m": 51.5,
+          "execution_backend": "SCAN",
+          "timeout_s": 148.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+protocol:
+  version: tro_stage23_locked_test_v1
+  frozen_on: 2026-08-30
+  training_protocol_version: tro_stage23_markov_continuous_v1
+  purpose: >-
+    Run-once held-out evaluation of the ten validation-selected Stage 23
+    checkpoints after cohort freeze. No locked-test outcome may be used for
+    checkpoint selection, model repair, metric selection, or margin choice.
+
+method:
+  observation_variant: MARKOV_CONTEXT_V3
+  policy_variant: CONTEXT_INTERACTION
+  reward_contract: CONTINUOUS_TIME_V3
+  execution_mode: CONCURRENT
+  arrival_profile: MIXED_CURRICULUM
+  allowed_transport_modes: [SINGLE_CAR, SINGLE_DOG, CAR_DOG_CAR]
+
+scenario:
+  tasks_per_episode: 80
+  arrival_schedule: MIXED_CURRICULUM
+  state_reset_at_phase_boundary: false
+  handover_sampling: TASK_KEYED_COMMON_RANDOM_NUMBERS
+
+smoke:
+  seed_start: 71300000
+  seed_count: 2
+  use: interface_and_common_random_number_validation_only
+  claim_boundary: No performance claim; formal seed stream remains untouched.
+
+locked_test:
+  seed_start: 71100000
+  seed_count: 100
+  run_once_after_all_weights_are_frozen: true
+  forbidden_for_checkpoint_selection: true
+
+comparators:
+  - id: TIME_GREEDY_RULE
+    description: >-
+      Causal one-step rule choosing the highest-priority feasible task and
+      the minimum estimated-cost legal assignment.
+  - id: SINGLE_DOG_ONLY
+    description: >-
+      Blank control restricted to SINGLE_DOG for every feasible task.
+
+statistics:
+  independent_unit: training_seed
+  shared_environment_unit: locked_test_episode_seed
+  task_rows_are_clustered_within_episode: true
+  design: crossed_training_seed_by_shared_test_seed
+  bootstrap_seed: 71200000
+  bootstrap_samples: 10000
+  primary_estimand:
+    id: mean_episode_p95_waiting_time
+    direction: lower
+    definition: >-
+      For each shared test stream compute task-level P95 waiting time, then
+      average over streams and training seeds.
+  tail_sensitivity_estimand:
+    id: pooled_task_p95_waiting_time
+    direction: lower
+    definition: >-
+      P95 over all task rows; reported as sensitivity analysis because tasks
+      within a stream are not independent replicates.
+  guardrails:
+    - id: success_rate
+      direction: higher
+    - id: successful_throughput_tasks_per_hour
+      direction: higher
+  guardrail_inference: DESCRIPTIVE_CI_ONLY
+  noninferiority_claim_allowed: false
+  noninferiority_reason: >-
+    No engineering or domain noninferiority margins were preregistered before
+    the locked test. The results may be described with confidence intervals,
+    but they cannot be labelled noninferior.
+  secondary_endpoints:
+    - mean_waiting_time
+    - mean_flow_time
+    - mean_episode_p95_flow_time
+    - distance_per_task
+    - mean_episode_reward
+  multiplicity:
+    familywise_method: HOLM
+    scope: secondary_superiority_tests_within_each_comparator_family
+
+acceptance:
+  - freeze_manifest_passes_and_hashes_match
+  - all_methods_share_task_stream_fingerprint
+  - all_methods_share_handover_potential_fingerprint
+  - every_episode_contains_80_terminal_task_rows
+  - no_illegal_action
+  - no_resource_or_cargo_leak
+  - crossed_confidence_intervals_are_reported
+
+claim_boundary: >-
+  Corrected logical persistent SMDP simulator only. This protocol does not
+  establish ROS, planner, dynamics, perception, Gazebo, or hardware results.

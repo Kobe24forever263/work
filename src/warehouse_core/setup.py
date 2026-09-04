@@ -21,6 +21,8 @@ setup(
         "go2_gazebo_pose_bridge = warehouse_core.go2_gazebo_pose_bridge:main",
         "multifloor_rviz_state_bridge = warehouse_core.multifloor_rviz_state_bridge:main",
         "rviz_robot_markers = warehouse_core.rviz_robot_markers:main",
+        "stage26_rviz_mission_player = warehouse_core.stage26_rviz_mission_player:main",
+        "stage26_scan_campaign_monitor = warehouse_core.stage26_scan_campaign_monitor:main",
         "spatial_manager = warehouse_core.spatial_manager_node:main",
     ]},
 )

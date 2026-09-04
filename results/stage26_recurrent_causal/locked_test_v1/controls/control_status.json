@@ -1,0 +1,21 @@
+{
+  "schema_version": "warehouse_stage26_locked_controls_status_v1",
+  "stage": 26,
+  "conditions": [
+    "SINGLE_DOG_ONLY_FOUR_GO2_FLEET",
+    "RESET_GRU_MEMORY_EACH_DECISION"
+  ],
+  "completed_memory_ablation_seed_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "passed": true
+}

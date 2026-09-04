@@ -60,15 +60,24 @@ CARTER_JOINTS = ("left_wheel", "right_wheel", "rear_pivot", "rear_axle")
 class MultifloorRvizStateBridge(Node):
     def __init__(self):
         super().__init__("multifloor_rviz_state_bridge")
-        selected = (
-            self.declare_parameter("floor1_car", "car_f1_1").value,
-            self.declare_parameter("dog", "dog_1").value,
-            self.declare_parameter("floor2_car", "car_f2_2").value,
-        )
+        robot_ids_csv = self.declare_parameter(
+            "robot_ids_csv", "").value.strip()
+        if robot_ids_csv:
+            selected = tuple(dict.fromkeys(
+                item.strip() for item in robot_ids_csv.split(",")
+                if item.strip()))
+        else:
+            selected = (
+                self.declare_parameter("floor1_car", "car_f1_1").value,
+                self.declare_parameter("dog", "dog_1").value,
+                self.declare_parameter("floor2_car", "car_f2_2").value,
+            )
         if any(name not in ROBOT_CONFIGS for name in selected):
             raise ValueError(f"Unknown RViz mission robots: {selected}")
         self._robots = {name: ROBOT_CONFIGS[name] for name in selected}
-        self._dog = selected[1]
+        self._dogs = {
+            name for name, config in self._robots.items()
+            if config["type"] == "quadruped"}
         self._tf = TransformBroadcaster(self)
         self._odom = {}
         self._received_at = {}
@@ -122,7 +131,7 @@ class MultifloorRvizStateBridge(Node):
             transform.header.stamp = now
             transform.header.frame_id = "map"
             transform.child_frame_id = (
-                f"{robot}/base" if robot == self._dog
+                f"{robot}/base" if robot in self._dogs
                 else f"{robot}/chassis_link"
             )
             transform.transform.translation.x = pose.position.x
@@ -149,12 +158,13 @@ class MultifloorRvizStateBridge(Node):
             state.last_progress_time = now
             self._state_pubs[robot].publish(state)
 
-            if robot == self._dog:
-                self._publish_go2_joints(now, speed if fresh else 0.0, tick)
+            if robot in self._dogs:
+                self._publish_go2_joints(
+                    robot, now, speed if fresh else 0.0, tick)
             else:
                 self._publish_carter_joints(robot, now, speed if fresh else 0.0, dt)
 
-    def _publish_go2_joints(self, stamp, speed, tick):
+    def _publish_go2_joints(self, robot, stamp, speed, tick):
         message = JointState()
         message.header.stamp = stamp
         message.name = list(GO2_JOINTS)
@@ -169,7 +179,7 @@ class MultifloorRvizStateBridge(Node):
                 values.extend((base[0], base[1] + 0.10 * swing,
                                base[2] - 0.13 * swing))
             message.position = values
-        self._joint_pubs[self._dog].publish(message)
+        self._joint_pubs[robot].publish(message)
 
     def _publish_carter_joints(self, robot, stamp, speed, dt):
         self._wheel_angle[robot] += speed * dt / 0.24

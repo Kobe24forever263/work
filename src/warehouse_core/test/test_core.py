@@ -35,6 +35,11 @@ from warehouse_core.stage14_training import (
 from warehouse_core.stage14_policy import MaskedCandidateActorCritic
 from warehouse_core.stage14_ppo import (
     RolloutStep, RunningReturnNormalizer, compute_smdp_gae, evaluate)
+from warehouse_core.stage25_causal_observation import (
+    CausalReleasedWarehouseDispatchGymEnv)
+from warehouse_core.stage26_recurrent_policy import (
+    RecurrentMaskedCandidateActorCritic)
+from warehouse_core.stage26_recurrent_ppo import evaluate_recurrent
 
 
 def robot(robot_id, kind, floor, region):
@@ -810,6 +815,66 @@ def test_stage14_evaluation_reports_context_conditioned_mode_choices():
         "SAME_FLOOR", "CROSS_FLOOR"}
 
 
+def test_stage26_recurrent_candidate_scorer_masks_and_updates_memory():
+    env = CausalReleasedWarehouseDispatchGymEnv(
+        arrival_schedule="MIXED_CURRICULUM")
+    observation, info = env.reset(seed=20260901)
+    model = RecurrentMaskedCandidateActorCritic(
+        hidden_width=32, memory_width=24)
+    state = torch.as_tensor(observation["state"]).float()
+    features = torch.as_tensor(observation["action_features"]).float()
+    mask = torch.as_tensor(info["action_mask"]).bool()
+    initial = model.initial_memory().squeeze(0)
+    logits, value, memory = model(state, features, mask, initial)
+    assert logits.shape == (1536,) and value.ndim == 0
+    assert memory.shape == (24,) and torch.linalg.vector_norm(memory) > 0
+    assert torch.all(logits[~mask] == torch.finfo(logits.dtype).min)
+    action, selected_memory = model.select_action(
+        observation, info["action_mask"], initial)
+    assert mask[action]
+    assert torch.allclose(memory, selected_memory)
+    metadata = model.metadata()
+    assert metadata["architecture"] == \
+        "recurrent_contextual_masked_candidate_actor_critic_v1"
+    assert metadata["memory_reset_boundary"] == "EPISODE"
+    assert not metadata["index_specific_parameters"]
+
+
+def test_stage26_recurrent_memory_reset_is_deterministic_and_episode_scoped():
+    env = CausalReleasedWarehouseDispatchGymEnv(
+        arrival_schedule="MIXED_CURRICULUM")
+    observation, info = env.reset(seed=20260902)
+    model = RecurrentMaskedCandidateActorCritic(
+        hidden_width=32, memory_width=24)
+    state = torch.as_tensor(observation["state"]).float()
+    features = torch.as_tensor(observation["action_features"]).float()
+    mask = torch.as_tensor(info["action_mask"]).bool()
+    reset_a = model.initial_memory().squeeze(0)
+    reset_b = model.initial_memory().squeeze(0)
+    logits_a, value_a, carried = model(
+        state, features, mask, reset_a)
+    logits_b, value_b, repeated = model(
+        state, features, mask, reset_b)
+    logits_carried, value_carried, _ = model(
+        state, features, mask, carried)
+    assert torch.count_nonzero(reset_a) == 0
+    assert torch.allclose(logits_a, logits_b)
+    assert torch.allclose(value_a, value_b)
+    assert torch.allclose(carried, repeated)
+    assert not torch.allclose(value_a, value_carried)
+    assert not torch.allclose(logits_a[mask], logits_carried[mask])
+
+
+def test_stage26_evaluation_exposes_memory_reset_intervention():
+    model = RecurrentMaskedCandidateActorCritic(
+        hidden_width=32, memory_width=24)
+    result = evaluate_recurrent(
+        model, [20260903], "CONCURRENT", "MIXED_CURRICULUM",
+        torch.device("cpu"), memory_mode="RESET_EACH_DECISION")
+    assert result["memory_mode"] == "RESET_EACH_DECISION"
+    assert result["episode_count"] == 1
+
+
 def _two_independent_task_environment(concurrent: bool):
     points = {
         "A": Point("A", 1, "R_A", (0, 0, .45)),
@@ -1002,3 +1067,4 @@ def test_running_return_normalizer_uses_reverse_return_to_go():
     assert np.isclose(normalizer.mean, np.mean([2.8, 2.0]), atol=1e-3)
     assert normalizer.state_dict()["source"] == \
         "reverse_variable_discounted_return_to_go_std_v2"
+

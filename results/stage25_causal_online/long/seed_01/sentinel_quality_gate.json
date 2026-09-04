@@ -1,0 +1,48 @@
+{
+  "stage": 25,
+  "gate": "CAUSAL_RELEASED_V4_SENTINEL_EXPANSION_GATE",
+  "claim_boundary": "Controls whether seeds 02-10 may start. It is not a formal locked-test superiority claim.",
+  "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage25_causal_online/long/seed_01/stage25_causal_ppo.summary.json",
+  "fresh_validation": "/Users/lab4099/Desktop/Mujoco/work/results/stage25_causal_online/long/seed_01/sentinel_fresh_validation.json",
+  "fresh_policy_minus_rule": {
+    "success_rate": -0.011562500000000031,
+    "mean_reward": -1.8795418807910664,
+    "successful_throughput_tasks_per_hour": -1.0226763180514666
+  },
+  "fresh_contextual_mode_acceptance": {
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 933,
+        "SINGLE_DOG": 125
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 1514,
+        "SINGLE_DOG": 82
+      },
+      "SINGLE_DOG": {
+        "CAR_DOG_CAR": 446,
+        "SINGLE_CAR": 4,
+        "SINGLE_DOG": 96
+      }
+    },
+    "diagonal_match_rates": {
+      "CAR_DOG_CAR": 0.8818525519848771,
+      "SINGLE_CAR": 0.9486215538847118,
+      "SINGLE_DOG": 0.17582417582417584
+    },
+    "minimum_diagonal_rate": 0.2,
+    "all_three_modes_selected": true,
+    "passed": false
+  },
+  "assertions": {
+    "training_safety_assertions_passed": false,
+    "fresh_validation_safety_assertions_passed": true,
+    "fresh_policy_resolved_all_tasks": true,
+    "fresh_policy_actions_all_legal": true,
+    "fresh_policy_has_no_resource_leak": true,
+    "fresh_contextual_switching_gate_passed": false,
+    "fresh_mean_reward_not_below_rule_baseline": false
+  },
+  "passed": false,
+  "next_action": "STOP_AND_TEST_RECURRENT_POLICY"
+}

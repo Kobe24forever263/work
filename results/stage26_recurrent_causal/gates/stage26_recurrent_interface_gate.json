@@ -1,0 +1,48 @@
+{
+  "stage": 26,
+  "gate": "RECURRENT_CAUSAL_INTERFACE_AND_TRAINABILITY_GATE",
+  "claim_boundary": "Short interface/trainability gate only. Contextual switching and rule-baseline superiority are diagnostics, not smoke pass requirements.",
+  "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/smoke/v1/stage26_recurrent_ppo.summary.json",
+  "fresh_validation": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/smoke/v1/stage26_recurrent_fresh_validation.json",
+  "fresh_policy_minus_rule": {
+    "success_rate": -0.018750000000000044,
+    "mean_reward": 96.6086894047287,
+    "successful_throughput_tasks_per_hour": -1.4283509687237483
+  },
+  "fresh_contextual_mode_acceptance": {
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 52,
+        "SINGLE_DOG": 1
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 80
+      },
+      "SINGLE_DOG": {
+        "CAR_DOG_CAR": 25,
+        "SINGLE_DOG": 2
+      }
+    },
+    "diagonal_match_rates": {
+      "CAR_DOG_CAR": 0.9811320754716981,
+      "SINGLE_CAR": 1.0,
+      "SINGLE_DOG": 0.07407407407407407
+    },
+    "minimum_diagonal_rate": 0.2,
+    "all_three_modes_selected": true,
+    "passed": false
+  },
+  "assertions": {
+    "training_smoke_passed": true,
+    "fresh_safety_validation_passed": true,
+    "architecture_is_recurrent": true,
+    "memory_resets_at_episode_boundary": true,
+    "memory_changes_during_episode": true,
+    "parameters_updated": true,
+    "policy_actions_all_legal": true,
+    "policy_has_no_resource_leak": true,
+    "policy_resolved_all_tasks": true
+  },
+  "passed": true,
+  "next_action": "ALLOW_MANUAL_STAGE26_SENTINEL_LONG_TRAINING"
+}

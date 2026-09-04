@@ -19,12 +19,19 @@ class RobotMarkers(Node):
         self._dog = self.declare_parameter("dog", "dog_1").value
         self._floor2_car = self.declare_parameter(
             "floor2_car", "car_f2_2").value
+        robot_ids_csv = self.declare_parameter(
+            "robot_ids_csv", "").value.strip()
+        self._robots = tuple(dict.fromkeys(
+            item.strip() for item in robot_ids_csv.split(",")
+            if item.strip())) if robot_ids_csv else (
+                self._floor1_car, self._dog, self._floor2_car)
         self._states = {}
         self._cargo_owner = ""
         self._delivered_xyz = None
+        self._cargo_failed = False
         self._publisher = self.create_publisher(
             MarkerArray, "/task2/rviz_robot_markers", 10)
-        for robot in (self._floor1_car, self._dog, self._floor2_car):
+        for robot in self._robots:
             self.create_subscription(
                 RobotState,
                 f"/{robot}/robot_state",
@@ -38,7 +45,7 @@ class RobotMarkers(Node):
 
     def _on_cargo_owner(self, message):
         value = message.data.strip()
-        if value.startswith(("DELIVERED:", "PICKUP:")):
+        if value.startswith(("DELIVERED:", "PICKUP:", "FAILED:")):
             try:
                 self._delivered_xyz = tuple(
                     float(item) for item in value.split(":")[1:4])
@@ -46,9 +53,11 @@ class RobotMarkers(Node):
                 self.get_logger().error(f"Invalid delivered cargo pose: {value}")
                 return
             self._cargo_owner = ""
+            self._cargo_failed = value.startswith("FAILED:")
         else:
             self._cargo_owner = value
             self._delivered_xyz = None
+            self._cargo_failed = False
         self.get_logger().info(
             f"Cargo C_DEMO owner -> {value or 'NONE'}")
 
@@ -60,7 +69,8 @@ class RobotMarkers(Node):
             pose = deepcopy(state.pose)
             # Keep the cube clearly above the full URDF body.  Dense SCAN
             # point clouds otherwise visually swallow a marker embedded in it.
-            pose.position.z += 0.58 if self._cargo_owner == self._dog else 0.54
+            pose.position.z += (
+                0.58 if self._cargo_owner.startswith("dog_") else 0.54)
             owner_text = self._cargo_owner
             stamp = state.stamp
         elif self._delivered_xyz is not None:
@@ -83,7 +93,8 @@ class RobotMarkers(Node):
         cube.pose = pose
         cube.scale.x = cube.scale.y = cube.scale.z = 0.42
         cube.color.r, cube.color.g, cube.color.b, cube.color.a = (
-            1.0, 0.48, 0.03, 1.0)
+            (0.95, 0.08, 0.08, 1.0) if self._cargo_failed else
+            (1.0, 0.48, 0.03, 1.0))
 
         return [cube]
 
@@ -138,18 +149,15 @@ class RobotMarkers(Node):
         clear = Marker()
         clear.action = Marker.DELETEALL
         output.markers.append(clear)
-        car = self._states.get(self._floor1_car)
-        dog = self._states.get(self._dog)
-        car_f2 = self._states.get(self._floor2_car)
-        if car is not None:
+        for index, robot in enumerate(self._robots, start=1):
+            state = self._states.get(robot)
+            if state is None:
+                continue
+            is_dog = robot.startswith("dog_")
             output.markers.append(self._label(
-                car, 11, f"Carter {self._floor1_car}", (0.15, 0.65, 1.0)))
-        if dog is not None:
-            output.markers.append(self._label(
-                dog, 21, f"Go2 {self._dog}", (1.0, 0.85, 0.1)))
-        if car_f2 is not None:
-            output.markers.append(self._label(
-                car_f2, 31, f"Carter {self._floor2_car}", (0.2, 0.9, 0.9)))
+                state, 10 + index,
+                f"{'Go2' if is_dog else 'Carter'} {robot}",
+                (1.0, 0.85, 0.1) if is_dog else (0.15, 0.72, 1.0)))
         output.markers.extend(self._cargo_markers())
         self._publisher.publish(output)
 

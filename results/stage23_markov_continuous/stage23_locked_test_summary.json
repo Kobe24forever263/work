@@ -1,0 +1,514 @@
+{
+  "schema_version": "warehouse_stage23_locked_summary_v1",
+  "stage": 23,
+  "generated_at_utc": "2026-08-30T12:53:03.744889+00:00",
+  "claim_boundary": "Run-once held-out logical-simulator comparison of all ten frozen training seeds. Guardrails are descriptive because no noninferiority margins were preregistered.",
+  "analysis_protocol": "/Users/lab4099/Desktop/Mujoco/work/src/warehouse_bringup/config/experiment_stage23_locked_test.yaml",
+  "analysis_protocol_sha256": "55b2bd9b6b699e13ea6abbc60c128e6a39b0286e9987556917d375402550f1bb",
+  "freeze_manifest": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/freeze/stage23_policy_freeze_manifest.json",
+  "test_seed_range": [
+    71100000,
+    71100099
+  ],
+  "training_seed_count": 10,
+  "test_stream_count": 100,
+  "tasks_per_stream": 80,
+  "bootstrap": {
+    "design": "crossed_training_seed_by_shared_test_seed",
+    "samples": 10000,
+    "seed": 71200000
+  },
+  "metric_definitions": {
+    "mean_episode_p95_waiting_time": {
+      "source_episode_field": "p95_waiting_time",
+      "direction": "lower"
+    },
+    "success_rate": {
+      "source_episode_field": "success_rate",
+      "direction": "higher"
+    },
+    "successful_throughput_tasks_per_hour": {
+      "source_episode_field": "successful_throughput_tasks_per_hour",
+      "direction": "higher"
+    },
+    "mean_waiting_time": {
+      "source_episode_field": "mean_waiting_time",
+      "direction": "lower"
+    },
+    "mean_flow_time": {
+      "source_episode_field": "mean_flow_time",
+      "direction": "lower"
+    },
+    "mean_episode_p95_flow_time": {
+      "source_episode_field": "p95_flow_time",
+      "direction": "lower"
+    },
+    "distance_per_task": {
+      "source_episode_field": "distance_per_task",
+      "direction": "lower"
+    },
+    "mean_episode_reward": {
+      "source_episode_field": "reward",
+      "direction": "higher"
+    }
+  },
+  "estimand_note": "Primary P95 is computed within each 80-task stream and then averaged across shared streams and training seeds. Pooled-task P95 is a sensitivity estimate, not 80000 independent samples.",
+  "quality_assurance": {
+    "campaign_completed": true,
+    "freeze_gate_passed": true,
+    "analysis_protocol_hash_matches_freeze": true,
+    "all_10_frozen_policy_files_present": true,
+    "all_100_shared_locked_seeds_present": true,
+    "all_task_fingerprints_match": true,
+    "all_handover_fingerprints_match": true,
+    "no_data_quality_failure": true,
+    "primary_endpoint_predeclared": true,
+    "noninferiority_claim_disabled_without_margin": true
+  },
+  "quality_failures": [],
+  "frozen_policy_rows": [
+    {
+      "training_seed_index": 1,
+      "selected_checkpoint_update": 100,
+      "weight_sha256": "5d4c53bdf94d1d72c74e154a726aee8aefe4f82bb759ec16c661c4c80bdd9d9b",
+      "pooled_task_p95_waiting_time": 505.56797241167277
+    },
+    {
+      "training_seed_index": 2,
+      "selected_checkpoint_update": 100,
+      "weight_sha256": "a352bd3f1f7e8129711913e4f5daa373f2bad191a3e7c388e19836c98c6d7e11",
+      "pooled_task_p95_waiting_time": 524.1783429602222
+    },
+    {
+      "training_seed_index": 3,
+      "selected_checkpoint_update": 200,
+      "weight_sha256": "1100f4f73238d193d3b28229e05af98bfc9d0dcde33ddea20578ba4d2f08c66d",
+      "pooled_task_p95_waiting_time": 577.5527795395348
+    },
+    {
+      "training_seed_index": 4,
+      "selected_checkpoint_update": 100,
+      "weight_sha256": "fbb416a6fd253b5db8bfebd4c9bdbeac018063f60fde58ecb40ab52db7fa2e9a",
+      "pooled_task_p95_waiting_time": 529.1029697666837
+    },
+    {
+      "training_seed_index": 5,
+      "selected_checkpoint_update": 400,
+      "weight_sha256": "1d31ccc420a0e091e474b8f79cf5be26a9f67c7a8f25ade04430b77784af50dd",
+      "pooled_task_p95_waiting_time": 561.3994317805225
+    },
+    {
+      "training_seed_index": 6,
+      "selected_checkpoint_update": 100,
+      "weight_sha256": "12baa4dfc07df22f1d630da90eed138a2849f3b4f856f8e2619673d28ddb40ba",
+      "pooled_task_p95_waiting_time": 513.3936800691291
+    },
+    {
+      "training_seed_index": 7,
+      "selected_checkpoint_update": 100,
+      "weight_sha256": "0c5998f31c5a596d5628efa7ec739f7bf8747266a684e3c5b17216d39fe19f54",
+      "pooled_task_p95_waiting_time": 550.7915244110304
+    },
+    {
+      "training_seed_index": 8,
+      "selected_checkpoint_update": 300,
+      "weight_sha256": "c051691e162725899e9dcf5a36559ce9cfb60aaf5557b6526aa7e782e3970f6f",
+      "pooled_task_p95_waiting_time": 534.2952010418262
+    },
+    {
+      "training_seed_index": 9,
+      "selected_checkpoint_update": 100,
+      "weight_sha256": "0c45573303aa8136583c6ba22bbc3d5c7479d3fb0b5eea0cac7b6de82ab0e0dd",
+      "pooled_task_p95_waiting_time": 531.2350866594542
+    },
+    {
+      "training_seed_index": 10,
+      "selected_checkpoint_update": 500,
+      "weight_sha256": "36aa59201839ae631df73866c98fd99b24795df06210d0c770edd784d4d876b5",
+      "pooled_task_p95_waiting_time": 713.4472955237518
+    }
+  ],
+  "policy_point_estimates": {
+    "mean_episode_p95_waiting_time": {
+      "mean": 453.12357759651593,
+      "training_seed_sd_of_test_seed_means": 65.71411735692719,
+      "test_stream_count_per_training_seed": 100,
+      "training_seed_count": 10
+    },
+    "success_rate": {
+      "mean": 0.9753000000000001,
+      "training_seed_sd_of_test_seed_means": 0.007031723749472074,
+      "test_stream_count_per_training_seed": 100,
+      "training_seed_count": 10
+    },
+    "successful_throughput_tasks_per_hour": {
+      "mean": 68.72399171007763,
+      "training_seed_sd_of_test_seed_means": 0.46469232996047966,
+      "test_stream_count_per_training_seed": 100,
+      "training_seed_count": 10
+    },
+    "mean_waiting_time": {
+      "mean": 107.24046760042309,
+      "training_seed_sd_of_test_seed_means": 13.612423717490378,
+      "test_stream_count_per_training_seed": 100,
+      "training_seed_count": 10
+    },
+    "mean_flow_time": {
+      "mean": 151.26494086735136,
+      "training_seed_sd_of_test_seed_means": 14.068650165027625,
+      "test_stream_count_per_training_seed": 100,
+      "training_seed_count": 10
+    },
+    "mean_episode_p95_flow_time": {
+      "mean": 504.2938017871127,
+      "training_seed_sd_of_test_seed_means": 60.461629008053485,
+      "test_stream_count_per_training_seed": 100,
+      "training_seed_count": 10
+    },
+    "distance_per_task": {
+      "mean": 64.26799904072759,
+      "training_seed_sd_of_test_seed_means": 5.885904540892304,
+      "test_stream_count_per_training_seed": 100,
+      "training_seed_count": 10
+    },
+    "mean_episode_reward": {
+      "mean": -256.56872282382335,
+      "training_seed_sd_of_test_seed_means": 41.15904086175615,
+      "test_stream_count_per_training_seed": 100,
+      "training_seed_count": 10
+    }
+  },
+  "baseline_point_estimates": {
+    "TIME_GREEDY_RULE": {
+      "mean_episode_p95_waiting_time": {
+        "mean": 592.2724181127276
+      },
+      "success_rate": {
+        "mean": 0.9671249999999999
+      },
+      "successful_throughput_tasks_per_hour": {
+        "mean": 68.13913264459755
+      },
+      "mean_waiting_time": {
+        "mean": 138.44325765789867
+      },
+      "mean_flow_time": {
+        "mean": 181.66952071511753
+      },
+      "mean_episode_p95_flow_time": {
+        "mean": 623.1986081098214
+      },
+      "distance_per_task": {
+        "mean": 72.21376378799528
+      },
+      "mean_episode_reward": {
+        "mean": -352.23601946841006
+      }
+    },
+    "SINGLE_DOG_ONLY": {
+      "mean_episode_p95_waiting_time": {
+        "mean": 1136.9507688107328
+      },
+      "success_rate": {
+        "mean": 0.971875
+      },
+      "successful_throughput_tasks_per_hour": {
+        "mean": 68.12115859222203
+      },
+      "mean_waiting_time": {
+        "mean": 289.6722470012543
+      },
+      "mean_flow_time": {
+        "mean": 347.5629899122391
+      },
+      "mean_episode_p95_flow_time": {
+        "mean": 1169.575978965723
+      },
+      "distance_per_task": {
+        "mean": 46.31259432878798
+      },
+      "mean_episode_reward": {
+        "mean": -809.464032018305
+      }
+    }
+  },
+  "pooled_task_p95_waiting_time_sensitivity": {
+    "policy_mean_across_training_seeds": 554.0964284163828,
+    "policy_training_seed_sd": 60.04940062132868,
+    "baselines": {
+      "TIME_GREEDY_RULE": 667.9015542529739,
+      "SINGLE_DOG_ONLY": 1226.3755217080568
+    }
+  },
+  "policy_transport_modes": {
+    "counts": {
+      "SINGLE_CAR": 39495,
+      "CAR_DOG_CAR": 19631,
+      "SINGLE_DOG": 20874
+    },
+    "shares": {
+      "SINGLE_CAR": 0.4936875,
+      "CAR_DOG_CAR": 0.2453875,
+      "SINGLE_DOG": 0.260925
+    },
+    "by_phase": {
+      "BURST": {
+        "count": 19320,
+        "shares": {
+          "SINGLE_CAR": 0.489648033126294,
+          "SINGLE_DOG": 0.23659420289855074,
+          "CAR_DOG_CAR": 0.2737577639751553
+        }
+      },
+      "DENSE": {
+        "count": 20120,
+        "shares": {
+          "SINGLE_CAR": 0.49169980119284296,
+          "SINGLE_DOG": 0.2522365805168986,
+          "CAR_DOG_CAR": 0.2560636182902585
+        }
+      },
+      "NORMAL": {
+        "count": 20200,
+        "shares": {
+          "SINGLE_CAR": 0.49673267326732673,
+          "SINGLE_DOG": 0.2690594059405941,
+          "CAR_DOG_CAR": 0.23420792079207922
+        }
+      },
+      "RECOVERY": {
+        "count": 20360,
+        "shares": {
+          "SINGLE_CAR": 0.49646365422396854,
+          "SINGLE_DOG": 0.28452848722986246,
+          "CAR_DOG_CAR": 0.21900785854616897
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "STAGE23_POLICY_vs_TIME_GREEDY_RULE": {
+      "mean_episode_p95_waiting_time": {
+        "policy_minus_baseline": -139.14884051621164,
+        "crossed_bootstrap_95ci": [
+          -176.14948612489673,
+          -90.67756211001968
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true
+      },
+      "success_rate": {
+        "policy_minus_baseline": 0.008175000000000154,
+        "crossed_bootstrap_95ci": [
+          0.003950000000000115,
+          0.012725000000000097
+        ],
+        "direction_better": "higher",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true
+      },
+      "successful_throughput_tasks_per_hour": {
+        "policy_minus_baseline": 0.5848590654800745,
+        "crossed_bootstrap_95ci": [
+          0.29750882278870383,
+          0.8934565495315417
+        ],
+        "direction_better": "higher",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true
+      },
+      "mean_waiting_time": {
+        "policy_minus_baseline": -31.202790057475582,
+        "crossed_bootstrap_95ci": [
+          -39.0444576114503,
+          -21.402713984401757
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true,
+        "holm_adjusted_p_within_secondary_family": 0.000999900009999
+      },
+      "mean_flow_time": {
+        "policy_minus_baseline": -30.404579847766172,
+        "crossed_bootstrap_95ci": [
+          -38.50170858255331,
+          -20.35961293526728
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true,
+        "holm_adjusted_p_within_secondary_family": 0.000999900009999
+      },
+      "mean_episode_p95_flow_time": {
+        "policy_minus_baseline": -118.90480632270868,
+        "crossed_bootstrap_95ci": [
+          -154.03436726850833,
+          -75.21180749823415
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true,
+        "holm_adjusted_p_within_secondary_family": 0.000999900009999
+      },
+      "distance_per_task": {
+        "policy_minus_baseline": -7.945764747267688,
+        "crossed_bootstrap_95ci": [
+          -11.47703323148326,
+          -4.521411829592254
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true,
+        "holm_adjusted_p_within_secondary_family": 0.000999900009999
+      },
+      "mean_episode_reward": {
+        "policy_minus_baseline": 95.66729664458671,
+        "crossed_bootstrap_95ci": [
+          66.07791144529789,
+          118.75634401988854
+        ],
+        "direction_better": "higher",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true,
+        "holm_adjusted_p_within_secondary_family": 0.000999900009999
+      }
+    },
+    "STAGE23_POLICY_vs_SINGLE_DOG_ONLY": {
+      "mean_episode_p95_waiting_time": {
+        "policy_minus_baseline": -683.8271912142169,
+        "crossed_bootstrap_95ci": [
+          -771.5092786721782,
+          -599.0954127756831
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true
+      },
+      "success_rate": {
+        "policy_minus_baseline": 0.0034250000000000114,
+        "crossed_bootstrap_95ci": [
+          -0.005437499999999878,
+          0.013150312499999773
+        ],
+        "direction_better": "higher",
+        "probability_policy_better": 0.7645,
+        "two_sided_bootstrap_p": 0.47115288471152883,
+        "superiority_supported_by_95ci": false
+      },
+      "successful_throughput_tasks_per_hour": {
+        "policy_minus_baseline": 0.6028331178555959,
+        "crossed_bootstrap_95ci": [
+          -0.05412597614810898,
+          1.3361565212826847
+        ],
+        "direction_better": "higher",
+        "probability_policy_better": 0.9625,
+        "two_sided_bootstrap_p": 0.0751924807519248,
+        "superiority_supported_by_95ci": false
+      },
+      "mean_waiting_time": {
+        "policy_minus_baseline": -182.4317794008312,
+        "crossed_bootstrap_95ci": [
+          -203.27303731535233,
+          -162.68409250638857
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true,
+        "holm_adjusted_p_within_secondary_family": 0.000999900009999
+      },
+      "mean_flow_time": {
+        "policy_minus_baseline": -196.29804904488776,
+        "crossed_bootstrap_95ci": [
+          -217.19033688100038,
+          -176.5017695103226
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true,
+        "holm_adjusted_p_within_secondary_family": 0.000999900009999
+      },
+      "mean_episode_p95_flow_time": {
+        "policy_minus_baseline": -665.2821771786103,
+        "crossed_bootstrap_95ci": [
+          -752.6836072883029,
+          -581.9420362991598
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true,
+        "holm_adjusted_p_within_secondary_family": 0.000999900009999
+      },
+      "distance_per_task": {
+        "policy_minus_baseline": 17.955404711939607,
+        "crossed_bootstrap_95ci": [
+          14.419401983147146,
+          21.404428953180243
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 0.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": false,
+        "holm_adjusted_p_within_secondary_family": 0.000999900009999
+      },
+      "mean_episode_reward": {
+        "policy_minus_baseline": 552.8953091944817,
+        "crossed_bootstrap_95ci": [
+          499.14091026707166,
+          609.4134850416191
+        ],
+        "direction_better": "higher",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true,
+        "holm_adjusted_p_within_secondary_family": 0.000999900009999
+      }
+    }
+  },
+  "primary_endpoint": {
+    "id": "mean_episode_p95_waiting_time",
+    "comparisons": {
+      "STAGE23_POLICY_vs_TIME_GREEDY_RULE": {
+        "policy_minus_baseline": -139.14884051621164,
+        "crossed_bootstrap_95ci": [
+          -176.14948612489673,
+          -90.67756211001968
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true
+      },
+      "STAGE23_POLICY_vs_SINGLE_DOG_ONLY": {
+        "policy_minus_baseline": -683.8271912142169,
+        "crossed_bootstrap_95ci": [
+          -771.5092786721782,
+          -599.0954127756831
+        ],
+        "direction_better": "lower",
+        "probability_policy_better": 1.0,
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "superiority_supported_by_95ci": true
+      }
+    }
+  },
+  "guardrail_interpretation": {
+    "mode": "DESCRIPTIVE_CI_ONLY",
+    "noninferiority_claim_allowed": false,
+    "reason": "No engineering or domain noninferiority margins were preregistered before the locked test. The results may be described with confidence intervals, but they cannot be labelled noninferior."
+  },
+  "passed": true
+}

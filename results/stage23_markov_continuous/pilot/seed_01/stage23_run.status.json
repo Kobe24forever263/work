@@ -1,0 +1,8 @@
+{
+  "stage": 23,
+  "seed_index": 1,
+  "pilot": true,
+  "run_plan": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01/run_plan.json",
+  "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01/stage23_ppo.summary.json",
+  "completed": true
+}

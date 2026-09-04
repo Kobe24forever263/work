@@ -1,0 +1,7 @@
+scan_planner_node:
+  ros__parameters:
+    fsm.navi_mode: 2
+    fsm.waypoints:
+    - 9.5
+    - 6.5
+    - 4.7

@@ -1,0 +1,9 @@
+﻿scope,status,interpretation
+Stage 1-4,No result file found,Only support/code evidence may exist; do not report numerical performance.
+Stage 5-13,Early gates/logs present,"Useful for implementation traceability, not necessarily formal statistical claims."
+Stage 18,Multiple versions coexist,Use locked-test v2 for primary performance; retain earlier reviews as protocol history.
+Stage 19-21,Formal summaries present,"Use source-specific claim boundaries, especially for logical fault injection."
+Stage 22,Training artifacts and short gates present,No single final locked-test summary located in the current workspace.
+Stage 23,Formal locked summary present,Strongest current held-out evidence; guardrails remain descriptive where margins were not preregistered.
+Stage 24,Pilot only,"Direction/compute-budget evidence only, not a confirmatory performance claim."
+Stage 25,Seed 01 long run complete; sentinel expansion gate failed,Do not expand the same policy to seeds 02-10; test a recurrent policy before further long training.

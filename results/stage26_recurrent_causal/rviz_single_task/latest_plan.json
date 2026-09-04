@@ -1,0 +1,506 @@
+{
+  "schema_version": "warehouse_stage26_rviz_single_task_v2",
+  "scope": "ONE_RANDOM_TASK_ONLY",
+  "continuous_task_publication": false,
+  "robot_ids": [
+    "car_f1_1",
+    "car_f1_2",
+    "car_f1_3",
+    "car_f1_4",
+    "dog_1",
+    "dog_2",
+    "dog_3",
+    "dog_4",
+    "car_f2_1",
+    "car_f2_2"
+  ],
+  "task_seed": 74335624,
+  "task_pool_size": 20,
+  "task_pool_index": 7,
+  "task_type": "cross_down",
+  "persistent_snapshot_adjustments": {
+    "dog_3": {
+      "current_floor": 2,
+      "current_region": "F2_WEST",
+      "xyz": [
+        -8.8,
+        -6.0,
+        4.7
+      ],
+      "reason": "feasible persistent snapshot for isolated cross_down"
+    },
+    "dog_4": {
+      "current_floor": 2,
+      "current_region": "F2_EAST",
+      "xyz": [
+        8.8,
+        -6.0,
+        4.7
+      ],
+      "reason": "feasible persistent snapshot for isolated cross_down"
+    }
+  },
+  "task": {
+    "task_id": "S14_T08",
+    "cargo_id": "S14_C08",
+    "priority": 3,
+    "deadline": 700.3997055141089,
+    "source": {
+      "point_id": "F2_SE",
+      "floor": 2,
+      "region": "F2_EAST",
+      "xyz": [
+        7,
+        -6.5,
+        4.7
+      ]
+    },
+    "target": {
+      "point_id": "F1_NW",
+      "floor": 1,
+      "region": "F1_NW",
+      "xyz": [
+        -12,
+        8,
+        0.45
+      ]
+    }
+  },
+  "checkpoint_selection": {
+    "criterion": "maximum final evaluation mean_reward among passed completed seeds",
+    "selected_seed_index": 1,
+    "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_01/stage26_recurrent_ppo.pt",
+    "selected_seed_mean_reward": -304.43591460866475,
+    "candidate_seeds": [
+      {
+        "seed_index": 1,
+        "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_01/stage26_recurrent_ppo.summary.json",
+        "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_01/stage26_recurrent_ppo.pt",
+        "fresh_validation": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_01/sentinel_fresh_validation.json",
+        "mean_reward": -304.43591460866475,
+        "success_rate": 0.969375,
+        "passed": true
+      },
+      {
+        "seed_index": 2,
+        "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_02/stage26_recurrent_ppo.summary.json",
+        "weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_02/stage26_recurrent_ppo.pt",
+        "fresh_validation": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_02/fresh_validation.json",
+        "mean_reward": -331.7221116040788,
+        "success_rate": 0.9775,
+        "passed": true
+      }
+    ],
+    "architecture": "recurrent_contextual_masked_candidate_actor_critic_v1"
+  },
+  "policy_decision": {
+    "action_index": 3,
+    "probability": 0.081888847053051,
+    "value_estimate": -0.907015860080719,
+    "memory_update_l2": 5.626437664031982,
+    "assignment": {
+      "task_id": "S14_T08",
+      "pickup_carter": "car_f2_2",
+      "dog_id": "dog_3",
+      "stair_id": "STAIR_NW",
+      "receiving_carter": "car_f1_4",
+      "pickup_handover_point": "STAIR_NW_F2_SEND",
+      "receive_handover_point": "STAIR_NW_F1_RECEIVE",
+      "post_task_policy": "NEAREST_STANDBY",
+      "estimated_cost": 47.685311236040796,
+      "transport_mode": "CAR_DOG_CAR"
+    },
+    "rule_reference": {
+      "task_id": "S14_T08",
+      "pickup_carter": "car_f2_2",
+      "dog_id": "dog_3",
+      "stair_id": "STAIR_NW",
+      "receiving_carter": "car_f1_1",
+      "pickup_handover_point": "STAIR_NW_F2_SEND",
+      "receive_handover_point": "STAIR_NW_F1_RECEIVE",
+      "post_task_policy": "NEAREST_STANDBY",
+      "estimated_cost": 47.685311236040796,
+      "transport_mode": "CAR_DOG_CAR"
+    },
+    "agrees_with_rule_mode": true,
+    "top_legal_actions": [
+      {
+        "action_index": 3,
+        "probability": 0.081888847053051,
+        "assignment": {
+          "task_id": "S14_T08",
+          "pickup_carter": "car_f2_2",
+          "dog_id": "dog_3",
+          "stair_id": "STAIR_NW",
+          "receiving_carter": "car_f1_4",
+          "pickup_handover_point": "STAIR_NW_F2_SEND",
+          "receive_handover_point": "STAIR_NW_F1_RECEIVE",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 47.685311236040796,
+          "transport_mode": "CAR_DOG_CAR"
+        }
+      },
+      {
+        "action_index": 2,
+        "probability": 0.07530595362186432,
+        "assignment": {
+          "task_id": "S14_T08",
+          "pickup_carter": "car_f2_2",
+          "dog_id": "dog_3",
+          "stair_id": "STAIR_NW",
+          "receiving_carter": "car_f1_3",
+          "pickup_handover_point": "STAIR_NW_F2_SEND",
+          "receive_handover_point": "STAIR_NW_F1_RECEIVE",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 47.685311236040796,
+          "transport_mode": "CAR_DOG_CAR"
+        }
+      },
+      {
+        "action_index": 1,
+        "probability": 0.06963247805833817,
+        "assignment": {
+          "task_id": "S14_T08",
+          "pickup_carter": "car_f2_2",
+          "dog_id": "dog_3",
+          "stair_id": "STAIR_NW",
+          "receiving_carter": "car_f1_2",
+          "pickup_handover_point": "STAIR_NW_F2_SEND",
+          "receive_handover_point": "STAIR_NW_F1_RECEIVE",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 47.685311236040796,
+          "transport_mode": "CAR_DOG_CAR"
+        }
+      },
+      {
+        "action_index": 15,
+        "probability": 0.0654570534825325,
+        "assignment": {
+          "task_id": "S14_T08",
+          "pickup_carter": "car_f2_2",
+          "dog_id": "dog_4",
+          "stair_id": "STAIR_SE",
+          "receiving_carter": "car_f1_4",
+          "pickup_handover_point": "STAIR_SE_F2_SEND",
+          "receive_handover_point": "STAIR_SE_F1_RECEIVE",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 50.83379168851843,
+          "transport_mode": "CAR_DOG_CAR"
+        }
+      },
+      {
+        "action_index": 11,
+        "probability": 0.05360798537731171,
+        "assignment": {
+          "task_id": "S14_T08",
+          "pickup_carter": "car_f2_2",
+          "dog_id": "dog_3",
+          "stair_id": "STAIR_SW",
+          "receiving_carter": "car_f1_4",
+          "pickup_handover_point": "STAIR_SW_F2_SEND",
+          "receive_handover_point": "STAIR_SW_F1_RECEIVE",
+          "post_task_policy": "NEAREST_STANDBY",
+          "estimated_cost": 50.79655357941459,
+          "transport_mode": "CAR_DOG_CAR"
+        }
+      }
+    ]
+  },
+  "selected_robots": [
+    "car_f2_2",
+    "dog_3",
+    "car_f1_4"
+  ],
+  "display_robots": {
+    "floor1_car": "car_f1_4",
+    "dog": "dog_3",
+    "floor2_car": "car_f2_2"
+  },
+  "robot_initial_poses": {
+    "car_f1_1": [
+      2.5,
+      2.5,
+      0.45
+    ],
+    "car_f1_2": [
+      -2.5,
+      2.5,
+      0.45
+    ],
+    "car_f1_3": [
+      -2.5,
+      -2.5,
+      0.45
+    ],
+    "car_f1_4": [
+      2.5,
+      -2.5,
+      0.45
+    ],
+    "dog_1": [
+      20.8,
+      17.8,
+      0.45
+    ],
+    "dog_2": [
+      -20.8,
+      17.8,
+      0.45
+    ],
+    "dog_3": [
+      -8.8,
+      -6.0,
+      4.7
+    ],
+    "dog_4": [
+      8.8,
+      -6.0,
+      4.7
+    ],
+    "car_f2_1": [
+      -5.5,
+      0,
+      4.7
+    ],
+    "car_f2_2": [
+      5.5,
+      0,
+      4.7
+    ]
+  },
+  "cargo_pickup_xyz": [
+    7,
+    -6.5,
+    4.7
+  ],
+  "cargo_delivery_xyz": [
+    -12,
+    8,
+    0.45
+  ],
+  "segments": [
+    {
+      "label": "Go2 预定位至楼梯交接点",
+      "robot": "dog_3",
+      "path": [
+        [
+          -8.8,
+          -6.0,
+          4.7
+        ],
+        [
+          -9.5,
+          -6.0,
+          4.7
+        ],
+        [
+          -9.5,
+          6.5,
+          4.7
+        ]
+      ],
+      "cargo_owner": "PICKUP",
+      "speed_mps": 0.8,
+      "pause_after_s": 0.5
+    },
+    {
+      "label": "目标层车辆预定位至接收点",
+      "robot": "car_f1_4",
+      "path": [
+        [
+          2.5,
+          -2.5,
+          0.45
+        ],
+        [
+          -20.8,
+          -2.5,
+          0.45
+        ],
+        [
+          -20.8,
+          17.8,
+          0.45
+        ]
+      ],
+      "cargo_owner": "PICKUP",
+      "speed_mps": 2.0,
+      "pause_after_s": 0.5
+    },
+    {
+      "label": "源层车辆前往装货平台",
+      "robot": "car_f2_2",
+      "path": [
+        [
+          5.5,
+          0.0,
+          4.7
+        ],
+        [
+          7.0,
+          0.0,
+          4.7
+        ],
+        [
+          7.0,
+          -6.5,
+          4.7
+        ]
+      ],
+      "cargo_owner": "PICKUP",
+      "speed_mps": 2.0,
+      "pause_after_s": 0.8
+    },
+    {
+      "label": "货物吸附，源层车辆前往楼梯",
+      "robot": "car_f2_2",
+      "path": [
+        [
+          7.0,
+          -6.5,
+          4.7
+        ],
+        [
+          -9.5,
+          -6.5,
+          4.7
+        ],
+        [
+          -9.5,
+          6.5,
+          4.7
+        ]
+      ],
+      "cargo_owner": "car_f2_2",
+      "speed_mps": 2.0,
+      "pause_after_s": 1.0
+    },
+    {
+      "label": "第一次交接完成，Go2 通过楼梯",
+      "robot": "dog_3",
+      "path": [
+        [
+          -9.5,
+          6.5,
+          4.7
+        ],
+        [
+          -15.1061,
+          12.1061,
+          4.56
+        ],
+        [
+          -15.5303,
+          12.5303,
+          4.2267
+        ],
+        [
+          -15.9546,
+          12.9546,
+          3.8933
+        ],
+        [
+          -16.3788,
+          13.3788,
+          3.56
+        ],
+        [
+          -16.8031,
+          13.8031,
+          3.2267
+        ],
+        [
+          -17.2273,
+          14.2273,
+          2.8933
+        ],
+        [
+          -17.6516,
+          14.6516,
+          2.56
+        ],
+        [
+          -18.0758,
+          15.0758,
+          2.2267
+        ],
+        [
+          -18.5001,
+          15.5001,
+          1.8933
+        ],
+        [
+          -18.9243,
+          15.9243,
+          1.56
+        ],
+        [
+          -19.3486,
+          16.3486,
+          1.2267
+        ],
+        [
+          -19.7728,
+          16.7728,
+          0.8933
+        ],
+        [
+          -20.8,
+          17.8,
+          0.45
+        ]
+      ],
+      "cargo_owner": "dog_3",
+      "speed_mps": 0.8,
+      "pause_after_s": 1.0
+    },
+    {
+      "label": "第二次交接完成，目标层车辆送货",
+      "robot": "car_f1_4",
+      "path": [
+        [
+          -20.8,
+          17.8,
+          0.45
+        ],
+        [
+          -12.0,
+          17.8,
+          0.45
+        ],
+        [
+          -12.0,
+          8.0,
+          0.45
+        ]
+      ],
+      "cargo_owner": "car_f1_4",
+      "speed_mps": 2.0,
+      "pause_after_s": 1.0
+    },
+    {
+      "label": "货物卸下，目标层车辆驶向待命泊位",
+      "robot": "car_f1_4",
+      "path": [
+        [
+          -12.0,
+          8.0,
+          0.45
+        ],
+        [
+          -4.5,
+          8.0,
+          0.45
+        ],
+        [
+          -4.5,
+          3.0,
+          0.45
+        ]
+      ],
+      "cargo_owner": "DELIVERED",
+      "speed_mps": 2.0,
+      "pause_after_s": 1.0
+    }
+  ]
+}

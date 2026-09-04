@@ -1,0 +1,63 @@
+{
+  "stage": 23,
+  "gate": "MARKOV_CONTINUOUS_FORMAL_TRAINING_CAMPAIGN",
+  "protocol": "tro_stage23_markov_continuous_v1",
+  "claim_boundary": "Training only. Locked test seeds remain forbidden until all ten terminal weights are frozen.",
+  "seed_range": [
+    6,
+    10
+  ],
+  "jobs": [
+    {
+      "seed_index": 6,
+      "status": "COMPLETED_ACCEPTED",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_06/stage23_ppo.summary.json",
+      "resume_checkpoint": null,
+      "started_at_utc": "2026-08-29T04:18:32.520441+00:00",
+      "finished_at_utc": "2026-08-29T07:16:28.273521+00:00"
+    },
+    {
+      "seed_index": 7,
+      "status": "COMPLETED_ACCEPTED",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_07/stage23_ppo.summary.json",
+      "resume_checkpoint": null,
+      "started_at_utc": "2026-08-29T07:16:28.273723+00:00",
+      "finished_at_utc": "2026-08-29T10:06:27.755342+00:00"
+    },
+    {
+      "seed_index": 8,
+      "status": "COMPLETED_ACCEPTED",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_08/stage23_ppo.summary.json",
+      "resume_checkpoint": null,
+      "started_at_utc": "2026-08-29T10:06:27.755778+00:00",
+      "finished_at_utc": "2026-08-29T13:00:27.924595+00:00"
+    },
+    {
+      "seed_index": 9,
+      "status": "COMPLETED_ACCEPTED",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_09/stage23_ppo.summary.json",
+      "resume_checkpoint": null,
+      "started_at_utc": "2026-08-29T13:00:27.924877+00:00",
+      "finished_at_utc": "2026-08-29T16:01:47.290585+00:00"
+    },
+    {
+      "seed_index": 10,
+      "status": "COMPLETED_ACCEPTED",
+      "summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_10/stage23_ppo.summary.json",
+      "resume_checkpoint": null,
+      "started_at_utc": "2026-08-29T16:01:47.291030+00:00",
+      "finished_at_utc": "2026-08-29T18:56:37.744906+00:00"
+    }
+  ],
+  "job_count": 5,
+  "start_new_count": 5,
+  "resume_count": 0,
+  "skip_complete_count": 0,
+  "updates_per_run": 2000,
+  "episodes_per_run": 8000,
+  "evaluation_every_updates": 100,
+  "checkpoint_every_updates": 50,
+  "execution_requested": true,
+  "state": "COMPLETED",
+  "updated_at_utc": "2026-08-29T18:56:37.745249+00:00"
+}

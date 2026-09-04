@@ -19,6 +19,7 @@ WORK_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(WORK_ROOT / "src" / "warehouse_core"))
 
 from warehouse_core.persistent_dispatch import Assignment
+from warehouse_core.handover_timing import HANDOVER_KINDS
 from warehouse_core.stage14_ppo import load_checkpoint
 from warehouse_core.stage14_training import (
     DENSE_INTERVAL, MEDIUM_INTERVAL, Stage14EpisodeSpec,
@@ -181,7 +182,9 @@ def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
                execution_mode: str,
                observation_variant: str = "FULL_CONTEXT_V2",
                allowed_transport_modes: tuple[str, ...] | None = None,
-               env_factory=None, progress_callback=None):
+               env_factory=None, progress_callback=None,
+               reward_contract: str = "REWARD_V2_LEGACY"):
+    seeds = tuple(int(seed) for seed in seeds)
     episodes = []
     total_modes = Counter()
     total_failures = Counter()
@@ -194,6 +197,7 @@ def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
     all_waiting = []
     all_flow = []
     fingerprints = []
+    handover_fingerprints = []
     fault_fingerprints = []
     for episode_index, seed in enumerate(seeds, start=1):
         factory = env_factory or WarehouseDispatchGymEnv
@@ -204,10 +208,26 @@ def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
             handover_sampling="TASK_KEYED",
             arrival_schedule=scenario.arrival_schedule,
             observation_variant=observation_variant,
-            allowed_transport_modes=allowed_transport_modes)
+            allowed_transport_modes=allowed_transport_modes,
+            reward_contract=reward_contract)
         observation, info = env.reset(seed=seed)
         fingerprint, arrivals, task_specs = task_fingerprint(env)
         fingerprints.append(fingerprint)
+        # The keyed provider is pure in (episode seed, task id, handover kind).
+        # Materialising every potential sample gives a policy-independent CRN
+        # fingerprint even when compared policies choose different modes.
+        handover_provider = env.dispatch.handover_duration_provider
+        handover_rows = [{
+            "task_id": task_id,
+            "handover_kind": handover_kind,
+            "duration_s": handover_provider(handover_kind, task_id),
+        } for task_id in sorted(task_specs)
+            for handover_kind in HANDOVER_KINDS]
+        handover_payload = json.dumps(
+            handover_rows, sort_keys=True, separators=(",", ":"))
+        handover_fingerprint = hashlib.sha256(
+            handover_payload.encode()).hexdigest()
+        handover_fingerprints.append(handover_fingerprint)
         fault_fingerprint = getattr(
             env.dispatch, "fault_schedule_fingerprint", "")
         fault_fingerprints.append(fault_fingerprint)
@@ -376,6 +396,7 @@ def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
             "schema_version": RESULT_SCHEMA_VERSION,
             "seed": seed,
             "task_stream_fingerprint": fingerprint,
+            "handover_potential_fingerprint": handover_fingerprint,
             "fault_schedule_fingerprint": fault_fingerprint,
             "task_count": task_count,
             "completed": dispatch.completed,
@@ -480,6 +501,10 @@ def run_policy(model, seeds, scenario: StressScenario, policy_kind: str,
             total_floor_relation),
         "task_fingerprint": hashlib.sha256(
             "".join(fingerprints).encode()).hexdigest(),
+        "handover_sampling": "TASK_KEYED_COMMON_RANDOM_NUMBERS",
+        "handover_potential_fingerprint": hashlib.sha256(
+            "".join(handover_fingerprints).encode()).hexdigest(),
+        "reward_contract": reward_contract.upper(),
         "fault_fingerprint": hashlib.sha256(
             "".join(fault_fingerprints).encode()).hexdigest(),
         "episodes": episodes,

@@ -1,0 +1,168 @@
+{
+  "source_preflight_returncode": 0,
+  "source_ready": true,
+  "figure_count": 12,
+  "blocking_issue_detected": false,
+  "visual_inspection": {
+    "status": "PASS",
+    "method": "All 12 PNG figures inspected together in a contact sheet after title-layout revision."
+  },
+  "figures": [
+    {
+      "figure": "fig01_stage_result_file_coverage.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    },
+    {
+      "figure": "fig02_stage_data_volume.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    },
+    {
+      "figure": "fig03_stage18_success_rate.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    },
+    {
+      "figure": "fig04_stage18_successful_throughput.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    },
+    {
+      "figure": "fig05_stage19_mixed_waiting_time.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    },
+    {
+      "figure": "fig06_stage20_mixed_curriculum_p95_wait.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    },
+    {
+      "figure": "fig07_stage21_fault_success_rate.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 7,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    },
+    {
+      "figure": "fig08_stage23_success_rate.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    },
+    {
+      "figure": "fig09_stage23_p95_waiting_time.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    },
+    {
+      "figure": "fig10_stage24_optimizer_pilot_p95_wait.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    },
+    {
+      "figure": "fig11_stage25_smoke_success_rate.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    },
+    {
+      "figure": "fig12_stage23_training_reward.pdf",
+      "pdf_text_returncode": 0,
+      "collision_returncode": 0,
+      "panel_alignment": "NOT_APPLICABLE",
+      "pdf_text_summary": {},
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    }
+  ]
+}

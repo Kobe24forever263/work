@@ -1,0 +1,81 @@
+{
+  "schema_version": "warehouse_stage26_recurrent_freeze_v1",
+  "stage": 26,
+  "purpose": "Freeze all ten final checkpoints before the formal locked test; locked-test outcomes must not be used for checkpoint selection.",
+  "protocol": "warehouse_stage26_recurrent_causal_v1",
+  "training_seed_count": 10,
+  "locked_test_seed_start": 73350000,
+  "locked_test_seed_count": 100,
+  "checkpoints": [
+    {
+      "training_seed_index": 1,
+      "base_seed": 73010000,
+      "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_01/stage26_recurrent_ppo.pt",
+      "checkpoint_sha256": "a63f3c66e5876c1c531da9a4d21d7a7d39130cc5c5b6c3a0179aed4c4de1d93b",
+      "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_01/stage26_recurrent_ppo.summary.json"
+    },
+    {
+      "training_seed_index": 2,
+      "base_seed": 73020000,
+      "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_02/stage26_recurrent_ppo.pt",
+      "checkpoint_sha256": "ff1645ed8610254991f8c201cb86f1b8805251b816dfd0e67be969ed3a99175e",
+      "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_02/stage26_recurrent_ppo.summary.json"
+    },
+    {
+      "training_seed_index": 3,
+      "base_seed": 73030000,
+      "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_03/stage26_recurrent_ppo.pt",
+      "checkpoint_sha256": "87d5d2ba85149845d0efb9621ef05df461f17f75689e8b56161c6708ade934b3",
+      "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_03/stage26_recurrent_ppo.summary.json"
+    },
+    {
+      "training_seed_index": 4,
+      "base_seed": 73040000,
+      "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_04/stage26_recurrent_ppo.pt",
+      "checkpoint_sha256": "8aa11daebebee69b96ad7a513419677d54c5e2984bcd3851d0ba9eb7aeceb61a",
+      "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_04/stage26_recurrent_ppo.summary.json"
+    },
+    {
+      "training_seed_index": 5,
+      "base_seed": 73050000,
+      "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_05/stage26_recurrent_ppo.pt",
+      "checkpoint_sha256": "712949a11c559f4b9fbc46e9da0cf8cb6d6855969c5130f0c682dbfc7ece7a82",
+      "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_05/stage26_recurrent_ppo.summary.json"
+    },
+    {
+      "training_seed_index": 6,
+      "base_seed": 73060000,
+      "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_06/stage26_recurrent_ppo.pt",
+      "checkpoint_sha256": "009ae9496f5bff586b0851302d1e4e0573cb89159da0e25c5d4946c9763f46e2",
+      "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_06/stage26_recurrent_ppo.summary.json"
+    },
+    {
+      "training_seed_index": 7,
+      "base_seed": 73070000,
+      "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_07/stage26_recurrent_ppo.pt",
+      "checkpoint_sha256": "894fa4dc5b4cd2810763475b3cd8ebf3027c765e709a7659f0c902f765aba445",
+      "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_07/stage26_recurrent_ppo.summary.json"
+    },
+    {
+      "training_seed_index": 8,
+      "base_seed": 73080000,
+      "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_08/stage26_recurrent_ppo.pt",
+      "checkpoint_sha256": "88b7ef38bc0db633f4fe97e6f3a273bb8505fa07fb786d450b6b9ab5d97f90b8",
+      "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_08/stage26_recurrent_ppo.summary.json"
+    },
+    {
+      "training_seed_index": 9,
+      "base_seed": 73090000,
+      "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_09/stage26_recurrent_ppo.pt",
+      "checkpoint_sha256": "38136cb8ea8953bb38494c7e04082e0dfb7c5a86fa8bf1bbb276b6b91092cba5",
+      "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_09/stage26_recurrent_ppo.summary.json"
+    },
+    {
+      "training_seed_index": 10,
+      "base_seed": 73100000,
+      "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_10/stage26_recurrent_ppo.pt",
+      "checkpoint_sha256": "da8899b6c9a7c37a3d1f504c18ca1618ddb4dc7efa343f13d76a053e02ace394",
+      "training_summary": "/Users/lab4099/Desktop/Mujoco/work/results/stage26_recurrent_causal/long/seed_10/stage26_recurrent_ppo.summary.json"
+    }
+  ]
+}

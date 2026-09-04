@@ -1,0 +1,37 @@
+{
+  "stage": 23,
+  "protocol": "tro_stage23_markov_continuous_v1",
+  "gate": "MARKOV_CONTINUOUS_PILOT",
+  "claim_boundary": "Pilot optimization and provenance only; no performance claim.",
+  "method": {
+    "observation_variant": "MARKOV_CONTEXT_V3",
+    "policy_variant": "CONTEXT_INTERACTION",
+    "discount_mode": "VARIABLE_SMDP",
+    "trace_mode": "DURATION_SCALED",
+    "trace_tau_s": 10.0,
+    "reward_contract": "CONTINUOUS_TIME_V3",
+    "warm_start": true,
+    "allowed_transport_modes": [
+      "SINGLE_CAR",
+      "SINGLE_DOG",
+      "CAR_DOG_CAR"
+    ]
+  },
+  "seed_index": 1,
+  "experiment_run_seed": 68100000,
+  "ppo_seed": 68100100,
+  "validation_seed_start": 68150000,
+  "validation_seed_count": 10,
+  "updates": 50,
+  "episodes_per_update": 2,
+  "planned_episodes": 100,
+  "tasks_per_episode": 80,
+  "run_dir": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01",
+  "warm_start_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01/warm_start.pt",
+  "final_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01/stage23_ppo.pt",
+  "best_weight": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01/stage23_ppo.best.pt",
+  "history": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01/stage23_ppo.history.json",
+  "resume_audit": null,
+  "warm_start_command": "\"/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python\" \"/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage14_policy_smoke.py\" \"--epochs\" \"15\" \"--batch-size\" \"32\" \"--learning-rate\" \"0.001\" \"--execution-mode\" \"CONCURRENT\" \"--arrival-profile\" \"MIXED_CURRICULUM\" \"--run-seed\" \"68100000\" \"--training-seed-count\" \"8\" \"--validation-seed-start\" \"68150000\" \"--validation-episodes\" \"10\" \"--observation-variant\" \"MARKOV_CONTEXT_V3\" \"--policy-variant\" \"CONTEXT_INTERACTION\" \"--reward-contract\" \"CONTINUOUS_TIME_V3\" \"--output\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01/warm_start.pt\"",
+  "ppo_command": "\"/Users/lab4099/Desktop/Mujoco/task2_handover/.pixi/envs/default/bin/python\" \"/Users/lab4099/Desktop/Mujoco/work/scripts/run_stage14_smdp_ppo.py\" \"--execution-mode\" \"CONCURRENT\" \"--arrival-profile\" \"MIXED_CURRICULUM\" \"--observation-variant\" \"MARKOV_CONTEXT_V3\" \"--policy-variant\" \"CONTEXT_INTERACTION\" \"--discount-mode\" \"VARIABLE_SMDP\" \"--trace-mode\" \"DURATION_SCALED\" \"--trace-tau-s\" \"10.0\" \"--reward-contract\" \"CONTINUOUS_TIME_V3\" \"--updates\" \"50\" \"--episodes-per-update\" \"2\" \"--ppo-epochs\" \"4\" \"--minibatch-size\" \"32\" \"--learning-rate\" \"0.0003\" \"--clip-ratio\" \"0.2\" \"--gae-lambda\" \"0.95\" \"--entropy-coefficient\" \"0.01\" \"--value-coefficient\" \"0.5\" \"--seed\" \"68100100\" \"--experiment-run-seed\" \"68100000\" \"--validation-seed-start\" \"68150000\" \"--eval-episodes\" \"10\" \"--eval-every\" \"50\" \"--checkpoint-every\" \"50\" \"--log-every\" \"20\" \"--allow-ablation-outcome\" \"--output\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01/stage23_ppo.pt\" \"--warm-start\" \"/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/pilot/seed_01/warm_start.pt\""
+}

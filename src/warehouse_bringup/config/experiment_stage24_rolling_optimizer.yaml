@@ -1,0 +1,227 @@
+protocol:
+  version: tro_stage24_rolling_optimizer_pilot_v1
+  stage: 24
+  status: PILOT_ONLY
+  frozen_on: null
+  purpose: >-
+    Develop and audit an objective-matched causal rolling-horizon optimizer
+    against the frozen Stage 23 logical scheduling contract.  This protocol
+    does not authorize a formal locked test.
+  claim_boundary: >-
+    Interface, causality, safety, determinism and compute-budget evidence in
+    the corrected logical persistent SMDP simulator only.  Pilot outcomes are
+    not confirmatory performance evidence and do not establish ROS, planner,
+    Gazebo, dynamics, perception or hardware performance.
+
+stage23_reference:
+  observation_variant: MARKOV_CONTEXT_V3
+  reward_contract: CONTINUOUS_TIME_V3
+  execution_mode: CONCURRENT
+  arrival_schedule: MIXED_CURRICULUM
+  tasks_per_episode: 80
+  allowed_transport_modes: [SINGLE_CAR, SINGLE_DOG, CAR_DOG_CAR]
+  policy_freeze_manifest: >-
+    results/stage23_markov_continuous/freeze/stage23_policy_freeze_manifest.json
+  locked_test_summary: >-
+    results/stage23_markov_continuous/stage23_locked_test_summary.json
+  forbidden_stage23_locked_seed_range: [71100000, 71100099]
+  reuse_rule: >-
+    Stage 23 locked-test streams may be read for archival reporting only.  They
+    must not be used to design, tune, select or pilot the Stage 24 optimizer.
+
+information_contract:
+  experiment_status: PILOT_ONLY
+  visibility_decision_required_before_formal_test: true
+  formal_test_status: blocked_pending_visibility_decision
+  unresolved_issue: >-
+    MARKOV_CONTEXT_V3 currently contains PENDING task records and release
+    times.  A formal comparison must first state whether those records are
+    genuine advance announcements available to every method, or unavailable
+    future arrivals.  No formal test seed may be allocated until one visibility
+    contract is frozen and applied fairly to every comparator.
+  visibility_modes:
+    RELEASED_ONLY:
+      status: PILOT_ONLY
+      definition: >-
+        The selector may read only tasks whose release/arrival time is no
+        greater than the current event time, plus current active assignments,
+        robot states, resource states and deterministic model parameters.
+      permitted_task_sources: [queue.waiting, active_tasks]
+      forbidden_task_sources: [queue.pending_arrivals]
+      future_arrival_invariance_required: true
+    ANNOUNCED_PENDING:
+      status: PILOT_ONLY
+      definition: >-
+        The selector may additionally read pending task records only if their
+        release time and public task attributes are explicitly modelled as
+        advance announcements made available to all compared methods.
+      permitted_task_sources:
+        - queue.waiting
+        - active_tasks
+        - queue.pending_arrivals_as_public_announcements
+      forbidden_information:
+        - unannounced_tasks
+        - future_fault_realizations
+        - realized_handover_durations
+      fairness_requirement: >-
+        The identical announcement payload and announcement timing must be
+        supplied to PPO, rules and the optimizer on every shared task stream.
+  handover_information:
+    sampling: TASK_KEYED_COMMON_RANDOM_NUMBERS
+    permitted_before_execution:
+      - frozen nominal handover duration
+      - frozen empirical distribution parameters
+      - task-independent timeout probability or declared risk model
+    forbidden_before_execution:
+      - task-keyed realized handover duration
+      - success/failure realization of a future handover
+      - any call to the real task-keyed handover duration provider during selection
+
+optimizer:
+  id: CAUSAL_ROLLING_HORIZON_V1
+  selector_api: RollingHorizonOptimizer.select_action
+  candidate_source: PersistentDispatchEnvironment.enumerate_candidate_actions
+  feasibility_source: PersistentDispatchEnvironment.is_assignment_legal
+  horizon_decisions: 3
+  max_root_rollouts: 24
+  root_screening: reward_aligned_all_candidates_then_task_covered_shortlist
+  maximum_released_tasks: 8
+  rollout_transition_model: deterministic_nominal_duration
+  objective:
+    contract: CONTINUOUS_TIME_V3_OBJECTIVE_MATCHED_SURROGATE
+    direction: maximize_expected_discounted_return
+    terms:
+      outstanding_waiting_integral:
+        mapping: negative_integral_divided_by_outstanding_time_scale
+      completion_and_deadline:
+        mapping: public_completion_bonus_and_on_time_or_timeout_penalty
+      active_robot_time:
+        mapping: public_active_robot_time_penalty
+      handover_attempt_and_timeout_risk:
+        mapping: public_handover_penalty_plus_frozen_5pct_per_attempt_model
+      travel_distance:
+        mapping: >-
+          Candidate ETA screening uses distance and the public 2.0/0.8 m/s
+          speeds; the frozen CONTINUOUS_TIME_V3 direct distance coefficient is
+          zero and remains zero in rollout reward.
+    requirement: >-
+      Every surrogate term and scaling constant must be documented as a
+      transparent mapping to CONTINUOUS_TIME_V3.  No transport mode receives
+      an undeclared bonus.
+  compute_budget:
+    primary_wall_clock_budget_ms: 1000.0
+    budget_reserve_ms: 25.0
+    sensitivity_wall_clock_budgets_ms: [100.0, 1000.0, 10000.0]
+    interface_tiny_budget_ms: 0.001
+    clock: time.perf_counter
+    completion_target_fraction: 0.99
+    measured_fields:
+      - latency_ms
+      - candidate_count
+      - rollout_count
+      - timed_out
+      - fallback_used
+      - exact_gap
+  deterministic_tie_break:
+    order:
+      - lower_objective_value
+      - lower_estimated_completion_time
+      - higher_task_priority
+      - earlier_task_deadline
+      - lexicographic_task_id
+      - lexicographic_transport_mode
+      - lexicographic_pickup_carter
+      - lexicographic_dog_id
+      - lexicographic_stair_id
+      - lexicographic_receiving_carter
+      - lower_encoded_action_index
+    floating_point_tolerance: 1.0e-12
+  fallback:
+    policy: TIME_GREEDY
+    evaluation_method_id: TIME_GREEDY_RULE
+    trigger:
+      - budget_exhausted_before_legal_incumbent
+      - no_rollout_completed
+      - optimizer_internal_failure
+    safety_contract: >-
+      Fallback must select an action already marked legal by the current
+      action mask, must be deterministic, and must never suppress a failure in
+      the diagnostics.
+
+pilot_design:
+  status: PILOT_ONLY
+  shared_visibility_modes: [RELEASED_ONLY, ANNOUNCED_PENDING]
+  scenario:
+    execution_mode: CONCURRENT
+    arrival_schedule: MIXED_CURRICULUM
+    tasks_per_episode: 80
+    state_reset_at_phase_boundary: false
+    handover_sampling: TASK_KEYED_COMMON_RANDOM_NUMBERS
+  methods:
+    - CAUSAL_ROLLING_HORIZON_V1
+    - STAGE23_FROZEN_PPO
+    - TIME_GREEDY_RULE
+    - SINGLE_DOG_ONLY
+  seeds:
+    interface_gate:
+      seed_start: 72100000
+      seed_count: 6
+    paired_pilot:
+      seed_start: 72111000
+      seed_count: 20
+    exact_gap_microcases:
+      seed_start: 72120000
+      seed_count: 10
+    pilot_bootstrap:
+      seed: 72130000
+      samples: 2000
+  seed_rule: >-
+    All Stage 24 pilot seeds are non-formal, mutually disjoint and disjoint
+    from Stage 23 train, validation, smoke and locked-test streams.  They may
+    be reused only for Stage 24 development and must never become formal
+    locked-test seeds.
+  primary_diagnostic: mean_episode_p95_waiting_time
+  additional_diagnostics:
+    - success_rate
+    - successful_throughput_tasks_per_hour
+    - mean_waiting_time
+    - distance_per_task
+    - decision_latency_p50_ms
+    - decision_latency_p95_ms
+    - decision_latency_p99_ms
+    - timeout_fraction
+    - fallback_fraction
+    - exact_gap_on_microcases
+
+formal_locked_test:
+  status: blocked_pending_visibility_decision
+  authorized: false
+  seed_start: null
+  seed_count: 0
+  bootstrap_seed: null
+  prerequisites:
+    - freeze_one_visibility_contract_for_all_methods
+    - freeze_optimizer_source_and_dependency_hashes
+    - freeze_horizon_objective_budget_tie_break_and_fallback
+    - pass_interface_gate
+    - pass_nonformal_compute_budget_pilot
+    - allocate_fresh_unseen_shared_test_streams
+    - preregister_primary_endpoint_and_guardrails
+  prohibition: >-
+    Do not mint, inspect or execute a formal Stage 24 test stream while the
+    visibility status is blocked_pending_visibility_decision.
+
+interface_gate:
+  output: >-
+    results/stage24_rolling_optimizer/interface_gate/stage24_optimizer_interface_gate.json
+  required_assertions:
+    - protocol_is_pilot_only
+    - formal_test_is_blocked_pending_visibility_decision
+    - pilot_seed_partitions_are_new_and_disjoint
+    - identical_seed_produces_identical_decision
+    - selected_actions_are_legal
+    - selector_does_not_mutate_real_environment
+    - released_only_is_invariant_to_future_task_mutation
+    - selector_does_not_read_realized_task_keyed_handover
+    - tiny_budget_uses_legal_fallback
+  acceptance: all_required_assertions_true

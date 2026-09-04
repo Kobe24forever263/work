@@ -1,0 +1,1494 @@
+{
+  "schema_version": "warehouse_stage23_policy_freeze_v1",
+  "created_at_utc": "2026-08-30T12:47:01.959306+00:00",
+  "claim_boundary": "Training provenance and validation-selected cohort freeze only. No formal locked-test seed is read and no held-out performance claim is certified here.",
+  "protocol": {
+    "path": "/Users/lab4099/Desktop/Mujoco/work/src/warehouse_bringup/config/experiment_seeds_stage23_markov_continuous.yaml",
+    "version": "tro_stage23_markov_continuous_v1",
+    "sha256": "2d08ec2b40dc36c3a0506aba20ccc667534d922825403539bff157749dc452ab"
+  },
+  "analysis_protocol": {
+    "path": "/Users/lab4099/Desktop/Mujoco/work/src/warehouse_bringup/config/experiment_stage23_locked_test.yaml",
+    "version": "tro_stage23_locked_test_v1",
+    "sha256": "55b2bd9b6b699e13ea6abbc60c128e6a39b0286e9987556917d375402550f1bb",
+    "checks": {
+      "training_protocol_version": true,
+      "locked_seed_start": true,
+      "locked_seed_count": true,
+      "handover_sampling": true,
+      "bootstrap_seed": true,
+      "bootstrap_samples": true,
+      "no_posthoc_noninferiority_claim": true
+    },
+    "evaluation_source_sha256": {
+      "scripts/run_stage23_locked_test.py": "62ad152d04d4c8ce8341adb85cb532f3ebe839045b07261f1bb739d840b1c836",
+      "scripts/summarize_stage23_locked_test.py": "805e1fe32d36d8014a3ff0f5fb9048a7a67dc59d7a8672dfef3151553d9c034b",
+      "scripts/run_stage15_stress_evaluation.py": "f64d2cc7af180970d23fc899adec8877735d909b21cf87d7fd432d288a2fb6f6",
+      "src/warehouse_core/warehouse_core/stage14_ppo.py": "d8c307847392882074e9d78810008b9aa5e77996f6df45bbf0a7b456002cacc0",
+      "src/warehouse_core/warehouse_core/stage14_training.py": "6024cc46fdd96453a3b0942e213855fdf266ec9d558d161eef634f30c6ed8f05",
+      "src/warehouse_core/warehouse_core/handover_timing.py": "74b6077cf7c043bd61b655af4748059ed0763b2fa334409d48fc618fca614b97"
+    }
+  },
+  "cohort": {
+    "expected_runs": 10,
+    "actual_runs": 10,
+    "retention_policy": "RETAIN_ALL_PREDECLARED_TRAINING_SEEDS",
+    "locked_test_weight": "BEST_VALIDATION_CHECKPOINT",
+    "checkpoint_selection_rule": "MAX_VALIDATION_MEAN_RAW_EPISODE_REWARD_EARLIEST_EXACT_TIE",
+    "validation_frequency_updates": 100,
+    "selected_update_range": [
+      100,
+      500
+    ]
+  },
+  "formal_analysis_boundary": {
+    "primary_estimand": "mean_across_shared_test_streams_of_episode_p95_waiting_time",
+    "tail_sensitivity_estimand": "pooled_task_p95_waiting_time",
+    "independent_training_units": 10,
+    "shared_locked_test_streams": 100,
+    "tasks_per_stream_are_clustered_not_independent": true,
+    "bootstrap_design": "crossed_training_seed_by_shared_test_seed",
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 71200000,
+    "guardrails": [
+      "success_rate",
+      "successful_throughput_tasks_per_hour"
+    ],
+    "guardrail_inference": "DESCRIPTIVE_CI_ONLY_NO_NONINFERIORITY_MARGIN_WAS_PREREGISTERED",
+    "multiplicity": {
+      "familywise_method": "HOLM"
+    },
+    "locked_test_handover_sampling": "TASK_KEYED_COMMON_RANDOM_NUMBERS"
+  },
+  "seed_partitions": {
+    "training_episode_seed_count": 80000,
+    "warm_start_seed_count": 200,
+    "validation_seed_range": [
+      70000000,
+      70000099
+    ],
+    "locked_test_seed_range": [
+      71100000,
+      71100099
+    ],
+    "bootstrap_seed": 71200000,
+    "disjoint_checks": {
+      "warm_vs_ppo": true,
+      "training_vs_validation": true,
+      "training_vs_locked_test": true,
+      "training_vs_bootstrap": true,
+      "validation_vs_locked_test": true,
+      "validation_vs_bootstrap": true,
+      "locked_test_vs_bootstrap": true
+    }
+  },
+  "provenance": {
+    "git_head": "f7a8f50ceddd18184d68673f633fa1e90c945183",
+    "git_status_porcelain": "M scripts/run_stage15_stress_evaluation.py\n?? scripts/run_stage23_locked_test.command\n?? scripts/run_stage23_locked_test.py\n?? scripts/run_stage23_policy_freeze.command\n?? scripts/run_stage23_policy_freeze_gate.py\n?? scripts/summarize_stage23_locked_test.py\n?? src/warehouse_bringup/config/experiment_stage23_locked_test.yaml",
+    "source_sha256": {
+      "scripts/run_stage14_policy_smoke.py": "2f976b94e28a96b189e3aebd9c1d736c9d79337888fa1a944bd2c1b19a90cb93",
+      "scripts/run_stage14_smdp_ppo.py": "21d92fc127e02a03fa55e46f4f749a95d1fbefae705083d8e650da726059d192",
+      "scripts/run_stage23_markov_continuous.py": "9c020d0f4b3a622065f4caa6052c2c8079d648c8f9513292fc866821edd3e07b",
+      "scripts/run_stage23_markov_continuous_campaign.py": "5d3f75f7b2c62f3611f3a6dad99da16c7ab6bf7bc37f87229a48568d42ecc962",
+      "src/warehouse_core/warehouse_core/stage12_encoding.py": "5e9b987e6b40f81cc8cb600359544062aeae4dda21ec75d660dc84327245e48f",
+      "src/warehouse_core/warehouse_core/stage14_policy.py": "6599adf375e35a11a1ea2b7d0483832e9b0d828c89962036e8f4a7a0e429f544",
+      "src/warehouse_core/warehouse_core/stage14_ppo.py": "d8c307847392882074e9d78810008b9aa5e77996f6df45bbf0a7b456002cacc0",
+      "src/warehouse_core/warehouse_core/stage14_training.py": "6024cc46fdd96453a3b0942e213855fdf266ec9d558d161eef634f30c6ed8f05",
+      "src/warehouse_core/warehouse_core/persistent_dispatch.py": "888efc31547c64a6232fe55990566f926a30e0155446b53be5600f9d06005030",
+      "src/warehouse_core/warehouse_core/concurrent_dispatch.py": "79a86384a014fe1cc3dd05a08aeb420fd639e868485c495b13a4ae2a5a9253ca"
+    },
+    "campaign_status": [
+      {
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/stage23_campaign_01_05.status.json",
+        "sha256": "9d9e9ae6948ddcb5175890cac8ff6986b567199c116a6b89fa0db2f827fb7425",
+        "state": "COMPLETED"
+      },
+      {
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/stage23_campaign_06_10.status.json",
+        "sha256": "e7834b260dec531a55cc58734ad84807017892f8a1eebc33e0b3684800d7260b",
+        "state": "COMPLETED"
+      }
+    ],
+    "supporting_gates": {
+      "interface_gate": {
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/stage23_markov_continuous_interface_gate.json",
+        "sha256": "8074273fda39f041fd321a19104c6166e8ff74658e017e1af26015aaf03a75f2",
+        "passed": true
+      },
+      "constructive_state_gate": {
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_state_sufficiency/stage23_state_sufficiency_audit.json",
+        "sha256": "7391cd06ae6c8cadbcf6538fe456d769c53747992e2f213ec84b8b9065adb1ed",
+        "passed": true
+      },
+      "event_partition_gate": {
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_event_partition/stage23_event_partition_audit.json",
+        "sha256": "a0804f8a2cff507e9f47dc9c5d63f938d0765bf64740e4f85ddece27585b1e5e",
+        "passed": true
+      },
+      "resume_equivalence_gate": {
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/resume_equivalence/stage23_resume_equivalence_gate.json",
+        "sha256": "3e31abd05535fa34de194034bac6a8a87fd50e983e5d5f17cfe71b29f4342bd5",
+        "passed": true
+      }
+    }
+  },
+  "warnings": [
+    "seed_02: strict imitation diagnostic did not pass; PPO admission used the predeclared interface-safety continuation rule"
+  ],
+  "hard_gate": {
+    "passed": true,
+    "failures": []
+  },
+  "runs": [
+    {
+      "training_seed_index": 1,
+      "experiment_run_seed": 69000000,
+      "warm_start_seed_range": [
+        69000000,
+        69000019
+      ],
+      "ppo_episode_seed_range": [
+        69000100,
+        69008099
+      ],
+      "selected_checkpoint": {
+        "selection_rule": "MAX_VALIDATION_MEAN_RAW_EPISODE_REWARD_EARLIEST_EXACT_TIE",
+        "update": 100,
+        "episodes_trained": 400,
+        "validation_mean_reward": -254.29643828771754,
+        "validation_success_rate": 0.96525,
+        "validation_successful_throughput_tasks_per_hour": 67.66867201337192,
+        "validation_cost_reference_mode_agreement": 0.978,
+        "contextual_diagonal_rates": {
+          "CAR_DOG_CAR": 0.9918093819806404,
+          "SINGLE_CAR": 1.0,
+          "SINGLE_DOG": 0.8836858006042296
+        },
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_01/stage23_ppo.best.pt",
+        "sha256": "5d4c53bdf94d1d72c74e154a726aee8aefe4f82bb759ec16c661c4c80bdd9d9b"
+      },
+      "terminal_checkpoint": {
+        "update": 2000,
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_01/stage23_ppo.pt",
+        "sha256": "348f4332b4c6364d5ec6a1325b064eedd90df75719f796a03c882a1a29faecfe"
+      },
+      "strict_imitation_diagnostic_passed": true,
+      "interface_safety_admission_passed": true,
+      "checks": {
+        "summary_stage": true,
+        "training_gate": true,
+        "summary_passed": true,
+        "all_nonselection_acceptance_assertions": true,
+        "method_metadata": true,
+        "run_seed": true,
+        "training_seed_range": true,
+        "validation_seed_range": true,
+        "updates_complete": true,
+        "episodes_complete": true,
+        "history_length": true,
+        "history_updates_contiguous": true,
+        "history_finite": true,
+        "validation_schedule": true,
+        "checkpoint_schedule": true,
+        "validation_tasks_complete": true,
+        "best_contextual_soft_gate": true,
+        "best_exposes_three_modes": true,
+        "warm_start_interface_safe": true,
+        "run_plan_protocol": true,
+        "run_status_complete": true
+      },
+      "best_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "validation_boundary": true,
+        "best_score_matches_history": true
+      },
+      "terminal_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "terminal_update": true
+      },
+      "evidence": {
+        "summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_01/stage23_ppo.summary.json",
+          "sha256": "90768955ff8a607d398013548659fc25879eee536107ef7f91965f2610df8920"
+        },
+        "history": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_01/stage23_ppo.history.json",
+          "sha256": "0bcb53903750113a11bc57a3ac3bfac1194fa6e93858e7ad98d7e8e0b1862615"
+        },
+        "warm_start_weight": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_01/warm_start.pt",
+          "sha256": "ea2449af4c0d590c09b7b581a3fb1b7514ca4eb8dfbe9470227a4037422ee947"
+        },
+        "warm_start_summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_01/warm_start.summary.json",
+          "sha256": "d4f8cc0c556dcbdc368ed2aa199b98d17051208f4a1518aede5712320420820b"
+        },
+        "run_plan": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_01/run_plan.json",
+          "sha256": "60d5ad72510775b4b5cf2c92ef9b29467f2729b9d54c967ea3ababe371e85bae"
+        },
+        "run_status": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_01/stage23_run.status.json",
+          "sha256": "235f7b7b92b4d5fbfc5d6dd8df793632c2daf62a81babfff263e56b310dfa4b1"
+        }
+      }
+    },
+    {
+      "training_seed_index": 2,
+      "experiment_run_seed": 69010000,
+      "warm_start_seed_range": [
+        69010000,
+        69010019
+      ],
+      "ppo_episode_seed_range": [
+        69010100,
+        69018099
+      ],
+      "selected_checkpoint": {
+        "selection_rule": "MAX_VALIDATION_MEAN_RAW_EPISODE_REWARD_EARLIEST_EXACT_TIE",
+        "update": 100,
+        "episodes_trained": 400,
+        "validation_mean_reward": -248.49050685082202,
+        "validation_success_rate": 0.975,
+        "validation_successful_throughput_tasks_per_hour": 68.27326324685687,
+        "validation_cost_reference_mode_agreement": 0.915625,
+        "contextual_diagonal_rates": {
+          "CAR_DOG_CAR": 0.753294289897511,
+          "SINGLE_CAR": 1.0,
+          "SINGLE_DOG": 0.9992119779353822
+        },
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_02/stage23_ppo.best.pt",
+        "sha256": "a352bd3f1f7e8129711913e4f5daa373f2bad191a3e7c388e19836c98c6d7e11"
+      },
+      "terminal_checkpoint": {
+        "update": 2000,
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_02/stage23_ppo.pt",
+        "sha256": "3d886914fcfcb825d5655a172006d7bf4a492a133f2209341d3687345137c2a0"
+      },
+      "strict_imitation_diagnostic_passed": false,
+      "interface_safety_admission_passed": true,
+      "checks": {
+        "summary_stage": true,
+        "training_gate": true,
+        "summary_passed": true,
+        "all_nonselection_acceptance_assertions": true,
+        "method_metadata": true,
+        "run_seed": true,
+        "training_seed_range": true,
+        "validation_seed_range": true,
+        "updates_complete": true,
+        "episodes_complete": true,
+        "history_length": true,
+        "history_updates_contiguous": true,
+        "history_finite": true,
+        "validation_schedule": true,
+        "checkpoint_schedule": true,
+        "validation_tasks_complete": true,
+        "best_contextual_soft_gate": true,
+        "best_exposes_three_modes": true,
+        "warm_start_interface_safe": true,
+        "run_plan_protocol": true,
+        "run_status_complete": true
+      },
+      "best_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "validation_boundary": true,
+        "best_score_matches_history": true
+      },
+      "terminal_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "terminal_update": true
+      },
+      "evidence": {
+        "summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_02/stage23_ppo.summary.json",
+          "sha256": "8624ecbd025d729612200bb680304294d35250e98ec1a06d2a45049d73956928"
+        },
+        "history": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_02/stage23_ppo.history.json",
+          "sha256": "b3f1a4a3570e22f29d75e27c3638b3e2ab8ade51a19dfa2cff5d9aecc8e34f47"
+        },
+        "warm_start_weight": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_02/warm_start.pt",
+          "sha256": "8e896855901ce07468f968e9ed869faa6995123223abc75c961f1c61ae8143ba"
+        },
+        "warm_start_summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_02/warm_start.summary.json",
+          "sha256": "d4144673f9522fca15883b3fc80d5c303801ac9d2754ae6340c3ad552075dc01"
+        },
+        "run_plan": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_02/run_plan.json",
+          "sha256": "58224ae35d611042515bcb5549beeeb448cdc719fc69f13c5b1223a7bfd372f3"
+        },
+        "run_status": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_02/stage23_run.status.json",
+          "sha256": "115b05e4609a50feb1992b5646237920355bed5c283e2ef93b281d5c2d24fcaa"
+        }
+      }
+    },
+    {
+      "training_seed_index": 3,
+      "experiment_run_seed": 69020000,
+      "warm_start_seed_range": [
+        69020000,
+        69020019
+      ],
+      "ppo_episode_seed_range": [
+        69020100,
+        69028099
+      ],
+      "selected_checkpoint": {
+        "selection_rule": "MAX_VALIDATION_MEAN_RAW_EPISODE_REWARD_EARLIEST_EXACT_TIE",
+        "update": 200,
+        "episodes_trained": 800,
+        "validation_mean_reward": -276.8142262731486,
+        "validation_success_rate": 0.979125,
+        "validation_successful_throughput_tasks_per_hour": 68.63098888118515,
+        "validation_cost_reference_mode_agreement": 0.859875,
+        "contextual_diagonal_rates": {
+          "CAR_DOG_CAR": 0.6009322337755468,
+          "SINGLE_CAR": 1.0,
+          "SINGLE_DOG": 0.9933993399339934
+        },
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_03/stage23_ppo.best.pt",
+        "sha256": "1100f4f73238d193d3b28229e05af98bfc9d0dcde33ddea20578ba4d2f08c66d"
+      },
+      "terminal_checkpoint": {
+        "update": 2000,
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_03/stage23_ppo.pt",
+        "sha256": "468629b443b86671a0d737b85866cd00c3a0a60e5e7bfd348e4d648bdee8897c"
+      },
+      "strict_imitation_diagnostic_passed": true,
+      "interface_safety_admission_passed": true,
+      "checks": {
+        "summary_stage": true,
+        "training_gate": true,
+        "summary_passed": true,
+        "all_nonselection_acceptance_assertions": true,
+        "method_metadata": true,
+        "run_seed": true,
+        "training_seed_range": true,
+        "validation_seed_range": true,
+        "updates_complete": true,
+        "episodes_complete": true,
+        "history_length": true,
+        "history_updates_contiguous": true,
+        "history_finite": true,
+        "validation_schedule": true,
+        "checkpoint_schedule": true,
+        "validation_tasks_complete": true,
+        "best_contextual_soft_gate": true,
+        "best_exposes_three_modes": true,
+        "warm_start_interface_safe": true,
+        "run_plan_protocol": true,
+        "run_status_complete": true
+      },
+      "best_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "validation_boundary": true,
+        "best_score_matches_history": true
+      },
+      "terminal_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "terminal_update": true
+      },
+      "evidence": {
+        "summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_03/stage23_ppo.summary.json",
+          "sha256": "7ce835ecc193188ae7c2a0633d11443a3adf510acabe87bad41595a6638a53dd"
+        },
+        "history": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_03/stage23_ppo.history.json",
+          "sha256": "c555b87089889e1956f901bb48a5327ae0ca11d50229abf92d527928abf384e9"
+        },
+        "warm_start_weight": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_03/warm_start.pt",
+          "sha256": "5dc7ef40a36f620817aa142d2457159de894fdac044447d0f4e6f8d5f5284e9a"
+        },
+        "warm_start_summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_03/warm_start.summary.json",
+          "sha256": "574a826f4b11cd63df6676d220a22a8ef553da8a0dc9b3f69938fdda849fa997"
+        },
+        "run_plan": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_03/run_plan.json",
+          "sha256": "c669d0b7c5617c9e7767a9a8eaf7580d793212a57f063de5ea2a47dcce760102"
+        },
+        "run_status": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_03/stage23_run.status.json",
+          "sha256": "2457530983e04983b71a81085c1c8fa338cfeada2e4e59b5365c610371568f1c"
+        }
+      }
+    },
+    {
+      "training_seed_index": 4,
+      "experiment_run_seed": 69030000,
+      "warm_start_seed_range": [
+        69030000,
+        69030019
+      ],
+      "ppo_episode_seed_range": [
+        69030100,
+        69038099
+      ],
+      "selected_checkpoint": {
+        "selection_rule": "MAX_VALIDATION_MEAN_RAW_EPISODE_REWARD_EARLIEST_EXACT_TIE",
+        "update": 100,
+        "episodes_trained": 400,
+        "validation_mean_reward": -254.41160032799831,
+        "validation_success_rate": 0.973875,
+        "validation_successful_throughput_tasks_per_hour": 68.22335931137864,
+        "validation_cost_reference_mode_agreement": 0.92275,
+        "contextual_diagonal_rates": {
+          "CAR_DOG_CAR": 0.7805504587155964,
+          "SINGLE_CAR": 1.0,
+          "SINGLE_DOG": 0.9843871975019516
+        },
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_04/stage23_ppo.best.pt",
+        "sha256": "fbb416a6fd253b5db8bfebd4c9bdbeac018063f60fde58ecb40ab52db7fa2e9a"
+      },
+      "terminal_checkpoint": {
+        "update": 2000,
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_04/stage23_ppo.pt",
+        "sha256": "ee6bb69f68f6b38474f3526172ea376f547935555511a6c747a08d1765df6823"
+      },
+      "strict_imitation_diagnostic_passed": true,
+      "interface_safety_admission_passed": true,
+      "checks": {
+        "summary_stage": true,
+        "training_gate": true,
+        "summary_passed": true,
+        "all_nonselection_acceptance_assertions": true,
+        "method_metadata": true,
+        "run_seed": true,
+        "training_seed_range": true,
+        "validation_seed_range": true,
+        "updates_complete": true,
+        "episodes_complete": true,
+        "history_length": true,
+        "history_updates_contiguous": true,
+        "history_finite": true,
+        "validation_schedule": true,
+        "checkpoint_schedule": true,
+        "validation_tasks_complete": true,
+        "best_contextual_soft_gate": true,
+        "best_exposes_three_modes": true,
+        "warm_start_interface_safe": true,
+        "run_plan_protocol": true,
+        "run_status_complete": true
+      },
+      "best_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "validation_boundary": true,
+        "best_score_matches_history": true
+      },
+      "terminal_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "terminal_update": true
+      },
+      "evidence": {
+        "summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_04/stage23_ppo.summary.json",
+          "sha256": "ea2120eb58acd8983e5cfb39d8d72da05aa305d1158b3f818b0e11c93cffd6b8"
+        },
+        "history": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_04/stage23_ppo.history.json",
+          "sha256": "9a40b5c99218a385d8e62e815a9ff5c5609b8e4339dd6c234c8ca824ec19d3db"
+        },
+        "warm_start_weight": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_04/warm_start.pt",
+          "sha256": "1a1be4e6b009e07b46d9d57f76272514a23b063de3aaebc218794e6e653298b0"
+        },
+        "warm_start_summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_04/warm_start.summary.json",
+          "sha256": "ae9615c758cd2bd486e27b3f67baeb2436481f9559e6e6ddcbca1d088eaf83c1"
+        },
+        "run_plan": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_04/run_plan.json",
+          "sha256": "5649fc41921b66cee38a19bc6aa043ed772fa3bbfe0c934eceb75e6ddb5533ea"
+        },
+        "run_status": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_04/stage23_run.status.json",
+          "sha256": "e5edbe92c2746febb5df113e3079897dcc21710ad0f4e990ec29094be578dbe9"
+        }
+      }
+    },
+    {
+      "training_seed_index": 5,
+      "experiment_run_seed": 69040000,
+      "warm_start_seed_range": [
+        69040000,
+        69040019
+      ],
+      "ppo_episode_seed_range": [
+        69040100,
+        69048099
+      ],
+      "selected_checkpoint": {
+        "selection_rule": "MAX_VALIDATION_MEAN_RAW_EPISODE_REWARD_EARLIEST_EXACT_TIE",
+        "update": 400,
+        "episodes_trained": 1600,
+        "validation_mean_reward": -259.013197296213,
+        "validation_success_rate": 0.97975,
+        "validation_successful_throughput_tasks_per_hour": 68.60173556933823,
+        "validation_cost_reference_mode_agreement": 0.839875,
+        "contextual_diagonal_rates": {
+          "CAR_DOG_CAR": 0.5575125808770669,
+          "SINGLE_CAR": 1.0,
+          "SINGLE_DOG": 0.9590163934426229
+        },
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_05/stage23_ppo.best.pt",
+        "sha256": "1d31ccc420a0e091e474b8f79cf5be26a9f67c7a8f25ade04430b77784af50dd"
+      },
+      "terminal_checkpoint": {
+        "update": 2000,
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_05/stage23_ppo.pt",
+        "sha256": "2793f4b2ed77953ff27ea02e5f2a5848bb9a3ccb80606afe1d139302a002d8d2"
+      },
+      "strict_imitation_diagnostic_passed": true,
+      "interface_safety_admission_passed": true,
+      "checks": {
+        "summary_stage": true,
+        "training_gate": true,
+        "summary_passed": true,
+        "all_nonselection_acceptance_assertions": true,
+        "method_metadata": true,
+        "run_seed": true,
+        "training_seed_range": true,
+        "validation_seed_range": true,
+        "updates_complete": true,
+        "episodes_complete": true,
+        "history_length": true,
+        "history_updates_contiguous": true,
+        "history_finite": true,
+        "validation_schedule": true,
+        "checkpoint_schedule": true,
+        "validation_tasks_complete": true,
+        "best_contextual_soft_gate": true,
+        "best_exposes_three_modes": true,
+        "warm_start_interface_safe": true,
+        "run_plan_protocol": true,
+        "run_status_complete": true
+      },
+      "best_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "validation_boundary": true,
+        "best_score_matches_history": true
+      },
+      "terminal_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "terminal_update": true
+      },
+      "evidence": {
+        "summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_05/stage23_ppo.summary.json",
+          "sha256": "347ff01704c97c7d4efe3ddf2df6613b97c578d55f7c71b5cbc3aaf7642b1a59"
+        },
+        "history": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_05/stage23_ppo.history.json",
+          "sha256": "be9e1fcaf27e472d1ddf5dade9057f72335ccabb2352ee464cffcee8023ed7c7"
+        },
+        "warm_start_weight": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_05/warm_start.pt",
+          "sha256": "2c68437582610784f1e7bacf9ef31c435042ff36426f4b611ce596425d044427"
+        },
+        "warm_start_summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_05/warm_start.summary.json",
+          "sha256": "0896a3af17c2101c971815c6f89f238a475c684a5d5c5f9615541b1f76f3ca7f"
+        },
+        "run_plan": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_05/run_plan.json",
+          "sha256": "5866ae50605fecf01d9118c105dafd614ef48e2c8878ef22e69575c42c559cb1"
+        },
+        "run_status": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_05/stage23_run.status.json",
+          "sha256": "679684cba9d2825c59fb9b3adf37636450f64928c264fd7f8aab7bcbd3617d05"
+        }
+      }
+    },
+    {
+      "training_seed_index": 6,
+      "experiment_run_seed": 69050000,
+      "warm_start_seed_range": [
+        69050000,
+        69050019
+      ],
+      "ppo_episode_seed_range": [
+        69050100,
+        69058099
+      ],
+      "selected_checkpoint": {
+        "selection_rule": "MAX_VALIDATION_MEAN_RAW_EPISODE_REWARD_EARLIEST_EXACT_TIE",
+        "update": 100,
+        "episodes_trained": 400,
+        "validation_mean_reward": -253.30376004102436,
+        "validation_success_rate": 0.96975,
+        "validation_successful_throughput_tasks_per_hour": 67.95021136691064,
+        "validation_cost_reference_mode_agreement": 0.949625,
+        "contextual_diagonal_rates": {
+          "CAR_DOG_CAR": 0.8707407407407407,
+          "SINGLE_CAR": 1.0,
+          "SINGLE_DOG": 0.9586206896551724
+        },
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_06/stage23_ppo.best.pt",
+        "sha256": "12baa4dfc07df22f1d630da90eed138a2849f3b4f856f8e2619673d28ddb40ba"
+      },
+      "terminal_checkpoint": {
+        "update": 2000,
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_06/stage23_ppo.pt",
+        "sha256": "eccb865797a0ce3597ec5579392e073be6a37e17f07bab191c8ef900815a8bf5"
+      },
+      "strict_imitation_diagnostic_passed": true,
+      "interface_safety_admission_passed": true,
+      "checks": {
+        "summary_stage": true,
+        "training_gate": true,
+        "summary_passed": true,
+        "all_nonselection_acceptance_assertions": true,
+        "method_metadata": true,
+        "run_seed": true,
+        "training_seed_range": true,
+        "validation_seed_range": true,
+        "updates_complete": true,
+        "episodes_complete": true,
+        "history_length": true,
+        "history_updates_contiguous": true,
+        "history_finite": true,
+        "validation_schedule": true,
+        "checkpoint_schedule": true,
+        "validation_tasks_complete": true,
+        "best_contextual_soft_gate": true,
+        "best_exposes_three_modes": true,
+        "warm_start_interface_safe": true,
+        "run_plan_protocol": true,
+        "run_status_complete": true
+      },
+      "best_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "validation_boundary": true,
+        "best_score_matches_history": true
+      },
+      "terminal_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "terminal_update": true
+      },
+      "evidence": {
+        "summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_06/stage23_ppo.summary.json",
+          "sha256": "b28814a66de61674a06d5c1989766e7f15eefaf21114d1260ecaa794fe4252a6"
+        },
+        "history": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_06/stage23_ppo.history.json",
+          "sha256": "52fd5b6becd65635feb18b1edf619f4e1b5a19c169ecf570ab95cc54db29d42c"
+        },
+        "warm_start_weight": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_06/warm_start.pt",
+          "sha256": "9194bc2f89abb2f99786fa8afc699e584fd9fee59a5bf6b39da66e106f985a9d"
+        },
+        "warm_start_summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_06/warm_start.summary.json",
+          "sha256": "d869af07c52cc90a9e1de15efea6a9e9d7b8db67c212fd0067aedd64a6f50693"
+        },
+        "run_plan": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_06/run_plan.json",
+          "sha256": "d08b587984b3851d37eee672ea819fbb6087d24f0b2e7b1f6665d5c9133b1d6c"
+        },
+        "run_status": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_06/stage23_run.status.json",
+          "sha256": "d5d95d6785f074bde1063a2c63e5caa2212af06aed808140a307ba4faa9b9c25"
+        }
+      }
+    },
+    {
+      "training_seed_index": 7,
+      "experiment_run_seed": 69060000,
+      "warm_start_seed_range": [
+        69060000,
+        69060019
+      ],
+      "ppo_episode_seed_range": [
+        69060100,
+        69068099
+      ],
+      "selected_checkpoint": {
+        "selection_rule": "MAX_VALIDATION_MEAN_RAW_EPISODE_REWARD_EARLIEST_EXACT_TIE",
+        "update": 100,
+        "episodes_trained": 400,
+        "validation_mean_reward": -281.6658236817859,
+        "validation_success_rate": 0.99025,
+        "validation_successful_throughput_tasks_per_hour": 69.2635381292833,
+        "validation_cost_reference_mode_agreement": 0.755375,
+        "contextual_diagonal_rates": {
+          "CAR_DOG_CAR": 0.30434782608695654,
+          "SINGLE_CAR": 0.99875,
+          "SINGLE_DOG": 1.0
+        },
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_07/stage23_ppo.best.pt",
+        "sha256": "0c5998f31c5a596d5628efa7ec739f7bf8747266a684e3c5b17216d39fe19f54"
+      },
+      "terminal_checkpoint": {
+        "update": 2000,
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_07/stage23_ppo.pt",
+        "sha256": "582ad753c7bf1f953e5479dae4e2d5dbe84e5158670b7c27d6103b2b6abeb638"
+      },
+      "strict_imitation_diagnostic_passed": true,
+      "interface_safety_admission_passed": true,
+      "checks": {
+        "summary_stage": true,
+        "training_gate": true,
+        "summary_passed": true,
+        "all_nonselection_acceptance_assertions": true,
+        "method_metadata": true,
+        "run_seed": true,
+        "training_seed_range": true,
+        "validation_seed_range": true,
+        "updates_complete": true,
+        "episodes_complete": true,
+        "history_length": true,
+        "history_updates_contiguous": true,
+        "history_finite": true,
+        "validation_schedule": true,
+        "checkpoint_schedule": true,
+        "validation_tasks_complete": true,
+        "best_contextual_soft_gate": true,
+        "best_exposes_three_modes": true,
+        "warm_start_interface_safe": true,
+        "run_plan_protocol": true,
+        "run_status_complete": true
+      },
+      "best_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "validation_boundary": true,
+        "best_score_matches_history": true
+      },
+      "terminal_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "terminal_update": true
+      },
+      "evidence": {
+        "summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_07/stage23_ppo.summary.json",
+          "sha256": "e7a256d9c9d4bc17a84efbca01aef85d5c3aea040d053c37a404b9aac3e4c262"
+        },
+        "history": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_07/stage23_ppo.history.json",
+          "sha256": "1623f083e46d442b87942c5aa59281bda6a53ad12eea79022981ea0ea837905e"
+        },
+        "warm_start_weight": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_07/warm_start.pt",
+          "sha256": "d783b2f11ab283987ef1a38276ac10b0d53e3e6b7dbec9b1bd167a315abfe064"
+        },
+        "warm_start_summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_07/warm_start.summary.json",
+          "sha256": "6649953742b400a8038c8b651a6c625dd8baf3d7859c5d7cc2939468fd4c0fa8"
+        },
+        "run_plan": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_07/run_plan.json",
+          "sha256": "2a30f5fdcb85c470607a20099170b47e2bf11493520c596e2db5d5eae0dbf4e0"
+        },
+        "run_status": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_07/stage23_run.status.json",
+          "sha256": "4231c971346dfa047946557fb8d08b6adecbb632b86fbd85ae0d41fff5468836"
+        }
+      }
+    },
+    {
+      "training_seed_index": 8,
+      "experiment_run_seed": 69070000,
+      "warm_start_seed_range": [
+        69070000,
+        69070019
+      ],
+      "ppo_episode_seed_range": [
+        69070100,
+        69078099
+      ],
+      "selected_checkpoint": {
+        "selection_rule": "MAX_VALIDATION_MEAN_RAW_EPISODE_REWARD_EARLIEST_EXACT_TIE",
+        "update": 300,
+        "episodes_trained": 1200,
+        "validation_mean_reward": -245.20140987057871,
+        "validation_success_rate": 0.9775,
+        "validation_successful_throughput_tasks_per_hour": 68.47666080678037,
+        "validation_cost_reference_mode_agreement": 0.881125,
+        "contextual_diagonal_rates": {
+          "CAR_DOG_CAR": 0.6556723450525552,
+          "SINGLE_CAR": 1.0,
+          "SINGLE_DOG": 0.999194847020934
+        },
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_08/stage23_ppo.best.pt",
+        "sha256": "c051691e162725899e9dcf5a36559ce9cfb60aaf5557b6526aa7e782e3970f6f"
+      },
+      "terminal_checkpoint": {
+        "update": 2000,
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_08/stage23_ppo.pt",
+        "sha256": "dc759d574fff834657ff41a78f1a356ed3918bebef56e595b6feecc7f233b7d0"
+      },
+      "strict_imitation_diagnostic_passed": true,
+      "interface_safety_admission_passed": true,
+      "checks": {
+        "summary_stage": true,
+        "training_gate": true,
+        "summary_passed": true,
+        "all_nonselection_acceptance_assertions": true,
+        "method_metadata": true,
+        "run_seed": true,
+        "training_seed_range": true,
+        "validation_seed_range": true,
+        "updates_complete": true,
+        "episodes_complete": true,
+        "history_length": true,
+        "history_updates_contiguous": true,
+        "history_finite": true,
+        "validation_schedule": true,
+        "checkpoint_schedule": true,
+        "validation_tasks_complete": true,
+        "best_contextual_soft_gate": true,
+        "best_exposes_three_modes": true,
+        "warm_start_interface_safe": true,
+        "run_plan_protocol": true,
+        "run_status_complete": true
+      },
+      "best_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "validation_boundary": true,
+        "best_score_matches_history": true
+      },
+      "terminal_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "terminal_update": true
+      },
+      "evidence": {
+        "summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_08/stage23_ppo.summary.json",
+          "sha256": "f32ea798c66d4945173eda33bf7efc23c40702bedcc55eff0b0c0d949fb44091"
+        },
+        "history": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_08/stage23_ppo.history.json",
+          "sha256": "dfa9e26b70d475f950086281667f106f964acdfc203ed4e142ef376956679f36"
+        },
+        "warm_start_weight": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_08/warm_start.pt",
+          "sha256": "1a1cb1b4d920dbe9d40033108218dc8fdce989f58b63eda0626464386468f384"
+        },
+        "warm_start_summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_08/warm_start.summary.json",
+          "sha256": "e11c3c104e3c8d510e7726d4dd7e169b4003e2b7d99b51656eab97019c3f7bb3"
+        },
+        "run_plan": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_08/run_plan.json",
+          "sha256": "c0d0fae071e39bc3f16a1eb62eca16d5e4e0b8a36e329a3b7b2f2a2dfd154374"
+        },
+        "run_status": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_08/stage23_run.status.json",
+          "sha256": "765c275a6def6825801a825c114547e68ca3d6258d6721a6fd6e32aca07f9ddf"
+        }
+      }
+    },
+    {
+      "training_seed_index": 9,
+      "experiment_run_seed": 69080000,
+      "warm_start_seed_range": [
+        69080000,
+        69080019
+      ],
+      "ppo_episode_seed_range": [
+        69080100,
+        69088099
+      ],
+      "selected_checkpoint": {
+        "selection_rule": "MAX_VALIDATION_MEAN_RAW_EPISODE_REWARD_EARLIEST_EXACT_TIE",
+        "update": 100,
+        "episodes_trained": 400,
+        "validation_mean_reward": -260.3318497585837,
+        "validation_success_rate": 0.9795,
+        "validation_successful_throughput_tasks_per_hour": 68.57062885761218,
+        "validation_cost_reference_mode_agreement": 0.86725,
+        "contextual_diagonal_rates": {
+          "CAR_DOG_CAR": 0.6121256391526662,
+          "SINGLE_CAR": 1.0,
+          "SINGLE_DOG": 1.0
+        },
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_09/stage23_ppo.best.pt",
+        "sha256": "0c45573303aa8136583c6ba22bbc3d5c7479d3fb0b5eea0cac7b6de82ab0e0dd"
+      },
+      "terminal_checkpoint": {
+        "update": 2000,
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_09/stage23_ppo.pt",
+        "sha256": "97a50c71a97656e0675a51600c4890d48251d719198b54f2a41c48fd0deb51ad"
+      },
+      "strict_imitation_diagnostic_passed": true,
+      "interface_safety_admission_passed": true,
+      "checks": {
+        "summary_stage": true,
+        "training_gate": true,
+        "summary_passed": true,
+        "all_nonselection_acceptance_assertions": true,
+        "method_metadata": true,
+        "run_seed": true,
+        "training_seed_range": true,
+        "validation_seed_range": true,
+        "updates_complete": true,
+        "episodes_complete": true,
+        "history_length": true,
+        "history_updates_contiguous": true,
+        "history_finite": true,
+        "validation_schedule": true,
+        "checkpoint_schedule": true,
+        "validation_tasks_complete": true,
+        "best_contextual_soft_gate": true,
+        "best_exposes_three_modes": true,
+        "warm_start_interface_safe": true,
+        "run_plan_protocol": true,
+        "run_status_complete": true
+      },
+      "best_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "validation_boundary": true,
+        "best_score_matches_history": true
+      },
+      "terminal_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "terminal_update": true
+      },
+      "evidence": {
+        "summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_09/stage23_ppo.summary.json",
+          "sha256": "2f2f830b61f7445483fa31f17c5186b6a62205ad7ac9796781a68496d2215541"
+        },
+        "history": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_09/stage23_ppo.history.json",
+          "sha256": "6d798696e22e39e3f6d1e4859b8761b49bb4f95fbc6e3f725751d8ded71c701f"
+        },
+        "warm_start_weight": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_09/warm_start.pt",
+          "sha256": "08c0c4e8fb1260a6709b1c6fced44d0b98f9c75b096b99c47dd43dd4453f50b8"
+        },
+        "warm_start_summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_09/warm_start.summary.json",
+          "sha256": "90faa62bb48213137093e32867cc99a84229a0d75a9380fbe7c8c908c78afb4f"
+        },
+        "run_plan": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_09/run_plan.json",
+          "sha256": "c818da9c372f79e15235e449c777db664fb406bcbd0dd4d4a4ad12ef47a9f03c"
+        },
+        "run_status": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_09/stage23_run.status.json",
+          "sha256": "8c07d8edfe6ba00457df8bac47651557edb0b7038f4d2919462a94ff64abcded"
+        }
+      }
+    },
+    {
+      "training_seed_index": 10,
+      "experiment_run_seed": 69090000,
+      "warm_start_seed_range": [
+        69090000,
+        69090019
+      ],
+      "ppo_episode_seed_range": [
+        69090100,
+        69098099
+      ],
+      "selected_checkpoint": {
+        "selection_rule": "MAX_VALIDATION_MEAN_RAW_EPISODE_REWARD_EARLIEST_EXACT_TIE",
+        "update": 500,
+        "episodes_trained": 2000,
+        "validation_mean_reward": -380.3606266432443,
+        "validation_success_rate": 0.966125,
+        "validation_successful_throughput_tasks_per_hour": 67.66439620958694,
+        "validation_cost_reference_mode_agreement": 0.898375,
+        "contextual_diagonal_rates": {
+          "CAR_DOG_CAR": 0.9386321626617375,
+          "SINGLE_CAR": 0.882661996497373,
+          "SINGLE_DOG": 0.8628659476117103
+        },
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_10/stage23_ppo.best.pt",
+        "sha256": "36aa59201839ae631df73866c98fd99b24795df06210d0c770edd784d4d876b5"
+      },
+      "terminal_checkpoint": {
+        "update": 2000,
+        "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_10/stage23_ppo.pt",
+        "sha256": "ee5a64f0df0d412c2e9b08f4fa51067f7012419cefa5ee988ba22be6f5e3436d"
+      },
+      "strict_imitation_diagnostic_passed": true,
+      "interface_safety_admission_passed": true,
+      "checks": {
+        "summary_stage": true,
+        "training_gate": true,
+        "summary_passed": true,
+        "all_nonselection_acceptance_assertions": true,
+        "method_metadata": true,
+        "run_seed": true,
+        "training_seed_range": true,
+        "validation_seed_range": true,
+        "updates_complete": true,
+        "episodes_complete": true,
+        "history_length": true,
+        "history_updates_contiguous": true,
+        "history_finite": true,
+        "validation_schedule": true,
+        "checkpoint_schedule": true,
+        "validation_tasks_complete": true,
+        "best_contextual_soft_gate": true,
+        "best_exposes_three_modes": true,
+        "warm_start_interface_safe": true,
+        "run_plan_protocol": true,
+        "run_status_complete": true
+      },
+      "best_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "validation_boundary": true,
+        "best_score_matches_history": true
+      },
+      "terminal_checkpoint_checks": {
+        "stage23_schema": true,
+        "execution_mode": true,
+        "arrival_profile": true,
+        "observation_variant": true,
+        "policy_variant": true,
+        "discount_mode": true,
+        "trace_mode": true,
+        "trace_tau_s": true,
+        "reward_contract": true,
+        "experiment_run_seed": true,
+        "ppo_seed": true,
+        "validation_seed": true,
+        "model_metadata": true,
+        "encoder_metadata": true,
+        "expected_update": true,
+        "episode_count": true,
+        "reward_normalizer": true,
+        "numpy_rng": true,
+        "torch_rng": true,
+        "ppo_rng": true,
+        "model_state": true,
+        "optimizer_state": true,
+        "terminal_update": true
+      },
+      "evidence": {
+        "summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_10/stage23_ppo.summary.json",
+          "sha256": "894942c4b8ee04dbd1a6f22957fc8c5659641231f166c9cd95356e5b1abe6ced"
+        },
+        "history": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_10/stage23_ppo.history.json",
+          "sha256": "bdb5a54bbcca87563730c68740b39cb23bf8159a55ee3c78cd58e210601a3904"
+        },
+        "warm_start_weight": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_10/warm_start.pt",
+          "sha256": "8c33326e38f36aec374d6b3e64771fc9c06feac1b4346e6481e361bf2de4b8e2"
+        },
+        "warm_start_summary": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_10/warm_start.summary.json",
+          "sha256": "454a592fefbc892da7e43f5491b81afa89f7e8558f8c6b30dc331e59da9a3b05"
+        },
+        "run_plan": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_10/run_plan.json",
+          "sha256": "3aaac5ff4d07e92d4063864172cfd0b3ceb5b075c2fd9638eae6902bba698f6d"
+        },
+        "run_status": {
+          "path": "/Users/lab4099/Desktop/Mujoco/work/results/stage23_markov_continuous/long/seed_10/stage23_run.status.json",
+          "sha256": "6c1445b711f1f4adbe0dff81adf9e9ca3562f96437d4c3c79ac14d5a546fcb2f"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "schema_version": "warehouse_stage24_optimizer_paired_pilot_v1",
+  "created_at_utc": "2026-08-31T08:51:19.405433+00:00",
+  "stage": 24,
+  "status": "PILOT_ONLY",
+  "claim_boundary": "Development evidence only. This pilot may select the compute budget but cannot support a formal performance claim.",
+  "source": "/Users/lab4099/Desktop/Mujoco/work/results/stage24_rolling_optimizer/pilot/stage24_optimizer_smoke_20ep_seed72111000.json",
+  "visibility_mode": "RELEASED_ONLY",
+  "seed_range": [
+    72111000,
+    72111019
+  ],
+  "episode_count": 20,
+  "tasks_per_episode": 80,
+  "bootstrap": {
+    "method": "paired episode resampling",
+    "seed": 72130000,
+    "samples": 10000
+  },
+  "primary_endpoint": {
+    "name": "mean episode-level P95 waiting time",
+    "optimizer": 505.1351900003148,
+    "time_greedy": 624.0257612239977,
+    "optimizer_minus_time_greedy": -118.89057122368283,
+    "paired_percentile_bootstrap_95ci": [
+      -173.1307759536433,
+      -72.04878544466561
+    ],
+    "optimizer_better_stream_count": 18,
+    "direction": "lower",
+    "tie_stream_count": 0,
+    "stream_count": 20,
+    "pilot_direction_supported": true
+  },
+  "comparisons": {
+    "episode_p95_waiting_time": {
+      "optimizer": 505.1351900003148,
+      "time_greedy": 624.0257612239977,
+      "optimizer_minus_time_greedy": -118.89057122368283,
+      "paired_percentile_bootstrap_95ci": [
+        -173.1307759536433,
+        -72.04878544466561
+      ],
+      "optimizer_better_stream_count": 18,
+      "direction": "lower",
+      "tie_stream_count": 0,
+      "stream_count": 20
+    },
+    "success_rate": {
+      "optimizer": 0.994375,
+      "time_greedy": 0.9718750000000002,
+      "optimizer_minus_time_greedy": 0.022499999999999992,
+      "paired_percentile_bootstrap_95ci": [
+        0.016249999999999987,
+        0.028750000000000008
+      ],
+      "optimizer_better_stream_count": 18,
+      "direction": "higher",
+      "tie_stream_count": 2,
+      "stream_count": 20
+    },
+    "successful_throughput_tasks_per_hour": {
+      "optimizer": 68.74259774163954,
+      "time_greedy": 67.3703393566228,
+      "optimizer_minus_time_greedy": 1.3722583850167396,
+      "paired_percentile_bootstrap_95ci": [
+        0.9629045193138832,
+        1.803267569847632
+      ],
+      "optimizer_better_stream_count": 18,
+      "direction": "higher",
+      "tie_stream_count": 1,
+      "stream_count": 20
+    },
+    "mean_waiting_time": {
+      "optimizer": 113.29134410515549,
+      "time_greedy": 141.47098066866744,
+      "optimizer_minus_time_greedy": -28.179636563511927,
+      "paired_percentile_bootstrap_95ci": [
+        -40.31360050634082,
+        -18.073797606262477
+      ],
+      "optimizer_better_stream_count": 20,
+      "direction": "lower",
+      "tie_stream_count": 0,
+      "stream_count": 20
+    },
+    "p95_flow_time": {
+      "optimizer": 551.51748453711,
+      "time_greedy": 655.9419975365358,
+      "optimizer_minus_time_greedy": -104.424512999426,
+      "paired_percentile_bootstrap_95ci": [
+        -154.337955524316,
+        -62.99090916138913
+      ],
+      "optimizer_better_stream_count": 17,
+      "direction": "lower",
+      "tie_stream_count": 0,
+      "stream_count": 20
+    },
+    "distance_per_task": {
+      "optimizer": 53.54443834295665,
+      "time_greedy": 72.44623098629798,
+      "optimizer_minus_time_greedy": -18.901792643341317,
+      "paired_percentile_bootstrap_95ci": [
+        -20.09697602469016,
+        -17.71341242324895
+      ],
+      "optimizer_better_stream_count": 20,
+      "direction": "lower",
+      "tie_stream_count": 0,
+      "stream_count": 20
+    },
+    "episode_reward": {
+      "optimizer": -270.1297299966569,
+      "time_greedy": -356.8403749013751,
+      "optimizer_minus_time_greedy": 86.71064490471815,
+      "paired_percentile_bootstrap_95ci": [
+        57.947462813507094,
+        121.29005986140564
+      ],
+      "optimizer_better_stream_count": 20,
+      "direction": "higher",
+      "tie_stream_count": 0,
+      "stream_count": 20
+    }
+  },
+  "compute": {
+    "decision_count": 4561,
+    "latency_sample_count": 4561,
+    "missing_latency_count": 0,
+    "latency_ms": {
+      "p50": 0.056125,
+      "p95": 765.228958,
+      "p99": 956.4184915999998,
+      "maximum": 1011.207959
+    },
+    "wall_clock_budget_ms": 1000.0,
+    "budget_compliant_count": 4550,
+    "budget_compliance_rate": 0.9975882481911862,
+    "timeout_count": 37,
+    "timeout_rate": 0.008112256084192063,
+    "fallback_count": 0,
+    "fallback_rate": 0.0,
+    "exact_root_enumeration_count": 3608,
+    "exact_root_enumeration_rate": 0.791054593290945,
+    "search_truncated_count": 953,
+    "search_truncated_rate": 0.20894540670905504,
+    "gap_reporting_complete_count": 4561,
+    "gap_reporting_complete_rate": 1.0,
+    "root_candidate_count": {
+      "minimum": 1,
+      "maximum": 720,
+      "mean": 24.826792370094278
+    },
+    "evaluated_root_count": {
+      "minimum": 0,
+      "maximum": 24,
+      "mean": 5.811444858583644
+    },
+    "exact_gap": {
+      "reported_count": 3608,
+      "nonzero_count": 0,
+      "maximum_absolute": 0.0
+    }
+  },
+  "transport_modes": {
+    "optimizer": {
+      "SINGLE_DOG": 638,
+      "SINGLE_CAR": 800,
+      "CAR_DOG_CAR": 162
+    },
+    "time_greedy": {
+      "SINGLE_DOG": 276,
+      "SINGLE_CAR": 799,
+      "CAR_DOG_CAR": 525
+    }
+  },
+  "assertions": {
+    "source_pilot_passed": true,
+    "episode_pairing_complete": true,
+    "task_fingerprint_matched": true,
+    "handover_fingerprint_matched": true,
+    "zero_illegal_actions": true,
+    "zero_resource_leaks": true,
+    "budget_compliance_at_least_99pct": true,
+    "gap_semantics_complete": true
+  },
+  "passed": true,
+  "formal_test_status": "blocked_pending_visibility_decision"
+}

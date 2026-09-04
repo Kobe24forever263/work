@@ -1,0 +1,180 @@
+{
+  "stage": 25,
+  "gate": "CAUSAL_RELEASED_V4_FRESH_SEED_SAFETY_VALIDATION",
+  "claim_boundary": "Fresh-seed safety/interface validation only. A smoke-trained checkpoint is not used for a performance claim.",
+  "checkpoint": "/Users/lab4099/Desktop/Mujoco/work/results/stage25_causal_online/smoke_v2_task_keyed/stage25_causal_smoke.pt",
+  "seed_start": 72531000,
+  "seed_end": 72531007,
+  "episode_count": 8,
+  "observation_variant": "CAUSAL_RELEASED_V4",
+  "visibility_contract": "RELEASED_ONLY",
+  "handover_sampling": "TASK_KEYED",
+  "policy": {
+    "episode_count": 8,
+    "task_count": 640,
+    "scheduled_task_count": 640,
+    "completed": 640,
+    "failed": 0,
+    "unresolved": 0,
+    "effective_failed": 0,
+    "resolution_rate": 1.0,
+    "success_rate": 1.0,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": -507.9260834978187,
+    "mean_terminal_adjusted_reward": -507.9260834978187,
+    "mean_simulated_time": 4285.568638441782,
+    "throughput_tasks_per_hour": 67.20228382684726,
+    "resolved_throughput_tasks_per_hour": 67.20228382684726,
+    "successful_throughput_tasks_per_hour": 67.20228382684726,
+    "handover_sampling": "TASK_KEYED",
+    "allowed_transport_modes": null,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 4,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "SINGLE_DOG": 468,
+      "SINGLE_CAR": 172
+    },
+    "transport_modes_by_phase": {
+      "BURST": {
+        "SINGLE_CAR": 38,
+        "SINGLE_DOG": 118
+      },
+      "DENSE": {
+        "SINGLE_CAR": 36,
+        "SINGLE_DOG": 112
+      },
+      "NORMAL": {
+        "SINGLE_CAR": 47,
+        "SINGLE_DOG": 109
+      },
+      "RECOVERY": {
+        "SINGLE_CAR": 51,
+        "SINGLE_DOG": 129
+      }
+    },
+    "arrival_schedule": "MIXED_CURRICULUM",
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "SINGLE_DOG": 229
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 172,
+        "SINGLE_DOG": 148
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 91
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "SINGLE_DOG": 320
+      },
+      "SAME_FLOOR": {
+        "SINGLE_CAR": 172,
+        "SINGLE_DOG": 148
+      }
+    },
+    "cost_reference_mode_agreement": 0.4109375,
+    "cost_reference_decision_count": 640
+  },
+  "rule_baseline": {
+    "episode_count": 8,
+    "task_count": 640,
+    "scheduled_task_count": 640,
+    "completed": 618,
+    "failed": 22,
+    "unresolved": 0,
+    "effective_failed": 22,
+    "resolution_rate": 1.0,
+    "success_rate": 0.965625,
+    "reward_units": "raw_environment_episode_sum",
+    "mean_reward": -386.78406616661124,
+    "mean_terminal_adjusted_reward": -386.78406616661124,
+    "mean_simulated_time": 4229.867194536393,
+    "throughput_tasks_per_hour": 68.08724405626776,
+    "resolved_throughput_tasks_per_hour": 68.08724405626776,
+    "successful_throughput_tasks_per_hour": 65.74674504183356,
+    "handover_sampling": "TASK_KEYED",
+    "allowed_transport_modes": null,
+    "illegal_action_count": 0,
+    "maximum_active_tasks": 4,
+    "resource_leak_count": 0,
+    "transport_modes": {
+      "CAR_DOG_CAR": 211,
+      "SINGLE_CAR": 320,
+      "SINGLE_DOG": 109
+    },
+    "transport_modes_by_phase": {
+      "BURST": {
+        "CAR_DOG_CAR": 56,
+        "SINGLE_CAR": 78,
+        "SINGLE_DOG": 22
+      },
+      "DENSE": {
+        "CAR_DOG_CAR": 49,
+        "SINGLE_CAR": 74,
+        "SINGLE_DOG": 25
+      },
+      "NORMAL": {
+        "CAR_DOG_CAR": 51,
+        "SINGLE_CAR": 78,
+        "SINGLE_DOG": 27
+      },
+      "RECOVERY": {
+        "CAR_DOG_CAR": 55,
+        "SINGLE_CAR": 90,
+        "SINGLE_DOG": 35
+      }
+    },
+    "arrival_schedule": "MIXED_CURRICULUM",
+    "exposed_transport_modes": [
+      "CAR_DOG_CAR",
+      "SINGLE_CAR",
+      "SINGLE_DOG"
+    ],
+    "selected_mode_by_cost_reference": {
+      "CAR_DOG_CAR": {
+        "CAR_DOG_CAR": 211
+      },
+      "SINGLE_CAR": {
+        "SINGLE_CAR": 320
+      },
+      "SINGLE_DOG": {
+        "SINGLE_DOG": 109
+      }
+    },
+    "selected_mode_by_floor_relation": {
+      "CROSS_FLOOR": {
+        "CAR_DOG_CAR": 211,
+        "SINGLE_DOG": 109
+      },
+      "SAME_FLOOR": {
+        "SINGLE_CAR": 320
+      }
+    },
+    "cost_reference_mode_agreement": 1.0,
+    "cost_reference_decision_count": 640
+  },
+  "policy_minus_rule": {
+    "success_rate": 0.034375000000000044,
+    "mean_reward": -121.14201733120746,
+    "successful_throughput_tasks_per_hour": 1.455538785013701
+  },
+  "assertions": {
+    "fresh_seeds_are_disjoint_from_training": true,
+    "policy_resolved_all_tasks": true,
+    "policy_actions_all_legal": true,
+    "policy_has_no_resource_leak": true,
+    "rule_resolved_all_tasks": true,
+    "rule_actions_all_legal": true,
+    "rule_has_no_resource_leak": true,
+    "all_three_modes_were_exposed": true
+  },
+  "passed": true
+}
